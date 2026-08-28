@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Echoes of Humanity — Digital Civilization Without Borders</title>
-    <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
@@ -37,16 +36,27 @@
             50% { transform: scale(1.15); }
         }
         @keyframes globalGlobePulse {
-            0%, 100% { transform: scale(1); opacity: 0.35; }
-            50% { transform: scale(1.12); opacity: 0.65; }
+            0%, 100% { transform: scale(1); opacity: 0.4; }
+            50% { transform: scale(1.15); opacity: 0.7; }
         }
-        /* Logoda Bilinçaltı Yaşam Işıması (Nefes Alan Glow) */
+        /* Logoda Bilinçaltı Yaşam Işıması */
         @keyframes lifeGlow {
             0%, 100% {
                 filter: drop-shadow(0 0 4px rgba(45, 212, 191, 0.25));
             }
             50% {
                 filter: drop-shadow(0 0 14px rgba(45, 212, 191, 0.6));
+            }
+        }
+        /* Hero Alanının Çok Daha Yavaş ve Sinematik Girişi (Menüden 2 Kat Yavaş) */
+        @keyframes cinematicHeroFade {
+            0% {
+                opacity: 0;
+                transform: translateY(30px) scale(0.98);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0) scale(1);
             }
         }
 
@@ -58,10 +68,13 @@
             display: inline-block;
         }
         .pulse-globe {
-            animation: globalGlobePulse 8s ease-in-out infinite;
+            animation: globalGlobePulse 9s ease-in-out infinite;
         }
         .logo-life-glow {
             animation: lifeGlow 4s ease-in-out infinite;
+        }
+        .cinematic-hero-entry {
+            animation: cinematicHeroFade 1.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
         }
 
         .glass-header {
@@ -71,7 +84,20 @@
             border-bottom: 1px solid rgba(255, 255, 255, 0.08);
         }
 
-        /* Yavaş ve Sinematik Yukarıdan Aşağıya Açılma Animasyonu */
+        .glass-card {
+            background: rgba(10, 14, 26, 0.65);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .glass-card:hover {
+            border-color: rgba(45, 212, 191, 0.4);
+            transform: translateY(-4px);
+            box-shadow: 0 15px 30px -10px rgba(45, 212, 191, 0.15);
+        }
+
+        /* Sinematik Yukarıdan Aşağıya Açılma Menüsü */
         .menu-hidden { 
             transform: translateY(-100%); 
             opacity: 0; 
@@ -91,20 +117,19 @@
 </head>
 <body class="bg-[#05070f] text-slate-100 font-sans antialiased min-h-screen relative selection:bg-turquoise-500 selection:text-white overflow-x-hidden">
 
-    <!-- ARKA PLAN IŞIK KÜRESİ VE ATMOSFERİK DERİNLİK -->
     <div class="fixed inset-0 pointer-events-none z-0 overflow-hidden">
-        <div class="absolute inset-0 bg-gradient-to-b from-[#05070f] via-[#0a0e1a] to-[#05070f]"></div>
-        <div class="absolute top-[20%] left-1/2 -translate-x-1/2 w-[70vw] h-[70vw] max-w-[800px] max-h-[800px] rounded-full bg-turquoise-500/10 blur-[140px] pulse-globe"></div>
+        <div class="absolute inset-0 bg-gradient-to-b from-[#05070f] via-[#080c18] to-[#05070f]"></div>
+        <div class="absolute top-[15%] left-1/2 -translate-x-1/2 w-[75vw] h-[75vw] max-w-[900px] max-h-[900px] rounded-full bg-gradient-to-tr from-turquoise-500/15 via-blue-600/10 to-transparent blur-[130px] pulse-globe"></div>
+        <div class="absolute top-[30%] left-[20%] w-2 h-2 rounded-full bg-turquoise-400/60 blur-[1px]"></div>
+        <div class="absolute top-[50%] right-[25%] w-1.5 h-1.5 rounded-full bg-blue-300/50 blur-[1px]"></div>
+        <div class="absolute top-[70%] left-[30%] w-2 h-2 rounded-full bg-teal-300/40 blur-[1px]"></div>
     </div>
 
-    <!-- ANA KAPSAYICI -->
     <div class="relative z-10 flex flex-col min-h-screen">
         
-        <!-- ================= BÖLÜM 1: HEADER (ÜST MENÜ) ================= -->
         <header class="w-full glass-header sticky top-0 z-50">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 h-20 flex items-center justify-between">
                 
-                <!-- Sol: Logo, Yaşam Işıması ve Güçlendirilmiş Kurumsal İsim -->
                 <a href="#home" class="flex items-center gap-3.5 group">
                     <img src="logo.png" alt="Echoes of Humanity Logo" class="h-10 sm:h-12 w-auto object-contain logo-life-glow">
                     <div class="flex flex-col">
@@ -113,15 +138,12 @@
                     </div>
                 </a>
 
-                <!-- Sağ: Nefes Alan Dil Küresi ve Hamburger Menü -->
                 <div class="flex items-center gap-3.5">
                     
-                    <!-- Dil Seçici ve 5 Dil Menüsü -->
                     <div class="relative">
                         <button onclick="toggleLangMenu()" aria-label="Language Selector" class="w-10 h-10 rounded-full border border-turquoise-500/40 bg-white/5 flex items-center justify-center text-slate-200 hover:bg-turquoise-500/20 hover:border-turquoise-400 transition-all text-base cursor-pointer pulse-button">
                             🌐
                         </button>
-                        <!-- 5 Dilli Açılır Menü -->
                         <div id="langDropdown" class="absolute right-0 top-12 w-40 rounded-2xl bg-[#0a0e1a]/95 border border-white/10 backdrop-blur-2xl shadow-2xl lang-hidden py-2 z-50">
                             <button onclick="setLanguage('en')" class="w-full px-4 py-2.5 text-left text-xs text-slate-200 hover:bg-white/10 flex items-center gap-3 transition-colors">
                                 <span class="text-base pulse-flag">🇬🇧</span> <span class="font-medium">English</span>
@@ -141,7 +163,6 @@
                         </div>
                     </div>
 
-                    <!-- Nefes Alan Hamburger Menü Butonu -->
                     <button onclick="toggleMobileMenu()" aria-label="Toggle Menu" class="w-10 h-10 rounded-full border border-turquoise-500/40 bg-white/5 flex flex-col items-center justify-center gap-1.5 text-slate-200 hover:bg-turquoise-500/20 hover:border-turquoise-400 transition-all cursor-pointer pulse-button">
                         <span class="w-4 h-0.5 bg-slate-200 rounded-full"></span>
                         <span class="w-4 h-0.5 bg-slate-200 rounded-full"></span>
@@ -152,7 +173,6 @@
             </div>
         </header>
 
-        <!-- SİNEMATİK YUKARIDAN AŞAĞIYA İNEN 3 BÖLÜMLÜ NAVİGASYON PANELİ -->
         <div id="mobileMenu" class="fixed inset-0 bg-[#05070f]/98 backdrop-blur-3xl z-40 menu-hidden flex flex-col overflow-y-auto px-6 py-12">
             <div class="max-w-md mx-auto w-full pt-6 pb-16 space-y-8">
                 <div class="flex items-center justify-between border-b border-white/10 pb-4">
@@ -160,7 +180,6 @@
                     <button onclick="toggleMobileMenu()" class="w-9 h-9 rounded-full border border-white/10 bg-white/5 flex items-center justify-center text-slate-300 hover:bg-white/10 cursor-pointer">✕</button>
                 </div>
 
-                <!-- 1. ABOUT -->
                 <div class="space-y-3">
                     <span class="text-[11px] font-mono text-turquoise-400 uppercase tracking-widest block">🌐 1. About</span>
                     <nav class="flex flex-col space-y-2.5 pl-3 border-l border-white/10 text-base font-light text-slate-300">
@@ -172,7 +191,6 @@
                     </nav>
                 </div>
 
-                <!-- 2. ACTION -->
                 <div class="space-y-3">
                     <span class="text-[11px] font-mono text-amber-400 uppercase tracking-widest block">🤝 2. Action</span>
                     <nav class="flex flex-col space-y-2.5 pl-3 border-l border-white/10 text-base font-light text-slate-300">
@@ -184,7 +202,6 @@
                     </nav>
                 </div>
 
-                <!-- 3. NETWORK -->
                 <div class="space-y-3">
                     <span class="text-[11px] font-mono text-pink-400 uppercase tracking-widest block">🛍️ 3. Network</span>
                     <nav class="flex flex-col space-y-2.5 pl-3 border-l border-white/10 text-base font-light text-slate-300">
@@ -197,17 +214,82 @@
             </div>
         </div>
 
-        <!-- İÇERİK ALANI -->
-        <main class="flex-grow flex items-center justify-center text-center px-6 py-20">
-            <div class="max-w-xl space-y-4">
-                <span class="text-xs font-mono text-turquoise-400 tracking-widest uppercase">Header & Brand Glow Locked</span>
-                <h2 class="text-2xl font-light text-white">Logo ve Marka Kimliği Tam İstendiği Gibi.</h2>
+        <main class="flex-grow flex flex-col justify-center px-4 sm:px-6 py-16 cinematic-hero-entry" id="home">
+            <div class="max-w-5xl mx-auto w-full text-center space-y-8">
+                
+                <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-turquoise-500/30 bg-turquoise-500/10 text-turquoise-400 text-xs tracking-[0.25em] uppercase font-mono shadow-[0_0_20px_rgba(45,212,191,0.15)]">
+                    <span class="w-1.5 h-1.5 rounded-full bg-turquoise-400 animate-ping"></span>
+                    Digital Civilization
+                </div>
+
+                <h1 class="text-4xl sm:text-6xl md:text-7xl font-extralight tracking-tight text-white leading-[1.1]">
+                    Digital Civilization <br class="hidden sm:inline">
+                    <span class="font-normal bg-gradient-to-r from-white via-slate-200 to-turquoise-400 bg-clip-text text-transparent">Without Borders</span>
+                </h1>
+
+                <p class="max-w-2xl mx-auto text-base sm:text-lg text-slate-300 font-light leading-relaxed">
+                    Uniting humanity through decentralized consciousness, collective action, and timeless echoes across the digital universe.
+                </p>
+
+                <div class="flex flex-wrap items-center justify-center gap-4 pt-4">
+                    <a href="#explore" class="px-8 py-3.5 rounded-full bg-turquoise-500 text-slate-950 font-medium text-sm hover:bg-turquoise-400 transition-all shadow-[0_0_25px_rgba(20,184,166,0.4)] hover:scale-105">
+                        Explore Ecosystem
+                    </a>
+                    <a href="#manifesto" class="px-8 py-3.5 rounded-full border border-white/20 bg-white/5 text-slate-200 font-medium text-sm hover:bg-white/10 hover:border-turquoise-400/50 transition-all hover:scale-105">
+                        Read Manifesto
+                    </a>
+                </div>
+
+            </div>
+
+            <div class="max-w-7xl mx-auto w-full mt-28 px-2 sm:px-6">
+                <div class="text-center mb-12 space-y-3">
+                    <span class="text-xs uppercase tracking-[0.3em] text-turquoise-400 font-mono">Core Pillars</span>
+                    <h2 class="text-2xl sm:text-3xl font-light text-white">The Architecture of Humanity</h2>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    
+                    <div onclick="toggleCard(this)" class="glass-card rounded-3xl p-8 cursor-pointer relative overflow-hidden group">
+                        <div class="absolute top-0 right-0 w-32 h-32 bg-turquoise-500/5 rounded-full blur-2xl group-hover:bg-turquoise-500/15 transition-all"></div>
+                        <div class="w-12 h-12 rounded-2xl bg-turquoise-500/10 border border-turquoise-500/30 flex items-center justify-center text-2xl mb-6 text-turquoise-400">🌐</div>
+                        <h3 class="text-lg font-medium text-white mb-3">Global Consciousness</h3>
+                        <p class="text-sm text-slate-400 font-light leading-relaxed">Bridging cultures and boundaries through unified digital philosophy and transparent networks.</p>
+                        <div class="mt-6 flex items-center gap-2 text-xs font-mono text-turquoise-400 opacity-80 group-hover:opacity-100 transition-opacity">
+                            <span>Explore Module</span> <span>→</span>
+                        </div>
+                    </div>
+
+                    <div onclick="toggleCard(this)" class="glass-card rounded-3xl p-8 cursor-pointer relative overflow-hidden group">
+                        <div class="absolute top-0 right-0 w-32 h-32 bg-amber-500/5 rounded-full blur-2xl group-hover:bg-amber-500/15 transition-all"></div>
+                        <div class="w-12 h-12 rounded-2xl bg-amber-500/10 border border-amber-500/30 flex items-center justify-center text-2xl mb-6 text-amber-400">🤝</div>
+                        <h3 class="text-lg font-medium text-white mb-3">Humanitarian Action</h3>
+                        <p class="text-sm text-slate-400 font-light leading-relaxed">Direct impact initiatives driven by global volunteers and verified decentralized solidarity.</p>
+                        <div class="mt-6 flex items-center gap-2 text-xs font-mono text-amber-400 opacity-80 group-hover:opacity-100 transition-opacity">
+                            <span>Explore Module</span> <span>→</span>
+                        </div>
+                    </div>
+
+                    <div onclick="toggleCard(this)" class="glass-card rounded-3xl p-8 cursor-pointer relative overflow-hidden group">
+                        <div class="absolute top-0 right-0 w-32 h-32 bg-pink-500/5 rounded-full blur-2xl group-hover:bg-pink-500/15 transition-all"></div>
+                        <div class="w-12 h-12 rounded-2xl bg-pink-500/10 border border-pink-500/30 flex items-center justify-center text-2xl mb-6 text-pink-400">🛍️</div>
+                        <h3 class="text-lg font-medium text-white mb-3">Ecosystem & Network</h3>
+                        <p class="text-sm text-slate-400 font-light leading-relaxed">Sustainable marketplace, merchandise, and collaborative tools powering the future.</p>
+                        <div class="mt-6 flex items-center gap-2 text-xs font-mono text-pink-400 opacity-80 group-hover:opacity-100 transition-opacity">
+                            <span>Explore Module</span> <span>→</span>
+                        </div>
+                    </div>
+
+                </div>
             </div>
         </main>
 
+        <footer class="w-full border-t border-white/10 py-8 text-center text-xs text-slate-500 font-mono">
+            &copy; 2026 Echoes of Humanity. All rights reserved.
+        </footer>
+
     </div>
 
-    <!-- JAVASCRIPT KONTROLLERİ -->
     <script>
         function toggleMobileMenu() {
             const menu = document.getElementById('mobileMenu');
@@ -240,14 +322,7 @@
             toggleLangMenu();
         }
 
-        window.addEventListener('click', function(e) {
-            const langDropdown = document.getElementById('langDropdown');
-            const langBtn = document.querySelector('button[aria-label="Language Selector"]');
-            if (langDropdown && !langDropdown.contains(e.target) && !langBtn.contains(e.target)) {
-                langDropdown.classList.remove('lang-visible');
-                langDropdown.classList.add('lang-hidden');
-            }
-        });
-    </script>
-</body>
-</html>
+        function toggleCard(cardElement) {
+            // Kartlara tıklandığında açılır/interaktif geri bildirim efekti
+            cardElement.classList.toggle('ring-2');
+        
