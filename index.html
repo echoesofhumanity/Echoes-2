@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Echoes of Humanity — Digital Civilization Without Borders</title>
+    <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
@@ -20,83 +21,73 @@
         }
     </script>
     <style>
-        /* Arkada Dönen Harita / Orbit ve Derinlik Efektleri */
+        /* Arkada Dönen Harita / Orbit ve Derinlik Efektleri (Yazının Asla Önüne Geçmez) */
         @keyframes orbitRotate {
             0% { transform: rotate(0deg); }
             100% { transform: rotate(360deg); }
         }
         @keyframes globalGlobePulse {
-            0%, 100% { transform: scale(1); opacity: 0.2; }
-            50% { transform: scale(1.05); opacity: 0.35; }
+            0%, 100% { transform: scale(1); opacity: 0.15; }
+            50% { transform: scale(1.05); opacity: 0.25; }
         }
         
-        /* Yazıların Önüne Kesinlikle Çıkmayan Sakin Yıldız Parıltıları */
-        @keyframes subtleTwinkle {
-            0%, 100% { opacity: 0.2; transform: scale(0.9); }
-            50% { opacity: 0.5; transform: scale(1.1); }
-        }
-
-        /* Hero ve Sayfa Açılışı: Menüden 2 Kat Daha Yavaş (1.8s) Sinematik Süzülme */
+        /* Ağır Sinematik 4 Saniyelik Giriş */
         @keyframes cinematicHeroFade {
-            0% { opacity: 0; transform: translateY(45px) scale(0.98); }
+            0% { opacity: 0; transform: translateY(60px) scale(0.97); }
             100% { opacity: 1; transform: translateY(0) scale(1); }
         }
 
-        .orbit-spin { animation: orbitRotate 50s linear infinite; }
-        .pulse-globe { animation: globalGlobePulse 12s ease-in-out infinite; }
-        .cinematic-hero-entry { animation: cinematicHeroFade 1.8s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
-
-        .star-dot { animation: subtleTwinkle 6s ease-in-out infinite; }
+        .orbit-spin { animation: orbitRotate 60s linear infinite; }
+        .pulse-globe { animation: globalGlobePulse 15s ease-in-out infinite; }
+        .cinematic-hero-entry { animation: cinematicHeroFade 4s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
 
         /* Asil Mat Cam Tasarımı (Neon Değil, Lüks Lacivert/Gri) */
         .glass-header {
-            background: rgba(5, 7, 15, 0.92);
+            background: rgba(5, 7, 15, 0.95);
             backdrop-filter: blur(20px);
             -webkit-backdrop-filter: blur(20px);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
         }
 
         .glass-card {
-            background: rgba(10, 14, 26, 0.65);
+            background: rgba(10, 14, 26, 0.6);
             backdrop-filter: blur(16px);
             -webkit-backdrop-filter: blur(16px);
-            border: 1px solid rgba(255, 255, 255, 0.07);
+            border: 1px solid rgba(255, 255, 255, 0.06);
             transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
         }
         .glass-card:hover {
-            border-color: rgba(45, 212, 191, 0.35);
+            border-color: rgba(45, 212, 191, 0.3);
             transform: translateY(-4px);
-            background: rgba(13, 19, 34, 0.8);
+            background: rgba(13, 19, 34, 0.75);
         }
 
-        /* Menü Geçişleri */
-        .menu-hidden { transform: translateY(-100%); opacity: 0; pointer-events: none; transition: all 0.7s cubic-bezier(0.16, 1, 0.3, 1); }
-        .menu-visible { transform: translateY(0); opacity: 1; pointer-events: auto; transition: all 0.7s cubic-bezier(0.16, 1, 0.3, 1); }
+        /* Menü Geçiş Sınıfları */
+        .menu-hidden { transform: translateY(-100%); opacity: 0; pointer-events: none; transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1); }
+        .menu-visible { transform: translateY(0); opacity: 1; pointer-events: auto; transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1); }
         
-        .lang-hidden { opacity: 0; transform: translateY(-8px); pointer-events: none; transition: all 0.25s ease; }
+        .lang-hidden { opacity: 0; transform: translateY(-10px); pointer-events: none; transition: all 0.25s ease; }
         .lang-visible { opacity: 1; transform: translateY(0); pointer-events: auto; transition: all 0.25s ease; }
     </style>
 </head>
 <body class="bg-[#05070f] text-slate-100 font-sans antialiased min-h-screen relative selection:bg-turquoise-500 selection:text-white overflow-x-hidden">
 
+    <!-- ARKA PLAN EVRENİ (Z-INDEX 0 - KESİNLİKLE PASİF VE ARKADA) -->
     <div class="fixed inset-0 pointer-events-none z-0 overflow-hidden">
         <div class="absolute inset-0 bg-gradient-to-b from-[#05070f] via-[#070a14] to-[#05070f]"></div>
-        
-        <div class="absolute top-[12%] left-1/2 -translate-x-1/2 w-[70vw] h-[70vw] max-w-[850px] max-h-[850px] rounded-full bg-gradient-to-tr from-turquoise-500/10 via-blue-600/5 to-transparent blur-[140px] pulse-globe"></div>
-
-        <div class="absolute top-[20%] left-1/2 -translate-x-1/2 -translate-y-1/2 w-[650px] h-[650px] rounded-full border border-turquoise-500/15 orbit-spin"></div>
-        <div class="absolute top-[20%] left-1/2 -translate-x-1/2 -translate-y-1/2 w-[950px] h-[950px] rounded-full border border-blue-500/10 orbit-spin" style="animation-direction: reverse; animation-duration: 70s;"></div>
-
-        <div class="absolute top-[22%] left-[20%] w-1.5 h-1.5 rounded-full bg-turquoise-300 star-dot"></div>
-        <div class="absolute top-[38%] right-[22%] w-2 h-2 rounded-full bg-blue-200 star-dot" style="animation-delay: 2s;"></div>
-        <div class="absolute top-[60%] left-[15%] w-1 h-1 rounded-full bg-white star-dot" style="animation-delay: 4s;"></div>
+        <div class="absolute top-[10%] left-1/2 -translate-x-1/2 w-[70vw] h-[70vw] max-w-[850px] max-h-[850px] rounded-full bg-gradient-to-tr from-turquoise-500/10 via-blue-600/5 to-transparent blur-[150px] pulse-globe"></div>
+        <div class="absolute top-[18%] left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] rounded-full border border-turquoise-500/10 orbit-spin"></div>
+        <div class="absolute top-[18%] left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1050px] h-[1050px] rounded-full border border-blue-500/5 orbit-spin" style="animation-direction: reverse; animation-duration: 90s;"></div>
     </div>
 
+    <!-- ANA KAPSAYICI (Z-INDEX 10) -->
     <div class="relative z-10 flex flex-col min-h-screen">
         
+        <!-- HEADER -->
         <header class="w-full glass-header sticky top-0 z-50">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 h-20 flex items-center justify-between">
                 
+                <!-- Logo -->
                 <a href="#home" class="flex items-center gap-3.5 group">
                     <img src="logo.png" alt="Echoes of Humanity Logo" class="h-10 sm:h-12 w-auto object-contain">
                     <div class="flex flex-col">
@@ -105,32 +96,25 @@
                     </div>
                 </a>
 
+                <!-- Sağ Butonlar -->
                 <div class="flex items-center gap-3.5">
                     
+                    <!-- DİL SEÇİCİ -->
                     <div class="relative">
-                        <button onclick="toggleLangMenu(event)" aria-label="Language Selector" class="w-10 h-10 rounded-full border border-turquoise-500/30 bg-white/5 flex items-center justify-center text-slate-200 hover:bg-turquoise-500/20 hover:border-turquoise-400 transition-all text-xs font-mono cursor-pointer">
+                        <button type="button" onclick="window.toggleLangMenu(event)" aria-label="Language Selector" class="w-10 h-10 rounded-full border border-turquoise-500/30 bg-white/5 flex items-center justify-center text-slate-200 hover:bg-turquoise-500/20 hover:border-turquoise-400 transition-all text-xs font-mono cursor-pointer">
                             🌐
                         </button>
                         <div id="langDropdown" class="absolute right-0 top-12 w-44 rounded-2xl bg-[#0a0e1a]/95 border border-white/10 backdrop-blur-2xl shadow-2xl lang-hidden py-2 z-50">
-                            <button onclick="setLanguage('en')" class="w-full px-4 py-2.5 text-left text-xs text-slate-200 hover:bg-white/10 flex items-center gap-3 transition-colors">
-                                <span>🇬🇧</span> <span class="font-medium">English</span>
-                            </button>
-                            <button onclick="setLanguage('tr')" class="w-full px-4 py-2.5 text-left text-xs text-slate-200 hover:bg-white/10 flex items-center gap-3 transition-colors">
-                                <span>🇹🇷</span> <span class="font-medium">Türkçe</span>
-                            </button>
-                            <button onclick="setLanguage('ru')" class="w-full px-4 py-2.5 text-left text-xs text-slate-200 hover:bg-white/10 flex items-center gap-3 transition-colors">
-                                <span>🇷🇺</span> <span class="font-medium">Русский</span>
-                            </button>
-                            <button onclick="setLanguage('de')" class="w-full px-4 py-2.5 text-left text-xs text-slate-200 hover:bg-white/10 flex items-center gap-3 transition-colors">
-                                <span>🇩🇪</span> <span class="font-medium">Deutsch</span>
-                            </button>
-                            <button onclick="setLanguage('es')" class="w-full px-4 py-2.5 text-left text-xs text-slate-200 hover:bg-white/10 flex items-center gap-3 transition-colors">
-                                <span>🇪🇸</span> <span class="font-medium">Español</span>
-                            </button>
+                            <button type="button" onclick="window.setLanguage('en')" class="w-full px-4 py-2.5 text-left text-xs text-slate-200 hover:bg-white/10 flex items-center gap-3 transition-colors"><span>🇬🇧</span> <span class="font-medium">English</span></button>
+                            <button type="button" onclick="window.setLanguage('tr')" class="w-full px-4 py-2.5 text-left text-xs text-slate-200 hover:bg-white/10 flex items-center gap-3 transition-colors"><span>🇹🇷</span> <span class="font-medium">Türkçe</span></button>
+                            <button type="button" onclick="window.setLanguage('ru')" class="w-full px-4 py-2.5 text-left text-xs text-slate-200 hover:bg-white/10 flex items-center gap-3 transition-colors"><span>🇷🇺</span> <span class="font-medium">Русский</span></button>
+                            <button type="button" onclick="window.setLanguage('de')" class="w-full px-4 py-2.5 text-left text-xs text-slate-200 hover:bg-white/10 flex items-center gap-3 transition-colors"><span>🇩🇪</span> <span class="font-medium">Deutsch</span></button>
+                            <button type="button" onclick="window.setLanguage('es')" class="w-full px-4 py-2.5 text-left text-xs text-slate-200 hover:bg-white/10 flex items-center gap-3 transition-colors"><span>🇪🇸</span> <span class="font-medium">Español</span></button>
                         </div>
                     </div>
 
-                    <button onclick="toggleMobileMenu(event)" aria-label="Toggle Menu" class="w-10 h-10 rounded-full border border-turquoise-500/30 bg-white/5 flex flex-col items-center justify-center gap-1.5 text-slate-200 hover:bg-turquoise-500/20 hover:border-turquoise-400 transition-all cursor-pointer">
+                    <!-- HAMBURGER MENÜ -->
+                    <button type="button" onclick="window.toggleMobileMenu(event)" aria-label="Toggle Menu" class="w-10 h-10 rounded-full border border-turquoise-500/30 bg-white/5 flex flex-col items-center justify-center gap-1.5 text-slate-200 hover:bg-turquoise-500/20 hover:border-turquoise-400 transition-all cursor-pointer">
                         <span class="w-4 h-0.5 bg-slate-200 rounded-full"></span>
                         <span class="w-4 h-0.5 bg-slate-200 rounded-full"></span>
                         <span class="w-2.5 h-0.5 bg-slate-200 rounded-full self-start ml-3"></span>
@@ -140,134 +124,137 @@
             </div>
         </header>
 
+        <!-- SİNEMATİK AÇILIR NAVİGASYON PANELİ -->
         <div id="mobileMenu" class="fixed inset-0 bg-[#05070f]/98 backdrop-blur-3xl z-40 menu-hidden flex flex-col overflow-y-auto px-6 py-12">
             <div class="max-w-md mx-auto w-full pt-6 pb-16 space-y-8">
                 <div class="flex items-center justify-between border-b border-white/10 pb-4">
                     <span class="text-xs uppercase tracking-[0.3em] text-turquoise-400 font-mono font-medium">Navigation Hub</span>
-                    <button onclick="toggleMobileMenu()" class="w-9 h-9 rounded-full border border-white/10 bg-white/5 flex items-center justify-center text-slate-300 hover:bg-white/10 cursor-pointer">✕</button>
+                    <button type="button" onclick="window.toggleMobileMenu()" class="w-9 h-9 rounded-full border border-white/10 bg-white/5 flex items-center justify-center text-slate-300 hover:bg-white/10 cursor-pointer">✕</button>
                 </div>
-
                 <div class="space-y-3">
                     <span class="text-[11px] font-mono text-turquoise-400 uppercase tracking-widest block">1. About</span>
                     <nav class="flex flex-col space-y-2.5 pl-3 border-l border-white/10 text-base font-light text-slate-300">
-                        <a href="#home" onclick="toggleMobileMenu()" class="hover:text-turquoise-400 transition-colors">Home</a>
-                        <a href="#about" onclick="toggleMobileMenu()" class="hover:text-turquoise-400 transition-colors">About</a>
-                        <a href="#vision" onclick="toggleMobileMenu()" class="hover:text-turquoise-400 transition-colors">Vision</a>
-                        <a href="#mission" onclick="toggleMobileMenu()" class="hover:text-turquoise-400 transition-colors">Mission</a>
-                        <a href="#manifesto" onclick="toggleMobileMenu()" class="hover:text-turquoise-400 transition-colors">Manifesto</a>
-                    </nav>
-                </div>
-
-                <div class="space-y-3">
-                    <span class="text-[11px] font-mono text-amber-400 uppercase tracking-widest block">2. Action</span>
-                    <nav class="flex flex-col space-y-2.5 pl-3 border-l border-white/10 text-base font-light text-slate-300">
-                        <a href="#humanitarian" onclick="toggleMobileMenu()" class="hover:text-turquoise-400 transition-colors">Humanitarian Action</a>
-                        <a href="#projects" onclick="toggleMobileMenu()" class="hover:text-turquoise-400 transition-colors">Projects</a>
-                        <a href="#volunteers" onclick="toggleMobileMenu()" class="hover:text-turquoise-400 transition-colors">Volunteers</a>
-                        <a href="#academy" onclick="toggleMobileMenu()" class="hover:text-turquoise-400 transition-colors">Academy</a>
-                        <a href="#media" onclick="toggleMobileMenu()" class="hover:text-turquoise-400 transition-colors">Media</a>
-                    </nav>
-                </div>
-
-                <div class="space-y-3">
-                    <span class="text-[11px] font-mono text-pink-400 uppercase tracking-widest block">3. Network</span>
-                    <nav class="flex flex-col space-y-2.5 pl-3 border-l border-white/10 text-base font-light text-slate-300">
-                        <a href="#marketplace" onclick="toggleMobileMenu()" class="hover:text-turquoise-400 transition-colors">Marketplace</a>
-                        <a href="#merchandise" onclick="toggleMobileMenu()" class="hover:text-turquoise-400 transition-colors">Merchandise</a>
-                        <a href="#partners" onclick="toggleMobileMenu()" class="hover:text-turquoise-400 transition-colors">Partners</a>
-                        <a href="#contact" onclick="toggleMobileMenu()" class="hover:text-turquoise-400 transition-colors">Contact</a>
+                        <a href="#home" onclick="window.toggleMobileMenu()" class="hover:text-turquoise-400 transition-colors">Home</a>
+                        <a href="#about" onclick="window.toggleMobileMenu()" class="hover:text-turquoise-400 transition-colors">About</a>
+                        <a href="#vision" onclick="window.toggleMobileMenu()" class="hover:text-turquoise-400 transition-colors">Vision</a>
+                        <a href="#mission" onclick="window.toggleMobileMenu()" class="hover:text-turquoise-400 transition-colors">Mission</a>
                     </nav>
                 </div>
             </div>
         </div>
 
+        <!-- HERO & AKIŞ -->
         <main class="flex-grow flex flex-col justify-center px-4 sm:px-6 py-16 cinematic-hero-entry" id="home">
             <div class="max-w-5xl mx-auto w-full text-center space-y-8">
-                
-                <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-turquoise-500/30 bg-turquoise-500/10 text-turquoise-400 text-xs tracking-[0.25em] uppercase font-mono">
-                    <span class="w-1.5 h-1.5 rounded-full bg-turquoise-400 animate-ping"></span>
+                <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-turquoise-500/20 bg-turquoise-500/5 text-turquoise-400 text-xs tracking-[0.25em] uppercase font-mono">
+                    <span class="w-1.5 h-1.5 rounded-full bg-turquoise-400"></span>
                     Digital Civilization
                 </div>
-
                 <h1 class="text-4xl sm:text-6xl md:text-7xl font-extralight tracking-tight text-white leading-[1.1]">
                     Digital Civilization <br class="hidden sm:inline">
-                    <span class="font-normal bg-gradient-to-r from-white via-slate-200 to-turquoise-300 bg-clip-text text-transparent">Without Borders</span>
+                    <span class="font-normal text-slate-200">Without Borders</span>
                 </h1>
-
                 <p class="max-w-2xl mx-auto text-base sm:text-lg text-slate-300 font-light leading-relaxed">
                     Uniting humanity through decentralized consciousness, collective action, and timeless echoes across the digital universe.
                 </p>
-
                 <div class="flex flex-wrap items-center justify-center gap-4 pt-4">
-                    <a href="#explore" class="px-8 py-3.5 rounded-full bg-turquoise-500 text-slate-950 font-medium text-sm hover:bg-turquoise-400 transition-all shadow-[0_0_20px_rgba(20,184,166,0.3)] hover:scale-105">
-                        Explore Ecosystem
-                    </a>
-                    <a href="#manifesto" class="px-8 py-3.5 rounded-full border border-white/20 bg-white/5 text-slate-200 font-medium text-sm hover:bg-white/10 hover:border-turquoise-400/50 transition-all hover:scale-105">
-                        Read Manifesto
-                    </a>
+                    <a href="#explore" class="px-8 py-3.5 rounded-full bg-turquoise-600 text-white font-medium text-sm hover:bg-turquoise-500 transition-all shadow-lg hover:scale-105">Explore Ecosystem</a>
+                    <a href="#manifesto" class="px-8 py-3.5 rounded-full border border-white/15 bg-white/5 text-slate-200 font-medium text-sm hover:bg-white/10 transition-all hover:scale-105">Read Manifesto</a>
                 </div>
             </div>
 
+            <!-- KARTLAR VE MODÜLLER -->
             <div class="max-w-7xl mx-auto w-full mt-32 px-2 sm:px-6 space-y-24" id="explore">
-                
                 <div class="space-y-10">
                     <div class="text-center space-y-3">
                         <span class="text-xs uppercase tracking-[0.3em] text-turquoise-400 font-mono">Core Pillars</span>
                         <h2 class="text-2xl sm:text-3xl font-light text-white">The Architecture of Humanity</h2>
                     </div>
-
                     <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                        <div onclick="toggleCard(this)" class="glass-card rounded-3xl p-8 cursor-pointer relative overflow-hidden group">
-                            <div class="w-12 h-12 rounded-2xl bg-turquoise-500/10 border border-turquoise-500/30 flex items-center justify-center text-sm mb-6 text-turquoise-400 font-mono font-medium">01</div>
+                        <div class="glass-card rounded-3xl p-8 cursor-pointer relative overflow-hidden group">
+                            <div class="w-12 h-12 rounded-2xl bg-turquoise-500/10 border border-turquoise-500/20 flex items-center justify-center text-sm mb-6 text-turquoise-400 font-mono">01</div>
                             <h3 class="text-lg font-medium text-white mb-3">Global Consciousness</h3>
-                            <p class="text-sm text-slate-400 font-light leading-relaxed">Bridging cultures and boundaries through unified digital philosophy and transparent networks.</p>
-                            <div class="mt-6 flex items-center gap-2 text-xs font-mono text-turquoise-400 opacity-80 group-hover:opacity-100"><span>Explore Module</span> <span>→</span></div>
+                            <p class="text-sm text-slate-400 font-light leading-relaxed">Bridging cultures and boundaries through unified digital philosophy.</p>
                         </div>
-
-                        <div onclick="toggleCard(this)" class="glass-card rounded-3xl p-8 cursor-pointer relative overflow-hidden group">
-                            <div class="w-12 h-12 rounded-2xl bg-amber-500/10 border border-amber-500/30 flex items-center justify-center text-sm mb-6 text-amber-400 font-mono font-medium">02</div>
+                        <div class="glass-card rounded-3xl p-8 cursor-pointer relative overflow-hidden group">
+                            <div class="w-12 h-12 rounded-2xl bg-amber-500/10 border border-amber-500/20 flex items-center justify-center text-sm mb-6 text-amber-400 font-mono">02</div>
                             <h3 class="text-lg font-medium text-white mb-3">Humanitarian Action</h3>
-                            <p class="text-sm text-slate-400 font-light leading-relaxed">Direct impact initiatives driven by global volunteers and verified decentralized solidarity.</p>
-                            <div class="mt-6 flex items-center gap-2 text-xs font-mono text-amber-400 opacity-80 group-hover:opacity-100"><span>Explore Module</span> <span>→</span></div>
+                            <p class="text-sm text-slate-400 font-light leading-relaxed">Direct impact initiatives driven by global volunteers.</p>
                         </div>
-
-                        <div onclick="toggleCard(this)" class="glass-card rounded-3xl p-8 cursor-pointer relative overflow-hidden group">
-                            <div class="w-12 h-12 rounded-2xl bg-pink-500/10 border border-pink-500/30 flex items-center justify-center text-sm mb-6 text-pink-400 font-mono font-medium">03</div>
+                        <div class="glass-card rounded-3xl p-8 cursor-pointer relative overflow-hidden group">
+                            <div class="w-12 h-12 rounded-2xl bg-pink-500/10 border border-pink-500/20 flex items-center justify-center text-sm mb-6 text-pink-400 font-mono">03</div>
                             <h3 class="text-lg font-medium text-white mb-3">Ecosystem & Network</h3>
-                            <p class="text-sm text-slate-400 font-light leading-relaxed">Sustainable marketplace, merchandise, and collaborative tools powering the future.</p>
-                            <div class="mt-6 flex items-center gap-2 text-xs font-mono text-pink-400 opacity-80 group-hover:opacity-100"><span>Explore Module</span> <span>→</span></div>
+                            <p class="text-sm text-slate-400 font-light leading-relaxed">Sustainable marketplace and collaborative tools.</p>
                         </div>
                     </div>
                 </div>
 
-                <div class="space-y-10" id="vision">
-                    <div class="text-center space-y-3">
-                        <span class="text-xs uppercase tracking-[0.3em] text-blue-400 font-mono">Strategic Vision</span>
-                        <h2 class="text-2xl sm:text-3xl font-light text-white">Shaping Tomorrow's Civilization</h2>
-                    </div>
-
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                        <div onclick="toggleCard(this)" class="glass-card rounded-3xl p-8 cursor-pointer group">
-                            <div class="w-10 h-10 rounded-xl bg-blue-500/10 border border-blue-500/30 flex items-center justify-center text-xs mb-4 text-blue-400 font-mono font-medium">V1</div>
-                            <h3 class="text-lg font-medium text-white mb-2">Decentralized Vision</h3>
-                            <p class="text-sm text-slate-400 font-light leading-relaxed">Creating autonomous frameworks where every human voice contributes to planetary governance and cultural preservation.</p>
-                        </div>
-                        <div onclick="toggleCard(this)" class="glass-card rounded-3xl p-8 cursor-pointer group">
-                            <div class="w-10 h-10 rounded-xl bg-teal-500/10 border border-teal-500/30 flex items-center justify-center text-xs mb-4 text-teal-400 font-mono font-medium">M1</div>
-                            <h3 class="text-lg font-medium text-white mb-2">Active Mission</h3>
-                            <p class="text-sm text-slate-400 font-light leading-relaxed">Deploying rapid response aid, educational academies, and open-source technology to underserved regions worldwide.</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="text-center py-20 px-6 rounded-3xl glass-card border border-turquoise-500/20 relative overflow-hidden space-y-6" id="manifesto">
-                    <div class="absolute inset-0 bg-gradient-to-r from-turquoise-500/5 via-blue-500/5 to-transparent pointer-events-none"></div>
+                <!-- JOIN THE MOVEMENT -->
+                <div class="text-center py-20 px-6 rounded-3xl glass-card border border-turquoise-500/15 relative overflow-hidden space-y-6" id="manifesto">
                     <span class="text-xs font-mono text-turquoise-400 uppercase tracking-[0.3em]">Be Part of the Future</span>
                     <h2 class="text-3xl sm:text-5xl font-light text-white">Join the Movement</h2>
-                    <p class="max-w-xl mx-auto text-sm sm:text-base text-slate-300 font-light leading-relaxed">
-                        Every great movement begins with people who care and choose to act. Step into the digital civilization without borders.
-                    </p>
+                    <p class="max-w-xl mx-auto text-sm sm:text-base text-slate-300 font-light leading-relaxed">Every great movement begins with people who care and choose to act.</p>
                     <div class="pt-4">
-                        <a href="#register" class="inline-block px-10 py-4 rounded-full bg-turquoise-500 text-slate-950 font-medium text-sm hover:bg-turquoise-400 transition-all shadow-[0_0_25px_rgba(20,184,166,0.35)] hover:scale-105">
-                            Become a Volunteer
-    
+                        <a href="#register" class="inline-block px-10 py-4 rounded-full bg-turquoise-600 text-white font-medium text-sm hover:bg-turquoise-500 transition-all shadow-lg hover:scale-105">Become a Volunteer</a>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <!-- FOOTER -->
+        <footer class="w-full border-t border-white/10 py-10 mt-20 text-center space-y-4">
+            <div class="text-xs text-slate-400 font-medium tracking-widest uppercase">Echoes of Humanity</div>
+            <div class="text-[11px] text-slate-600 font-mono">&copy; 2026 Echoes of Humanity. All rights reserved.</div>
+        </footer>
+    </div>
+
+    <!-- GLOBAL KESİN ÇALIŞAN JAVASCRIPT -->
+    <script>
+        window.toggleMobileMenu = function(event) {
+            if (event) event.stopPropagation();
+            const menu = document.getElementById('mobileMenu');
+            const langDropdown = document.getElementById('langDropdown');
+            if (langDropdown) { langDropdown.classList.remove('lang-visible'); langDropdown.classList.add('lang-hidden'); }
+
+            if (menu.classList.contains('menu-hidden')) {
+                menu.classList.remove('menu-hidden');
+                menu.classList.add('menu-visible');
+                document.body.style.overflow = 'hidden';
+            } else {
+                menu.classList.remove('menu-visible');
+                menu.classList.add('menu-hidden');
+                document.body.style.overflow = 'auto';
+            }
+        };
+
+        window.toggleLangMenu = function(event) {
+            if (event) event.stopPropagation();
+            const langDropdown = document.getElementById('langDropdown');
+            if (langDropdown.classList.contains('lang-hidden')) {
+                langDropdown.classList.remove('lang-hidden');
+                langDropdown.classList.add('lang-visible');
+            } else {
+                langDropdown.classList.remove('lang-visible');
+                langDropdown.classList.add('lang-hidden');
+            }
+        };
+
+        window.setLanguage = function(lang) {
+            const langDropdown = document.getElementById('langDropdown');
+            if (langDropdown) {
+                langDropdown.classList.remove('lang-visible');
+                langDropdown.classList.add('lang-hidden');
+            }
+        };
+
+        window.addEventListener('click', function(e) {
+            const langDropdown = document.getElementById('langDropdown');
+            if (langDropdown && !langDropdown.contains(e.target)) {
+                langDropdown.classList.remove('lang-visible');
+                langDropdown.classList.add('lang-hidden');
+            }
+        });
+    </script>
+</body>
+                                                                                                                       </html>
+
