@@ -11,20 +11,10 @@
             theme: {
                 extend: {
                     colors: {
-                        space: {
-                            900: '#05070f',
-                            800: '#0a0e1a',
-                            700: '#131b2e',
-                        },
-                        turquoise: {
-                            400: '#2dd4bf',
-                            500: '#14b8a6',
-                            600: '#0d9488'
-                        }
+                        space: { 900: '#05070f', 800: '#0a0e1a', 700: '#131b2e' },
+                        turquoise: { 400: '#2dd4bf', 500: '#14b8a6', 600: '#0d9488' }
                     },
-                    fontFamily: {
-                        sans: ['Inter', 'sans-serif'],
-                    }
+                    fontFamily: { sans: ['Inter', 'sans-serif'] }
                 }
             }
         }
@@ -32,33 +22,33 @@
     <style>
         @keyframes floatSlow {
             0%, 100% { transform: translate(0, 0) scale(1); opacity: 0.4; }
-            50% { transform: translate(30px, -40px) scale(1.15); opacity: 0.7; }
+            50% { transform: translate(40px, -50px) scale(1.2); opacity: 0.7; }
         }
         @keyframes pulseGlow {
-            0%, 100% { transform: scale(1); opacity: 0.3; }
-            50% { transform: scale(1.1); opacity: 0.6; }
+            0%, 100% { transform: scale(1); opacity: 0.4; }
+            50% { transform: scale(1.15); opacity: 0.75; }
         }
         @keyframes orbitRotate {
             from { transform: rotate(0deg); }
             to { transform: rotate(360deg); }
         }
-        .nebula-glow-1 { animation: floatSlow 12s ease-in-out infinite; }
-        .nebula-glow-2 { animation: floatSlow 16s ease-in-out infinite reverse; }
-        .pulse-sphere { animation: pulseGlow 6s ease-in-out infinite; }
-        .orbit-ring { animation: orbitRotate 35s linear infinite; }
-        .orbit-ring-rev { animation: orbitRotate 45s linear infinite reverse; }
+        .nebula-glow-1 { animation: floatSlow 14s ease-in-out infinite; }
+        .nebula-glow-2 { animation: floatSlow 18s ease-in-out infinite reverse; }
+        .pulse-globe { animation: pulseGlow 7s ease-in-out infinite; }
+        .orbit-ring { animation: orbitRotate 40s linear infinite; }
+        .orbit-ring-rev { animation: orbitRotate 50s linear infinite reverse; }
 
         .glass-card {
-            background: rgba(19, 27, 46, 0.7);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            background: rgba(19, 27, 46, 0.75);
+            backdrop-filter: blur(25px);
+            -webkit-backdrop-filter: blur(25px);
+            border: 1px solid rgba(255, 255, 255, 0.12);
             transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
         }
         .glass-card:hover {
             border-color: rgba(45, 212, 191, 0.4);
             transform: translateY(-4px);
-            box-shadow: 0 25px 50px -12px rgba(20, 184, 166, 0.15);
+            box-shadow: 0 25px 50px -12px rgba(20, 184, 166, 0.2);
         }
 
         .menu-hidden { transform: translateX(100%); opacity: 0; pointer-events: none; transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1); }
@@ -72,23 +62,23 @@
 
     <div class="fixed inset-0 pointer-events-none z-0 overflow-hidden">
         <div class="absolute inset-0 bg-gradient-to-b from-[#05070f] via-[#0a0e1a] to-[#05070f] opacity-95"></div>
-        <div class="absolute top-[20%] left-1/2 -translate-x-1/2 -translate-y-1/2 w-[55vw] h-[55vw] rounded-full bg-turquoise-600/10 blur-[120px] pulse-sphere"></div>
-        <div class="absolute top-[60%] -left-[10%] w-[50vw] h-[50vw] rounded-full bg-blue-900/15 blur-[140px] nebula-glow-1"></div>
-        <div class="absolute top-[40%] -right-[10%] w-[50vw] h-[50vw] rounded-full bg-indigo-950/20 blur-[150px] nebula-glow-2"></div>
         
-        <svg class="absolute inset-0 w-full h-full opacity-15 pointer-events-none" xmlns="http://www.w3.org/2000/svg">
-            <circle cx="50%" cy="40%" r="250" fill="none" stroke="rgba(45,212,191,0.2)" stroke-width="1" stroke-dasharray="6 6" class="orbit-ring" style="transform-origin: center;" />
-            <circle cx="50%" cy="40%" r="380" fill="none" stroke="rgba(255,255,255,0.08)" stroke-width="1" class="orbit-ring-rev" style="transform-origin: center;" />
-            <path d="M0,200 Q400,100 800,300 T1400,200" fill="none" stroke="rgba(45,212,191,0.15)" stroke-width="1.5"/>
+        <div class="absolute top-[25%] left-1/2 -translate-x-1/2 -translate-y-1/2 w-[60vw] h-[60vw] max-w-[700px] max-h-[700px] rounded-full bg-turquoise-500/15 blur-[130px] pulse-globe"></div>
+        <div class="absolute top-[50%] left-[15%] w-[45vw] h-[45vw] rounded-full bg-blue-600/15 blur-[140px] nebula-glow-1"></div>
+        <div class="absolute top-[35%] right-[10%] w-[50vw] h-[50vw] rounded-full bg-indigo-900/20 blur-[150px] nebula-glow-2"></div>
+        
+        <svg class="absolute inset-0 w-full h-full opacity-20 pointer-events-none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="50%" cy="35%" r="280" fill="none" stroke="rgba(45,212,191,0.25)" stroke-width="1.5" stroke-dasharray="8 8" class="orbit-ring" style="transform-origin: center;" />
+            <circle cx="50%" cy="35%" r="420" fill="none" stroke="rgba(255,255,255,0.08)" stroke-width="1" class="orbit-ring-rev" style="transform-origin: center;" />
         </svg>
     </div>
 
     <div class="relative z-10 flex flex-col min-h-screen">
         
-        <header class="w-full border-b border-white/10 backdrop-blur-xl bg-[#05070f]/80 sticky top-0 z-50">
+        <header class="w-full border-b border-white/10 backdrop-blur-xl bg-[#05070f]/85 sticky top-0 z-50">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 h-20 flex items-center justify-between">
                 
-                <a href="#" class="flex items-center gap-3 group">
+                <a href="#home" class="flex items-center gap-3 group">
                     <img src="logo.png" alt="Echoes of Humanity Logo" class="h-11 sm:h-12 w-auto object-contain filter drop-shadow-[0_0_12px_rgba(45,212,191,0.4)]">
                     <div class="flex flex-col">
                         <span class="text-[9px] sm:text-[10px] tracking-[0.25em] text-slate-400 font-light">ECHOES</span>
@@ -98,20 +88,20 @@
 
                 <div class="flex items-center gap-3">
                     <div class="relative">
-                        <button onclick="toggleLangMenu()" aria-label="Language Selector" class="w-10 h-10 rounded-full border border-white/10 bg-white/5 flex items-center justify-center text-slate-300 hover:bg-turquoise-500/20 hover:text-turquoise-400 hover:border-turquoise-500/40 transition-all text-sm">
+                        <button onclick="toggleLangMenu()" aria-label="Language Selector" class="w-10 h-10 rounded-full border border-white/10 bg-white/5 flex items-center justify-center text-slate-300 hover:bg-turquoise-500/20 hover:text-turquoise-400 hover:border-turquoise-500/40 transition-all text-sm cursor-pointer">
                             🌐
                         </button>
                         <div id="langDropdown" class="absolute right-0 top-12 w-36 rounded-2xl bg-[#0a0e1a]/95 border border-white/10 backdrop-blur-2xl shadow-2xl lang-hidden py-2 z-50">
                             <button onclick="setLanguage('en')" class="w-full px-4 py-2.5 text-left text-xs text-slate-200 hover:bg-white/10 flex items-center gap-3 transition-colors">
-                                <span class="text-base">🇬🇧</span> <span class="font-medium">EN</span>
+                                <span class="text-base">🇬🇧</span> <span class="font-medium">English</span>
                             </button>
                             <button onclick="setLanguage('tr')" class="w-full px-4 py-2.5 text-left text-xs text-slate-200 hover:bg-white/10 flex items-center gap-3 transition-colors">
-                                <span class="text-base">🇹🇷</span> <span class="font-medium">TR</span>
+                                <span class="text-base">🇹🇷</span> <span class="font-medium">Türkçe</span>
                             </button>
                         </div>
                     </div>
 
-                    <button onclick="toggleMobileMenu()" aria-label="Toggle Menu" class="w-10 h-10 rounded-full border border-white/10 bg-white/5 flex flex-col items-center justify-center gap-1.5 text-slate-200 hover:bg-turquoise-500/20 hover:border-turquoise-500/40 transition-all">
+                    <button onclick="toggleMobileMenu()" aria-label="Toggle Menu" class="w-10 h-10 rounded-full border border-white/10 bg-white/5 flex flex-col items-center justify-center gap-1.5 text-slate-200 hover:bg-turquoise-500/20 hover:border-turquoise-500/40 transition-all cursor-pointer">
                         <span class="w-4 h-0.5 bg-slate-200 rounded-full"></span>
                         <span class="w-4 h-0.5 bg-slate-200 rounded-full"></span>
                         <span class="w-2.5 h-0.5 bg-slate-200 rounded-full self-start ml-3"></span>
@@ -121,16 +111,16 @@
         </header>
 
         <div id="mobileMenu" class="fixed inset-0 bg-[#05070f]/98 backdrop-blur-3xl z-40 menu-hidden flex flex-col overflow-y-auto px-6 py-12">
-            <div class="max-w-md mx-auto w-full pt-10 pb-16 space-y-8">
+            <div class="max-w-md mx-auto w-full pt-6 pb-16 space-y-8">
                 <div class="flex items-center justify-between border-b border-white/10 pb-4">
-                    <span class="text-xs uppercase tracking-[0.3em] text-turquoise-400 font-mono font-medium">Navigation Menu</span>
-                    <button onclick="toggleMobileMenu()" aria-label="Close Menu" class="w-9 h-9 rounded-full border border-white/10 bg-white/5 flex items-center justify-center text-slate-300 hover:bg-white/10">✕</button>
+                    <span class="text-xs uppercase tracking-[0.3em] text-turquoise-400 font-mono font-medium">Navigation Hub</span>
+                    <button onclick="toggleMobileMenu()" aria-label="Close Menu" class="w-9 h-9 rounded-full border border-white/10 bg-white/5 flex items-center justify-center text-slate-300 hover:bg-white/10 cursor-pointer">✕</button>
                 </div>
 
                 <div class="space-y-3">
-                    <span class="text-[11px] font-mono text-turquoise-400 uppercase tracking-widest block">🌐 About</span>
-                    <nav class="flex flex-col space-y-2.5 pl-3 border-l border-white/10 text-lg font-light text-slate-300">
-                        <a href="#" onclick="toggleMobileMenu()" class="hover:text-turquoise-400 transition-colors">Home</a>
+                    <span class="text-[11px] font-mono text-turquoise-400 uppercase tracking-widest block">🌐 1. About</span>
+                    <nav class="flex flex-col space-y-2.5 pl-3 border-l border-white/10 text-base font-light text-slate-300">
+                        <a href="#home" onclick="toggleMobileMenu()" class="hover:text-turquoise-400 transition-colors">Home</a>
                         <a href="#about" onclick="toggleMobileMenu()" class="hover:text-turquoise-400 transition-colors">About</a>
                         <a href="#vision" onclick="toggleMobileMenu()" class="hover:text-turquoise-400 transition-colors">Vision</a>
                         <a href="#mission" onclick="toggleMobileMenu()" class="hover:text-turquoise-400 transition-colors">Mission</a>
@@ -139,9 +129,9 @@
                 </div>
 
                 <div class="space-y-3">
-                    <span class="text-[11px] font-mono text-amber-400 uppercase tracking-widest block">🤝 Action</span>
-                    <nav class="flex flex-col space-y-2.5 pl-3 border-l border-white/10 text-lg font-light text-slate-300">
-                        <a href="#action" onclick="toggleMobileMenu()" class="hover:text-turquoise-400 transition-colors">Humanitarian Action</a>
+                    <span class="text-[11px] font-mono text-amber-400 uppercase tracking-widest block">🤝 2. Action</span>
+                    <nav class="flex flex-col space-y-2.5 pl-3 border-l border-white/10 text-base font-light text-slate-300">
+                        <a href="#humanitarian" onclick="toggleMobileMenu()" class="hover:text-turquoise-400 transition-colors">Humanitarian Action</a>
                         <a href="#projects" onclick="toggleMobileMenu()" class="hover:text-turquoise-400 transition-colors">Projects</a>
                         <a href="#volunteers" onclick="toggleMobileMenu()" class="hover:text-turquoise-400 transition-colors">Volunteers</a>
                         <a href="#academy" onclick="toggleMobileMenu()" class="hover:text-turquoise-400 transition-colors">Academy</a>
@@ -150,8 +140,8 @@
                 </div>
 
                 <div class="space-y-3">
-                    <span class="text-[11px] font-mono text-pink-400 uppercase tracking-widest block">🛍️ Network</span>
-                    <nav class="flex flex-col space-y-2.5 pl-3 border-l border-white/10 text-lg font-light text-slate-300">
+                    <span class="text-[11px] font-mono text-pink-400 uppercase tracking-widest block">🛍️ 3. Network</span>
+                    <nav class="flex flex-col space-y-2.5 pl-3 border-l border-white/10 text-base font-light text-slate-300">
                         <a href="#marketplace" onclick="toggleMobileMenu()" class="hover:text-turquoise-400 transition-colors">Marketplace</a>
                         <a href="#merchandise" onclick="toggleMobileMenu()" class="hover:text-turquoise-400 transition-colors">Merchandise</a>
                         <a href="#partners" onclick="toggleMobileMenu()" class="hover:text-turquoise-400 transition-colors">Partners</a>
@@ -160,98 +150,97 @@
                 </div>
 
                 <div class="pt-6 text-center text-xs text-slate-400 font-light border-t border-white/10">
-                    Echoes of Humanity &copy; 2026 — Digital Civilization Without Borders
+                    Echoes of Humanity &copy; 2026
                 </div>
             </div>
         </div>
 
-        <main class="flex-grow">
-            <section class="max-w-5xl mx-auto px-6 pt-20 pb-16 text-center relative">
+        <main class="flex-grow space-y-28 pb-20">
+            
+            <section id="home" class="max-w-5xl mx-auto px-6 pt-24 pb-16 text-center relative">
                 <div class="inline-block px-4 py-1.5 rounded-full border border-turquoise-500/30 bg-turquoise-500/10 text-turquoise-400 text-xs tracking-widest uppercase mb-6 font-mono">
                     Digital Civilization Without Borders
                 </div>
-
                 <h1 class="text-3xl sm:text-5xl md:text-6xl font-light tracking-tight text-white mb-6 leading-[1.2]">
                     Building A Digital <br>
                     <span class="font-normal text-slate-300">Home For Humanity</span>
                 </h1>
                 <p class="text-base sm:text-xl text-slate-300 font-light max-w-2xl mx-auto mb-8 leading-relaxed">
-                    A global ecosystem where compassion, knowledge, creativity and human connection come together.
+                    A global ecosystem where compassion, knowledge, creativity and human connection converge.
                 </p>
-
                 <div class="flex flex-wrap items-center justify-center gap-3 sm:gap-6 text-xs sm:text-sm text-slate-400 font-mono tracking-wider mb-10">
-                    <span class="hover:text-turquoise-400 transition-colors">Protect</span> • 
-                    <span class="hover:text-turquoise-400 transition-colors">Connect</span> • 
-                    <span class="hover:text-turquoise-400 transition-colors">Create</span> • 
-                    <span class="hover:text-turquoise-400 transition-colors">Share</span> • 
-                    <span class="hover:text-turquoise-400 transition-colors">Thrive</span>
+                    <span>Protect</span> • <span>Connect</span> • <span>Create</span> • <span>Share</span> • <span>Thrive</span>
                 </div>
-
                 <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
                     <a href="#contact" class="w-full sm:w-auto px-8 py-4 rounded-full bg-turquoise-500 text-[#05070f] font-medium text-sm hover:bg-turquoise-400 transition-all shadow-lg shadow-turquoise-500/20">
                         Join The Community
                     </a>
-                    <a href="#vision" class="w-full sm:w-auto px-8 py-4 rounded-full border border-white/20 text-slate-200 font-medium text-sm hover:bg-white/10 transition-all">
+                    <a href="#about" class="w-full sm:w-auto px-8 py-4 rounded-full border border-white/20 text-slate-200 font-medium text-sm hover:bg-white/10 transition-all">
                         Explore The Ecosystem
                     </a>
                 </div>
             </section>
 
-            <section id="vision" class="max-w-7xl mx-auto px-6 py-16">
-                <div class="text-center mb-14">
-                    <h2 class="text-2xl md:text-3xl font-light text-white mb-2">Pillars of the Ecosystem</h2>
-                    <p class="text-sm text-slate-400 font-light">Each card represents a living facet of our shared humanity.</p>
+            <section id="about" class="max-w-7xl mx-auto px-6">
+                <div class="text-center mb-12">
+                    <span class="text-xs font-mono text-turquoise-400 uppercase tracking-widest block mb-2">Section 1 / About</span>
+                    <h2 class="text-2xl md:text-4xl font-light text-white mb-3">About Echoes of Humanity</h2>
+                    <p class="text-sm text-slate-400 font-light max-w-xl mx-auto">An evolving framework designed to unite voices, preserve dignity, and foster sustainable global progress.</p>
                 </div>
-
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                    
-                    <div class="glass-card rounded-2xl p-8 flex flex-col justify-between relative overflow-hidden group">
-                        <div>
-                            <span class="text-xs font-mono text-turquoise-400 mb-3 block">01 / FOUNDATION</span>
-                            <h3 class="text-xl font-medium text-white mb-3">Our Vision</h3>
-                            <p class="text-sm text-slate-300 font-light leading-relaxed">
-                                Building a connected world rooted in dignity, shared responsibility, and enduring human hope.
-                            </p>
-                        </div>
-                        <div class="mt-8 pt-6 border-t border-white/10 flex items-center justify-between text-xs text-slate-300 group-hover:text-turquoise-400 transition-colors">
-                            <span>Explore Vision</span>
-                            <span>→</span>
-                        </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div class="glass-card rounded-2xl p-8">
+                        <h3 class="text-lg font-medium text-white mb-3">Our Core Origin</h3>
+                        <p class="text-sm text-slate-300 font-light leading-relaxed">Born out of the need for an empathetic digital sanctuary, Echoes connects isolated efforts into a unified planetary movement.</p>
                     </div>
-
-                    <div id="mission" class="glass-card rounded-2xl p-8 flex flex-col justify-between relative overflow-hidden group">
-                        <div>
-                            <span class="text-xs font-mono text-turquoise-400 mb-3 block">02 / PURPOSE</span>
-                            <h3 class="text-xl font-medium text-white mb-3">Our Mission</h3>
-                            <p class="text-sm text-slate-300 font-light leading-relaxed">
-                                Empowering global communities with open access to knowledge, empathetic collaboration, and tools for growth.
-                            </p>
-                        </div>
-                        <div class="mt-8 pt-6 border-t border-white/10 flex items-center justify-between text-xs text-slate-300 group-hover:text-turquoise-400 transition-colors">
-                            <span>Discover Mission</span>
-                            <span>→</span>
-                        </div>
+                    <div class="glass-card rounded-2xl p-8">
+                        <h3 class="text-lg font-medium text-white mb-3">Global Impact Architecture</h3>
+                        <p class="text-sm text-slate-300 font-light leading-relaxed">Utilizing structured collaboration models to ensure every contributor has an authentic voice and measurable outcome.</p>
                     </div>
-
-                    <div id="academy" class="glass-card rounded-2xl p-8 flex flex-col justify-between relative overflow-hidden group">
-                        <div>
-                            <span class="text-xs font-mono text-turquoise-400 mb-3 block">03 / LEARNING</span>
-                            <h3 class="text-xl font-medium text-white mb-3">Echoes Academy</h3>
-                            <p class="text-sm text-slate-300 font-light leading-relaxed">
-                                Knowledge creates possibility through global mentorship, structured learning pathways, and human expansion.
-                            </p>
-                        </div>
-                        <div class="mt-8 pt-6 border-t border-white/10 flex items-center justify-between text-xs text-slate-300 group-hover:text-turquoise-400 transition-colors">
-                            <span>Enter Academy</span>
-                            <span>→</span>
-                        </div>
-                    </div>
-
                 </div>
             </section>
 
-            <section id="manifesto" class="max-w-4xl mx-auto px-6 py-16 text-center">
-                <div class="glass-card rounded-3xl p-10 sm:p-14 relative overflow-hidden">
+            <section id="vision" class="max-w-7xl mx-auto px-6">
+                <div class="text-center mb-12">
+                    <span class="text-xs font-mono text-turquoise-400 uppercase tracking-widest block mb-2">Pillar / Vision</span>
+                    <h2 class="text-2xl md:text-4xl font-light text-white mb-3">Our Vision</h2>
+                    <p class="text-sm text-slate-400 font-light max-w-xl mx-auto">Creating a world where technology amplifies human compassion rather than replacing it.</p>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <div class="glass-card rounded-2xl p-8">
+                        <h3 class="text-lg font-medium text-white mb-3">Planetary Synergy</h3>
+                        <p class="text-sm text-slate-300 font-light leading-relaxed">Breaking down cultural and geographical barriers through open knowledge sharing.</p>
+                    </div>
+                    <div class="glass-card rounded-2xl p-8">
+                        <h3 class="text-lg font-medium text-white mb-3">Sustainable Hope</h3>
+                        <p class="text-sm text-slate-300 font-light leading-relaxed">Ensuring long-term ecological and psychological resilience for future generations.</p>
+                    </div>
+                    <div class="glass-card rounded-2xl p-8">
+                        <h3 class="text-lg font-medium text-white mb-3">Digital Dignity</h3>
+                        <p class="text-sm text-slate-300 font-light leading-relaxed">Guarantees privacy, respect, and equal opportunity across all digital touchpoints.</p>
+                    </div>
+                </div>
+            </section>
+
+            <section id="mission" class="max-w-7xl mx-auto px-6">
+                <div class="text-center mb-12">
+                    <span class="text-xs font-mono text-turquoise-400 uppercase tracking-widest block mb-2">Pillar / Mission</span>
+                    <h2 class="text-2xl md:text-4xl font-light text-white mb-3">Our Mission</h2>
+                    <p class="text-sm text-slate-400 font-light max-w-xl mx-auto">Empowering grassroots initiatives with tools, mentorship, and global distribution.</p>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div class="glass-card rounded-2xl p-8">
+                        <h3 class="text-lg font-medium text-white mb-3">Direct Empowerment</h3>
+                        <p class="text-sm text-slate-300 font-light leading-relaxed">Providing resources directly to communities in need without bureaucratic friction.</p>
+                    </div>
+                    <div class="glass-card rounded-2xl p-8">
+                        <h3 class="text-lg font-medium text-white mb-3">Transparent Action</h3>
+                        <p class="text-sm text-slate-300 font-light leading-relaxed">Tracking every initiative openly to maintain absolute trust among participants.</p>
+                    </div>
+                </div>
+            </section>
+
+            <section id="manifesto" class="max-w-4xl mx-auto px-6">
+                <div class="glass-card rounded-3xl p-10 sm:p-14 text-center relative overflow-hidden">
                     <span class="text-xs uppercase tracking-[0.35em] text-turquoise-400 mb-4 block font-mono">Our Core Code</span>
                     <h2 class="text-2xl sm:text-4xl font-light text-white mb-6">The Human Manifesto</h2>
                     <p class="text-slate-300 font-light leading-relaxed mb-8 max-w-2xl mx-auto text-sm sm:text-base">
@@ -262,54 +251,28 @@
                     </div>
                 </div>
             </section>
-        </main>
 
-        <footer id="contact" class="border-t border-white/10 bg-[#05070f] pt-14 pb-10">
-            <div class="max-w-7xl mx-auto px-6 text-center">
-                <p class="text-sm text-slate-300 font-light max-w-lg mx-auto mb-6 leading-relaxed">
-                    A message can become an idea. An idea can become a collaboration. And collaboration can create an echo that reaches farther than any one person could reach alone.
-                </p>
-                <p class="text-xs text-slate-400 font-light">&copy; 2026 Echoes of Humanity. All rights reserved.</p>
-            </div>
-        </footer>
+            <section id="humanitarian" class="max-w-7xl mx-auto px-6">
+                <div class="text-center mb-12">
+                    <span class="text-xs font-mono text-amber-400 uppercase tracking-widest block mb-2">Section 2 / Action</span>
+                    <h2 class="text-2xl md:text-4xl font-light text-white mb-3">Humanitarian Action</h2>
+                    <p class="text-sm text-slate-400 font-light max-w-xl mx-auto">Rapid response and sustained support where human dignity is tested.</p>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <div class="glass-card rounded-2xl p-8">
+                        <h3 class="text-lg font-medium text-white mb-3">Emergency Relief</h3>
+                        <p class="text-sm text-slate-300 font-light leading-relaxed">Immediate logistical aid deployed to disaster-stricken regions globally.</p>
+                    </div>
+                    <div class="glass-card rounded-2xl p-8">
+                        <h3 class="text-lg font-medium text-white mb-3">Community Health</h3>
+                        <p class="text-sm text-slate-300 font-light leading-relaxed">Access to basic medical supplies, psychological support, and sanitation.</p>
+                    </div>
+                    <div class="glass-card rounded-2xl p-8">
+                        <h3 class="text-lg font-medium text-white mb-3">Shelter & Sustenance</h3>
+                        <p class="text-sm text-slate-300 font-light leading-relaxed">Safe havens and nutritional programs for displaced populations.</p>
+                    </div>
+                </div>
+            </section>
 
-    </div>
-
-    <script>
-        function toggleMobileMenu() {
-            const menu = document.getElementById('mobileMenu');
-            const langDropdown = document.getElementById('langDropdown');
-            langDropdown.classList.remove('lang-visible');
-            langDropdown.classList.add('lang-hidden');
-
-            if (menu.classList.contains('menu-hidden')) {
-                menu.classList.remove('menu-hidden');
-                menu.classList.add('menu-visible');
-                document.body.style.overflow = 'hidden';
-            } else {
-                menu.classList.remove('menu-visible');
-                menu.classList.add('menu-hidden');
-                document.body.style.overflow = 'auto';
-            }
-        }
-
-        function toggleLangMenu() {
-            const langDropdown = document.getElementById('langDropdown');
-            if (langDropdown.classList.contains('lang-hidden')) {
-                langDropdown.classList.remove('lang-hidden');
-                langDropdown.classList.add('lang-visible');
-            } else {
-                langDropdown.classList.remove('lang-visible');
-                langDropdown.classList.add('lang-hidden');
-            }
-        }
-
-        function setLanguage(lang) {
-            toggleLangMenu();
-            // Dil değişim tetikleyicisi
-        }
-
-        // Menü dışına tıklandığında dil menüsünü kapat
-        window.addEventListener('click', function(e) {
-            const langDropdown = document.getElementById('langDropdown');
-            const langBtn
+            <section id="projects" class="max-w-7xl mx-auto px-6">
+  
