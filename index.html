@@ -20,94 +20,84 @@
         }
     </script>
     <style>
-        /* Organik Nefes Alma (Büyüyüp Küçülme) Animasyonları */
+        /* Organik Nefes Alma ve Nabız Animasyonları */
         @keyframes softPulse {
-            0%, 100% {
-                transform: scale(1);
-                box-shadow: 0 0 0 0 rgba(45, 212, 191, 0.4);
-            }
-            50% {
-                transform: scale(1.07);
-                box-shadow: 0 0 18px 4px rgba(45, 212, 191, 0.3);
-            }
+            0%, 100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(45, 212, 191, 0.25); }
+            50% { transform: scale(1.05); box-shadow: 0 0 14px 2px rgba(45, 212, 191, 0.15); }
         }
         @keyframes flagPulse {
             0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.15); }
+            50% { transform: scale(1.12); }
         }
         @keyframes globalGlobePulse {
-            0%, 100% { transform: scale(1); opacity: 0.4; }
-            50% { transform: scale(1.15); opacity: 0.7; }
+            0%, 100% { transform: scale(1); opacity: 0.3; }
+            50% { transform: scale(1.1); opacity: 0.55; }
         }
-        /* Logoda Bilinçaltı Yaşam Işıması */
         @keyframes lifeGlow {
-            0%, 100% {
-                filter: drop-shadow(0 0 4px rgba(45, 212, 191, 0.25));
-            }
-            50% {
-                filter: drop-shadow(0 0 14px rgba(45, 212, 191, 0.6));
-            }
+            0%, 100% { filter: drop-shadow(0 0 3px rgba(45, 212, 191, 0.2)); }
+            50% { filter: drop-shadow(0 0 10px rgba(45, 212, 191, 0.45)); }
         }
-        /* Hero Alanının Çok Daha Yavaş ve Sinematik Girişi (Menüden 2 Kat Yavaş) */
-        @keyframes cinematicHeroFade {
-            0% {
-                opacity: 0;
-                transform: translateY(30px) scale(0.98);
-            }
-            100% {
-                opacity: 1;
-                transform: translateY(0) scale(1);
-            }
+        
+        /* Bağımsız ve Farklı Zamanlamalarda Yanıp Sönen Işık Tanecikleri */
+        @keyframes starTwinkle1 {
+            0%, 100% { opacity: 0.2; transform: scale(0.8); }
+            50% { opacity: 0.9; transform: scale(1.2); }
+        }
+        @keyframes starTwinkle2 {
+            0%, 100% { opacity: 0.4; transform: scale(1); }
+            30% { opacity: 0.1; transform: scale(0.7); }
+            70% { opacity: 1; transform: scale(1.3); }
+        }
+        @keyframes starTwinkle3 {
+            0%, 100% { opacity: 0.3; transform: scale(0.9); }
+            40% { opacity: 0.8; transform: scale(1.1); }
+            80% { opacity: 0.2; transform: scale(0.6); }
         }
 
-        .pulse-button {
-            animation: softPulse 3.5s ease-in-out infinite;
+        /* Menüden İki Kat Daha Yavaş Sinematik Hero Girişi */
+        @keyframes cinematicHeroFade {
+            0% { opacity: 0; transform: translateY(40px) scale(0.97); }
+            100% { opacity: 1; transform: translateY(0) scale(1); }
         }
-        .pulse-flag {
-            animation: flagPulse 3.5s ease-in-out infinite;
-            display: inline-block;
-        }
-        .pulse-globe {
-            animation: globalGlobePulse 9s ease-in-out infinite;
-        }
-        .logo-life-glow {
-            animation: lifeGlow 4s ease-in-out infinite;
-        }
-        .cinematic-hero-entry {
-            animation: cinematicHeroFade 1.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-        }
+
+        .pulse-button { animation: softPulse 4s ease-in-out infinite; }
+        .pulse-flag { animation: flagPulse 4s ease-in-out infinite; display: inline-block; }
+        .pulse-globe { animation: globalGlobePulse 10s ease-in-out infinite; }
+        .logo-life-glow { animation: lifeGlow 5s ease-in-out infinite; }
+        .cinematic-hero-entry { animation: cinematicHeroFade 1.8s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+
+        .star-1 { animation: starTwinkle1 4.2s ease-in-out infinite; }
+        .star-2 { animation: starTwinkle2 6.5s ease-in-out infinite; }
+        .star-3 { animation: starTwinkle3 3.8s ease-in-out infinite; }
+        .star-4 { animation: starTwinkle1 7.1s ease-in-out infinite; }
+        .star-5 { animation: starTwinkle2 5.0s ease-in-out infinite; }
 
         .glass-header {
             background: rgba(5, 7, 15, 0.85);
             backdrop-filter: blur(20px);
             -webkit-backdrop-filter: blur(20px);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.06);
         }
 
         .glass-card {
-            background: rgba(10, 14, 26, 0.65);
+            background: rgba(10, 14, 26, 0.55);
             backdrop-filter: blur(16px);
             -webkit-backdrop-filter: blur(16px);
-            border: 1px solid rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.06);
             transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
         }
         .glass-card:hover {
-            border-color: rgba(45, 212, 191, 0.4);
+            border-color: rgba(45, 212, 191, 0.3);
             transform: translateY(-4px);
-            box-shadow: 0 15px 30px -10px rgba(45, 212, 191, 0.15);
+            background: rgba(13, 19, 34, 0.7);
         }
 
-        /* Sinematik Yukarıdan Aşağıya Açılma Menüsü */
         .menu-hidden { 
-            transform: translateY(-100%); 
-            opacity: 0; 
-            pointer-events: none; 
+            transform: translateY(-100%); opacity: 0; pointer-events: none; 
             transition: transform 0.7s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.5s ease; 
         }
         .menu-visible { 
-            transform: translateY(0); 
-            opacity: 1; 
-            pointer-events: auto; 
+            transform: translateY(0); opacity: 1; pointer-events: auto; 
             transition: transform 0.7s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.5s ease; 
         }
         
@@ -118,11 +108,17 @@
 <body class="bg-[#05070f] text-slate-100 font-sans antialiased min-h-screen relative selection:bg-turquoise-500 selection:text-white overflow-x-hidden">
 
     <div class="fixed inset-0 pointer-events-none z-0 overflow-hidden">
-        <div class="absolute inset-0 bg-gradient-to-b from-[#05070f] via-[#080c18] to-[#05070f]"></div>
-        <div class="absolute top-[15%] left-1/2 -translate-x-1/2 w-[75vw] h-[75vw] max-w-[900px] max-h-[900px] rounded-full bg-gradient-to-tr from-turquoise-500/15 via-blue-600/10 to-transparent blur-[130px] pulse-globe"></div>
-        <div class="absolute top-[30%] left-[20%] w-2 h-2 rounded-full bg-turquoise-400/60 blur-[1px]"></div>
-        <div class="absolute top-[50%] right-[25%] w-1.5 h-1.5 rounded-full bg-blue-300/50 blur-[1px]"></div>
-        <div class="absolute top-[70%] left-[30%] w-2 h-2 rounded-full bg-teal-300/40 blur-[1px]"></div>
+        <div class="absolute inset-0 bg-gradient-to-b from-[#05070f] via-[#070a14] to-[#05070f]"></div>
+        
+        <div class="absolute top-[12%] left-1/2 -translate-x-1/2 w-[70vw] h-[70vw] max-w-[850px] max-h-[850px] rounded-full bg-gradient-to-tr from-turquoise-500/10 via-blue-600/5 to-transparent blur-[140px] pulse-globe"></div>
+
+        <div class="absolute top-[18%] left-[22%] w-1.5 h-1.5 rounded-full bg-turquoise-300 star-1"></div>
+        <div class="absolute top-[28%] right-[24%] w-2 h-2 rounded-full bg-blue-200 star-2"></div>
+        <div class="absolute top-[42%] left-[15%] w-1 h-1 rounded-full bg-white star-3"></div>
+        <div class="absolute top-[55%] right-[18%] w-2 h-2 rounded-full bg-teal-200 star-4"></div>
+        <div class="absolute top-[70%] left-[28%] w-1.5 h-1.5 rounded-full bg-indigo-200 star-5"></div>
+        <div class="absolute top-[82%] right-[32%] w-1 h-1 rounded-full bg-turquoise-200 star-2"></div>
+        <div class="absolute top-[35%] left-[45%] w-1.5 h-1.5 rounded-full bg-white star-3"></div>
     </div>
 
     <div class="relative z-10 flex flex-col min-h-screen">
@@ -134,14 +130,14 @@
                     <img src="logo.png" alt="Echoes of Humanity Logo" class="h-10 sm:h-12 w-auto object-contain logo-life-glow">
                     <div class="flex flex-col">
                         <span class="text-[10px] sm:text-[11px] tracking-[0.3em] text-slate-300 font-medium">ECHOES</span>
-                        <span class="text-xs sm:text-sm font-bold tracking-wider text-white drop-shadow-[0_0_8px_rgba(255,255,255,0.2)]">OF HUMANITY</span>
+                        <span class="text-xs sm:text-sm font-bold tracking-wider text-white drop-shadow-[0_0_6px_rgba(255,255,255,0.15)]">OF HUMANITY</span>
                     </div>
                 </a>
 
                 <div class="flex items-center gap-3.5">
                     
                     <div class="relative">
-                        <button onclick="toggleLangMenu()" aria-label="Language Selector" class="w-10 h-10 rounded-full border border-turquoise-500/40 bg-white/5 flex items-center justify-center text-slate-200 hover:bg-turquoise-500/20 hover:border-turquoise-400 transition-all text-base cursor-pointer pulse-button">
+                        <button onclick="toggleLangMenu()" aria-label="Language Selector" class="w-10 h-10 rounded-full border border-turquoise-500/30 bg-white/5 flex items-center justify-center text-slate-200 hover:bg-turquoise-500/20 hover:border-turquoise-400 transition-all text-base cursor-pointer pulse-button">
                             🌐
                         </button>
                         <div id="langDropdown" class="absolute right-0 top-12 w-40 rounded-2xl bg-[#0a0e1a]/95 border border-white/10 backdrop-blur-2xl shadow-2xl lang-hidden py-2 z-50">
@@ -149,21 +145,21 @@
                                 <span class="text-base pulse-flag">🇬🇧</span> <span class="font-medium">English</span>
                             </button>
                             <button onclick="setLanguage('tr')" class="w-full px-4 py-2.5 text-left text-xs text-slate-200 hover:bg-white/10 flex items-center gap-3 transition-colors">
-                                <span class="text-base pulse-flag" style="animation-delay: 0.7s;">🇹🇷</span> <span class="font-medium">Türkçe</span>
+                                <span class="text-base pulse-flag" style="animation-delay: 0.8s;">🇹🇷</span> <span class="font-medium">Türkçe</span>
                             </button>
                             <button onclick="setLanguage('ru')" class="w-full px-4 py-2.5 text-left text-xs text-slate-200 hover:bg-white/10 flex items-center gap-3 transition-colors">
-                                <span class="text-base pulse-flag" style="animation-delay: 1.4s;">🇷🇺</span> <span class="font-medium">Русский</span>
+                                <span class="text-base pulse-flag" style="animation-delay: 1.6s;">🇷🇺</span> <span class="font-medium">Русский</span>
                             </button>
                             <button onclick="setLanguage('de')" class="w-full px-4 py-2.5 text-left text-xs text-slate-200 hover:bg-white/10 flex items-center gap-3 transition-colors">
-                                <span class="text-base pulse-flag" style="animation-delay: 2.1s;">🇩🇪</span> <span class="font-medium">Deutsch</span>
+                                <span class="text-base pulse-flag" style="animation-delay: 2.4s;">🇩🇪</span> <span class="font-medium">Deutsch</span>
                             </button>
                             <button onclick="setLanguage('es')" class="w-full px-4 py-2.5 text-left text-xs text-slate-200 hover:bg-white/10 flex items-center gap-3 transition-colors">
-                                <span class="text-base pulse-flag" style="animation-delay: 2.8s;">🇪🇸</span> <span class="font-medium">Español</span>
+                                <span class="text-base pulse-flag" style="animation-delay: 3.2s;">🇪🇸</span> <span class="font-medium">Español</span>
                             </button>
                         </div>
                     </div>
 
-                    <button onclick="toggleMobileMenu()" aria-label="Toggle Menu" class="w-10 h-10 rounded-full border border-turquoise-500/40 bg-white/5 flex flex-col items-center justify-center gap-1.5 text-slate-200 hover:bg-turquoise-500/20 hover:border-turquoise-400 transition-all cursor-pointer pulse-button">
+                    <button onclick="toggleMobileMenu()" aria-label="Toggle Menu" class="w-10 h-10 rounded-full border border-turquoise-500/30 bg-white/5 flex flex-col items-center justify-center gap-1.5 text-slate-200 hover:bg-turquoise-500/20 hover:border-turquoise-400 transition-all cursor-pointer pulse-button">
                         <span class="w-4 h-0.5 bg-slate-200 rounded-full"></span>
                         <span class="w-4 h-0.5 bg-slate-200 rounded-full"></span>
                         <span class="w-2.5 h-0.5 bg-slate-200 rounded-full self-start ml-3"></span>
@@ -217,14 +213,14 @@
         <main class="flex-grow flex flex-col justify-center px-4 sm:px-6 py-16 cinematic-hero-entry" id="home">
             <div class="max-w-5xl mx-auto w-full text-center space-y-8">
                 
-                <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-turquoise-500/30 bg-turquoise-500/10 text-turquoise-400 text-xs tracking-[0.25em] uppercase font-mono shadow-[0_0_20px_rgba(45,212,191,0.15)]">
+                <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-turquoise-500/30 bg-turquoise-500/10 text-turquoise-400 text-xs tracking-[0.25em] uppercase font-mono">
                     <span class="w-1.5 h-1.5 rounded-full bg-turquoise-400 animate-ping"></span>
                     Digital Civilization
                 </div>
 
                 <h1 class="text-4xl sm:text-6xl md:text-7xl font-extralight tracking-tight text-white leading-[1.1]">
                     Digital Civilization <br class="hidden sm:inline">
-                    <span class="font-normal bg-gradient-to-r from-white via-slate-200 to-turquoise-400 bg-clip-text text-transparent">Without Borders</span>
+                    <span class="font-normal bg-gradient-to-r from-white via-slate-200 to-turquoise-300 bg-clip-text text-transparent">Without Borders</span>
                 </h1>
 
                 <p class="max-w-2xl mx-auto text-base sm:text-lg text-slate-300 font-light leading-relaxed">
@@ -232,97 +228,59 @@
                 </p>
 
                 <div class="flex flex-wrap items-center justify-center gap-4 pt-4">
-                    <a href="#explore" class="px-8 py-3.5 rounded-full bg-turquoise-500 text-slate-950 font-medium text-sm hover:bg-turquoise-400 transition-all shadow-[0_0_25px_rgba(20,184,166,0.4)] hover:scale-105">
+                    <a href="#explore" class="px-8 py-3.5 rounded-full bg-turquoise-500 text-slate-950 font-medium text-sm hover:bg-turquoise-400 transition-all shadow-[0_0_20px_rgba(20,184,166,0.3)] hover:scale-105">
                         Explore Ecosystem
                     </a>
                     <a href="#manifesto" class="px-8 py-3.5 rounded-full border border-white/20 bg-white/5 text-slate-200 font-medium text-sm hover:bg-white/10 hover:border-turquoise-400/50 transition-all hover:scale-105">
                         Read Manifesto
                     </a>
                 </div>
-
             </div>
 
-            <div class="max-w-7xl mx-auto w-full mt-28 px-2 sm:px-6">
-                <div class="text-center mb-12 space-y-3">
-                    <span class="text-xs uppercase tracking-[0.3em] text-turquoise-400 font-mono">Core Pillars</span>
-                    <h2 class="text-2xl sm:text-3xl font-light text-white">The Architecture of Humanity</h2>
+            <div class="max-w-7xl mx-auto w-full mt-32 px-2 sm:px-6 space-y-24">
+                
+                <div class="space-y-10">
+                    <div class="text-center space-y-3">
+                        <span class="text-xs uppercase tracking-[0.3em] text-turquoise-400 font-mono">Core Pillars</span>
+                        <h2 class="text-2xl sm:text-3xl font-light text-white">The Architecture of Humanity</h2>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                        <div onclick="toggleCard(this)" class="glass-card rounded-3xl p-8 cursor-pointer relative overflow-hidden group">
+                            <div class="w-12 h-12 rounded-2xl bg-turquoise-500/10 border border-turquoise-500/30 flex items-center justify-center text-2xl mb-6 text-turquoise-400">🌐</div>
+                            <h3 class="text-lg font-medium text-white mb-3">Global Consciousness</h3>
+                            <p class="text-sm text-slate-400 font-light leading-relaxed">Bridging cultures and boundaries through unified digital philosophy and transparent networks.</p>
+                            <div class="mt-6 flex items-center gap-2 text-xs font-mono text-turquoise-400 opacity-80 group-hover:opacity-100"><span>Explore Module</span> <span>→</span></div>
+                        </div>
+
+                        <div onclick="toggleCard(this)" class="glass-card rounded-3xl p-8 cursor-pointer relative overflow-hidden group">
+                            <div class="w-12 h-12 rounded-2xl bg-amber-500/10 border border-amber-500/30 flex items-center justify-center text-2xl mb-6 text-amber-400">🤝</div>
+                            <h3 class="text-lg font-medium text-white mb-3">Humanitarian Action</h3>
+                            <p class="text-sm text-slate-400 font-light leading-relaxed">Direct impact initiatives driven by global volunteers and verified decentralized solidarity.</p>
+                            <div class="mt-6 flex items-center gap-2 text-xs font-mono text-amber-400 opacity-80 group-hover:opacity-100"><span>Explore Module</span> <span>→</span></div>
+                        </div>
+
+                        <div onclick="toggleCard(this)" class="glass-card rounded-3xl p-8 cursor-pointer relative overflow-hidden group">
+                            <div class="w-12 h-12 rounded-2xl bg-pink-500/10 border border-pink-500/30 flex items-center justify-center text-2xl mb-6 text-pink-400">🛍️</div>
+                            <h3 class="text-lg font-medium text-white mb-3">Ecosystem & Network</h3>
+                            <p class="text-sm text-slate-400 font-light leading-relaxed">Sustainable marketplace, merchandise, and collaborative tools powering the future.</p>
+                            <div class="mt-6 flex items-center gap-2 text-xs font-mono text-pink-400 opacity-80 group-hover:opacity-100"><span>Explore Module</span> <span>→</span></div>
+                        </div>
+                    </div>
                 </div>
 
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                    
-                    <div onclick="toggleCard(this)" class="glass-card rounded-3xl p-8 cursor-pointer relative overflow-hidden group">
-                        <div class="absolute top-0 right-0 w-32 h-32 bg-turquoise-500/5 rounded-full blur-2xl group-hover:bg-turquoise-500/15 transition-all"></div>
-                        <div class="w-12 h-12 rounded-2xl bg-turquoise-500/10 border border-turquoise-500/30 flex items-center justify-center text-2xl mb-6 text-turquoise-400">🌐</div>
-                        <h3 class="text-lg font-medium text-white mb-3">Global Consciousness</h3>
-                        <p class="text-sm text-slate-400 font-light leading-relaxed">Bridging cultures and boundaries through unified digital philosophy and transparent networks.</p>
-                        <div class="mt-6 flex items-center gap-2 text-xs font-mono text-turquoise-400 opacity-80 group-hover:opacity-100 transition-opacity">
-                            <span>Explore Module</span> <span>→</span>
-                        </div>
+                <div class="space-y-10" id="vision">
+                    <div class="text-center space-y-3">
+                        <span class="text-xs uppercase tracking-[0.3em] text-blue-400 font-mono">Strategic Vision</span>
+                        <h2 class="text-2xl sm:text-3xl font-light text-white">Shaping Tomorrow's Civilization</h2>
                     </div>
 
-                    <div onclick="toggleCard(this)" class="glass-card rounded-3xl p-8 cursor-pointer relative overflow-hidden group">
-                        <div class="absolute top-0 right-0 w-32 h-32 bg-amber-500/5 rounded-full blur-2xl group-hover:bg-amber-500/15 transition-all"></div>
-                        <div class="w-12 h-12 rounded-2xl bg-amber-500/10 border border-amber-500/30 flex items-center justify-center text-2xl mb-6 text-amber-400">🤝</div>
-                        <h3 class="text-lg font-medium text-white mb-3">Humanitarian Action</h3>
-                        <p class="text-sm text-slate-400 font-light leading-relaxed">Direct impact initiatives driven by global volunteers and verified decentralized solidarity.</p>
-                        <div class="mt-6 flex items-center gap-2 text-xs font-mono text-amber-400 opacity-80 group-hover:opacity-100 transition-opacity">
-                            <span>Explore Module</span> <span>→</span>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div onclick="toggleCard(this)" class="glass-card rounded-3xl p-8 cursor-pointer group">
+                            <div class="w-10 h-10 rounded-xl bg-blue-500/10 border border-blue-500/30 flex items-center justify-center text-xl mb-4 text-blue-400">🔭</div>
+                            <h3 class="text-lg font-medium text-white mb-2">Decentralized Vision</h3>
+                            <p class="text-sm text-slate-400 font-light leading-relaxed">Creating autonomous frameworks where every human voice contributes to planetary governance and cultural preservation.</p>
                         </div>
-                    </div>
-
-                    <div onclick="toggleCard(this)" class="glass-card rounded-3xl p-8 cursor-pointer relative overflow-hidden group">
-                        <div class="absolute top-0 right-0 w-32 h-32 bg-pink-500/5 rounded-full blur-2xl group-hover:bg-pink-500/15 transition-all"></div>
-                        <div class="w-12 h-12 rounded-2xl bg-pink-500/10 border border-pink-500/30 flex items-center justify-center text-2xl mb-6 text-pink-400">🛍️</div>
-                        <h3 class="text-lg font-medium text-white mb-3">Ecosystem & Network</h3>
-                        <p class="text-sm text-slate-400 font-light leading-relaxed">Sustainable marketplace, merchandise, and collaborative tools powering the future.</p>
-                        <div class="mt-6 flex items-center gap-2 text-xs font-mono text-pink-400 opacity-80 group-hover:opacity-100 transition-opacity">
-                            <span>Explore Module</span> <span>→</span>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-        </main>
-
-        <footer class="w-full border-t border-white/10 py-8 text-center text-xs text-slate-500 font-mono">
-            &copy; 2026 Echoes of Humanity. All rights reserved.
-        </footer>
-
-    </div>
-
-    <script>
-        function toggleMobileMenu() {
-            const menu = document.getElementById('mobileMenu');
-            const langDropdown = document.getElementById('langDropdown');
-            if(langDropdown) { langDropdown.classList.remove('lang-visible'); langDropdown.classList.add('lang-hidden'); }
-
-            if (menu.classList.contains('menu-hidden')) {
-                menu.classList.remove('menu-hidden');
-                menu.classList.add('menu-visible');
-                document.body.style.overflow = 'hidden';
-            } else {
-                menu.classList.remove('menu-visible');
-                menu.classList.add('menu-hidden');
-                document.body.style.overflow = 'auto';
-            }
-        }
-
-        function toggleLangMenu() {
-            const langDropdown = document.getElementById('langDropdown');
-            if (langDropdown.classList.contains('lang-hidden')) {
-                langDropdown.classList.remove('lang-hidden');
-                langDropdown.classList.add('lang-visible');
-            } else {
-                langDropdown.classList.remove('lang-visible');
-                langDropdown.classList.add('lang-hidden');
-            }
-        }
-
-        function setLanguage(lang) {
-            toggleLangMenu();
-        }
-
-        function toggleCard(cardElement) {
-            // Kartlara tıklandığında açılır/interaktif geri bildirim efekti
-            cardElement.classList.toggle('ring-2');
-        
+                        <div onclick="toggleCard(this)" class="glass-card rounded-3xl p-8 cursor-pointer group">
+                            <div class="w-10 h-10 rounded-xl bg-teal-500/10 border border-teal-500/30 flex items-center justify-center text-xl mb-4 text-teal-400">⚡</div>
+                            <h3 class=
