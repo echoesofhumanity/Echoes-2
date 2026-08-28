@@ -49,46 +49,95 @@
             transform: translateY(-4px);
             box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.7);
         }
+        
+        /* Modal & Menü Geçişleri */
+        .menu-hidden { transform: translateY(-100%); opacity: 0; pointer-events: none; transition: all 0.4s ease-in-out; }
+        .menu-visible { transform: translateY(0); opacity: 1; pointer-events: auto; transition: all 0.4s ease-in-out; }
     </style>
 </head>
 <body class="bg-[#05070f] text-slate-100 font-sans antialiased min-h-screen relative selection:bg-slate-700 selection:text-white">
 
-    <!-- ARKA PLAN GÖRSEL / EFEKTLERİ -->
+    <!-- SİNEMATİK ARKA PLAN EFEKTLERİ -->
     <div class="fixed inset-0 pointer-events-none z-0 overflow-hidden">
-        <div class="absolute inset-0 bg-[#05070f] opacity-95"></div>
-        <div class="absolute -top-[10%] -left-[10%] w-[70vw] h-[70vw] rounded-full bg-blue-900/20 blur-[100px] nebula-glow-1"></div>
-        <div class="absolute top-[30%] -right-[15%] w-[60vw] h-[60vw] rounded-full bg-indigo-950/25 blur-[130px] nebula-glow-2"></div>
+        <div class="absolute inset-0 bg-gradient-to-b from-[#05070f] via-[#0a0e1a] to-[#05070f] opacity-95"></div>
+        <div class="absolute -top-[10%] -left-[10%] w-[70vw] h-[70vw] rounded-full bg-blue-900/25 blur-[120px] nebula-glow-1"></div>
+        <div class="absolute top-[30%] -right-[15%] w-[60vw] h-[60vw] rounded-full bg-indigo-950/30 blur-[140px] nebula-glow-2"></div>
+        <div class="absolute -bottom-[10%] left-[15%] w-[65vw] h-[65vw] rounded-full bg-slate-800/20 blur-[130px] nebula-glow-1"></div>
+        <!-- Vektörel Harita / Yıldız Dokusu -->
+        <svg class="absolute inset-0 w-full h-full opacity-20 pointer-events-none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M100,150 Q300,100 500,200 T900,150" fill="none" stroke="rgba(255,255,255,0.08)" stroke-width="1.5"/>
+            <path d="M50,400 Q400,500 750,350 T1100,450" fill="none" stroke="rgba(255,255,255,0.05)" stroke-width="1"/>
+        </svg>
     </div>
 
-    <!-- ANA SAYFA İÇERİK KAPSAYICISI (Z-INDEX 10 İLE EN ÜSTTE) -->
+    <!-- ANA SAYFA İÇERİK KAPSAYICISI -->
     <div class="relative z-10 flex flex-col min-h-screen">
         
         <!-- ÜST MENÜ (HEADER) -->
         <header class="w-full border-b border-white/10 backdrop-blur-xl bg-[#05070f]/80 sticky top-0 z-50">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 h-20 flex items-center justify-between">
                 
-                <!-- Logo -->
+                <!-- Logo ve Marka İsmi -->
                 <a href="#" class="flex items-center gap-3 group">
-                    <img src="logo.png" alt="Echoes of Humanity Logo" class="h-12 w-auto object-contain filter drop-shadow-[0_0_12px_rgba(255,215,0,0.3)]">
-                    <div class="hidden sm:flex flex-col">
-                        <span class="text-[10px] tracking-[0.25em] text-slate-400 font-light">ECHOES</span>
-                        <span class="text-sm font-semibold tracking-wider text-slate-100">OF HUMANITY</span>
+                    <img src="logo.png" alt="Echoes of Humanity Logo" class="h-11 sm:h-12 w-auto object-contain filter drop-shadow-[0_0_12px_rgba(255,215,0,0.3)]">
+                    <div class="flex flex-col">
+                        <span class="text-[9px] sm:text-[10px] tracking-[0.25em] text-slate-400 font-light">ECHOES</span>
+                        <span class="text-xs sm:text-sm font-semibold tracking-wider text-slate-100">OF HUMANITY</span>
                     </div>
                 </a>
 
-                <!-- Sağ Butonlar -->
+                <!-- Sağ Butonlar (Dil, Join, Hamburger) -->
                 <div class="flex items-center gap-3 sm:gap-4">
-                    <button aria-label="Language" class="w-10 h-10 rounded-full border border-white/10 bg-white/5 flex items-center justify-center text-slate-300 hover:bg-white/10 hover:text-white transition-all text-sm">
+                    <!-- Dil Küresi Butonu -->
+                    <button onclick="toggleLangMenu()" aria-label="Language Selector" class="w-10 h-10 rounded-full border border-white/10 bg-white/5 flex items-center justify-center text-slate-300 hover:bg-white/10 hover:text-white transition-all text-sm relative">
                         🌐
                     </button>
+
+                    <!-- Join Butonu -->
                     <a href="#contact" class="hidden sm:inline-block text-xs uppercase tracking-widest px-5 py-2.5 rounded-full border border-white/15 hover:border-white/30 bg-white/5 hover:bg-white/10 transition-all text-slate-200 font-medium">
                         Join the Movement
                     </a>
+
+                    <!-- Hamburger Menü Butonu -->
+                    <button onclick="toggleMobileMenu()" aria-label="Toggle Menu" class="w-10 h-10 rounded-full border border-white/10 bg-white/5 flex flex-col items-center justify-center gap-1.5 text-slate-200 hover:bg-white/10 transition-all">
+                        <span class="w-4 h-0.5 bg-slate-200 rounded-full"></span>
+                        <span class="w-4 h-0.5 bg-slate-200 rounded-full"></span>
+                        <span class="w-2.5 h-0.5 bg-slate-200 rounded-full self-start ml-3"></span>
+                    </button>
                 </div>
             </div>
         </header>
 
-        <!-- HERO BÖLÜMÜ (GÖrünür Hale Getirildi) -->
+        <!-- AÇILIR DİL SEÇİM MENÜSÜ -->
+        <div id="langModal" class="fixed inset-x-0 top-20 bg-[#0a0e1a]/95 border-b border-white/10 backdrop-blur-2xl z-40 menu-hidden p-6 shadow-2xl">
+            <div class="max-w-md mx-auto text-center">
+                <h3 class="text-sm uppercase tracking-widest text-slate-400 mb-4">Select Language / Dil Seçin</h3>
+                <div class="grid grid-cols-2 gap-3">
+                    <button onclick="toggleLangMenu()" class="p-3 rounded-xl border border-white/10 bg-white/5 hover:bg-white/15 text-sm font-medium transition-all">English</button>
+                    <button onclick="toggleLangMenu()" class="p-3 rounded-xl border border-white/10 bg-white/5 hover:bg-white/15 text-sm font-medium transition-all">Türkçe</button>
+                    <button onclick="toggleLangMenu()" class="p-3 rounded-xl border border-white/10 bg-white/5 hover:bg-white/15 text-sm font-medium transition-all">Español</button>
+                    <button onclick="toggleLangMenu()" class="p-3 rounded-xl border border-white/10 bg-white/5 hover:bg-white/15 text-sm font-medium transition-all">Français</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- AÇILIR HAMBURGER FULL-SCREEN MENÜ -->
+        <div id="mobileMenu" class="fixed inset-0 bg-[#05070f]/98 backdrop-blur-3xl z-40 menu-hidden flex flex-col justify-center px-8 sm:px-16">
+            <div class="max-w-xl mx-w-full w-full space-y-6 text-center">
+                <span class="text-xs uppercase tracking-[0.3em] text-blue-400 font-mono">Navigation Hub</span>
+                <nav class="flex flex-col space-y-4 text-2xl sm:text-3xl font-light text-slate-200">
+                    <a href="#" onclick="toggleMobileMenu()" class="hover:text-blue-400 transition-colors">Home Universe</a>
+                    <a href="#vision" onclick="toggleMobileMenu()" class="hover:text-blue-400 transition-colors">Pillars & Academy</a>
+                    <a href="#manifesto" onclick="toggleMobileMenu()" class="hover:text-blue-400 transition-colors">Manifesto</a>
+                    <a href="#contact" onclick="toggleMobileMenu()" class="hover:text-blue-400 transition-colors">Contact & Network</a>
+                </nav>
+                <div class="pt-8">
+                    <button onclick="toggleMobileMenu()" class="px-8 py-3 rounded-full border border-white/20 text-sm tracking-widest uppercase hover:bg-white/10 transition-all">Close Menu</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- HERO BÖLÜMÜ -->
         <main class="flex-grow">
             <section class="max-w-5xl mx-auto px-6 pt-24 pb-16 text-center">
                 <span class="text-xs uppercase tracking-[0.35em] text-blue-400 mb-6 block font-medium">The Universe of Purpose</span>
@@ -109,7 +158,7 @@
                 </div>
             </section>
 
-            <!-- KARTLAR BÖLÜMÜ -->
+            <!-- KARTLAR BÖLÜMÜ (Pillars of the Ecosystem) -->
             <section id="vision" class="max-w-7xl mx-auto px-6 py-16">
                 <div class="text-center mb-14">
                     <h2 class="text-2xl md:text-3xl font-light text-white mb-2">Pillars of the Ecosystem</h2>
@@ -165,6 +214,20 @@
 
                 </div>
             </section>
+
+            <!-- MANİFESTO BÖLÜMÜ -->
+            <section id="manifesto" class="max-w-4xl mx-auto px-6 py-16 text-center">
+                <div class="glass-card rounded-3xl p-10 sm:p-14 relative overflow-hidden">
+                    <span class="text-xs uppercase tracking-[0.35em] text-indigo-400 mb-4 block font-mono">Our Core Code</span>
+                    <h2 class="text-2xl sm:text-4xl font-light text-white mb-6">The Human Manifesto</h2>
+                    <p class="text-slate-300 font-light leading-relaxed mb-8 max-w-2xl mx-auto text-sm sm:text-base">
+                        We believe technology should serve humanity, not replace its essence. Every voice matters, every story carries weight, and every connection builds a stronger future for generations to come.
+                    </p>
+                    <div class="inline-block px-6 py-2.5 rounded-full border border-white/20 text-xs font-mono tracking-widest uppercase text-slate-300 bg-white/5">
+                        Active Ecosystem Protocol
+                    </div>
+                </div>
+            </section>
         </main>
 
         <!-- FOOTER -->
@@ -178,6 +241,41 @@
         </footer>
 
     </div>
+
+    <!-- MENÜLERİN AÇILIP KAPANMASINI SAĞLAYAN JAVASCRIPT -->
+    <script>
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobileMenu');
+            const langModal = document.getElementById('langModal');
+            // Dil menüsü açıksa kapat
+            langModal.classList.remove('menu-visible');
+            langModal.classList.add('menu-hidden');
+            
+            if (menu.classList.contains('menu-hidden')) {
+                menu.classList.remove('menu-hidden');
+                menu.classList.add('menu-visible');
+            } else {
+                menu.classList.remove('menu-visible');
+                menu.classList.add('menu-hidden');
+            }
+        }
+
+        function toggleLangMenu() {
+            const langModal = document.getElementById('langModal');
+            const mobileMenu = document.getElementById('mobileMenu');
+            // Mobil menü açıksa kapat
+            mobileMenu.classList.remove('menu-visible');
+            mobileMenu.classList.add('menu-hidden');
+
+            if (langModal.classList.contains('menu-hidden')) {
+                langModal.classList.remove('menu-hidden');
+                langModal.classList.add('menu-visible');
+            } else {
+                langModal.classList.remove('menu-visible');
+                langModal.classList.add('menu-hidden');
+            }
+        }
+    </script>
 
 </body>
 </html>
