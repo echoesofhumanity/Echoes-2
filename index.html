@@ -30,28 +30,28 @@
         }
     </script>
     <style>
-        /* Karanlığın İçinde Umut Halesi */
+        /* Karanlığın İçinde Umut Halesi (Felsefeye uygun yumuşaklık) */
         @keyframes ambientPulse {
-            0%, 100% { opacity: 0.2; transform: scale(0.95); }
-            50% { opacity: 0.5; transform: scale(1.05); }
+            0%, 100% { opacity: 0.15; transform: scale(0.95); }
+            50% { opacity: 0.35; transform: scale(1.05); }
         }
-        .ambient-glow-1 { animation: ambientPulse 7s ease-in-out infinite; }
-        .ambient-glow-2 { animation: ambientPulse 9s ease-in-out infinite 2s; }
-        .ambient-glow-3 { animation: ambientPulse 8s ease-in-out infinite 4s; }
+        .ambient-glow-1 { animation: ambientPulse 8s ease-in-out infinite; }
+        .ambient-glow-2 { animation: ambientPulse 10s ease-in-out infinite 2s; }
+        .ambient-glow-3 { animation: ambientPulse 9s ease-in-out infinite 4s; }
 
-        /* Butonlar İçin Nefes Alma Efekti (Büyüyüp Küçülme) */
-        @keyframes breathing {
-            0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.06); }
+        /* Butonlar ve Bayraklar İçin Hafif, Huzurlu Nefes Alma (Pulse) Efekti */
+        @keyframes gentlePulse {
+            0%, 100% { transform: scale(1); opacity: 0.9; }
+            50% { transform: scale(1.04); opacity: 1; filter: drop-shadow(0 0 8px rgba(122, 193, 195, 0.3)); }
         }
         .breath-anim {
-            animation: breathing 4s ease-in-out infinite;
+            animation: gentlePulse 5s ease-in-out infinite;
         }
 
-        /* Daha Yavaş ve Yumuşak Yukarıdan Aşağıya Süzülen Menü */
+        /* Çok Daha Yavaş, Yumuşak ve Sinematik Menü Açılışı */
         .dropdown-menu {
-            transition: transform 0.7s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.6s ease;
-            transform: translateY(-30px);
+            transition: transform 0.9s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.8s ease;
+            transform: translateY(-40px);
             opacity: 0;
             pointer-events: none;
         }
@@ -62,7 +62,7 @@
         }
 
         .backdrop-fade {
-            transition: opacity 0.6s ease, visibility 0.6s ease;
+            transition: opacity 0.8s ease, visibility 0.8s ease;
         }
     </style>
 </head>
@@ -70,10 +70,10 @@
 
     <!-- ARKA PLAN: YAŞAYAN EVREN VE UMUT HALELERİ -->
     <div class="fixed inset-0 pointer-events-none z-0 overflow-hidden flex items-center justify-center">
-        <div class="absolute inset-0 bg-gradient-to-b from-space-900 via-space-800 to-space-900 opacity-90 z-10"></div>
+        <div class="absolute inset-0 bg-gradient-to-b from-space-900 via-space-800 to-space-900 opacity-95 z-10"></div>
         
-        <!-- Dünya Haritası Silüeti -->
-        <svg class="w-[120vw] md:w-[85vw] h-auto text-brand-teal/10 relative z-0 opacity-30" viewBox="0 0 1000 500" fill="none" stroke="currentColor" stroke-width="1">
+        <!-- Dünya Haritası Silüeti (Hissedilir, Sessiz) -->
+        <svg class="w-[120vw] md:w-[85vw] h-auto text-brand-teal/10 relative z-0 opacity-25" viewBox="0 0 1000 500" fill="none" stroke="currentColor" stroke-width="1">
             <path d="M150,120 Q180,100 220,130 T280,160 Q300,200 250,230 T180,210 Z"/>
             <path d="M220,260 Q260,250 280,300 T230,380 Q190,360 200,300 Z"/>
             <path d="M450,100 Q520,80 580,120 T550,220 Q480,240 440,180 Z"/>
@@ -82,9 +82,9 @@
         </svg>
 
         <!-- Arka Planda Küçük, Huzurlu Umut Işığı Haleleri -->
-        <div class="absolute top-[25%] left-[25%] w-32 h-32 rounded-full bg-teal-500/10 blur-[40px] ambient-glow-1 z-0"></div>
-        <div class="absolute top-[55%] right-[30%] w-40 h-40 rounded-full bg-blue-500/10 blur-[50px] ambient-glow-2 z-0"></div>
-        <div class="absolute top-[40%] left-[65%] w-24 h-24 rounded-full bg-amber-500/5 blur-[35px] ambient-glow-3 z-0"></div>
+        <div class="absolute top-[25%] left-[25%] w-40 h-40 rounded-full bg-teal-500/10 blur-[50px] ambient-glow-1 z-0"></div>
+        <div class="absolute top-[55%] right-[30%] w-48 h-48 rounded-full bg-blue-500/10 blur-[60px] ambient-glow-2 z-0"></div>
+        <div class="absolute top-[40%] left-[65%] w-32 h-32 rounded-full bg-amber-500/5 blur-[45px] ambient-glow-3 z-0"></div>
     </div>
 
     <div class="relative z-10 flex flex-col min-h-screen">
@@ -104,7 +104,7 @@
                     </div>
                 </a>
 
-                <!-- Sağ Alan: Hamburger Menü & Dil Küresi (Nefes Alan Butonlar) -->
+                <!-- Sağ Alan: Hamburger Menü & Dil Küresi (Nefes Alan Tasarım) -->
                 <div class="flex items-center gap-3 relative">
                     
                     <!-- Hamburger Menü Butonu -->
@@ -116,15 +116,15 @@
 
                     <!-- Dil Küresi ve Açılır Menü -->
                     <div class="relative">
-                        <button onclick="toggleLangMenu()" aria-label="Language Selector" class="w-11 h-11 rounded-full border border-white/15 bg-white/5 flex items-center justify-center text-slate-200 hover:bg-white/10 hover:border-white/30 transition-all shadow-lg breath-anim" style="animation-delay: 2s;">
+                        <button onclick="toggleLangMenu()" aria-label="Language Selector" class="w-11 h-11 rounded-full border border-white/15 bg-white/5 flex items-center justify-center text-slate-200 hover:bg-white/10 hover:border-white/30 transition-all shadow-lg breath-anim" style="animation-delay: 2.5s;">
                             🌐
                         </button>
                         <div id="langDropdown" class="hidden absolute right-0 mt-2 w-40 rounded-xl bg-space-800/95 border border-white/15 shadow-2xl overflow-hidden py-1 z-50 backdrop-blur-2xl">
                             <a href="#" class="flex items-center gap-3 px-4 py-2.5 text-sm text-slate-200 hover:bg-white/10 transition-colors">
-                                <span class="text-base">🇬🇧</span> EN
+                                <span class="text-base breath-anim">🇬🇧</span> EN
                             </a>
                             <a href="#" class="flex items-center gap-3 px-4 py-2.5 text-sm text-slate-200 hover:bg-white/10 transition-colors">
-                                <span class="text-base">🇹🇷</span> TR
+                                <span class="text-base breath-anim" style="animation-delay: 1s;">🇹🇷</span> TR
                             </a>
                         </div>
                     </div>
@@ -134,18 +134,18 @@
         </header>
 
         <!-- Sinematik Karartma Perdesi -->
-        <div id="menuBackdrop" class="fixed inset-0 bg-black/70 backdrop-blur-md z-40 opacity-0 pointer-events-none backdrop-fade" onclick="toggleMobileMenu()"></div>
+        <div id="menuBackdrop" class="fixed inset-0 bg-black/75 backdrop-blur-md z-40 opacity-0 pointer-events-none backdrop-fade" onclick="toggleMobileMenu()"></div>
 
-        <!-- YUKARIDAN AŞAĞIya İNEN SİNEMATİK MENÜ PANELİ -->
+        <!-- YUKARIDAN AŞAĞIYA YAVAŞ VE SİNEMATİK İNEN MENÜ PANELİ -->
         <div id="mobileDrawer" class="fixed inset-x-0 top-0 max-h-[85vh] bg-space-800/98 backdrop-blur-2xl border-b border-white/15 z-50 dropdown-menu shadow-2xl p-6 sm:p-10 overflow-y-auto rounded-b-3xl">
-            <div class="max-w-3xl mx-auto">
+            <div class="max-w-4xl mx-auto">
                 <!-- Menü Başlığı ve Kapatma Butonu -->
                 <div class="flex items-center justify-between pb-6 border-b border-white/10 mb-8">
-                    <span class="text-xs font-semibold tracking-[0.25em] text-brand-teal uppercase">Navigation Menu</span>
+                    <span class="text-xs font-semibold tracking-[0.25em] text-brand-teal uppercase">Navigation Menu — Digital Civilization</span>
                     <button onclick="toggleMobileMenu()" class="w-9 h-9 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-white hover:bg-white/15 transition-all">✕</button>
                 </div>
 
-                <!-- Tüm Kategoriler (Tam Liste) -->
+                <!-- Eksiksiz Kategori Listesi -->
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-8 pb-6">
                     <!-- Bölüm 1: About -->
                     <div>
@@ -175,7 +175,7 @@
                         </div>
                     </div>
 
-                    <!-- Bölüm 3: Network (Tamamı eklendi) -->
+                    <!-- Bölüm 3: Network -->
                     <div>
                         <div class="flex items-center gap-2 text-xs font-mono text-teal-300 mb-4 uppercase tracking-wider">
                             <span>🛍️</span> Network
@@ -190,7 +190,7 @@
                 </div>
 
                 <div class="text-xs text-slate-500 text-center pt-6 border-t border-white/10">
-                    Echoes of Humanity &copy; 2026 — Digital Civilization Without Borders
+                    One Humanity. One Home. One Future. &copy; 2026 Echoes of Humanity.
                 </div>
             </div>
         </div>
@@ -273,4 +273,5 @@
         }
     </script>
 </body>
-</html>
+    </html>
+    
