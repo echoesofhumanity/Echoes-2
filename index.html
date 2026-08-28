@@ -51,8 +51,19 @@
             border-bottom: 1px solid rgba(255, 255, 255, 0.08);
         }
 
-        .menu-hidden { transform: translateX(100%); opacity: 0; pointer-events: none; transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1); }
-        .menu-visible { transform: translateX(0); opacity: 1; pointer-events: auto; transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1); }
+        /* Yavaş ve Sinematik Yukarıdan Aşağıya Açılma Animasyonu */
+        .menu-hidden { 
+            transform: translateY(-100%); 
+            opacity: 0; 
+            pointer-events: none; 
+            transition: transform 0.7s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.5s ease; 
+        }
+        .menu-visible { 
+            transform: translateY(0); 
+            opacity: 1; 
+            pointer-events: auto; 
+            transition: transform 0.7s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.5s ease; 
+        }
         
         .lang-hidden { opacity: 0; transform: translateY(-10px); pointer-events: none; transition: all 0.3s ease; }
         .lang-visible { opacity: 1; transform: translateY(0); pointer-events: auto; transition: all 0.3s ease; }
@@ -85,18 +96,27 @@
                 <!-- Sağ: Nefes Alan Dil Küresi ve Hamburger Menü -->
                 <div class="flex items-center gap-3.5">
                     
-                    <!-- Dil Seçici (Nefes Alan Globe) -->
+                    <!-- Dil Seçici (Nefes Alan Globe) ve 5 Dil Menüsü -->
                     <div class="relative">
                         <button onclick="toggleLangMenu()" aria-label="Language Selector" class="w-10 h-10 rounded-full border border-turquoise-500/40 bg-white/5 flex items-center justify-center text-slate-200 hover:bg-turquoise-500/20 hover:border-turquoise-400 transition-all text-base cursor-pointer pulse-button">
                             🌐
                         </button>
-                        <!-- Dil Açılır Menüsü -->
-                        <div id="langDropdown" class="absolute right-0 top-12 w-36 rounded-2xl bg-[#0a0e1a]/95 border border-white/10 backdrop-blur-2xl shadow-2xl lang-hidden py-2 z-50">
+                        <!-- 5 Dilli Açılır Menü -->
+                        <div id="langDropdown" class="absolute right-0 top-12 w-40 rounded-2xl bg-[#0a0e1a]/95 border border-white/10 backdrop-blur-2xl shadow-2xl lang-hidden py-2 z-50">
                             <button onclick="setLanguage('en')" class="w-full px-4 py-2.5 text-left text-xs text-slate-200 hover:bg-white/10 flex items-center gap-3 transition-colors">
-                                <span class="text-base">🇬🇧</span> <span class="font-medium">EN</span>
+                                <span class="text-base">🇬🇧</span> <span class="font-medium">English</span>
                             </button>
                             <button onclick="setLanguage('tr')" class="w-full px-4 py-2.5 text-left text-xs text-slate-200 hover:bg-white/10 flex items-center gap-3 transition-colors">
-                                <span class="text-base">🇹🇷</span> <span class="font-medium">TR</span>
+                                <span class="text-base">🇹🇷</span> <span class="font-medium">Türkçe</span>
+                            </button>
+                            <button onclick="setLanguage('ru')" class="w-full px-4 py-2.5 text-left text-xs text-slate-200 hover:bg-white/10 flex items-center gap-3 transition-colors">
+                                <span class="text-base">🇷🇺</span> <span class="font-medium">Русский</span>
+                            </button>
+                            <button onclick="setLanguage('de')" class="w-full px-4 py-2.5 text-left text-xs text-slate-200 hover:bg-white/10 flex items-center gap-3 transition-colors">
+                                <span class="text-base">🇩🇪</span> <span class="font-medium">Deutsch</span>
+                            </button>
+                            <button onclick="setLanguage('es')" class="w-full px-4 py-2.5 text-left text-xs text-slate-200 hover:bg-white/10 flex items-center gap-3 transition-colors">
+                                <span class="text-base">🇪🇸</span> <span class="font-medium">Español</span>
                             </button>
                         </div>
                     </div>
@@ -112,7 +132,7 @@
             </div>
         </header>
 
-        <!-- 3 BÖLÜMLÜ FULL-SCREEN NAVİGASYON PANELİ -->
+        <!-- SİNEMATİK YUKARIDAN AŞAĞIYA İNEN 3 BÖLÜMLÜ NAVİGASYON PANELİ -->
         <div id="mobileMenu" class="fixed inset-0 bg-[#05070f]/98 backdrop-blur-3xl z-40 menu-hidden flex flex-col overflow-y-auto px-6 py-12">
             <div class="max-w-md mx-auto w-full pt-6 pb-16 space-y-8">
                 <div class="flex items-center justify-between border-b border-white/10 pb-4">
@@ -157,11 +177,11 @@
             </div>
         </div>
 
-        <!-- İÇERİK ALANI (BURAYA BİR SONRAKİ ADIMDA HERO BÖLÜMÜNÜ EKLEYECEĞİZ) -->
+        <!-- İÇERİK ALANI -->
         <main class="flex-grow flex items-center justify-center text-center px-6 py-20">
             <div class="max-w-xl space-y-4">
-                <span class="text-xs font-mono text-turquoise-400 tracking-widest uppercase">Header & Animatons Locked</span>
-                <h2 class="text-2xl font-light text-white">Header Hazır. Şimdi Hero Bölümüne Geçmeye Hazırız.</h2>
+                <span class="text-xs font-mono text-turquoise-400 tracking-widest uppercase">Header & Cinematic Transition Locked</span>
+                <h2 class="text-2xl font-light text-white">Sinematik Menü ve 5 Dil Desteği Hazır.</h2>
             </div>
         </main>
 
@@ -211,3 +231,4 @@
     </script>
 </body>
 </html>
+
