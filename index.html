@@ -32,6 +32,14 @@
                 box-shadow: 0 0 18px 4px rgba(45, 212, 191, 0.3);
             }
         }
+        @keyframes flagPulse {
+            0%, 100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.15);
+            }
+        }
         @keyframes globalGlobePulse {
             0%, 100% { transform: scale(1); opacity: 0.35; }
             50% { transform: scale(1.12); opacity: 0.65; }
@@ -39,6 +47,10 @@
 
         .pulse-button {
             animation: softPulse 3.5s ease-in-out infinite;
+        }
+        .pulse-flag {
+            animation: flagPulse 3.5s ease-in-out infinite;
+            display: inline-block;
         }
         .pulse-globe {
             animation: globalGlobePulse 8s ease-in-out infinite;
@@ -96,7 +108,7 @@
                 <!-- Sağ: Nefes Alan Dil Küresi ve Hamburger Menü -->
                 <div class="flex items-center gap-3.5">
                     
-                    <!-- Dil Seçici (Nefes Alan Globe) ve 5 Dil Menüsü -->
+                    <!-- Dil Seçici (Nefes Alan Globe) ve 5 Dil Menüsü (Nefes Alan Bayraklar) -->
                     <div class="relative">
                         <button onclick="toggleLangMenu()" aria-label="Language Selector" class="w-10 h-10 rounded-full border border-turquoise-500/40 bg-white/5 flex items-center justify-center text-slate-200 hover:bg-turquoise-500/20 hover:border-turquoise-400 transition-all text-base cursor-pointer pulse-button">
                             🌐
@@ -104,19 +116,19 @@
                         <!-- 5 Dilli Açılır Menü -->
                         <div id="langDropdown" class="absolute right-0 top-12 w-40 rounded-2xl bg-[#0a0e1a]/95 border border-white/10 backdrop-blur-2xl shadow-2xl lang-hidden py-2 z-50">
                             <button onclick="setLanguage('en')" class="w-full px-4 py-2.5 text-left text-xs text-slate-200 hover:bg-white/10 flex items-center gap-3 transition-colors">
-                                <span class="text-base">🇬🇧</span> <span class="font-medium">English</span>
+                                <span class="text-base pulse-flag">🇬🇧</span> <span class="font-medium">English</span>
                             </button>
                             <button onclick="setLanguage('tr')" class="w-full px-4 py-2.5 text-left text-xs text-slate-200 hover:bg-white/10 flex items-center gap-3 transition-colors">
-                                <span class="text-base">🇹🇷</span> <span class="font-medium">Türkçe</span>
+                                <span class="text-base pulse-flag" style="animation-delay: 0.7s;">🇹🇷</span> <span class="font-medium">Türkçe</span>
                             </button>
                             <button onclick="setLanguage('ru')" class="w-full px-4 py-2.5 text-left text-xs text-slate-200 hover:bg-white/10 flex items-center gap-3 transition-colors">
-                                <span class="text-base">🇷🇺</span> <span class="font-medium">Русский</span>
+                                <span class="text-base pulse-flag" style="animation-delay: 1.4s;">🇷🇺</span> <span class="font-medium">Русский</span>
                             </button>
                             <button onclick="setLanguage('de')" class="w-full px-4 py-2.5 text-left text-xs text-slate-200 hover:bg-white/10 flex items-center gap-3 transition-colors">
-                                <span class="text-base">🇩🇪</span> <span class="font-medium">Deutsch</span>
+                                <span class="text-base pulse-flag" style="animation-delay: 2.1s;">🇩🇪</span> <span class="font-medium">Deutsch</span>
                             </button>
                             <button onclick="setLanguage('es')" class="w-full px-4 py-2.5 text-left text-xs text-slate-200 hover:bg-white/10 flex items-center gap-3 transition-colors">
-                                <span class="text-base">🇪🇸</span> <span class="font-medium">Español</span>
+                                <span class="text-base pulse-flag" style="animation-delay: 2.8s;">🇪🇸</span> <span class="font-medium">Español</span>
                             </button>
                         </div>
                     </div>
@@ -180,8 +192,8 @@
         <!-- İÇERİK ALANI -->
         <main class="flex-grow flex items-center justify-center text-center px-6 py-20">
             <div class="max-w-xl space-y-4">
-                <span class="text-xs font-mono text-turquoise-400 tracking-widest uppercase">Header & Cinematic Transition Locked</span>
-                <h2 class="text-2xl font-light text-white">Sinematik Menü ve 5 Dil Desteği Hazır.</h2>
+                <span class="text-xs font-mono text-turquoise-400 tracking-widest uppercase">Header & Flags Animation Locked</span>
+                <h2 class="text-2xl font-light text-white">Bayraklar da Artık Nefes Alıyor.</h2>
             </div>
         </main>
 
@@ -231,4 +243,3 @@
     </script>
 </body>
 </html>
-
