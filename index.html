@@ -30,7 +30,7 @@
         }
     </script>
     <style>
-        /* Karanlığın İçinde Umut Halesi (Yumuşak, Küçük Işıklar) */
+        /* Karanlığın İçinde Umut Halesi */
         @keyframes ambientPulse {
             0%, 100% { opacity: 0.2; transform: scale(0.95); }
             50% { opacity: 0.5; transform: scale(1.05); }
@@ -39,10 +39,19 @@
         .ambient-glow-2 { animation: ambientPulse 9s ease-in-out infinite 2s; }
         .ambient-glow-3 { animation: ambientPulse 8s ease-in-out infinite 4s; }
 
-        /* Yukarıdan Aşağıya Süzülen Sinematik Menü Animasyonu */
+        /* Butonlar İçin Nefes Alma Efekti (Büyüyüp Küçülme) */
+        @keyframes breathing {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.06); }
+        }
+        .breath-anim {
+            animation: breathing 4s ease-in-out infinite;
+        }
+
+        /* Daha Yavaş ve Yumuşak Yukarıdan Aşağıya Süzülen Menü */
         .dropdown-menu {
-            transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.4s ease;
-            transform: translateY(-20px);
+            transition: transform 0.7s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.6s ease;
+            transform: translateY(-30px);
             opacity: 0;
             pointer-events: none;
         }
@@ -53,7 +62,7 @@
         }
 
         .backdrop-fade {
-            transition: opacity 0.4s ease, visibility 0.4s ease;
+            transition: opacity 0.6s ease, visibility 0.6s ease;
         }
     </style>
 </head>
@@ -63,7 +72,7 @@
     <div class="fixed inset-0 pointer-events-none z-0 overflow-hidden flex items-center justify-center">
         <div class="absolute inset-0 bg-gradient-to-b from-space-900 via-space-800 to-space-900 opacity-90 z-10"></div>
         
-        <!-- Dünya Haritası Silüeti (Çok hafif, hissedilir derecede) -->
+        <!-- Dünya Haritası Silüeti -->
         <svg class="w-[120vw] md:w-[85vw] h-auto text-brand-teal/10 relative z-0 opacity-30" viewBox="0 0 1000 500" fill="none" stroke="currentColor" stroke-width="1">
             <path d="M150,120 Q180,100 220,130 T280,160 Q300,200 250,230 T180,210 Z"/>
             <path d="M220,260 Q260,250 280,300 T230,380 Q190,360 200,300 Z"/>
@@ -72,7 +81,7 @@
             <path d="M700,300 Q760,290 750,380 T680,390 Z"/>
         </svg>
 
-        <!-- Arka Planda Küçük, Huzurlu Umut Işığı Haleleri (Yazıların arkasında kaybolan) -->
+        <!-- Arka Planda Küçük, Huzurlu Umut Işığı Haleleri -->
         <div class="absolute top-[25%] left-[25%] w-32 h-32 rounded-full bg-teal-500/10 blur-[40px] ambient-glow-1 z-0"></div>
         <div class="absolute top-[55%] right-[30%] w-40 h-40 rounded-full bg-blue-500/10 blur-[50px] ambient-glow-2 z-0"></div>
         <div class="absolute top-[40%] left-[65%] w-24 h-24 rounded-full bg-amber-500/5 blur-[35px] ambient-glow-3 z-0"></div>
@@ -86,7 +95,7 @@
                 
                 <!-- Logo & Marka -->
                 <a href="#" class="flex items-center gap-3 group">
-                    <div class="w-10 h-10 rounded-full bg-gradient-to-b from-amber-200/20 to-blue-500/20 border border-amber-400/40 flex items-center justify-center shadow-[0_0_15px_rgba(251,191,36,0.2)]">
+                    <div class="w-10 h-10 rounded-full bg-gradient-to-b from-amber-200/20 to-blue-500/20 border border-amber-400/40 flex items-center justify-center shadow-[0_0_15px_rgba(251,191,36,0.2)] breath-anim">
                         <span class="text-amber-300 font-bold text-xs">🌐</span>
                     </div>
                     <div class="flex flex-col">
@@ -95,11 +104,11 @@
                     </div>
                 </a>
 
-                <!-- Sağ Alan: Hamburger Menü & Dil Küresi -->
+                <!-- Sağ Alan: Hamburger Menü & Dil Küresi (Nefes Alan Butonlar) -->
                 <div class="flex items-center gap-3 relative">
                     
                     <!-- Hamburger Menü Butonu -->
-                    <button onclick="toggleMobileMenu()" aria-label="Open Menu" class="w-11 h-11 rounded-full border border-white/15 bg-white/5 flex flex-col items-center justify-center gap-1.5 text-slate-200 hover:bg-white/10 hover:border-white/30 transition-all shadow-lg">
+                    <button onclick="toggleMobileMenu()" aria-label="Open Menu" class="w-11 h-11 rounded-full border border-white/15 bg-white/5 flex flex-col items-center justify-center gap-1.5 text-slate-200 hover:bg-white/10 hover:border-white/30 transition-all shadow-lg breath-anim">
                         <span class="w-5 h-0.5 bg-slate-200 rounded-full"></span>
                         <span class="w-5 h-0.5 bg-slate-200 rounded-full"></span>
                         <span class="w-3 h-0.5 bg-slate-200 rounded-full self-start ml-3"></span>
@@ -107,7 +116,7 @@
 
                     <!-- Dil Küresi ve Açılır Menü -->
                     <div class="relative">
-                        <button onclick="toggleLangMenu()" aria-label="Language Selector" class="w-11 h-11 rounded-full border border-white/15 bg-white/5 flex items-center justify-center text-slate-200 hover:bg-white/10 hover:border-white/30 transition-all shadow-lg">
+                        <button onclick="toggleLangMenu()" aria-label="Language Selector" class="w-11 h-11 rounded-full border border-white/15 bg-white/5 flex items-center justify-center text-slate-200 hover:bg-white/10 hover:border-white/30 transition-all shadow-lg breath-anim" style="animation-delay: 2s;">
                             🌐
                         </button>
                         <div id="langDropdown" class="hidden absolute right-0 mt-2 w-40 rounded-xl bg-space-800/95 border border-white/15 shadow-2xl overflow-hidden py-1 z-50 backdrop-blur-2xl">
@@ -127,7 +136,7 @@
         <!-- Sinematik Karartma Perdesi -->
         <div id="menuBackdrop" class="fixed inset-0 bg-black/70 backdrop-blur-md z-40 opacity-0 pointer-events-none backdrop-fade" onclick="toggleMobileMenu()"></div>
 
-        <!-- YUKARIDAN AŞAĞIYA İNEN SİNEMATİK MENÜ PANELİ -->
+        <!-- YUKARIDAN AŞAĞIya İNEN SİNEMATİK MENÜ PANELİ -->
         <div id="mobileDrawer" class="fixed inset-x-0 top-0 max-h-[85vh] bg-space-800/98 backdrop-blur-2xl border-b border-white/15 z-50 dropdown-menu shadow-2xl p-6 sm:p-10 overflow-y-auto rounded-b-3xl">
             <div class="max-w-3xl mx-auto">
                 <!-- Menü Başlığı ve Kapatma Butonu -->
@@ -136,8 +145,8 @@
                     <button onclick="toggleMobileMenu()" class="w-9 h-9 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-white hover:bg-white/15 transition-all">✕</button>
                 </div>
 
-                <!-- Kategorize Edilmiş Menü İçeriği (İki sütunlu şık yapı) -->
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 pb-6">
+                <!-- Tüm Kategoriler (Tam Liste) -->
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 pb-6">
                     <!-- Bölüm 1: About -->
                     <div>
                         <div class="flex items-center gap-2 text-xs font-mono text-slate-400 mb-4 uppercase tracking-wider">
@@ -152,19 +161,30 @@
                         </div>
                     </div>
 
-                    <!-- Bölüm 2: Action & Network -->
-                    <div class="flex flex-col gap-6">
-                        <div>
-                            <div class="flex items-center gap-2 text-xs font-mono text-amber-300/80 mb-4 uppercase tracking-wider">
-                                <span>🤝</span> Action
-                            </div>
-                            <div class="flex flex-col gap-3 pl-4 border-l border-white/10">
-                                <a href="#action" class="text-base sm:text-lg font-light text-slate-200 hover:text-brand-teal transition-colors">Humanitarian Action</a>
-                                <a href="#projects" class="text-base sm:text-lg font-light text-slate-200 hover:text-brand-teal transition-colors">Projects</a>
-                                <a href="#volunteers" class="text-base sm:text-lg font-light text-slate-200 hover:text-brand-teal transition-colors">Volunteers</a>
-                                <a href="#academy" class="text-base sm:text-lg font-light text-slate-200 hover:text-brand-teal transition-colors">Academy</a>
-                                <a href="#media" class="text-base sm:text-lg font-light text-slate-200 hover:text-brand-teal transition-colors">Media</a>
-                            </div>
+                    <!-- Bölüm 2: Action -->
+                    <div>
+                        <div class="flex items-center gap-2 text-xs font-mono text-amber-300/80 mb-4 uppercase tracking-wider">
+                            <span>🤝</span> Action
+                        </div>
+                        <div class="flex flex-col gap-3 pl-4 border-l border-white/10">
+                            <a href="#action" class="text-base sm:text-lg font-light text-slate-200 hover:text-brand-teal transition-colors">Humanitarian Action</a>
+                            <a href="#projects" class="text-base sm:text-lg font-light text-slate-200 hover:text-brand-teal transition-colors">Projects</a>
+                            <a href="#volunteers" class="text-base sm:text-lg font-light text-slate-200 hover:text-brand-teal transition-colors">Volunteers</a>
+                            <a href="#academy" class="text-base sm:text-lg font-light text-slate-200 hover:text-brand-teal transition-colors">Academy</a>
+                            <a href="#media" class="text-base sm:text-lg font-light text-slate-200 hover:text-brand-teal transition-colors">Media</a>
+                        </div>
+                    </div>
+
+                    <!-- Bölüm 3: Network (Tamamı eklendi) -->
+                    <div>
+                        <div class="flex items-center gap-2 text-xs font-mono text-teal-300 mb-4 uppercase tracking-wider">
+                            <span>🛍️</span> Network
+                        </div>
+                        <div class="flex flex-col gap-3 pl-4 border-l border-white/10">
+                            <a href="#marketplace" class="text-base sm:text-lg font-light text-slate-200 hover:text-brand-teal transition-colors">Marketplace</a>
+                            <a href="#merchandise" class="text-base sm:text-lg font-light text-slate-200 hover:text-brand-teal transition-colors">Merchandise</a>
+                            <a href="#partners" class="text-base sm:text-lg font-light text-slate-200 hover:text-brand-teal transition-colors">Partners</a>
+                            <a href="#contact" class="text-base sm:text-lg font-light text-slate-200 hover:text-brand-teal transition-colors">Contact</a>
                         </div>
                     </div>
                 </div>
