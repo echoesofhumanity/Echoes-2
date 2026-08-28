@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Echoes of Humanity — Digital Civilization Without Borders</title>
+    <title>Echoes of Humanity — The Universe of Purpose</title>
+    <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
@@ -15,10 +16,6 @@
                             900: '#05070f',
                             800: '#0a0e1a',
                             700: '#131b2e',
-                        },
-                        brand: {
-                            teal: '#7ac1c3',
-                            tealHover: '#95d3d5'
                         }
                     },
                     fontFamily: {
@@ -29,147 +26,158 @@
         }
     </script>
     <style>
-        @keyframes ambientPulse {
-            0%, 100% { opacity: 0.15; transform: scale(0.95); }
-            50% { opacity: 0.35; transform: scale(1.05); }
+        @keyframes floatSlow {
+            0%, 100% { transform: translate(0, 0) scale(1); opacity: 0.5; }
+            50% { transform: translate(40px, -50px) scale(1.2); opacity: 0.8; }
         }
-        .ambient-glow-1 { animation: ambientPulse 8s ease-in-out infinite; }
-        .ambient-glow-2 { animation: ambientPulse 10s ease-in-out infinite 2s; }
-        .ambient-glow-3 { animation: ambientPulse 9s ease-in-out infinite 4s; }
-
-        @keyframes gentlePulse {
-            0%, 100% { transform: scale(1); opacity: 0.9; }
-            50% { transform: scale(1.04); opacity: 1; }
+        @keyframes floatReverse {
+            0%, 100% { transform: translate(0, 0) scale(1); opacity: 0.4; }
+            50% { transform: translate(-40px, 50px) scale(1.15); opacity: 0.7; }
         }
-        .breath-anim { animation: gentlePulse 5s ease-in-out infinite; }
-
-        .dropdown-menu {
-            transition: transform 0.9s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.8s ease;
-            transform: translateY(-40px); opacity: 0; pointer-events: none;
+        .nebula-glow-1 { animation: floatSlow 14s ease-in-out infinite; }
+        .nebula-glow-2 { animation: floatReverse 18s ease-in-out infinite; }
+        
+        .glass-card {
+            background: rgba(19, 27, 46, 0.75);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
         }
-        .dropdown-menu.active { transform: translateY(0); opacity: 1; pointer-events: auto; }
-
-        .backdrop-fade { transition: opacity 0.8s ease, visibility 0.8s ease; }
-
-        /* Logo Özel Stil: Asil ve Sabit */
-        .main-logo {
-            height: 72px; /* 72px = h-18 */
-            width: auto;
-            filter: drop-shadow(0 0 15px rgba(251, 191, 36, 0.2)); /* Muted gold glow */
-            transition: filter 0.4s ease;
+        .glass-card:hover {
+            border-color: rgba(255, 255, 255, 0.3);
+            transform: translateY(-4px);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.7);
         }
-        .main-logo:hover { filter: drop-shadow(0 0 20px rgba(251, 191, 36, 0.4)); }
     </style>
 </head>
-<body class="bg-space-900 text-slate-200 font-sans antialiased min-h-screen relative overflow-x-hidden selection:bg-teal-900 selection:text-white">
+<body class="bg-[#05070f] text-slate-100 font-sans antialiased min-h-screen relative selection:bg-slate-700 selection:text-white">
 
-    <div class="fixed inset-0 pointer-events-none z-0 overflow-hidden flex items-center justify-center">
-        <div class="absolute inset-0 bg-gradient-to-b from-space-900 via-space-800 to-space-900 opacity-95 z-10"></div>
-        <svg class="w-[120vw] md:w-[85vw] h-auto text-brand-teal/10 relative z-0 opacity-25" viewBox="0 0 1000 500" fill="none" stroke="currentColor" stroke-width="1">
-            <path d="M150,120 Q180,100 220,130 T280,160 Q300,200 250,230 T180,210 Z"/>
-            <path d="M220,260 Q260,250 280,300 T230,380 Q190,360 200,300 Z"/>
-            <path d="M450,100 Q520,80 580,120 T550,220 Q480,240 440,180 Z"/>
-            <path d="M480,260 Q540,250 530,350 T460,370 Q440,300 480,260 Z"/>
-            <path d="M700,300 Q760,290 750,380 T680,390 Z"/>
-        </svg>
-        <div class="absolute top-[25%] left-[25%] w-40 h-40 rounded-full bg-teal-500/10 blur-[50px] ambient-glow-1 z-0"></div>
-        <div class="absolute top-[55%] right-[30%] w-48 h-48 rounded-full bg-blue-500/10 blur-[60px] ambient-glow-2 z-0"></div>
-        <div class="absolute top-[40%] left-[65%] w-32 h-32 rounded-full bg-amber-500/5 blur-[45px] ambient-glow-3 z-0"></div>
+    <!-- ARKA PLAN GÖRSEL / EFEKTLERİ -->
+    <div class="fixed inset-0 pointer-events-none z-0 overflow-hidden">
+        <div class="absolute inset-0 bg-[#05070f] opacity-95"></div>
+        <div class="absolute -top-[10%] -left-[10%] w-[70vw] h-[70vw] rounded-full bg-blue-900/20 blur-[100px] nebula-glow-1"></div>
+        <div class="absolute top-[30%] -right-[15%] w-[60vw] h-[60vw] rounded-full bg-indigo-950/25 blur-[130px] nebula-glow-2"></div>
     </div>
 
+    <!-- ANA SAYFA İÇERİK KAPSAYICISI (Z-INDEX 10 İLE EN ÜSTTE) -->
     <div class="relative z-10 flex flex-col min-h-screen">
         
-        <header class="w-full border-b border-white/10 backdrop-blur-xl bg-space-900/80 sticky top-0 z-50">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 h-24 flex items-center justify-between">
+        <!-- ÜST MENÜ (HEADER) -->
+        <header class="w-full border-b border-white/10 backdrop-blur-xl bg-[#05070f]/80 sticky top-0 z-50">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 h-20 flex items-center justify-between">
                 
-                <a href="#" class="flex items-center gap-4 group">
-                    <img src="logo.png" alt="Echoes of Humanity Logo" class="main-logo">
-                    <div class="flex flex-col pt-1">
-                        <span class="text-xs font-light tracking-[0.25em] text-slate-300">ECHOES</span>
-                        <span class="text-sm font-bold tracking-wider text-white">OF HUMANITY</span>
+                <!-- Logo -->
+                <a href="#" class="flex items-center gap-3 group">
+                    <img src="logo.png" alt="Echoes of Humanity Logo" class="h-12 w-auto object-contain filter drop-shadow-[0_0_12px_rgba(255,215,0,0.3)]">
+                    <div class="hidden sm:flex flex-col">
+                        <span class="text-[10px] tracking-[0.25em] text-slate-400 font-light">ECHOES</span>
+                        <span class="text-sm font-semibold tracking-wider text-slate-100">OF HUMANITY</span>
                     </div>
                 </a>
 
-                <div class="flex items-center gap-3 relative">
-                    <button onclick="toggleMobileMenu()" aria-label="Open Menu" class="w-11 h-11 rounded-full border border-white/15 bg-white/5 flex flex-col items-center justify-center gap-1.5 text-slate-200 hover:bg-white/10 hover:border-white/30 transition-all shadow-lg breath-anim">
-                        <span class="w-5 h-0.5 bg-slate-200 rounded-full"></span>
-                        <span class="w-5 h-0.5 bg-slate-200 rounded-full"></span>
-                        <span class="w-3 h-0.5 bg-slate-200 rounded-full self-start ml-3"></span>
+                <!-- Sağ Butonlar -->
+                <div class="flex items-center gap-3 sm:gap-4">
+                    <button aria-label="Language" class="w-10 h-10 rounded-full border border-white/10 bg-white/5 flex items-center justify-center text-slate-300 hover:bg-white/10 hover:text-white transition-all text-sm">
+                        🌐
                     </button>
-                    <div class="relative">
-                        <button onclick="toggleLangMenu()" aria-label="Language Selector" class="w-11 h-11 rounded-full border border-white/15 bg-white/5 flex items-center justify-center text-slate-200 hover:bg-white/10 hover:border-white/30 transition-all shadow-lg breath-anim" style="animation-delay: 2.5s;">
-                            🌐
-                        </button>
-                        <div id="langDropdown" class="hidden absolute right-0 mt-2 w-40 rounded-xl bg-space-800/95 border border-white/15 shadow-2xl overflow-hidden py-1 z-50 backdrop-blur-2xl">
-                            <a href="#" class="flex items-center gap-3 px-4 py-2.5 text-sm text-slate-200 hover:bg-white/10 transition-colors">
-                                <span class="text-base breath-anim">🇬🇧</span> EN
-                            </a>
-                            <a href="#" class="flex items-center gap-3 px-4 py-2.5 text-sm text-slate-200 hover:bg-white/10 transition-colors">
-                                <span class="text-base breath-anim" style="animation-delay: 1s;">🇹🇷</span> TR
-                            </a>
-                        </div>
-                    </div>
+                    <a href="#contact" class="hidden sm:inline-block text-xs uppercase tracking-widest px-5 py-2.5 rounded-full border border-white/15 hover:border-white/30 bg-white/5 hover:bg-white/10 transition-all text-slate-200 font-medium">
+                        Join the Movement
+                    </a>
                 </div>
             </div>
         </header>
 
-        <div id="menuBackdrop" class="fixed inset-0 bg-black/75 backdrop-blur-md z-40 opacity-0 pointer-events-none backdrop-fade" onclick="toggleMobileMenu()"></div>
+        <!-- HERO BÖLÜMÜ (GÖrünür Hale Getirildi) -->
+        <main class="flex-grow">
+            <section class="max-w-5xl mx-auto px-6 pt-24 pb-16 text-center">
+                <span class="text-xs uppercase tracking-[0.35em] text-blue-400 mb-6 block font-medium">The Universe of Purpose</span>
+                <h1 class="text-3xl sm:text-5xl md:text-6xl font-light tracking-tight text-white mb-6 leading-[1.2]">
+                    Knowledge Creates Possibility. <br>
+                    <span class="font-normal text-slate-300">Humanity Shapes the Future.</span>
+                </h1>
+                <p class="text-base sm:text-xl text-slate-300 font-light max-w-2xl mx-auto mb-10 leading-relaxed">
+                    A sophisticated living universe where creativity, empathy, and shared human values converge to form a timeless digital ecosystem.
+                </p>
+                <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+                    <a href="#vision" class="w-full sm:w-auto px-8 py-4 rounded-full bg-slate-100 text-[#05070f] font-medium text-sm hover:bg-white transition-all shadow-xl">
+                        Explore the Universe
+                    </a>
+                    <a href="#manifesto" class="w-full sm:w-auto px-8 py-4 rounded-full border border-white/20 text-slate-200 font-medium text-sm hover:bg-white/10 transition-all">
+                        Read Manifesto
+                    </a>
+                </div>
+            </section>
 
-        <div id="mobileDrawer" class="fixed inset-x-0 top-0 max-h-[85vh] bg-space-800/98 backdrop-blur-2xl border-b border-white/15 z-50 dropdown-menu shadow-2xl p-6 sm:p-10 overflow-y-auto rounded-b-3xl">
-            <div class="max-w-4xl mx-auto">
-                <div class="flex items-center justify-between pb-6 border-b border-white/10 mb-8">
-                    <span class="text-xs font-semibold tracking-[0.25em] text-brand-teal uppercase">Navigation Menu — Digital Civilization</span>
-                    <button onclick="toggleMobileMenu()" class="w-9 h-9 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-white hover:bg-white/15 transition-all">✕</button>
+            <!-- KARTLAR BÖLÜMÜ -->
+            <section id="vision" class="max-w-7xl mx-auto px-6 py-16">
+                <div class="text-center mb-14">
+                    <h2 class="text-2xl md:text-3xl font-light text-white mb-2">Pillars of the Ecosystem</h2>
+                    <p class="text-sm text-slate-400 font-light">Each card represents a living facet of our shared humanity.</p>
                 </div>
 
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 pb-6">
-                    <div>
-                        <div class="flex items-center gap-2 text-xs font-mono text-slate-400 mb-4 uppercase tracking-wider">
-                            <span>🌍</span> About
-                        </div>
-                        <div class="flex flex-col gap-3 pl-4 border-l border-white/10">
-                            <a href="#" class="text-base sm:text-lg font-light text-slate-200 hover:text-brand-teal transition-colors">Home</a>
-                            <a href="#about" class="text-base sm:text-lg font-light text-slate-200 hover:text-brand-teal transition-colors">About</a>
-                            <a href="#vision" class="text-base sm:text-lg font-light text-slate-200 hover:text-brand-teal transition-colors">Vision</a>
-                            <a href="#mission" class="text-base sm:text-lg font-light text-slate-200 hover:text-brand-teal transition-colors">Mission</a>
-                            <a href="#manifesto" class="text-base sm:text-lg font-light text-slate-200 hover:text-brand-teal transition-colors">Manifesto</a>
-                        </div>
-                    </div>
-
-                    <div>
-                        <div class="flex items-center gap-2 text-xs font-mono text-amber-300/80 mb-4 uppercase tracking-wider">
-                            <span>🤝</span> Action
-                        </div>
-                        <div class="flex flex-col gap-3 pl-4 border-l border-white/10">
-                            <a href="#action" class="text-base sm:text-lg font-light text-slate-200 hover:text-brand-teal transition-colors">Humanitarian Action</a>
-                            <a href="#projects" class="text-base sm:text-lg font-light text-slate-200 hover:text-brand-teal transition-colors">Projects</a>
-                            <a href="#volunteers" class="text-base sm:text-lg font-light text-slate-200 hover:text-brand-teal transition-colors">Volunteers</a>
-                            <a href="#academy" class="text-base sm:text-lg font-light text-slate-200 hover:text-brand-teal transition-colors">Academy</a>
-                            <a href="#media" class="text-base sm:text-lg font-light text-slate-200 hover:text-brand-teal transition-colors">Media</a>
-                        </div>
-                    </div>
-
-                    <div>
-                        <div class="flex items-center gap-2 text-xs font-mono text-teal-300 mb-4 uppercase tracking-wider">
-                            <span>🛍️</span> Network
-                        </div>
-                        <div class="flex flex-col gap-3 pl-4 border-l border-white/10">
-                            <a href="#marketplace" class="text-base sm:text-lg font-light text-slate-200 hover:text-brand-teal transition-colors">Marketplace</a>
-                            <a href="#merchandise" class="text-base sm:text-lg font-light text-slate-200 hover:text-brand-teal transition-colors">Merchandise</a>
-                            <a href="#partners" class="text-base sm:text-lg font-light text-slate-200 hover:text-brand-teal transition-colors">Partners</a>
-                            <a href="#contact" class="text-base sm:text-lg font-light text-slate-200 hover:text-brand-teal transition-colors">Contact</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="text-xs text-slate-500 text-center pt-6 border-t border-white/10">
-                    One Humanity. One Home. One Future. &copy; 2026 Echoes of Humanity.
-                </div>
-            </div>
-        </div>
-
-        <main class="flex-grow flex flex-col items-center justify-center text-center px-4 py-16">
-            
-            <div class="inline-block px-5 py-2 rounded-full border border-white/15 bg-white/5 backdrop-blur-md mb-8">
-                <span class="text-xs sm:text-sm uppercase tracking-[0.2em
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                     
+                    <!-- Kart 1 -->
+                    <div class="glass-card rounded-2xl p-8 flex flex-col justify-between relative overflow-hidden group">
+                        <div>
+                            <span class="text-xs font-mono text-blue-400 mb-3 block">01 / FOUNDATION</span>
+                            <h3 class="text-xl font-medium text-white mb-3">Our Vision</h3>
+                            <p class="text-sm text-slate-300 font-light leading-relaxed">
+                                Building a connected world rooted in dignity, shared responsibility, and enduring human hope.
+                            </p>
+                        </div>
+                        <div class="mt-8 pt-6 border-t border-white/10 flex items-center justify-between text-xs text-slate-300 group-hover:text-white transition-colors">
+                            <span>Explore Vision</span>
+                            <span>→</span>
+                        </div>
+                    </div>
+
+                    <!-- Kart 2 -->
+                    <div class="glass-card rounded-2xl p-8 flex flex-col justify-between relative overflow-hidden group">
+                        <div>
+                            <span class="text-xs font-mono text-indigo-400 mb-3 block">02 / LEARNING</span>
+                            <h3 class="text-xl font-medium text-white mb-3">Echoes Academy</h3>
+                            <p class="text-sm text-slate-300 font-light leading-relaxed">
+                                Knowledge creates possibility through global mentorship, structured learning pathways, and human growth.
+                            </p>
+                        </div>
+                        <div class="mt-8 pt-6 border-t border-white/10 flex items-center justify-between text-xs text-slate-300 group-hover:text-white transition-colors">
+                            <span>Discover Academy</span>
+                            <span>→</span>
+                        </div>
+                    </div>
+
+                    <!-- Kart 3 -->
+                    <div class="glass-card rounded-2xl p-8 flex flex-col justify-between relative overflow-hidden group">
+                        <div>
+                            <span class="text-xs font-mono text-slate-400 mb-3 block">03 / BROADCAST</span>
+                            <h3 class="text-xl font-medium text-white mb-3">Global Media Network</h3>
+                            <p class="text-sm text-slate-300 font-light leading-relaxed">
+                                One network, many voices. Amplifying stories with dignity before distribution and strict human review.
+                            </p>
+                        </div>
+                        <div class="mt-8 pt-6 border-t border-white/10 flex items-center justify-between text-xs text-slate-300 group-hover:text-white transition-colors">
+                            <span>Enter Media Hub</span>
+                            <span>→</span>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+        </main>
+
+        <!-- FOOTER -->
+        <footer id="contact" class="border-t border-white/10 bg-[#05070f] pt-14 pb-10">
+            <div class="max-w-7xl mx-auto px-6 text-center">
+                <p class="text-sm text-slate-300 font-light max-w-lg mx-auto mb-6 leading-relaxed">
+                    A message can become an idea. An idea can become a collaboration. And collaboration can create an echo that reaches farther than any one person could reach alone.
+                </p>
+                <p class="text-xs text-slate-400 font-light">&copy; 2026 Echoes of Humanity. All rights reserved.</p>
+            </div>
+        </footer>
+
+    </div>
+
+</body>
+</html>
