@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Echoes of Humanity — The Universe of Purpose</title>
+    <title>Echoes of Humanity — Digital Civilization Without Borders</title>
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
@@ -16,6 +16,10 @@
                             900: '#05070f',
                             800: '#0a0e1a',
                             700: '#131b2e',
+                        },
+                        brand: {
+                            teal: '#7ac1c3',
+                            tealHover: '#95d3d5'
                         }
                     },
                     fontFamily: {
@@ -26,184 +30,242 @@
         }
     </script>
     <style>
-        /* Yanıp Sönen Küresel Bağlantı Işıkları */
         @keyframes pulseGlow {
-            0%, 100% { opacity: 0.3; transform: scale(1); }
-            50% { opacity: 0.8; transform: scale(1.15); }
+            0%, 100% { opacity: 0.4; transform: scale(1); filter: drop-shadow(0 0 4px rgba(122,193,195,0.6)); }
+            50% { opacity: 1; transform: scale(1.3); filter: drop-shadow(0 0 12px rgba(122,193,195,0.9)); }
         }
         @keyframes floatSlow {
             0%, 100% { transform: translate(0, 0); }
-            50% { transform: translate(15px, -15px); }
+            50% { transform: translate(10px, -10px); }
         }
-        .map-pulse { animation: pulseGlow 4s ease-in-out infinite; }
-        .map-pulse-delayed { animation: pulseGlow 6s ease-in-out infinite 2s; }
-        .map-float { animation: floatSlow 12s ease-in-out infinite; }
+        .map-pulse { animation: pulseGlow 3.5s ease-in-out infinite; }
+        .map-pulse-delayed { animation: pulseGlow 5s ease-in-out infinite 1.5s; }
+        .map-float { animation: floatSlow 15s ease-in-out infinite; }
+
+        /* Sinematik Fade-In ve Kayma Animasyonları */
+        .cinematic-drawer {
+            transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.4s ease;
+        }
+        .backdrop-fade {
+            transition: opacity 0.4s ease, visibility 0.4s ease;
+        }
 
         .glass-card {
-            background: rgba(19, 27, 46, 0.7);
+            background: rgba(19, 27, 46, 0.75);
             backdrop-filter: blur(20px);
             -webkit-backdrop-filter: blur(20px);
             border: 1px solid rgba(255, 255, 255, 0.08);
-            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-        }
-        .glass-card:hover {
-            border-color: rgba(255, 255, 255, 0.25);
-            transform: translateY(-4px);
-            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.7);
         }
     </style>
 </head>
-<body class="bg-space-900 text-slate-200 font-sans antialiased min-h-screen relative overflow-x-hidden selection:bg-slate-700 selection:text-white">
+<body class="bg-space-900 text-slate-200 font-sans antialiased min-h-screen relative overflow-x-hidden selection:bg-teal-900 selection:text-white">
 
-    <!-- ARKA PLAN: DÜNYA HARİTASI VE YANIP SÖNEN KÜRESEL IŞIKLAR -->
-    <div class="fixed inset-0 pointer-events-none z-0 overflow-hidden flex items-center justify-center opacity-30 map-float">
-        <div class="absolute inset-0 bg-gradient-to-b from-space-900 via-space-800 to-space-900 opacity-90 z-10"></div>
+    <!-- ARKA PLAN: DÜNYA HARİTASI VE PARLAYAN IŞIKLAR -->
+    <div class="fixed inset-0 pointer-events-none z-0 overflow-hidden flex items-center justify-center opacity-40 map-float">
+        <div class="absolute inset-0 bg-gradient-to-b from-space-900 via-space-800 to-space-900 opacity-85 z-10"></div>
         
-        <!-- SVG Dünya Haritası Silüeti ve Üzerindeki Yanıp Sönen Işık Noktaları -->
-        <svg class="w-[120vw] md:w-[90vw] h-auto text-blue-500/20 relative z-0" viewBox="0 0 1000 500" fill="currentColor">
-            <!-- Basitleştirilmiş Dünya Haritası Kıtalar (Kontur/Silüet) -->
-            <path d="M150,120 Q180,100 220,130 T280,160 Q300,200 250,230 T180,210 Z" opacity="0.4"/> <!-- Kuzey Amerika -->
-            <path d="M220,260 Q260,250 280,300 T230,380 Q190,360 200,300 Z" opacity="0.4"/> <!-- Güney Amerika -->
-            <path d="M450,100 Q520,80 580,120 T550,220 Q480,240 440,180 Z" opacity="0.4"/> <!-- Avrupa/Asya -->
-            <path d="M480,260 Q540,250 530,350 T460,370 Q440,300 480,260 Z" opacity="0.4"/> <!-- Afrika -->
-            <path d="M700,300 Q760,290 750,380 T680,390 Z" opacity="0.4"/> <!-- Avustralya -->
+        <svg class="w-[130vw] md:w-[90vw] h-auto text-brand-teal/20 relative z-0" viewBox="0 0 1000 500" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M150,120 Q180,100 220,130 T280,160 Q300,200 250,230 T180,210 Z" opacity="0.5"/>
+            <path d="M220,260 Q260,250 280,300 T230,380 Q190,360 200,300 Z" opacity="0.5"/>
+            <path d="M450,100 Q520,80 580,120 T550,220 Q480,240 440,180 Z" opacity="0.6"/>
+            <path d="M480,260 Q540,250 530,350 T460,370 Q440,300 480,260 Z" opacity="0.5"/>
+            <path d="M700,300 Q760,290 750,380 T680,390 Z" opacity="0.5"/>
         </svg>
 
-        <!-- Dünya Üzerinde Yanıp Sönen Stratejik Küresel Bağlantı Işıkları -->
-        <div class="absolute top-[38%] left-[28%] w-4 h-4 rounded-full bg-blue-400 blur-[2px] map-pulse z-20"></div>
-        <div class="absolute top-[32%] left-[52%] w-3 h-3 rounded-full bg-indigo-300 blur-[2px] map-pulse-delayed z-20"></div>
-        <div class="absolute top-[48%] left-[58%] w-3 h-3 rounded-full bg-sky-400 blur-[2px] map-pulse z-20"></div>
-        <div class="absolute top-[42%] left-[78%] w-4 h-4 rounded-full bg-blue-300 blur-[2px] map-pulse-delayed z-20"></div>
-        <div class="absolute top-[65%] left-[32%] w-3 h-3 rounded-full bg-indigo-400 blur-[2px] map-pulse z-20"></div>
+        <div class="absolute top-[36%] left-[30%] w-3.5 h-3.5 rounded-full bg-brand-teal map-pulse z-20"></div>
+        <div class="absolute top-[30%] left-[53%] w-4 h-4 rounded-full bg-cyan-300 map-pulse-delayed z-20"></div>
+        <div class="absolute top-[46%] left-[60%] w-3.5 h-3.5 rounded-full bg-teal-300 map-pulse z-20"></div>
+        <div class="absolute top-[40%] left-[76%] w-4 h-4 rounded-full bg-brand-teal map-pulse-delayed z-20"></div>
     </div>
 
     <div class="relative z-10 flex flex-col min-h-screen">
         
-        <!-- ÜST MENÜ (HEADER) -->
-        <header class="w-full border-b border-white/10 backdrop-blur-xl bg-space-900/60 sticky top-0 z-50">
+        <!-- HEADER -->
+        <header class="w-full border-b border-white/10 backdrop-blur-xl bg-space-900/80 sticky top-0 z-50">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 h-20 flex items-center justify-between">
                 
                 <!-- Logo & Marka -->
                 <a href="#" class="flex items-center gap-3 group">
-                    <div class="relative w-3 h-3 flex items-center justify-center">
-                        <div class="absolute w-3 h-3 bg-blue-400 rounded-full animate-ping opacity-75"></div>
-                        <div class="w-2.5 h-2.5 bg-blue-300 rounded-full shadow-[0_0_12px_#60a5fa]"></div>
+                    <div class="w-10 h-10 rounded-full bg-gradient-to-b from-amber-200/20 to-blue-500/20 border border-amber-400/40 flex items-center justify-center shadow-[0_0_15px_rgba(251,191,36,0.2)]">
+                        <span class="text-amber-300 font-bold text-xs">🌐</span>
                     </div>
-                    <span class="text-base sm:text-lg font-medium tracking-wide text-slate-100 group-hover:text-white transition-colors">
-                        Echoes of Humanity
-                    </span>
+                    <div class="flex flex-col">
+                        <span class="text-xs sm:text-sm font-light tracking-[0.25em] text-slate-300">ECHOES</span>
+                        <span class="text-sm sm:text-base font-bold tracking-wider text-white">OF HUMANITY</span>
+                    </div>
                 </a>
 
-                <!-- Sağ Alan: Dil Küresi, Join ve Menü İkonu -->
-                <div class="flex items-center gap-3 sm:gap-4">
-                    <button aria-label="Language" class="w-10 h-10 rounded-full border border-white/10 bg-white/5 flex items-center justify-center text-slate-300 hover:bg-white/10 hover:text-white transition-all text-sm" title="Select Language">
-                        🌐
+                <!-- Sağ Alan: Hamburger Menü & Dil Küresi (Görseldeki Sıralama) -->
+                <div class="flex items-center gap-3 relative">
+                    
+                    <!-- Hamburger Menü Butonu -->
+                    <button onclick="toggleMobileMenu()" aria-label="Open Menu" class="w-11 h-11 rounded-full border border-white/15 bg-white/5 flex flex-col items-center justify-center gap-1.5 text-slate-200 hover:bg-white/10 hover:border-white/30 transition-all shadow-lg">
+                        <span class="w-5 h-0.5 bg-slate-200 rounded-full"></span>
+                        <span class="w-5 h-0.5 bg-slate-200 rounded-full"></span>
+                        <span class="w-3 h-0.5 bg-slate-200 rounded-full self-start ml-3"></span>
                     </button>
-                    <a href="#contact" class="hidden sm:inline-block text-xs uppercase tracking-widest px-5 py-2.5 rounded-full border border-white/15 hover:border-white/30 bg-white/5 hover:bg-white/10 transition-all text-slate-200 font-medium">
-                        Join the Movement
-                    </a>
-                    <button aria-label="Menu" class="w-10 h-10 rounded-full border border-white/10 bg-white/5 flex flex-col items-center justify-center gap-1 text-slate-200 hover:bg-white/10 transition-all">
-                        <span class="w-4 h-0.5 bg-slate-200 rounded-full"></span>
-                        <span class="w-4 h-0.5 bg-slate-200 rounded-full"></span>
-                        <span class="w-2.5 h-0.5 bg-slate-200 rounded-full self-start ml-3"></span>
-                    </button>
+
+                    <!-- Dil Küresi ve Açılır Menü -->
+                    <div class="relative">
+                        <button onclick="toggleLangMenu()" aria-label="Language Selector" class="w-11 h-11 rounded-full border border-white/15 bg-white/5 flex items-center justify-center text-slate-200 hover:bg-white/10 hover:border-white/30 transition-all shadow-lg">
+                            🌐
+                        </button>
+                        <!-- Dil Listesi (Bayraklı) -->
+                        <div id="langDropdown" class="hidden absolute right-0 mt-2 w-40 rounded-xl bg-space-800/95 border border-white/15 shadow-2xl overflow-hidden py-1 z-50 backdrop-blur-2xl">
+                            <a href="#" class="flex items-center gap-3 px-4 py-2.5 text-sm text-slate-200 hover:bg-white/10 transition-colors">
+                                <span class="text-base">🇬🇧</span> EN
+                            </a>
+                            <a href="#" class="flex items-center gap-3 px-4 py-2.5 text-sm text-slate-200 hover:bg-white/10 transition-colors">
+                                <span class="text-base">🇹🇷</span> TR
+                            </a>
+                        </div>
+                    </div>
+
                 </div>
             </div>
         </header>
 
+        <!-- Sinematik Karartma Perdesi (Backdrop Fade) -->
+        <div id="menuBackdrop" class="fixed inset-0 bg-black/60 backdrop-blur-sm z-40 opacity-0 pointer-events-none backdrop-fade" onclick="toggleMobileMenu()"></div>
+
+        <!-- Sinematik Açılan Mobil Menü Çekmecesi -->
+        <div id="mobileDrawer" class="fixed inset-y-0 right-0 w-80 sm:w-96 bg-space-800/95 backdrop-blur-2xl border-l border-white/10 z-50 translate-x-full opacity-0 cinematic-drawer shadow-2xl p-6 flex flex-col justify-between overflow-y-auto">
+            <div>
+                <!-- Menü Başlığı ve Kapatma Butonu -->
+                <div class="flex items-center justify-between pb-6 border-b border-white/10 mb-6">
+                    <span class="text-xs font-semibold tracking-[0.25em] text-brand-teal uppercase">Navigation Menu</span>
+                    <button onclick="toggleMobileMenu()" class="w-9 h-9 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-white hover:bg-white/15 transition-all">✕</button>
+                </div>
+
+                <!-- Kategorize Edilmiş Menü İçeriği (İkinci görseldeki gibi) -->
+                <nav class="flex flex-col gap-6">
+                    <!-- Bölüm 1: About / Temel -->
+                    <div>
+                        <div class="flex items-center gap-2 text-xs font-mono text-slate-400 mb-3 uppercase tracking-wider">
+                            <span>🌍</span> About
+                        </div>
+                        <div class="flex flex-col gap-2 pl-4 border-l border-white/10">
+                            <a href="#" class="text-lg font-light text-slate-200 hover:text-brand-teal transition-colors py-1">Home</a>
+                            <a href="#about" class="text-lg font-light text-slate-200 hover:text-brand-teal transition-colors py-1">About</a>
+                            <a href="#vision" class="text-lg font-light text-slate-200 hover:text-brand-teal transition-colors py-1">Vision</a>
+                            <a href="#mission" class="text-lg font-light text-slate-200 hover:text-brand-teal transition-colors py-1">Mission</a>
+                            <a href="#manifesto" class="text-lg font-light text-slate-200 hover:text-brand-teal transition-colors py-1">Manifesto</a>
+                        </div>
+                    </div>
+
+                    <!-- Bölüm 2: Action / Eylem -->
+                    <div>
+                        <div class="flex items-center gap-2 text-xs font-mono text-amber-300/80 mb-3 uppercase tracking-wider">
+                            <span>🤝</span> Action
+                        </div>
+                        <div class="flex flex-col gap-2 pl-4 border-l border-white/10">
+                            <a href="#action" class="text-lg font-light text-slate-200 hover:text-brand-teal transition-colors py-1">Humanitarian Action</a>
+                            <a href="#projects" class="text-lg font-light text-slate-200 hover:text-brand-teal transition-colors py-1">Projects</a>
+                            <a href="#volunteers" class="text-lg font-light text-slate-200 hover:text-brand-teal transition-colors py-1">Volunteers</a>
+                            <a href="#academy" class="text-lg font-light text-slate-200 hover:text-brand-teal transition-colors py-1">Academy</a>
+                            <a href="#media" class="text-lg font-light text-slate-200 hover:text-brand-teal transition-colors py-1">Media</a>
+                        </div>
+                    </div>
+
+                    <!-- Bölüm 3: Network / Ağ -->
+                    <div>
+                        <div class="flex items-center gap-2 text-xs font-mono text-teal-300/80 mb-3 uppercase tracking-wider">
+                            <span>🛍️</span> Network
+                        </div>
+                        <div class="flex flex-col gap-2 pl-4 border-l border-white/10">
+                            <a href="#network" class="text-lg font-light text-slate-200 hover:text-brand-teal transition-colors py-1">Global Ecosystem</a>
+                        </div>
+                    </div>
+                </nav>
+            </div>
+
+            <div class="text-xs text-slate-500 text-center pt-6 border-t border-white/10 mt-6">
+                Echoes of Humanity &copy; 2026
+            </div>
+        </div>
+
         <!-- HERO BÖLÜMÜ -->
-        <main class="flex-grow">
-            <section class="max-w-5xl mx-auto px-6 pt-20 pb-16 text-center">
-                <span class="text-xs uppercase tracking-[0.35em] text-blue-300/90 mb-6 block font-light">The Universe of Purpose</span>
-                <h1 class="text-3xl sm:text-5xl md:text-6xl font-extralight tracking-tight text-slate-100 mb-6 sm:mb-8 leading-[1.2]">
-                    Knowledge Creates Possibility. <br>
-                    <span class="font-normal text-slate-300">Humanity Shapes the Future.</span>
-                </h1>
-                <p class="text-base sm:text-xl text-slate-400 font-light max-w-2xl mx-auto mb-10 leading-relaxed">
-                    A sophisticated living universe where creativity, empathy, and shared human values converge to form a timeless digital ecosystem.
-                </p>
-                <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
-                    <a href="#vision" class="w-full sm:w-auto px-8 py-4 rounded-full bg-slate-100 text-space-900 font-medium text-sm hover:bg-white transition-all shadow-xl shadow-white/5">
-                        Explore the Universe
-                    </a>
-                    <a href="#manifesto" class="w-full sm:w-auto px-8 py-4 rounded-full border border-white/15 text-slate-300 font-medium text-sm hover:bg-white/5 transition-all">
-                        Read Manifesto
-                    </a>
-                </div>
-            </section>
+        <main class="flex-grow flex flex-col items-center justify-center text-center px-4 py-16">
+            
+            <div class="inline-block px-5 py-2 rounded-full border border-white/15 bg-white/5 backdrop-blur-md mb-8">
+                <span class="text-xs sm:text-sm uppercase tracking-[0.2em] text-slate-300 font-medium">Digital Civilization Without Borders</span>
+            </div>
 
-            <!-- KARTLAR BÖLÜMÜ -->
-            <section id="vision" class="max-w-7xl mx-auto px-6 py-16">
-                <div class="text-center mb-14">
-                    <h2 class="text-2xl md:text-3xl font-light text-slate-100 mb-2">Pillars of the Ecosystem</h2>
-                    <p class="text-sm text-slate-400 font-light">Each card represents a living facet of our shared humanity.</p>
-                </div>
+            <h1 class="text-4xl sm:text-6xl md:text-7xl font-extralight tracking-tight text-white mb-6 max-w-5xl leading-[1.15]">
+                Building A Digital <br>
+                <span class="font-normal text-slate-100">Home For Humanity</span>
+            </h1>
 
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                    
-                    <!-- Kart 1 -->
-                    <div class="glass-card rounded-2xl p-8 flex flex-col justify-between relative overflow-hidden group">
-                        <div class="absolute -top-20 -right-20 w-44 h-44 bg-blue-500/10 rounded-full blur-2xl group-hover:bg-blue-500/20 transition-all"></div>
-                        <div>
-                            <span class="text-xs font-mono text-blue-400 mb-3 block">01 / FOUNDATION</span>
-                            <h3 class="text-xl font-medium text-slate-100 mb-3">Our Vision</h3>
-                            <p class="text-sm text-slate-400 font-light leading-relaxed">
-                                Building a connected world rooted in dignity, shared responsibility, and enduring human hope.
-                            </p>
-                        </div>
-                        <div class="mt-8 pt-6 border-t border-white/5 flex items-center justify-between text-xs text-slate-400 group-hover:text-slate-200 transition-colors">
-                            <span>Explore Vision</span>
-                            <span>→</span>
-                        </div>
-                    </div>
+            <p class="text-base sm:text-xl text-slate-300/90 font-light max-w-2xl mb-10 leading-relaxed">
+                A global ecosystem where compassion, knowledge, creativity and human connection come together.
+            </p>
 
-                    <!-- Kart 2 -->
-                    <div class="glass-card rounded-2xl p-8 flex flex-col justify-between relative overflow-hidden group">
-                        <div class="absolute -top-20 -right-20 w-44 h-44 bg-indigo-500/10 rounded-full blur-2xl group-hover:bg-indigo-500/20 transition-all"></div>
-                        <div>
-                            <span class="text-xs font-mono text-indigo-400 mb-3 block">02 / LEARNING</span>
-                            <h3 class="text-xl font-medium text-slate-100 mb-3">Echoes Academy</h3>
-                            <p class="text-sm text-slate-400 font-light leading-relaxed">
-                                Knowledge creates possibility through global mentorship, structured learning pathways, and human growth.
-                            </p>
-                        </div>
-                        <div class="mt-8 pt-6 border-t border-white/5 flex items-center justify-between text-xs text-slate-400 group-hover:text-slate-200 transition-colors">
-                            <span>Discover Academy</span>
-                            <span>→</span>
-                        </div>
-                    </div>
+            <div class="flex flex-wrap items-center justify-center gap-3 sm:gap-6 text-sm sm:text-base text-slate-300 font-light mb-12">
+                <span class="hover:text-white transition-colors cursor-pointer">Protect</span>
+                <span class="text-white/30">·</span>
+                <span class="hover:text-white transition-colors cursor-pointer">Connect</span>
+                <span class="text-white/30">·</span>
+                <span class="hover:text-white transition-colors cursor-pointer">Create</span>
+                <span class="text-white/30">·</span>
+                <span class="hover:text-white transition-colors cursor-pointer">Share</span>
+                <span class="text-white/30">·</span>
+                <span class="hover:text-white transition-colors cursor-pointer">Thrive</span>
+            </div>
 
-                    <!-- Kart 3 -->
-                    <div class="glass-card rounded-2xl p-8 flex flex-col justify-between relative overflow-hidden group">
-                        <div class="absolute -top-20 -right-20 w-44 h-44 bg-slate-400/10 rounded-full blur-2xl group-hover:bg-slate-400/20 transition-all"></div>
-                        <div>
-                            <span class="text-xs font-mono text-slate-400 mb-3 block">03 / BROADCAST</span>
-                            <h3 class="text-xl font-medium text-slate-100 mb-3">Global Media Network</h3>
-                            <p class="text-sm text-slate-400 font-light leading-relaxed">
-                                One network, many voices. Amplifying stories with dignity before distribution and strict human review.
-                            </p>
-                        </div>
-                        <div class="mt-8 pt-6 border-t border-white/5 flex items-center justify-between text-xs text-slate-400 group-hover:text-slate-200 transition-colors">
-                            <span>Enter Media Hub</span>
-                            <span>→</span>
-                        </div>
-                    </div>
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-4 w-full max-w-md">
+                <a href="#join" class="w-full sm:w-auto px-8 py-4 rounded-full bg-brand-teal text-space-900 font-semibold text-sm hover:bg-brand-tealHover transition-all shadow-xl shadow-brand-teal/20 text-center">
+                    Join The Community
+                </a>
+                <a href="#ecosystem" class="w-full sm:w-auto px-8 py-4 rounded-full border border-white/20 text-slate-200 font-medium text-sm hover:bg-white/10 transition-all text-center">
+                    Explore The Ecosystem
+                </a>
+            </div>
 
-                </div>
-            </section>
         </main>
 
         <!-- FOOTER -->
-        <footer id="contact" class="border-t border-white/10 bg-space-900/80 backdrop-blur-md pt-14 pb-10">
-            <div class="max-w-7xl mx-auto px-6 text-center">
-                <p class="text-sm text-slate-400 font-light max-w-lg mx-auto mb-6 leading-relaxed">
-                    A message can become an idea. An idea can become a collaboration. And collaboration can create an echo that reaches farther than any one person could reach alone.
-                </p>
-                <p class="text-xs text-slate-400 font-light">&copy; 2026 Echoes of Humanity. All rights reserved.</p>
-            </div>
+        <footer class="border-t border-white/10 bg-space-900/90 backdrop-blur-md py-8 text-center">
+            <p class="text-xs text-slate-400 font-light tracking-wide">&copy; 2026 Echoes of Humanity. All rights reserved.</p>
         </footer>
 
     </div>
 
+    <!-- Sinematik Etkileşim Scriptleri -->
+    <script>
+        function toggleLangMenu() {
+            const menu = document.getElementById('langDropdown');
+            menu.classList.toggle('hidden');
+        }
+
+        function toggleMobileMenu() {
+            const drawer = document.getElementById('mobileDrawer');
+            const backdrop = document.getElementById('menuBackdrop');
+            
+            const isOpen = drawer.classList.contains('translate-x-0');
+
+            if (isOpen) {
+                // Kapatma Animasyonu
+                drawer.classList.remove('translate-x-0', 'opacity-100');
+                drawer.classList.add('translate-x-full', 'opacity-0');
+                backdrop.classList.remove('opacity-100', 'pointer-events-auto');
+                backdrop.classList.add('opacity-0', 'pointer-events-none');
+            } else {
+                // Sinematik Açılma Animasyonu (Fade-in & Slide)
+                drawer.classList.remove('translate-x-full', 'opacity-0');
+                drawer.classList.add('translate-x-0', 'opacity-100');
+                backdrop.classList.remove('opacity-0', 'pointer-events-none');
+                backdrop.classList.add('opacity-100', 'pointer-events-auto');
+            }
+            // Dil menüsünü açık kaldıysa kapat
+            document.getElementById('langDropdown').classList.add('hidden');
+        }
+
+        // Dışarı tıklandığında dil menüsünü kapat
+        window.onclick = function(event) {
+            if (!event.target.closest('.relative')) {
+                document.getElementById('langDropdown').classList.add('hidden');
+            }
+        }
+    </script>
 </body>
 </html>
