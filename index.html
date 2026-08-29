@@ -301,15 +301,14 @@
     </div>
 </section>
         
-    <!DOCTYPE html>
+  <!DOCTYPE html>
 <html lang="en" class="dark">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Echoes of Humanity</title>
-    <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <script>
         tailwind.config = {
             darkMode: 'class',
@@ -320,8 +319,6 @@
                     },
                     colors: {
                         darkBg: '#070b12',
-                        glassBg: 'rgba(19, 28, 46, 0.5)',
-                        glassBorder: 'rgba(255, 255, 255, 0.08)',
                     }
                 }
             }
@@ -330,106 +327,111 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         .glass-card {
-            background: linear-gradient(135deg, rgba(25, 35, 55, 0.6) 0%, rgba(13, 20, 33, 0.8) 100%);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.5), inset 0 1px 0 0 rgba(255, 255, 255, 0.1);
-            transition: all 0.3s ease;
+            background: linear-gradient(135deg, rgba(30, 41, 59, 0.5) 0%, rgba(13, 20, 33, 0.75) 100%);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            /* Kartın kenarlarına ve içine kendinden ışık / parıltı efekti */
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            box-shadow: 
+                inset 0 1px 0 0 rgba(255, 255, 255, 0.25), 
+                inset 0 -1px 0 0 rgba(0, 0, 0, 0.4),
+                0 15px 35px -10px rgba(0, 0, 0, 0.6);
+            transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .glass-card:hover {
+            border-color: rgba(94, 234, 212, 0.3);
+            box-shadow: 
+                inset 0 1px 0 0 rgba(255, 255, 255, 0.35), 
+                inset 0 -1px 0 0 rgba(0, 0, 0, 0.4),
+                0 20px 40px -10px rgba(45, 212, 191, 0.12);
         }
         .glass-card:active, .glass-card:focus {
             transform: translateY(2px);
-            box-shadow: 0 4px 20px rgba(59, 130, 246, 0.3), 0 15px 35px -5px rgba(0, 0, 0, 0.7), inset 0 1px 0 0 rgba(255, 255, 255, 0.2);
-            border-color: rgba(59, 130, 246, 0.4);
+            box-shadow: 
+                0 4px 20px rgba(45, 212, 191, 0.25), 
+                0 15px 35px -5px rgba(0, 0, 0, 0.8), 
+                inset 0 1px 0 0 rgba(255, 255, 255, 0.4);
+            border-color: rgba(45, 212, 191, 0.5);
+            outline: none;
         }
         .icon-badge {
-            background: radial-gradient(circle, rgba(255, 255, 255, 0.07) 0%, rgba(10, 15, 25, 0.8) 100%);
-            box-shadow: inset 0 0 15px rgba(255, 255, 255, 0.05), 0 5px 15px rgba(0, 0, 0, 0.3);
-            border: 1px solid rgba(255, 255, 255, 0.06);
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, rgba(10, 15, 25, 0.9) 100%);
+            box-shadow: inset 0 0 15px rgba(255, 255, 255, 0.08), 0 5px 15px rgba(0, 0, 0, 0.4);
+            border: 1px solid rgba(255, 255, 255, 0.1);
         }
     </style>
 </head>
-<body class="bg-darkBg text-slate-100 font-sans antialiased selection:bg-blue-500 selection:text-white">
+<body class="bg-darkBg text-slate-100 font-sans antialiased selection:bg-teal-500 selection:text-white">
 
-    <!-- Header / Navbar (Dil küresi ve hamburger menü kaldırıldı) -->
-    <header class="sticky top-0 z-50 bg-darkBg/70 backdrop-blur-md border-b border-white/5">
+    <header class="sticky top-0 z-50 bg-darkBg/80 backdrop-blur-md border-b border-white/5">
         <div class="max-w-4xl mx-auto px-4 h-16 flex items-center justify-between">
             <div class="flex items-center space-x-3">
-                <div class="text-amber-400 text-xl">
+                <div class="text-teal-400 text-xl drop-shadow-[0_0_8px_rgba(45,212,191,0.5)]">
                     <i class="fa-solid fa-globe"></i>
                 </div>
-                <span class="font-bold tracking-widest text-sm text-slate-200">ECHOS OF HUMANITY</span>
+                <span class="font-bold tracking-widest text-sm text-slate-200">ECHOES OF HUMANITY</span>
             </div>
         </div>
     </header>
 
-    <!-- Main Container -->
     <main class="max-w-xl mx-auto px-4 py-12 space-y-16">
 
-        <!-- Building Humanity Together Section -->
         <section class="space-y-8 text-center">
             <div class="space-y-3">
-                <h1 class="text-3xl sm:text-4xl font-extrabold tracking-tight text-white leading-tight">
-                    Building Humanity<br>Together
+                <h1 class="text-3xl sm:text-4xl font-extrabold tracking-tight text-white leading-tight drop-shadow-md">
+                    Building Humanity Together
                 </h1>
-                <p class="text-slate-400 text-sm sm:text-base max-w-md mx-auto font-light leading-relaxed">
+                <p class="text-slate-400 text-xs sm:text-sm max-w-md mx-auto font-light leading-relaxed">
                     One global mission powered by compassion, technology and people.
                 </p>
             </div>
 
-            <!-- 6 Cards Grid -->
             <div class="space-y-4">
-                <!-- 1. Global Network -->
-                <div tabindex="0" class="glass-card rounded-2xl p-6 text-center cursor-pointer outline-none">
-                    <div class="w-14 h-14 mx-auto mb-4 rounded-full icon-badge flex items-center justify-center text-blue-400 text-xl shadow-inner">
+                <div tabindex="0" class="glass-card rounded-2xl p-6 text-center cursor-pointer">
+                    <div class="w-14 h-14 mx-auto mb-4 rounded-full icon-badge flex items-center justify-center text-teal-400 text-xl">
                         <i class="fa-solid fa-globe"></i>
                     </div>
-                    <h3 class="text-lg font-bold text-white mb-1">Global Network</h3>
+                    <h3 class="text-lg font-bold text-white mb-1 tracking-wide">Global Network</h3>
                     <p class="text-slate-400 text-xs sm:text-sm font-light">Connecting people across every continent.</p>
                 </div>
 
-                <!-- 2. Humanitarian Action -->
-                <div tabindex="0" class="glass-card rounded-2xl p-6 text-center cursor-pointer outline-none">
-                    <div class="w-14 h-14 mx-auto mb-4 rounded-full icon-badge flex items-center justify-center text-red-500 text-xl shadow-inner">
+                <div tabindex="0" class="glass-card rounded-2xl p-6 text-center cursor-pointer">
+                    <div class="w-14 h-14 mx-auto mb-4 rounded-full icon-badge flex items-center justify-center text-teal-400 text-xl">
                         <i class="fa-solid fa-heart"></i>
                     </div>
-                    <h3 class="text-lg font-bold text-white mb-1">Humanitarian Action</h3>
+                    <h3 class="text-lg font-bold text-white mb-1 tracking-wide">Humanitarian Action</h3>
                     <p class="text-slate-400 text-xs sm:text-sm font-light">Delivering hope where it is needed most.</p>
                 </div>
 
-                <!-- 3. Academy -->
-                <div tabindex="0" class="glass-card rounded-2xl p-6 text-center cursor-pointer outline-none">
-                    <div class="w-14 h-14 mx-auto mb-4 rounded-full icon-badge flex items-center justify-center text-amber-400 text-xl shadow-inner">
+                <div tabindex="0" class="glass-card rounded-2xl p-6 text-center cursor-pointer">
+                    <div class="w-14 h-14 mx-auto mb-4 rounded-full icon-badge flex items-center justify-center text-teal-400 text-xl">
                         <i class="fa-solid fa-graduation-cap"></i>
                     </div>
-                    <h3 class="text-lg font-bold text-white mb-1">Academy</h3>
+                    <h3 class="text-lg font-bold text-white mb-1 tracking-wide">Academy</h3>
                     <p class="text-slate-400 text-xs sm:text-sm font-light">Learning that empowers future generations.</p>
                 </div>
 
-                <!-- 4. Media Network -->
-                <div tabindex="0" class="glass-card rounded-2xl p-6 text-center cursor-pointer outline-none">
-                    <div class="w-14 h-14 mx-auto mb-4 rounded-full icon-badge flex items-center justify-center text-sky-400 text-xl shadow-inner">
+                <div tabindex="0" class="glass-card rounded-2xl p-6 text-center cursor-pointer">
+                    <div class="w-14 h-14 mx-auto mb-4 rounded-full icon-badge flex items-center justify-center text-teal-400 text-xl">
                         <i class="fa-solid fa-satellite-dish"></i>
                     </div>
-                    <h3 class="text-lg font-bold text-white mb-1">Media Network</h3>
+                    <h3 class="text-lg font-bold text-white mb-1 tracking-wide">Media Network</h3>
                     <p class="text-slate-400 text-xs sm:text-sm font-light">Giving a voice to stories that matter.</p>
                 </div>
 
-                <!-- 5. Volunteers -->
-                <div tabindex="0" class="glass-card rounded-2xl p-6 text-center cursor-pointer outline-none">
-                    <div class="w-14 h-14 mx-auto mb-4 rounded-full icon-badge flex items-center justify-center text-amber-500 text-xl shadow-inner">
+                <div tabindex="0" class="glass-card rounded-2xl p-6 text-center cursor-pointer">
+                    <div class="w-14 h-14 mx-auto mb-4 rounded-full icon-badge flex items-center justify-center text-teal-400 text-xl">
                         <i class="fa-solid fa-handshake"></i>
                     </div>
-                    <h3 class="text-lg font-bold text-white mb-1">Volunteers</h3>
+                    <h3 class="text-lg font-bold text-white mb-1 tracking-wide">Volunteers</h3>
                     <p class="text-slate-400 text-xs sm:text-sm font-light">People united through action and compassion.</p>
                 </div>
 
-                <!-- 6. Emergency Response -->
-                <div tabindex="0" class="glass-card rounded-2xl p-6 text-center cursor-pointer outline-none">
-                    <div class="w-14 h-14 mx-auto mb-4 rounded-full icon-badge flex items-center justify-center text-red-500 text-xl shadow-inner">
+                <div tabindex="0" class="glass-card rounded-2xl p-6 text-center cursor-pointer">
+                    <div class="w-14 h-14 mx-auto mb-4 rounded-full icon-badge flex items-center justify-center text-teal-400 text-xl">
                         <i class="fa-solid fa-tower-broadcast"></i>
                     </div>
-                    <h3 class="text-lg font-bold text-white mb-1">Emergency Response</h3>
+                    <h3 class="text-lg font-bold text-white mb-1 tracking-wide">Emergency Response</h3>
                     <p class="text-slate-400 text-xs sm:text-sm font-light">Rapid humanitarian support around the world.</p>
                 </div>
             </div>
