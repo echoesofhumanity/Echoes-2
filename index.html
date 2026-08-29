@@ -282,62 +282,70 @@
     });
 </script>
 
-    <!-- HERO ALANI: Elipsoid Işıklı Yörüngeler, Sınırları Belirgin Dünya Haritası ve Sinematik Slide -->
-<section class="relative min-h-[calc(100vh-5rem)] flex items-center justify-center overflow-hidden bg-[#05070f] px-4 py-16">
+<!-- HERO ALANI: Gerçekçi Detaylı Dünya Haritası, Küçük Yanıp Sönen Işıklar ve Derin Slide -->
+<section class="relative min-h-[calc(100vh-5rem)] flex items-center justify-center overflow-hidden bg-[#05070f] px-4 pt-4 pb-12">
         
-    <!-- ARKA PLAN: ELİPSOİD YÖRÜNGELER, IŞIK KATMANLARI VE DÜNYA HARİTASI -->
+    <!-- ARKA PLAN: DETAYLI DÜNYA HARİTASI, ELİPSOİD YÖRÜNGELER VE YANIP SÖNEN IŞIKLAR -->
     <div class="absolute inset-0 pointer-events-none overflow-hidden z-0 flex items-center justify-center">
         
         <!-- Merkezden Yayılan Derin Mavi Umut Işığı -->
-        <div class="absolute w-[600px] h-[400px] sm:w-[900px] sm:h-[600px] bg-turquoise-500/10 rounded-full blur-[160px] glow-pulse"></div>
-        <div class="absolute w-[400px] h-[250px] sm:w-[600px] sm:h-[400px] bg-blue-600/10 rounded-full blur-[120px] breath-pulse"></div>
+        <div class="absolute w-[500px] h-[300px] sm:w-[800px] sm:h-[500px] bg-turquoise-500/10 rounded-full blur-[160px] glow-pulse"></div>
+        <div class="absolute w-[300px] h-[200px] sm:w-[500px] sm:h-[350px] bg-blue-600/10 rounded-full blur-[120px] breath-pulse"></div>
 
         <!-- 3 Adet Elipsoid (Yayvan Oval) Keskinlikten Uzak Işık Yörüngesi -->
-        <div class="absolute w-[80%] h-[35%] sm:w-[850px] sm:h-[350px] rounded-[100%] border border-turquoise-400/20 blur-[0.5px] float-effect shadow-[0_0_30px_rgba(45,212,191,0.05)]"></div>
-        <div class="absolute w-[95%] h-[50%] sm:w-[1100px] sm:h-[480px] rounded-[100%] border border-turquoise-300/10 blur-[1px]" style="animation: floatSlow 9s ease-in-out infinite reverse;"></div>
-        <div class="absolute w-[110%] h-[65%] sm:w-[1300px] sm:h-[600px] rounded-[100%] border border-white/5 blur-[2px]"></div>
+        <div class="absolute w-[85%] h-[40%] sm:w-[900px] sm:h-[380px] rounded-[100%] border border-turquoise-400/15 blur-[0.5px] float-effect"></div>
+        <div class="absolute w-[98%] h-[55%] sm:w-[1150px] sm:h-[500px] rounded-[100%] border border-turquoise-300/10 blur-[1px]" style="animation: floatSlow 10s ease-in-out infinite reverse;"></div>
+        <div class="absolute w-[110%] h-[70%] sm:w-[1350px] sm:h-[620px] rounded-[100%] border border-white/5 blur-[2px]"></div>
 
-        <!-- Kıta Sınırları Belirgin, Bey Hatlı Dünya Haritası (SVG) -->
-        <svg class="absolute w-[90%] max-w-4xl opacity-25 text-white blur-[0.3px]" viewBox="0 0 1000 500" fill="none" stroke="currentColor" stroke-width="1.2" xmlns="http://www.w3.org/2000/svg">
-            <!-- Kuzey Amerika -->
-            <path d="M150,110 Q180,90 220,100 T280,80 Q310,100 290,140 T240,180 Q190,160 150,110 Z" fill="rgba(255,255,255,0.03)" />
-            <!-- Güney Amerika -->
-            <path d="M250,220 Q280,200 310,230 T290,320 Q260,380 230,330 T250,220 Z" fill="rgba(255,255,255,0.03)" />
-            <!-- Avrupa & Afrika -->
-            <path d="M460,90 Q520,70 580,100 T620,160 Q590,220 540,200 T480,160 Z" fill="rgba(255,255,255,0.03)" />
-            <path d="M480,220 Q550,210 590,260 T560,380 Q510,420 470,350 T480,220 Z" fill="rgba(255,255,255,0.03)" />
-            <!-- Asya & Avustralya -->
-            <path d="M600,80 Q720,60 840,90 T900,180 Q820,250 720,200 T600,80 Z" fill="rgba(255,255,255,0.03)" />
-            <path d="M780,300 Q840,290 880,330 T830,410 Q780,420 780,300 Z" fill="rgba(255,255,255,0.03)" />
+        <!-- GÖNDERDİĞİN GÖRSELDEKİ DETAYLI DÜNYA HARİTASI (SVG Sınırlar) -->
+        <svg class="absolute w-[92%] max-w-5xl opacity-20 text-white blur-[0.2px]" viewBox="0 0 2000 1000" fill="none" stroke="currentColor" stroke-width="1.2" xmlns="http://www.w3.org/2000/svg">
+            <!-- Kuzey Amerika Sınırları -->
+            <path d="M220,180 Q250,140 300,160 T380,130 Q430,160 400,220 T340,320 Q280,300 240,250 Z" fill="rgba(255,255,255,0.02)"/>
+            <path d="M300,160 L330,200 L310,240 L280,210 Z" />
+            <!-- Güney Amerika Sınırları -->
+            <path d="M380,420 Q440,390 480,440 T440,650 Q390,750 350,650 T380,420 Z" fill="rgba(255,255,255,0.02)"/>
+            <path d="M410,480 L440,520 L420,600 L380,550 Z" />
+            <!-- Avrupa & Afrika Sınırları -->
+            <path d="M900,140 Q980,120 1050,150 T1120,240 Q1080,320 1000,280 T920,220 Z" fill="rgba(255,255,255,0.02)"/>
+            <path d="M960,180 L1010,170 L1030,220 L980,230 Z" />
+            <path d="M910,340 Q1020,320 1080,400 T1040,680 Q960,760 900,650 T910,340 Z" fill="rgba(255,255,255,0.02)"/>
+            <!-- Afrika İç Ülke Sınırları -->
+            <path d="M940,380 L1000,370 L1020,440 L960,450 Z" />
+            <path d="M960,470 L1030,460 L1010,550 L950,540 Z" />
+            <!-- Asya & Avustralya Sınırları -->
+            <path d="M1150,120 Q1380,90 1600,130 T1750,280 Q1600,450 1400,380 T1150,120 Z" fill="rgba(255,255,255,0.02)"/>
+            <path d="M1300,200 L1450,180 L1480,280 L1320,300 Z" />
+            <path d="M1520,550 Q1680,530 1740,600 T1680,750 Q1520,780 1520,550 Z" fill="rgba(255,255,255,0.02)"/>
         </svg>
 
-        <!-- Küçük Işık Taneleri -->
-        <div class="absolute top-[38%] left-[45%] w-1.5 h-1.5 bg-turquoise-300 rounded-full shadow-[0_0_12px_#2dd4bf] breath-pulse"></div>
-        <div class="absolute top-[52%] left-[55%] w-1.5 h-1.5 bg-white rounded-full shadow-[0_0_10px_#ffffff] breath-pulse" style="animation-delay: 1.5s;"></div>
+        <!-- Daha Küçük ve Yanıp Sönen (Blink) Işık Taneleri -->
+        <div class="absolute top-[32%] left-[46%] w-1 h-1 bg-turquoise-300 rounded-full shadow-[0_0_8px_#2dd4bf] blink-light"></div>
+        <div class="absolute top-[46%] left-[54%] w-1 h-1 bg-white rounded-full shadow-[0_0_8px_#ffffff] blink-light" style="animation-delay: 1s;"></div>
+        <div class="absolute top-[58%] left-[48%] w-1 h-1 bg-turquoise-400 rounded-full shadow-[0_0_8px_#14b8a6] blink-light" style="animation-delay: 2.2s;"></div>
     </div>
 
-    <!-- HERO İÇERİK KARTI (En Alttan Yavaş ve Sinematik Slide) -->
-    <div class="relative z-10 max-w-4xl mx-auto text-center px-4 py-8 hero-cinematic-slide">
+    <!-- HERO İÇERİK KARTI (Çok Daha Aşağıdan Derin Sinematik Slide) -->
+    <div class="relative z-10 max-w-4xl mx-auto text-center px-4 hero-deep-slide">
         
-        <!-- Üst Etiket (Çerçevesiz, Düzgün Metin) -->
-        <div class="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-white/5 border border-white/10 text-xs sm:text-sm font-mono tracking-widest text-slate-300 mb-6 uppercase shadow-lg">
-            <span class="w-2 h-2 rounded-full bg-turquoise-400 breath-pulse"></span>
+        <!-- Üst Etiket -->
+        <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/5 border border-white/10 text-[11px] sm:text-xs font-mono tracking-widest text-slate-300 mb-4 uppercase shadow-lg">
+            <span class="w-1.5 h-1.5 rounded-full bg-turquoise-400 breath-pulse"></span>
             Digital Civilization Without Borders
         </div>
 
-        <!-- Ana Başlık (Tamamen Beyaz/Gri Tonlarında) -->
-        <h1 class="text-3xl sm:text-5xl md:text-6xl font-bold tracking-tight text-white mb-6 leading-tight">
+        <!-- Ana Başlık -->
+        <h1 class="text-3xl sm:text-5xl md:text-6xl font-bold tracking-tight text-white mb-4 leading-tight">
             Building A Digital <br>
             <span class="text-slate-100">Home For Humanity</span>
         </h1>
 
         <!-- Alt Açıklama -->
-        <p class="text-sm sm:text-base md:text-lg text-slate-300 max-w-2xl mx-auto font-light leading-relaxed mb-8">
+        <p class="text-xs sm:text-sm md:text-base text-slate-300 max-w-xl mx-auto font-light leading-relaxed mb-6">
             A global ecosystem where compassion, knowledge, creativity and human connection come together.
         </p>
 
-        <!-- Değerler Satırı (Turkuaz Yok, Saf Beyaz/Gri) -->
-        <div class="flex flex-wrap items-center justify-center gap-3 sm:gap-6 text-xs sm:text-sm font-mono tracking-wider text-slate-300 mb-10 uppercase">
+        <!-- Değerler Satırı -->
+        <div class="flex flex-wrap items-center justify-center gap-3 sm:gap-5 text-xs font-mono tracking-wider text-slate-300 mb-8 uppercase">
             <span class="hover:text-turquoise-400 transition-colors">Protect</span>
             <span class="text-white/20">•</span>
             <span class="hover:text-turquoise-400 transition-colors">Connect</span>
@@ -350,11 +358,11 @@
         </div>
 
         <!-- Butonlar -->
-        <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
-            <a href="marketplace.html" class="w-full sm:w-auto px-8 py-3.5 rounded-full bg-turquoise-400 text-space-900 font-bold text-xs sm:text-sm tracking-wider uppercase hover:bg-turquoise-300 transition-all shadow-[0_0_25px_rgba(45,212,191,0.4)] text-center">
+        <div class="flex flex-col sm:flex-row items-center justify-center gap-3">
+            <a href="marketplace.html" class="w-full sm:w-auto px-7 py-3 rounded-full bg-turquoise-400 text-space-900 font-bold text-xs tracking-wider uppercase hover:bg-turquoise-300 transition-all shadow-[0_0_20px_rgba(45,212,191,0.3)] text-center">
                 Join The Community
             </a>
-            <a href="manifesto.html" class="w-full sm:w-auto px-8 py-3.5 rounded-full bg-white/5 border border-turquoise-500/30 text-slate-200 font-medium text-xs sm:text-sm tracking-wider uppercase hover:bg-turquoise-500/10 hover:border-turquoise-400 transition-all text-center">
+            <a href="manifesto.html" class="w-full sm:w-auto px-7 py-3 rounded-full bg-white/5 border border-turquoise-500/30 text-slate-200 font-medium text-xs tracking-wider uppercase hover:bg-turquoise-500/10 hover:border-turquoise-400 transition-all text-center">
                 Explore The Ecosystem
             </a>
         </div>
@@ -364,11 +372,18 @@
 
 <!-- CSS Animasyon Tanımları (Head içine eklenecek) -->
 <style>
-    @keyframes heroSlideUp {
-        0% { transform: translateY(120px); opacity: 0; }
+    @keyframes heroDeepSlideUp {
+        0% { transform: translateY(180px); opacity: 0; }
         100% { transform: translateY(0); opacity: 1; }
     }
-    .hero-cinematic-slide { 
-        animation: heroSlideUp 2s cubic-bezier(0.16, 1, 0.3, 1) forwards; 
+    @keyframes blinkEffect {
+        0%, 100% { opacity: 0.2; transform: scale(0.8); }
+        50% { opacity: 1; transform: scale(1.2); }
+    }
+    .hero-deep-slide { 
+        animation: heroDeepSlideUp 2.2s cubic-bezier(0.16, 1, 0.3, 1) forwards; 
+    }
+    .blink-light {
+        animation: blinkEffect 3s ease-in-out infinite;
     }
 </style>
