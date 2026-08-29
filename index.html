@@ -14,7 +14,7 @@
                 extend: {
                     colors: {
                         space: { 900: '#05070f', 800: '#0a0e1a', 700: '#131b2e' },
-                        turquoise: { 400: '#2dd4bf', 500: '#14b8a6', 600: '#0d9488' }
+                        muted: { 400: '#94a3b8', 500: '#64748b', 600: '#475569' }
                     },
                     fontFamily: { sans: ['Inter', 'sans-serif'] }
                 }
@@ -23,38 +23,43 @@
     </script>
 
     <style>
+        /* NEFES ALAN (PULSE) VE YÜZEN ANİMASYONLAR (NEON YOK) */
         @keyframes smoothBreath {
-            0%, 100% { opacity: 0.85; transform: scale(1); }
-            50% { opacity: 1; transform: scale(1.02); }
+            0%, 100% { opacity: 0.8; transform: scale(1); }
+            50% { opacity: 1; transform: scale(1.03); }
         }
+        
         @keyframes floatSlow {
             0%, 100% { transform: translateY(0); }
             50% { transform: translateY(-4px); }
         }
 
-        .breath-effect { animation: smoothBreath 4s ease-in-out infinite; }
+        .breath-pulse { animation: smoothBreath 4s ease-in-out infinite; }
         .float-effect { animation: floatSlow 6s ease-in-out infinite; }
 
+        /* Mat Lüks Glassmorphism Header */
         .glass-header {
-            background: rgba(5, 7, 15, 0.92);
+            background: rgba(5, 7, 15, 0.95);
             backdrop-filter: blur(24px);
             -webkit-backdrop-filter: blur(24px);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.06);
         }
 
+        /* Yavaş Sinematik Slide (1.4s) */
         .menu-slide-hidden { 
             transform: translateY(-100%); 
             opacity: 0; 
             pointer-events: none; 
-            transition: transform 1.2s cubic-bezier(0.16, 1, 0.3, 1), opacity 1s ease-in-out; 
+            transition: transform 1.4s cubic-bezier(0.16, 1, 0.3, 1), opacity 1.2s ease-in-out; 
         }
         .menu-slide-visible { 
             transform: translateY(0); 
             opacity: 1; 
             pointer-events: auto; 
-            transition: transform 1.2s cubic-bezier(0.16, 1, 0.3, 1), opacity 1s ease-in-out; 
+            transition: transform 1.4s cubic-bezier(0.16, 1, 0.3, 1), opacity 1.2s ease-in-out; 
         }
         
+        /* Bayrak ve Dil Küresi Açılır Menü Efekti */
         .lang-dropdown-hidden { 
             opacity: 0; 
             transform: translateY(-12px) scale(0.98); 
@@ -69,7 +74,7 @@
         }
     </style>
 </head>
-<body class="bg-[#05070f] text-slate-100 font-sans antialiased min-h-screen relative selection:bg-turquoise-500 selection:text-white overflow-x-hidden">
+<body class="bg-[#05070f] text-slate-100 font-sans antialiased min-h-screen relative selection:bg-slate-700 selection:text-white overflow-x-hidden">
 
     <!-- HEADER MİMARİSİ -->
     <header class="w-full glass-header sticky top-0 z-50">
@@ -77,79 +82,106 @@
             
             <!-- Logo ve Marka -->
             <a href="index.html" class="flex items-center gap-3.5 group">
-                <img src="logo.png" alt="Echoes of Humanity Logo" class="h-10 sm:h-12 w-auto object-contain breath-effect">
+                <img src="logo.png" alt="Echoes of Humanity Logo" class="h-10 sm:h-12 w-auto object-contain breath-pulse">
                 <div class="flex flex-col">
                     <span class="text-[10px] sm:text-[11px] tracking-[0.3em] text-slate-400 font-medium">ECHOES</span>
-                    <span class="text-xs sm:text-sm font-bold tracking-wider text-white">OF HUMANITY</span>
+                    <span class="text-xs sm:text-sm font-bold tracking-wider text-slate-100">OF HUMANITY</span>
                 </div>
             </a>
 
             <!-- Sağ Kontroller -->
             <div class="flex items-center gap-3.5">
                 
-                <!-- DİL SEÇİCİ KÜRESİ VE BAYRAKLAR -->
+                <!-- DİL SEÇİCİ KÜRESİ (NEFES ALAN / PULSE) -->
                 <div class="relative">
-                    <button type="button" onclick="window.toggleLangMenu(event)" aria-label="Language Selector" class="w-10 h-10 rounded-full border border-turquoise-500/30 bg-white/5 flex items-center justify-center text-slate-200 hover:bg-turquoise-500/20 hover:border-turquoise-400 transition-all text-xs font-mono cursor-pointer shadow-sm float-effect">
+                    <button type="button" onclick="window.toggleLangMenu(event)" aria-label="Language Selector" class="w-10 h-10 rounded-full border border-slate-700 bg-white/5 flex items-center justify-center text-slate-300 hover:bg-white/10 hover:border-slate-500 transition-all text-xs font-mono cursor-pointer shadow-sm float-effect breath-pulse">
                         🌐
                     </button>
                     
-                    <div id="langDropdown" class="absolute right-0 top-12 w-48 rounded-2xl bg-[#0a0e1a]/95 border border-white/10 backdrop-blur-3xl shadow-2xl lang-dropdown-hidden py-2.5 z-50">
-                        <div class="px-4 py-1.5 text-[10px] uppercase font-mono tracking-widest text-turquoise-400/80 border-b border-white/5 mb-1">Select Language</div>
-                        <button type="button" onclick="window.setLanguage('en')" class="w-full px-4 py-2.5 text-left text-xs text-slate-200 hover:bg-white/10 flex items-center gap-3 transition-colors breath-effect"><span>🇬🇧</span> <span class="font-medium">English</span></button>
-                        <button type="button" onclick="window.setLanguage('tr')" class="w-full px-4 py-2.5 text-left text-xs text-slate-200 hover:bg-white/10 flex items-center gap-3 transition-colors breath-effect"><span>🇹🇷</span> <span class="font-medium">Türkçe</span></button>
-                        <button type="button" onclick="window.setLanguage('ru')" class="w-full px-4 py-2.5 text-left text-xs text-slate-200 hover:bg-white/10 flex items-center gap-3 transition-colors breath-effect"><span>🇷🇺</span> <span class="font-medium">Русский</span></button>
-                        <button type="button" onclick="window.setLanguage('de')" class="w-full px-4 py-2.5 text-left text-xs text-slate-200 hover:bg-white/10 flex items-center gap-3 transition-colors breath-effect"><span>🇩🇪</span> <span class="font-medium">Deutsch</span></button>
-                        <button type="button" onclick="window.setLanguage('es')" class="w-full px-4 py-2.5 text-left text-xs text-slate-200 hover:bg-white/10 flex items-center gap-3 transition-colors breath-effect"><span>🇪🇸</span> <span class="font-medium">Español</span></button>
+                    <!-- Nefes Alan Bayrak Listesi -->
+                    <div id="langDropdown" class="absolute right-0 top-12 w-48 rounded-2xl bg-[#0a0e1a]/98 border border-white/10 backdrop-blur-3xl shadow-2xl lang-dropdown-hidden py-2.5 z-50">
+                        <div class="px-4 py-1.5 text-[10px] uppercase font-mono tracking-widest text-slate-400 border-b border-white/5 mb-1">Select Language</div>
+                        <button type="button" onclick="window.setLanguage('en')" class="w-full px-4 py-2.5 text-left text-xs text-slate-300 hover:bg-white/10 flex items-center gap-3 transition-colors breath-pulse"><span>🇬🇧</span> <span class="font-medium">English</span></button>
+                        <button type="button" onclick="window.setLanguage('tr')" class="w-full px-4 py-2.5 text-left text-xs text-slate-300 hover:bg-white/10 flex items-center gap-3 transition-colors breath-pulse"><span>🇹🇷</span> <span class="font-medium">Türkçe</span></button>
+                        <button type="button" onclick="window.setLanguage('ru')" class="w-full px-4 py-2.5 text-left text-xs text-slate-300 hover:bg-white/10 flex items-center gap-3 transition-colors breath-pulse"><span>🇷🇺</span> <span class="font-medium">Русский</span></button>
+                        <button type="button" onclick="window.setLanguage('de')" class="w-full px-4 py-2.5 text-left text-xs text-slate-300 hover:bg-white/10 flex items-center gap-3 transition-colors breath-pulse"><span>🇩🇪</span> <span class="font-medium">Deutsch</span></button>
+                        <button type="button" onclick="window.setLanguage('es')" class="w-full px-4 py-2.5 text-left text-xs text-slate-300 hover:bg-white/10 flex items-center gap-3 transition-colors breath-pulse"><span>🇪🇸</span> <span class="font-medium">Español</span></button>
                     </div>
                 </div>
 
-                <!-- HAMBURGER MENÜ -->
-                <button type="button" onclick="window.toggleMobileMenu(event)" aria-label="Toggle Menu" class="w-10 h-10 rounded-full border border-turquoise-500/30 bg-white/5 flex flex-col items-center justify-center gap-1.5 text-slate-200 hover:bg-turquoise-500/20 hover:border-turquoise-400 transition-all cursor-pointer shadow-sm float-effect">
-                    <span class="w-4 h-0.5 bg-slate-200 rounded-full"></span>
-                    <span class="w-4 h-0.5 bg-slate-200 rounded-full"></span>
-                    <span class="w-2.5 h-0.5 bg-slate-200 rounded-full self-start ml-3"></span>
+                <!-- HAMBURGER MENÜ (NEFES ALAN / PULSE) -->
+                <button type="button" onclick="window.toggleMobileMenu(event)" aria-label="Toggle Menu" class="w-10 h-10 rounded-full border border-slate-700 bg-white/5 flex flex-col items-center justify-center gap-1.5 text-slate-300 hover:bg-white/10 hover:border-slate-500 transition-all cursor-pointer shadow-sm float-effect breath-pulse">
+                    <span class="w-4 h-0.5 bg-slate-300 rounded-full"></span>
+                    <span class="w-4 h-0.5 bg-slate-300 rounded-full"></span>
+                    <span class="w-2.5 h-0.5 bg-slate-300 rounded-full self-start ml-3"></span>
                 </button>
 
             </div>
         </div>
     </header>
 
-    <!-- 3 BÖLÜM BAŞLIKLI AÇILIR NAVİGASYON PANELİ -->
+    <!-- EKSİZSİZ TAM LİSTE AÇILIR NAVİGASYON PANELİ (YAVAŞ SİNEMATİK SLİDE) -->
     <div id="mobileMenu" class="fixed inset-0 bg-[#05070f]/98 backdrop-blur-3xl z-40 menu-slide-hidden flex flex-col overflow-y-auto px-6 py-12">
-        <div class="max-w-md mx-auto w-full pt-8 pb-16 space-y-10">
+        <div class="max-w-md mx-auto w-full pt-8 pb-20 space-y-10">
+            
+            <!-- Üst Kısım / Kapatma -->
             <div class="flex items-center justify-between border-b border-white/10 pb-4">
-                <span class="text-xs uppercase tracking-[0.3em] text-turquoise-400 font-mono font-medium">Navigation Hub</span>
+                <span class="text-xs uppercase tracking-[0.3em] text-slate-400 font-mono font-medium">Navigation Hub</span>
                 <button type="button" onclick="window.toggleMobileMenu()" class="w-9 h-9 rounded-full border border-white/10 bg-white/5 flex items-center justify-center text-slate-300 hover:bg-white/10 cursor-pointer">✕</button>
             </div>
+
+            <!-- Tüm Bölümler ve Eksiksiz Sayfa Bağlantıları -->
             <div class="space-y-8">
+                
+                <!-- 1. Bölüm: About Hub -->
                 <div class="space-y-3">
-                    <span class="text-[11px] font-mono text-turquoise-400 uppercase tracking-widest block">1. Core Hub</span>
-                    <nav class="flex flex-col space-y-2.5 pl-3 border-l border-white/10 text-base font-light text-slate-300">
-                        <a href="index.html" onclick="window.toggleMobileMenu()" class="hover:text-turquoise-400 transition-colors">Home</a>
-                        <a href="about.html" onclick="window.toggleMobileMenu()" class="hover:text-turquoise-400 transition-colors">About</a>
-                        <a href="manifesto.html" onclick="window.toggleMobileMenu()" class="hover:text-turquoise-400 transition-colors">Manifesto</a>
+                    <div class="flex items-center gap-2 text-slate-300">
+                        <span>🌍</span>
+                        <span class="text-[11px] font-mono uppercase tracking-widest font-semibold text-slate-200">About</span>
+                    </div>
+                    <nav class="flex flex-col space-y-2.5 pl-3 border-l border-white/10 text-base font-light text-slate-400">
+                        <a href="index.html" onclick="window.toggleMobileMenu()" class="hover:text-slate-100 transition-colors">Home</a>
+                        <a href="about.html" onclick="window.toggleMobileMenu()" class="hover:text-slate-100 transition-colors">About</a>
+                        <a href="vision.html" onclick="window.toggleMobileMenu()" class="hover:text-slate-100 transition-colors">Vision</a>
+                        <a href="mission.html" onclick="window.toggleMobileMenu()" class="hover:text-slate-100 transition-colors">Mission</a>
+                        <a href="manifesto.html" onclick="window.toggleMobileMenu()" class="hover:text-slate-100 transition-colors">Manifesto</a>
                     </nav>
                 </div>
+
+                <!-- 2. Bölüm: Action Hub -->
                 <div class="space-y-3">
-                    <span class="text-[11px] font-mono text-turquoise-400 uppercase tracking-widest block">2. Architecture & Vision</span>
-                    <nav class="flex flex-col space-y-2.5 pl-3 border-l border-white/10 text-base font-light text-slate-300">
-                        <a href="vision.html" onclick="window.toggleMobileMenu()" class="hover:text-turquoise-400 transition-colors">Vision</a>
-                        <a href="mission.html" onclick="window.toggleMobileMenu()" class="hover:text-turquoise-400 transition-colors">Mission</a>
-                        <a href="humanitarian-action.html" onclick="window.toggleMobileMenu()" class="hover:text-turquoise-400 transition-colors">Humanitarian Action</a>
+                    <div class="flex items-center gap-2 text-slate-300">
+                        <span>🤝</span>
+                        <span class="text-[11px] font-mono uppercase tracking-widest font-semibold text-slate-200">Action</span>
+                    </div>
+                    <nav class="flex flex-col space-y-2.5 pl-3 border-l border-white/10 text-base font-light text-slate-400">
+                        <a href="humanitarian-action.html" onclick="window.toggleMobileMenu()" class="hover:text-slate-100 transition-colors">Humanitarian Action</a>
+                        <a href="projects.html" onclick="window.toggleMobileMenu()" class="hover:text-slate-100 transition-colors">Projects</a>
+                        <a href="volunteers.html" onclick="window.toggleMobileMenu()" class="hover:text-slate-100 transition-colors">Volunteers</a>
+                        <a href="academy.html" onclick="window.toggleMobileMenu()" class="hover:text-slate-100 transition-colors">Academy</a>
+                        <a href="media.html" onclick="window.toggleMobileMenu()" class="hover:text-slate-100 transition-colors">Media</a>
                     </nav>
                 </div>
+
+                <!-- 3. Bölüm: Network Hub -->
                 <div class="space-y-3">
-                    <span class="text-[11px] font-mono text-turquoise-400 uppercase tracking-widest block">3. Ecosystem & Network</span>
-                    <nav class="flex flex-col space-y-2.5 pl-3 border-l border-white/10 text-base font-light text-slate-300">
-                        <a href="marketplace.html" onclick="window.toggleMobileMenu()" class="hover:text-turquoise-400 transition-colors">Marketplace</a>
-                        <a href="global-network.html" onclick="window.toggleMobileMenu()" class="hover:text-turquoise-400 transition-colors">Global Network</a>
+                    <div class="flex items-center gap-2 text-slate-300">
+                        <span>🛒</span>
+                        <span class="text-[11px] font-mono uppercase tracking-widest font-semibold text-slate-200">Network</span>
+                    </div>
+                    <nav class="flex flex-col space-y-2.5 pl-3 border-l border-white/10 text-base font-light text-slate-400">
+                        <a href="marketplace.html" onclick="window.toggleMobileMenu()" class="hover:text-slate-100 transition-colors">Marketplace</a>
+                        <a href="merchandise.html" onclick="window.toggleMobileMenu()" class="hover:text-slate-100 transition-colors">Merchandise</a>
+                        <a href="partners.html" onclick="window.toggleMobileMenu()" class="hover:text-slate-100 transition-colors">Partners</a>
+                        <a href="contact.html" onclick="window.toggleMobileMenu()" class="hover:text-slate-100 transition-colors">Contact</a>
                     </nav>
                 </div>
+
             </div>
         </div>
     </div>
 
-    <!-- SCRIPT -->
+    <!-- ETKİLEŞİM SCRİPTLERİ -->
     <script>
         window.toggleMobileMenu = function(event) {
             if (event) event.stopPropagation();
@@ -174,7 +206,7 @@
             const langDropdown = document.getElementById('langDropdown');
             if (langDropdown) {
                 if (langDropdown.classList.contains('lang-dropdown-hidden')) {
-                    langDropdown.classList.remove('lang-dropdown-hidden');
+                    langDropdown.classList.remove('lang-dropdown-visible');
                     langDropdown.classList.add('lang-dropdown-visible');
                 } else {
                     langDropdown.classList.remove('lang-dropdown-visible');
