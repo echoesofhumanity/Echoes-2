@@ -24,8 +24,8 @@
     <style>
         /* --- Animasyon Tanımları --- */
         @keyframes smoothBreath {
-            0%, 100% { opacity: 0.8; transform: scale(1); }
-            50% { opacity: 1; transform: scale(1.1); }
+            0%, 100% { opacity: 0.6; transform: scale(1); }
+            50% { opacity: 1; transform: scale(1.08); }
         }
         
         @keyframes orbitComplex {
@@ -34,6 +34,12 @@
             50% { transform: rotate(180deg) scale(1) translateX(0px); }
             75% { transform: rotate(270deg) scale(0.98) translateX(-12px); }
             100% { transform: rotate(360deg) scale(1) translateX(0px); }
+        }
+
+        /* Minik ışık noktaları için yanıp sönme (blink) efekti */
+        @keyframes starBlink {
+            0%, 100% { opacity: 0.2; transform: scale(0.8); }
+            50% { opacity: 1; transform: scale(1.2); box-shadow: 0 0 8px rgba(45, 212, 191, 0.8); }
         }
 
         @keyframes slideInUpFade {
@@ -48,7 +54,23 @@
 
         .breath-pulse { animation: smoothBreath 3s ease-in-out infinite; }
         
-        /* Gölgeli Katman Orbitler */
+        /* 6 Adet Işık Noktası İçin Sınıflar */
+        .sparkle {
+            position: absolute;
+            width: 3px;
+            height: 3px;
+            background-color: #5eead4;
+            border-radius: 50%;
+            pointer-events: none;
+            animation: starBlink 3.5s ease-in-out infinite;
+        }
+        .sparkle-1 { top: 15%; left: 18%; animation-delay: 0s; }
+        .sparkle-2 { top: 22%; right: 20%; animation-delay: 0.8s; }
+        .sparkle-3 { top: 52% ; left: 12%; animation-delay: 1.5s; }
+        .sparkle-4 { top: 58%; right: 14%; animation-delay: 2.1s; }
+        .sparkle-5 { bottom: 20%; left: 22%; animation-delay: 1.2s; }
+        .sparkle-6 { bottom: 25%; right: 24%; animation-delay: 2.7s; }
+
         .orbit-layer {
             position: absolute;
             border-radius: 50%;
@@ -202,24 +224,32 @@
     </div>
 </div>
 
-<!-- HERO BÖLÜMÜ (Çoklu Gölgeli Orbitler ve Alttan Sinematik Giriş) -->
+<!-- HERO BÖLÜMÜ -->
 <section class="relative min-h-[calc(100vh-5rem)] flex items-center justify-center overflow-hidden bg-[#030712] px-4 pt-2 pb-12">
     
-    <!-- ARKA PLAN: GÖLGELİ VE ÇOKLU ORBİTLER -->
+    <!-- ARKA PLAN: GÖLGELİ ORBİTLER VE 6 ADET IŞIK NOKTASI -->
     <div class="absolute inset-0 pointer-events-none overflow-hidden z-0 flex items-center justify-center hero-bg-fadein">
         <div class="absolute w-[800px] h-[800px] bg-turquoise-900/10 rounded-full blur-[160px]"></div>
         
-        <!-- Harita Yok, Çoklu Katman Gölgeli Orbitler -->
+        <!-- 6 Adet Yazılara Denk Gelmeyen Yanıp Sönen Noktacık -->
+        <div class="sparkle sparkle-1"></div>
+        <div class="sparkle sparkle-2"></div>
+        <div class="sparkle sparkle-3"></div>
+        <div class="sparkle sparkle-4"></div>
+        <div class="sparkle sparkle-5"></div>
+        <div class="sparkle sparkle-6"></div>
+
+        <!-- Orbit Katmanları -->
         <div class="orbit-layer orbit-1"></div>
         <div class="orbit-layer orbit-2"></div>
         <div class="orbit-layer orbit-3"></div>
         <div class="orbit-layer orbit-4"></div>
     </div>
 
-    <!-- İÇERİK (Alttan Yavaşça Slide Eden Sinematik Yapı) -->
+    <!-- İÇERİK -->
     <div class="relative z-10 max-w-4xl mx-auto text-center px-4 space-y-5 sm:space-y-6 hero-content-slide mt-2">
         <div>
-            <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/5 border border-white/10 text-[11px] sm:text-xs font-mono tracking-widest text-slate-300 uppercase shadow-sm">
+            <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/5 border border-white/10 text-[11px] sm:text-xs font-mono tracking-widest text-slate-300 uppercase shadow-sm breath-pulse">
                 <span class="w-1.5 h-1.5 rounded-full bg-turquoise-400"></span>
                 Digital Civilization Without Borders
             </div>
@@ -265,7 +295,7 @@
     </div>
 </section>
 
-<!-- JAVASCRIPT KONTROLLERİ (Menü ve Dil Açma/Kapatma) -->
+<!-- JAVASCRIPT KONTROLLERİ -->
 <script>
     window.toggleMobileMenu = function(event) {
         if (event) event.stopPropagation();
