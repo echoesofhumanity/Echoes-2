@@ -306,7 +306,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Echoes of Humanity</title>
+    <title>Echoes of Humanity — Digital Civilization Without Borders</title>
+    
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <script>
@@ -314,23 +315,129 @@
             darkMode: 'class',
             theme: {
                 extend: {
-                    fontFamily: {
-                        sans: ['"Plus Jakarta Sans"', 'sans-serif'],
-                    },
                     colors: {
-                        darkBg: '#070b12',
-                    }
+                        space: { 900: '#05070f', 800: '#0a0e1a', 700: '#131b2e' },
+                        turquoise: { 300: '#5eead4', 400: '#2dd4bf', 500: '#14b8a6', 600: '#0d9488' },
+                        darkBg: '#070b12'
+                    },
+                    fontFamily: { sans: ['"Plus Jakarta Sans"', 'Inter', 'sans-serif'] }
                 }
             }
         }
     </script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
     <style>
+        /* --- Animasyon Tanımları --- */
+        @keyframes smoothBreath {
+            0%, 100% { opacity: 0.7; transform: scale(1); }
+            50% { opacity: 1; transform: scale(1.18); }
+        }
+        
+        @keyframes orbitComplex {
+            0% { transform: rotate(0deg) scale(1) translateX(0px); }
+            25% { transform: rotate(90deg) scale(1.06, 0.82) translateX(15px); }
+            50% { transform: rotate(180deg) scale(1) translateX(0px); }
+            75% { transform: rotate(270deg) scale(0.94, 1.18) translateX(-15px); }
+            100% { transform: rotate(360deg) scale(1) translateX(0px); }
+        }
+
+        @keyframes starBlink {
+            0%, 100% { opacity: 0.2; transform: scale(0.8); }
+            50% { opacity: 1; transform: scale(1.2); box-shadow: 0 0 8px rgba(45, 212, 191, 0.8); }
+        }
+
+        @keyframes slideInUpFade {
+            0% { transform: translateY(120px); opacity: 0; }
+            100% { transform: translateY(0); opacity: 1; }
+        }
+
+        @keyframes bgFadeIn {
+            0% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+
+        .flag-breath-pulse { animation: smoothBreath 3s ease-in-out infinite; }
+        
+        .sparkle {
+            position: absolute;
+            width: 3px;
+            height: 3px;
+            background-color: #5eead4;
+            border-radius: 50%;
+            pointer-events: none;
+            animation: starBlink 3.5s ease-in-out infinite;
+        }
+        .sparkle-1 { top: 14%; left: 22%; animation-delay: 0s; }
+        .sparkle-2 { top: 20%; right: 24%; animation-delay: 0.8s; }
+        .sparkle-3 { top: 54%; left: 10%; animation-delay: 1.5s; }
+        .sparkle-4 { top: 62%; right: 12%; animation-delay: 2.1s; }
+        .sparkle-5 { bottom: 18%; left: 26%; animation-delay: 1.2s; }
+        .sparkle-6 { bottom: 22%; right: 28%; animation-delay: 2.7s; }
+
+        .orbit-layer {
+            position: absolute;
+            border-radius: 50%;
+            border: 1px solid rgba(45, 212, 191, 0.08);
+            box-shadow: 0 0 30px rgba(20, 184, 166, 0.04), inset 0 0 30px rgba(20, 184, 166, 0.04);
+            pointer-events: none;
+        }
+        .orbit-1 { width: 420px; height: 260px; animation: orbitComplex 140s linear infinite; }
+        .orbit-2 { width: 620px; height: 380px; animation: orbitComplex 100s linear infinite reverse; }
+        .orbit-3 { width: 820px; height: 520px; animation: orbitComplex 180s ease-in-out infinite; }
+        .orbit-4 { width: 1020px; height: 660px; animation: orbitComplex 130s ease-in-out infinite reverse; }
+
+        .hero-bg-fadein { animation: bgFadeIn 4s ease-in forwards; }
+        .hero-content-slide { 
+            animation: slideInUpFade 2.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+            opacity: 0;
+            animation-delay: 0.4s;
+        }
+
+        .glass-header {
+            background: rgba(5, 7, 15, 0.95);
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+        }
+
+        .lang-dropdown-box {
+            background: rgba(8, 12, 22, 0.98) !important;
+            backdrop-filter: blur(30px) !important;
+            -webkit-backdrop-filter: blur(30px) !important;
+            border: 1px solid rgba(255, 255, 255, 0.12) !important;
+        }
+
+        .menu-slide-hidden { 
+            transform: translateY(-100%); 
+            opacity: 0; 
+            pointer-events: none; 
+            transition: transform 1.4s cubic-bezier(0.16, 1, 0.3, 1), opacity 1.2s ease-in-out; 
+        }
+        .menu-slide-visible { 
+            transform: translateY(0); 
+            opacity: 1; 
+            pointer-events: auto; 
+            transition: transform 1.4s cubic-bezier(0.16, 1, 0.3, 1), opacity 1.2s ease-in-out; 
+        }
+        
+        .lang-dropdown-hidden { 
+            opacity: 0; 
+            transform: translateY(-12px) scale(0.98); 
+            pointer-events: none; 
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1); 
+        }
+        .lang-dropdown-visible { 
+            opacity: 1; 
+            transform: translateY(0) scale(1); 
+            pointer-events: auto; 
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1); 
+        }
+
         .glass-card {
             background: linear-gradient(135deg, rgba(30, 41, 59, 0.5) 0%, rgba(13, 20, 33, 0.75) 100%);
             backdrop-filter: blur(16px);
             -webkit-backdrop-filter: blur(16px);
-            /* Kartın kenarlarına ve içine kendinden ışık / parıltı efekti */
             border: 1px solid rgba(255, 255, 255, 0.12);
             box-shadow: 
                 inset 0 1px 0 0 rgba(255, 255, 255, 0.25), 
@@ -361,86 +468,190 @@
         }
     </style>
 </head>
-<body class="bg-darkBg text-slate-100 font-sans antialiased selection:bg-teal-500 selection:text-white">
+<body class="bg-darkBg text-slate-100 font-sans antialiased overflow-x-hidden">
+    
+<!-- HEADER -->
+<header class="w-full glass-header sticky top-0 z-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 h-20 flex items-center justify-between w-full">
+        <a href="index.html" class="flex items-center gap-3.5 group">
+            <img src="logo.png" alt="Echoes of Humanity Logo" class="h-10 sm:h-12 w-auto object-contain flag-breath-pulse">
+            <div class="flex flex-col">
+                <span class="text-[10px] sm:text-[11px] tracking-[0.3em] text-slate-400 font-medium">ECHOES</span>
+                <span class="text-xs sm:text-sm font-bold tracking-wider text-slate-100">OF HUMANITY</span>
+            </div>
+        </a>
 
-    <header class="sticky top-0 z-50 bg-darkBg/80 backdrop-blur-md border-b border-white/5">
-        <div class="max-w-4xl mx-auto px-4 h-16 flex items-center justify-between">
-            <div class="flex items-center space-x-3">
-                <div class="text-teal-400 text-xl drop-shadow-[0_0_8px_rgba(45,212,191,0.5)]">
-                    <i class="fa-solid fa-globe"></i>
+        <div class="flex items-center gap-3.5">
+            <!-- DİL SEÇİCİ -->
+            <div class="relative">
+                <button type="button" onclick="window.toggleLangMenu(event)" aria-label="Language Selector" class="w-10 h-10 rounded-full border border-turquoise-500/30 bg-white/5 flex items-center justify-center text-slate-200 hover:bg-turquoise-500/20 hover:border-turquoise-400 transition-all text-base cursor-pointer shadow-sm flag-breath-pulse">
+                    🌐
+                </button>
+                
+                <div id="langDropdown" class="absolute right-0 top-12 w-48 rounded-2xl lang-dropdown-box shadow-2xl lang-dropdown-hidden py-2.5 z-50">
+                    <div class="px-4 py-1.5 text-[10px] uppercase font-mono tracking-widest text-turquoise-400 border-b border-white/5 mb-1">Select Language</div>
+                    <button type="button" onclick="window.setLanguage('en')" class="w-full px-4 py-2.5 text-left text-xs text-slate-200 hover:bg-white/10 flex items-center gap-3 transition-colors"><span class="flag-breath-pulse text-base">🇬🇧</span> <span class="font-medium">English</span></button>
+                    <button type="button" onclick="window.setLanguage('tr')" class="w-full px-4 py-2.5 text-left text-xs text-slate-200 hover:bg-white/10 flex items-center gap-3 transition-colors"><span class="flag-breath-pulse text-base">🇹🇷</span> <span class="font-medium">Türkçe</span></button>
+                    <button type="button" onclick="window.setLanguage('ru')" class="w-full px-4 py-2.5 text-left text-xs text-slate-200 hover:bg-white/10 flex items-center gap-3 transition-colors"><span class="flag-breath-pulse text-base">🇷🇺</span> <span class="font-medium">Русский</span></button>
+                    <button type="button" onclick="window.setLanguage('de')" class="w-full px-4 py-2.5 text-left text-xs text-slate-200 hover:bg-white/10 flex items-center gap-3 transition-colors"><span class="flag-breath-pulse text-base">🇩🇪</span> <span class="font-medium">Deutsch</span></button>
+                    <button type="button" onclick="window.setLanguage('es')" class="w-full px-4 py-2.5 text-left text-xs text-slate-200 hover:bg-white/10 flex items-center gap-3 transition-colors"><span class="flag-breath-pulse text-base">🇪🇸</span> <span class="font-medium">Español</span></button>
                 </div>
-                <span class="font-bold tracking-widest text-sm text-slate-200">ECHOES OF HUMANITY</span>
+            </div>
+
+            <!-- HAMBURGER MENÜ -->
+            <button type="button" onclick="window.toggleMobileMenu(event)" aria-label="Toggle Menu" class="w-10 h-10 rounded-full border border-turquoise-500/30 bg-white/5 flex flex-col items-center justify-center gap-1.5 text-slate-200 hover:bg-turquoise-500/20 hover:border-turquoise-400 transition-all cursor-pointer shadow-sm flag-breath-pulse">
+                <span class="w-4 h-0.5 bg-slate-200 rounded-full"></span>
+                <span class="w-4 h-0.5 bg-slate-200 rounded-full"></span>
+                <span class="w-2.5 h-0.5 bg-slate-200 rounded-full self-start ml-3"></span>
+            </button>
+        </div>
+    </div>
+</header>
+
+<!-- MOBİL MENÜ PANELİ -->
+<div id="mobileMenu" class="fixed inset-0 bg-[#05070f]/98 backdrop-blur-3xl z-40 menu-slide-hidden flex flex-col overflow-y-auto px-6 py-12">
+    <div class="max-w-md mx-auto w-full pt-8 pb-20 space-y-10">
+        <div class="flex items-center justify-between border-b border-white/10 pb-4">
+            <span class="text-xs uppercase tracking-[0.3em] text-turquoise-400 font-mono font-medium">Navigation Hub</span>
+            <button type="button" onclick="window.toggleMobileMenu()" class="w-9 h-9 rounded-full border border-white/10 bg-white/5 flex items-center justify-center text-slate-300 hover:bg-white/10 cursor-pointer">✕</button>
+        </div>
+
+        <div class="space-y-8">
+            <div class="space-y-3">
+                <div class="flex items-center gap-2 text-turquoise-400">
+                    <span>🌍</span>
+                    <span class="text-[11px] font-mono uppercase tracking-widest font-semibold">About</span>
+                </div>
+                <nav class="flex flex-col space-y-2.5 pl-3 border-l border-white/10 text-base font-light text-slate-300">
+                    <a href="index.html" onclick="window.toggleMobileMenu()" class="hover:text-turquoise-400 transition-colors">Home</a>
+                    <a href="about.html" onclick="window.toggleMobileMenu()" class="hover:text-turquoise-400 transition-colors">About</a>
+                    <a href="vision.html" onclick="window.toggleMobileMenu()" class="hover:text-turquoise-400 transition-colors">Vision</a>
+                    <a href="mission.html" onclick="window.toggleMobileMenu()" class="hover:text-turquoise-400 transition-colors">Mission</a>
+                    <a href="manifesto.html" onclick="window.toggleMobileMenu()" class="hover:text-turquoise-400 transition-colors">Manifesto</a>
+                </nav>
+            </div>
+
+            <div class="space-y-3">
+                <div class="flex items-center gap-2 text-turquoise-400">
+                    <span>🤝</span>
+                    <span class="text-[11px] font-mono uppercase tracking-widest font-semibold">Action</span>
+                </div>
+                <nav class="flex flex-col space-y-2.5 pl-3 border-l border-white/10 text-base font-light text-slate-300">
+                    <a href="humanitarian-action.html" onclick="window.toggleMobileMenu()" class="hover:text-turquoise-400 transition-colors">Humanitarian Action</a>
+                    <a href="projects.html" onclick="window.toggleMobileMenu()" class="hover:text-turquoise-400 transition-colors">Projects</a>
+                    <a href="volunteers.html" onclick="window.toggleMobileMenu()" class="hover:text-turquoise-400 transition-colors">Volunteers</a>
+                    <a href="academy.html" onclick="window.toggleMobileMenu()" class="hover:text-turquoise-400 transition-colors">Academy</a>
+                    <a href="media.html" onclick="window.toggleMobileMenu()" class="hover:text-turquoise-400 transition-colors">Media</a>
+                </nav>
+            </div>
+
+            <div class="space-y-3">
+                <div class="flex items-center gap-2 text-turquoise-400">
+                    <span>🛒</span>
+                    <span class="text-[11px] font-mono uppercase tracking-widest font-semibold">Network</span>
+                </div>
+                <nav class="flex flex-col space-y-2.5 pl-3 border-l border-white/10 text-base font-light text-slate-300">
+                    <a href="marketplace.html" onclick="window.toggleMobileMenu()" class="hover:text-turquoise-400 transition-colors">Marketplace</a>
+                    <a href="merchandise.html" onclick="window.toggleMobileMenu()" class="hover:text-turquoise-400 transition-colors">Merchandise</a>
+                    <a href="partners.html" onclick="window.toggleMobileMenu()" class="hover:text-turquoise-400 transition-colors">Partners</a>
+                    <a href="contact.html" onclick="window.toggleMobileMenu()" class="hover:text-turquoise-400 transition-colors">Contact</a>
+                </nav>
             </div>
         </div>
-    </header>
+    </div>
+</div>
 
-    <main class="max-w-xl mx-auto px-4 py-12 space-y-16">
+<!-- MAIN CONTAINER -->
+<main class="max-w-xl mx-auto px-4 py-12 space-y-20">
 
-        <section class="space-y-8 text-center">
-            <div class="space-y-3">
-                <h1 class="text-3xl sm:text-4xl font-extrabold tracking-tight text-white leading-tight drop-shadow-md">
-                    Building Humanity Together
+    <!-- HERO BÖLÜMÜ -->
+    <section class="relative min-h-[calc(100vh-5rem)] flex items-center justify-center overflow-hidden px-4 pt-2 pb-12">
+        <div class="absolute inset-0 pointer-events-none overflow-hidden z-0 flex items-center justify-center hero-bg-fadein">
+            <div class="absolute w-[800px] h-[800px] bg-turquoise-900/10 rounded-full blur-[160px]"></div>
+            
+            <div class="sparkle sparkle-1"></div>
+            <div class="sparkle sparkle-2"></div>
+            <div class="sparkle sparkle-3"></div>
+            <div class="sparkle sparkle-4"></div>
+            <div class="sparkle sparkle-5"></div>
+            <div class="sparkle sparkle-6"></div>
+
+            <div class="orbit-layer orbit-1"></div>
+            <div class="orbit-layer orbit-2"></div>
+            <div class="orbit-layer orbit-3"></div>
+            <div class="orbit-layer orbit-4"></div>
+        </div>
+
+        <div class="relative z-10 max-w-4xl mx-auto text-center px-4 space-y-5 sm:space-y-6 hero-content-slide mt-2">
+            <div>
+                <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/5 border border-white/10 text-[11px] sm:text-xs font-mono tracking-widest text-slate-300 uppercase shadow-sm">
+                    <span class="w-1.5 h-1.5 rounded-full bg-turquoise-400 flag-breath-pulse"></span>
+                    Digital Civilization Without Borders
+                </div>
+            </div>
+
+            <div class="space-y-1">
+                <h1 class="text-3xl sm:text-5xl md:text-6xl font-bold tracking-tight text-white leading-tight">
+                    Building A Digital <br>
+                    <span class="text-slate-200 font-light tracking-wide">Home For Humanity</span>
                 </h1>
-                <p class="text-slate-400 text-xs sm:text-sm max-w-md mx-auto font-light leading-relaxed">
-                    One global mission powered by compassion, technology and people.
+            </div>
+
+            <div>
+                <p class="text-xs sm:text-sm md:text-base text-slate-300 max-w-xl mx-auto font-light leading-relaxed">
+                    A global ecosystem where compassion, knowledge, creativity and human connection come together.
                 </p>
             </div>
 
-            <div class="space-y-4">
-                <div tabindex="0" class="glass-card rounded-2xl p-6 text-center cursor-pointer">
-                    <div class="w-14 h-14 mx-auto mb-4 rounded-full icon-badge flex items-center justify-center text-teal-400 text-xl">
-                        <i class="fa-solid fa-globe"></i>
-                    </div>
-                    <h3 class="text-lg font-bold text-white mb-1 tracking-wide">Global Network</h3>
-                    <p class="text-slate-400 text-xs sm:text-sm font-light">Connecting people across every continent.</p>
-                </div>
-
-                <div tabindex="0" class="glass-card rounded-2xl p-6 text-center cursor-pointer">
-                    <div class="w-14 h-14 mx-auto mb-4 rounded-full icon-badge flex items-center justify-center text-teal-400 text-xl">
-                        <i class="fa-solid fa-heart"></i>
-                    </div>
-                    <h3 class="text-lg font-bold text-white mb-1 tracking-wide">Humanitarian Action</h3>
-                    <p class="text-slate-400 text-xs sm:text-sm font-light">Delivering hope where it is needed most.</p>
-                </div>
-
-                <div tabindex="0" class="glass-card rounded-2xl p-6 text-center cursor-pointer">
-                    <div class="w-14 h-14 mx-auto mb-4 rounded-full icon-badge flex items-center justify-center text-teal-400 text-xl">
-                        <i class="fa-solid fa-graduation-cap"></i>
-                    </div>
-                    <h3 class="text-lg font-bold text-white mb-1 tracking-wide">Academy</h3>
-                    <p class="text-slate-400 text-xs sm:text-sm font-light">Learning that empowers future generations.</p>
-                </div>
-
-                <div tabindex="0" class="glass-card rounded-2xl p-6 text-center cursor-pointer">
-                    <div class="w-14 h-14 mx-auto mb-4 rounded-full icon-badge flex items-center justify-center text-teal-400 text-xl">
-                        <i class="fa-solid fa-satellite-dish"></i>
-                    </div>
-                    <h3 class="text-lg font-bold text-white mb-1 tracking-wide">Media Network</h3>
-                    <p class="text-slate-400 text-xs sm:text-sm font-light">Giving a voice to stories that matter.</p>
-                </div>
-
-                <div tabindex="0" class="glass-card rounded-2xl p-6 text-center cursor-pointer">
-                    <div class="w-14 h-14 mx-auto mb-4 rounded-full icon-badge flex items-center justify-center text-teal-400 text-xl">
-                        <i class="fa-solid fa-handshake"></i>
-                    </div>
-                    <h3 class="text-lg font-bold text-white mb-1 tracking-wide">Volunteers</h3>
-                    <p class="text-slate-400 text-xs sm:text-sm font-light">People united through action and compassion.</p>
-                </div>
-
-                <div tabindex="0" class="glass-card rounded-2xl p-6 text-center cursor-pointer">
-                    <div class="w-14 h-14 mx-auto mb-4 rounded-full icon-badge flex items-center justify-center text-teal-400 text-xl">
-                        <i class="fa-solid fa-tower-broadcast"></i>
-                    </div>
-                    <h3 class="text-lg font-bold text-white mb-1 tracking-wide">Emergency Response</h3>
-                    <p class="text-slate-400 text-xs sm:text-sm font-light">Rapid humanitarian support around the world.</p>
+            <div>
+                <div class="flex flex-wrap items-center justify-center gap-3 sm:gap-6 text-xs font-mono tracking-wider text-slate-400 uppercase font-medium">
+                    <span class="hover:text-white transition-colors">Protect</span>
+                    <span class="text-turquoise-500/40">•</span>
+                    <span class="hover:text-white transition-colors">Connect</span>
+                    <span class="text-turquoise-500/40">•</span>
+                    <span class="hover:text-white transition-colors">Create</span>
+                    <span class="text-turquoise-500/40">•</span>
+                    <span class="hover:text-white transition-colors">Share</span>
+                    <span class="text-turquoise-500/40">•</span>
+                    <span class="hover:text-white transition-colors">Thrive</span>
                 </div>
             </div>
-        </section>
 
-    </main>
+            <div class="pt-1">
+                <div class="flex flex-col sm:flex-row items-center justify-center gap-3">
+                    <a href="marketplace.html" class="w-full sm:w-auto px-8 py-3.5 rounded-full bg-turquoise-400 text-[#030712] font-bold text-xs tracking-wider uppercase hover:bg-turquoise-300 transition-all shadow-[0_0_20px_rgba(45,212,191,0.3)] text-center">
+                        Join The Community
+                    </a>
+                    <a href="manifesto.html" class="w-full sm:w-auto px-8 py-3.5 rounded-full bg-white/5 border border-slate-600/50 text-slate-200 font-medium text-xs tracking-wider uppercase hover:bg-white/10 hover:border-slate-400 transition-all text-center">
+                        Explore The Ecosystem
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
 
-</body>
-</html>
+    <!-- 1. Building Humanity Together Section -->
+    <section class="space-y-8 text-center">
+        <div class="space-y-3">
+            <h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight text-white leading-tight drop-shadow-md">
+                Building Humanity Together
+            </h2>
+            <p class="text-slate-400 text-xs sm:text-sm max-w-md mx-auto font-light leading-relaxed">
+                One global mission powered by compassion, technology and people.
+            </p>
+        </div>
+
+        <div class="space-y-4">
+            <div tabindex="0" class="glass-card rounded-2xl p-6 text-center cursor-pointer">
+                <div class="w-14 h-14 mx-auto mb-4 rounded-full icon-badge flex items-center justify-center text-teal-400 text-xl">
+                    <i class="fa-solid fa-globe"></i>
+                </div>
+                <h3 class="text-lg font-bold text-white mb-1 tracking-wide">Global Network</h3>
+                <p class="text-slate-400 text-xs sm:text-sm font-light">Connecting people across every continent.</p>
+            </div>
+
+            <div tabindex="0" class="glass-card rounded-2xl p-6 text-center cursor-pointer">
+                <div class="w-14 h-14 mx-auto mb-4 rounded-full icon-badge flex items-center justify-ce
     
 
 <!-- JAVASCRIPT KONTROLLERİ -->
