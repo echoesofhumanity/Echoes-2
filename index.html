@@ -1,309 +1,203 @@
-<!DOCTYPE html>
-<html lang="en" class="dark">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Echoes of Humanity — Digital Civilization Without Borders</title>
-    
-    <!-- Tailwind CSS CDN -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            darkMode: 'class',
-            theme: {
-                extend: {
-                    colors: {
-                        space: { 900: '#05070f', 800: '#0a0e1a', 700: '#131b2e' },
-                        turquoise: { 300: '#5eead4', 400: '#2dd4bf', 500: '#14b8a6', 600: '#0d9488' }
-                    },
-                    fontFamily: { sans: ['Inter', 'sans-serif'] }
-                }
-            }
-        }
-    </script>
-
-    <style>
-        @keyframes smoothBreath {
-            0%, 100% { opacity: 0.8; transform: scale(1); }
-            50% { opacity: 1; transform: scale(1.03); }
-        }
+<!-- HEADER MİMARİSİ (Z-50) -->
+<header class="w-full glass-header sticky top-0 z-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 h-20 flex items-center justify-between w-full">
         
-        @keyframes floatSlow {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-4px); }
-        }
+        <!-- Logo ve Marka -->
+        <a href="index.html" class="flex items-center gap-3.5 group">
+            <img src="logo.png" alt="Echoes of Humanity Logo" class="h-10 sm:h-12 w-auto object-contain breath-pulse">
+            <div class="flex flex-col">
+                <span class="text-[10px] sm:text-[11px] tracking-[0.3em] text-slate-400 font-medium">ECHOES</span>
+                <span class="text-xs sm:text-sm font-bold tracking-wider text-slate-100">OF HUMANITY</span>
+            </div>
+        </a>
 
-        @keyframes pulseGlow {
-            0%, 100% { opacity: 0.3; transform: scale(1); }
-            50% { opacity: 0.7; transform: scale(1.05); }
-        }
-
-        /* En Alttan Yavaş ve Sinematik Akış */
-        @keyframes heroSlideUp {
-            0% { transform: translateY(100px); opacity: 0; }
-            100% { transform: translateY(0); opacity: 1; }
-        }
-
-        .breath-pulse { animation: smoothBreath 4s ease-in-out infinite; }
-        .float-effect { animation: floatSlow 6s ease-in-out infinite; }
-        .glow-pulse { animation: pulseGlow 5s ease-in-out infinite; }
-        .hero-cinematic-slide { animation: heroSlideUp 1.8s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
-
-        /* Mat Lüks Glassmorphism Header */
-        .glass-header {
-            background: rgba(5, 7, 15, 0.95);
-            backdrop-filter: blur(24px);
-            -webkit-backdrop-filter: blur(24px);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.06);
-        }
-
-        /* Çerçevesiz, Derin ve Şeffaf Hero Alanı */
-        .hero-content-area {
-            background: transparent;
-        }
-
-        /* Bayrak Menüsü İçin Kesin Opaklık ve Cam Dokusu */
-        .lang-dropdown-box {
-            background: rgba(8, 12, 22, 0.98) !important;
-            backdrop-filter: blur(30px) !important;
-            -webkit-backdrop-filter: blur(30px) !important;
-            border: 1px solid rgba(255, 255, 255, 0.12) !important;
-        }
-
-        .menu-slide-hidden { 
-            transform: translateY(-100%); 
-            opacity: 0; 
-            pointer-events: none; 
-            transition: transform 1.4s cubic-bezier(0.16, 1, 0.3, 1), opacity 1.2s ease-in-out; 
-        }
-        .menu-slide-visible { 
-            transform: translateY(0); 
-            opacity: 1; 
-            pointer-events: auto; 
-            transition: transform 1.4s cubic-bezier(0.16, 1, 0.3, 1), opacity 1.2s ease-in-out; 
-        }
-        
-        .lang-dropdown-hidden { 
-            opacity: 0; 
-            transform: translateY(-12px) scale(0.98); 
-            pointer-events: none; 
-            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1); 
-        }
-        .lang-dropdown-visible { 
-            opacity: 1; 
-            transform: translateY(0) scale(1); 
-            pointer-events: auto; 
-            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1); 
-        }
-    </style>
-</head>
-<body class="bg-[#05070f] text-slate-100 font-sans antialiased min-h-screen relative selection:bg-turquoise-500 selection:text-white overflow-x-hidden">
-
-    <!-- HEADER MİMARİSİ (Z-50) -->
-    <header class="w-full glass-header sticky top-0 z-50">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 h-20 flex items-center justify-between w-full">
+        <!-- Sağ Kontroller -->
+        <div class="flex items-center gap-3.5">
             
-            <!-- Logo ve Marka -->
-            <a href="index.html" class="flex items-center gap-3.5 group">
-                <img src="logo.png" alt="Echoes of Humanity Logo" class="h-10 sm:h-12 w-auto object-contain breath-pulse">
-                <div class="flex flex-col">
-                    <span class="text-[10px] sm:text-[11px] tracking-[0.3em] text-slate-400 font-medium">ECHOES</span>
-                    <span class="text-xs sm:text-sm font-bold tracking-wider text-slate-100">OF HUMANITY</span>
-                </div>
-            </a>
-
-            <!-- Sağ Kontroller -->
-            <div class="flex items-center gap-3.5">
-                
-                <!-- DİL SEÇİCİ KÜRESİ -->
-                <div class="relative">
-                    <button type="button" onclick="window.toggleLangMenu(event)" aria-label="Language Selector" class="w-10 h-10 rounded-full border border-turquoise-500/30 bg-white/5 flex items-center justify-center text-slate-200 hover:bg-turquoise-500/20 hover:border-turquoise-400 transition-all text-xs font-mono cursor-pointer shadow-sm float-effect breath-pulse">
-                        🌐
-                    </button>
-                    
-                    <!-- Cam Dokulu Bayrak Listesi -->
-                    <div id="langDropdown" class="absolute right-0 top-12 w-48 rounded-2xl lang-dropdown-box shadow-2xl lang-dropdown-hidden py-2.5 z-50">
-                        <div class="px-4 py-1.5 text-[10px] uppercase font-mono tracking-widest text-turquoise-400 border-b border-white/5 mb-1">Select Language</div>
-                        <button type="button" onclick="window.setLanguage('en')" class="w-full px-4 py-2.5 text-left text-xs text-slate-200 hover:bg-white/10 flex items-center gap-3 transition-colors"><span>🇬🇧</span> <span class="font-medium">English</span></button>
-                        <button type="button" onclick="window.setLanguage('tr')" class="w-full px-4 py-2.5 text-left text-xs text-slate-200 hover:bg-white/10 flex items-center gap-3 transition-colors"><span>🇹🇷</span> <span class="font-medium">Türkçe</span></button>
-                        <button type="button" onclick="window.setLanguage('ru')" class="w-full px-4 py-2.5 text-left text-xs text-slate-200 hover:bg-white/10 flex items-center gap-3 transition-colors"><span>🇷🇺</span> <span class="font-medium">Русский</span></button>
-                        <button type="button" onclick="window.setLanguage('de')" class="w-full px-4 py-2.5 text-left text-xs text-slate-200 hover:bg-white/10 flex items-center gap-3 transition-colors"><span>🇩🇪</span> <span class="font-medium">Deutsch</span></button>
-                        <button type="button" onclick="window.setLanguage('es')" class="w-full px-4 py-2.5 text-left text-xs text-slate-200 hover:bg-white/10 flex items-center gap-3 transition-colors"><span>🇪🇸</span> <span class="font-medium">Español</span></button>
-                    </div>
-                </div>
-
-                <!-- HAMBURGER MENÜ -->
-                <button type="button" onclick="window.toggleMobileMenu(event)" aria-label="Toggle Menu" class="w-10 h-10 rounded-full border border-turquoise-500/30 bg-white/5 flex flex-col items-center justify-center gap-1.5 text-slate-200 hover:bg-turquoise-500/20 hover:border-turquoise-400 transition-all cursor-pointer shadow-sm float-effect breath-pulse">
-                    <span class="w-4 h-0.5 bg-slate-200 rounded-full"></span>
-                    <span class="w-4 h-0.5 bg-slate-200 rounded-full"></span>
-                    <span class="w-2.5 h-0.5 bg-slate-200 rounded-full self-start ml-3"></span>
+            <!-- DİL SEÇİCİ KÜRESİ -->
+            <div class="relative">
+                <button type="button" onclick="window.toggleLangMenu(event)" aria-label="Language Selector" class="w-10 h-10 rounded-full border border-turquoise-500/30 bg-white/5 flex items-center justify-center text-slate-200 hover:bg-turquoise-500/20 hover:border-turquoise-400 transition-all text-xs font-mono cursor-pointer shadow-sm float-effect breath-pulse">
+                    🌐
                 </button>
-
-            </div>
-        </div>
-    </header>
-
-    <!-- HERO ALANI: ÇERÇEVESİZ, DÜZGÜN HİZALANMIŞ VE EN ALTTAN SLİDE -->
-    <section class="relative min-h-[calc(100vh-5rem)] flex items-center justify-center overflow-hidden bg-gradient-to-b from-[#05070f] via-[#091022] to-[#05070f] px-4 py-16">
-        
-        <!-- Arkadaki Işıma ve Işık Taneleri -->
-        <div class="absolute inset-0 pointer-events-none overflow-hidden z-0">
-            <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] sm:w-[900px] sm:h-[900px] bg-turquoise-500/10 rounded-full blur-[150px] glow-pulse"></div>
-            <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[400px] sm:w-[700px] sm:h-[700px] rounded-full border border-turquoise-500/10"></div>
-            
-            <div class="absolute top-[32%] left-[38%] w-1.5 h-1.5 bg-turquoise-300 rounded-full shadow-[0_0_12px_#2dd4bf] breath-pulse"></div>
-            <div class="absolute top-[52%] left-[62%] w-1 h-1 bg-white rounded-full shadow-[0_0_10px_#ffffff] breath-pulse" style="animation-delay: 1s;"></div>
-            <div class="absolute top-[58%] left-[42%] w-1.5 h-1.5 bg-turquoise-400 rounded-full shadow-[0_0_12px_#14b8a6] breath-pulse" style="animation-delay: 2s;"></div>
-        </div>
-
-        <!-- HERO İÇERİK ALANI (Çerçeve Yok, En Alttan Sinematik Akış) -->
-        <div class="relative z-10 max-w-4xl mx-auto text-center px-4 py-8 hero-content-area hero-cinematic-slide">
-            
-            <!-- Üst Etiket -->
-            <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/5 border border-white/10 text-[11px] sm:text-xs font-mono tracking-widest text-slate-300 mb-6 uppercase">
-                <span class="w-1.5 h-1.5 rounded-full bg-turquoise-400 breath-pulse"></span>
-                Digital Civilization Without Borders
+                
+                <!-- Cam Dokulu Bayrak Listesi -->
+                <div id="langDropdown" class="absolute right-0 top-12 w-48 rounded-2xl lang-dropdown-box shadow-2xl lang-dropdown-hidden py-2.5 z-50">
+                    <div class="px-4 py-1.5 text-[10px] uppercase font-mono tracking-widest text-turquoise-400 border-b border-white/5 mb-1">Select Language</div>
+                    <button type="button" onclick="window.setLanguage('en')" class="w-full px-4 py-2.5 text-left text-xs text-slate-200 hover:bg-white/10 flex items-center gap-3 transition-colors"><span>🇬🇧</span> <span class="font-medium">English</span></button>
+                    <button type="button" onclick="window.setLanguage('tr')" class="w-full px-4 py-2.5 text-left text-xs text-slate-200 hover:bg-white/10 flex items-center gap-3 transition-colors"><span>🇹🇷</span> <span class="font-medium">Türkçe</span></button>
+                    <button type="button" onclick="window.setLanguage('ru')" class="w-full px-4 py-2.5 text-left text-xs text-slate-200 hover:bg-white/10 flex items-center gap-3 transition-colors"><span>🇷🇺</span> <span class="font-medium">Русский</span></button>
+                    <button type="button" onclick="window.setLanguage('de')" class="w-full px-4 py-2.5 text-left text-xs text-slate-200 hover:bg-white/10 flex items-center gap-3 transition-colors"><span>🇩🇪</span> <span class="font-medium">Deutsch</span></button>
+                    <button type="button" onclick="window.setLanguage('es')" class="w-full px-4 py-2.5 text-left text-xs text-slate-200 hover:bg-white/10 flex items-center gap-3 transition-colors"><span>🇪🇸</span> <span class="font-medium">Español</span></button>
+                </div>
             </div>
 
-            <!-- Ana Başlık (Düzgün Akış ve Hizalama) -->
-            <h1 class="text-3xl sm:text-5xl md:text-6xl font-bold tracking-tight text-white mb-6 leading-tight">
-                Building A Digital <br>
-                <span class="text-transparent bg-clip-text bg-gradient-to-r from-turquoise-300 via-white to-turquoise-500">Home For Humanity</span>
-            </h1>
-
-            <!-- Alt Açıklama -->
-            <p class="text-sm sm:text-base md:text-lg text-slate-300 max-w-2xl mx-auto font-light leading-relaxed mb-8">
-                A global ecosystem where compassion, knowledge, creativity and human connection come together.
-            </p>
-
-            <!-- Değerler Satırı -->
-            <div class="flex flex-wrap items-center justify-center gap-3 sm:gap-6 text-xs sm:text-sm font-mono tracking-wider text-turquoise-400/90 mb-10 uppercase">
-                <span class="hover:text-white transition-colors">Protect</span>
-                <span class="text-white/20">•</span>
-                <span class="hover:text-white transition-colors">Connect</span>
-                <span class="text-white/20">•</span>
-                <span class="hover:text-white transition-colors">Create</span>
-                <span class="text-white/20">•</span>
-                <span class="hover:text-white transition-colors">Share</span>
-                <span class="text-white/20">•</span>
-                <span class="hover:text-white transition-colors">Thrive</span>
-            </div>
-
-            <!-- Butonlar (Sadece "Join The Community" Açık Turkuaz) -->
-            <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
-                <a href="marketplace.html" class="w-full sm:w-auto px-8 py-3.5 rounded-full bg-turquoise-400 text-space-900 font-bold text-xs sm:text-sm tracking-wider uppercase hover:bg-turquoise-300 transition-all shadow-[0_0_20px_rgba(45,212,191,0.4)] text-center">
-                    Join The Community
-                </a>
-                <a href="manifesto.html" class="w-full sm:w-auto px-8 py-3.5 rounded-full bg-white/5 border border-turquoise-500/30 text-slate-200 font-medium text-xs sm:text-sm tracking-wider uppercase hover:bg-turquoise-500/10 hover:border-turquoise-400 transition-all text-center">
-                    Explore The Ecosystem
-                </a>
-            </div>
+            <!-- HAMBURGER MENÜ -->
+            <button type="button" onclick="window.toggleMobileMenu(event)" aria-label="Toggle Menu" class="w-10 h-10 rounded-full border border-turquoise-500/30 bg-white/5 flex flex-col items-center justify-center gap-1.5 text-slate-200 hover:bg-turquoise-500/20 hover:border-turquoise-400 transition-all cursor-pointer shadow-sm float-effect breath-pulse">
+                <span class="w-4 h-0.5 bg-slate-200 rounded-full"></span>
+                <span class="w-4 h-0.5 bg-slate-200 rounded-full"></span>
+                <span class="w-2.5 h-0.5 bg-slate-200 rounded-full self-start ml-3"></span>
+            </button>
 
         </div>
-    </section>
+    </div>
+</header>
 
-    <!-- EKSİZSİZ TAM LİSTE AÇILIR NAVİGASYON PANELİ -->
-    <div id="mobileMenu" class="fixed inset-0 bg-[#05070f]/98 backdrop-blur-3xl z-40 menu-slide-hidden flex flex-col overflow-y-auto px-6 py-12">
-        <div class="max-w-md mx-auto w-full pt-8 pb-20 space-y-10">
-            <div class="flex items-center justify-between border-b border-white/10 pb-4">
-                <span class="text-xs uppercase tracking-[0.3em] text-turquoise-400 font-mono font-medium">Navigation Hub</span>
-                <button type="button" onclick="window.toggleMobileMenu()" class="w-9 h-9 rounded-full border border-white/10 bg-white/5 flex items-center justify-center text-slate-300 hover:bg-white/10 cursor-pointer">✕</button>
+<!-- TAM LİSTE AÇILIR NAVİGASYON PANELİ (YUKARIDAN AŞAĞI SLIDE) -->
+<div id="mobileMenu" class="fixed inset-0 bg-[#05070f]/98 backdrop-blur-3xl z-40 menu-slide-hidden flex flex-col overflow-y-auto px-6 py-12">
+    <div class="max-w-md mx-auto w-full pt-8 pb-20 space-y-10">
+        <div class="flex items-center justify-between border-b border-white/10 pb-4">
+            <span class="text-xs uppercase tracking-[0.3em] text-turquoise-400 font-mono font-medium">Navigation Hub</span>
+            <button type="button" onclick="window.toggleMobileMenu()" class="w-9 h-9 rounded-full border border-white/10 bg-white/5 flex items-center justify-center text-slate-300 hover:bg-white/10 cursor-pointer">✕</button>
+        </div>
+
+        <div class="space-y-8">
+            <div class="space-y-3">
+                <div class="flex items-center gap-2 text-turquoise-400">
+                    <span>🌍</span>
+                    <span class="text-[11px] font-mono uppercase tracking-widest font-semibold">About</span>
+                </div>
+                <nav class="flex flex-col space-y-2.5 pl-3 border-l border-white/10 text-base font-light text-slate-300">
+                    <a href="index.html" onclick="window.toggleMobileMenu()" class="hover:text-turquoise-400 transition-colors">Home</a>
+                    <a href="about.html" onclick="window.toggleMobileMenu()" class="hover:text-turquoise-400 transition-colors">About</a>
+                    <a href="vision.html" onclick="window.toggleMobileMenu()" class="hover:text-turquoise-400 transition-colors">Vision</a>
+                    <a href="mission.html" onclick="window.toggleMobileMenu()" class="hover:text-turquoise-400 transition-colors">Mission</a>
+                    <a href="manifesto.html" onclick="window.toggleMobileMenu()" class="hover:text-turquoise-400 transition-colors">Manifesto</a>
+                </nav>
             </div>
 
-            <div class="space-y-8">
-                <div class="space-y-3">
-                    <div class="flex items-center gap-2 text-turquoise-400">
-                        <span>🌍</span>
-                        <span class="text-[11px] font-mono uppercase tracking-widest font-semibold">About</span>
-                    </div>
-                    <nav class="flex flex-col space-y-2.5 pl-3 border-l border-white/10 text-base font-light text-slate-300">
-                        <a href="index.html" onclick="window.toggleMobileMenu()" class="hover:text-turquoise-400 transition-colors">Home</a>
-                        <a href="about.html" onclick="window.toggleMobileMenu()" class="hover:text-turquoise-400 transition-colors">About</a>
-                        <a href="vision.html" onclick="window.toggleMobileMenu()" class="hover:text-turquoise-400 transition-colors">Vision</a>
-                        <a href="mission.html" onclick="window.toggleMobileMenu()" class="hover:text-turquoise-400 transition-colors">Mission</a>
-                        <a href="manifesto.html" onclick="window.toggleMobileMenu()" class="hover:text-turquoise-400 transition-colors">Manifesto</a>
-                    </nav>
+            <div class="space-y-3">
+                <div class="flex items-center gap-2 text-turquoise-400">
+                    <span>🤝</span>
+                    <span class="text-[11px] font-mono uppercase tracking-widest font-semibold">Action</span>
                 </div>
+                <nav class="flex flex-col space-y-2.5 pl-3 border-l border-white/10 text-base font-light text-slate-300">
+                    <a href="humanitarian-action.html" onclick="window.toggleMobileMenu()" class="hover:text-turquoise-400 transition-colors">Humanitarian Action</a>
+                    <a href="projects.html" onclick="window.toggleMobileMenu()" class="hover:text-turquoise-400 transition-colors">Projects</a>
+                    <a href="volunteers.html" onclick="window.toggleMobileMenu()" class="hover:text-turquoise-400 transition-colors">Volunteers</a>
+                    <a href="academy.html" onclick="window.toggleMobileMenu()" class="hover:text-turquoise-400 transition-colors">Academy</a>
+                    <a href="media.html" onclick="window.toggleMobileMenu()" class="hover:text-turquoise-400 transition-colors">Media</a>
+                </nav>
+            </div>
 
-                <div class="space-y-3">
-                    <div class="flex items-center gap-2 text-turquoise-400">
-                        <span>🤝</span>
-                        <span class="text-[11px] font-mono uppercase tracking-widest font-semibold">Action</span>
-                    </div>
-                    <nav class="flex flex-col space-y-2.5 pl-3 border-l border-white/10 text-base font-light text-slate-300">
-                        <a href="humanitarian-action.html" onclick="window.toggleMobileMenu()" class="hover:text-turquoise-400 transition-colors">Humanitarian Action</a>
-                        <a href="projects.html" onclick="window.toggleMobileMenu()" class="hover:text-turquoise-400 transition-colors">Projects</a>
-                        <a href="volunteers.html" onclick="window.toggleMobileMenu()" class="hover:text-turquoise-400 transition-colors">Volunteers</a>
-                        <a href="academy.html" onclick="window.toggleMobileMenu()" class="hover:text-turquoise-400 transition-colors">Academy</a>
-                        <a href="media.html" onclick="window.toggleMobileMenu()" class="hover:text-turquoise-400 transition-colors">Media</a>
-                    </nav>
+            <div class="space-y-3">
+                <div class="flex items-center gap-2 text-turquoise-400">
+                    <span>🛒</span>
+                    <span class="text-[11px] font-mono uppercase tracking-widest font-semibold">Network</span>
                 </div>
-
-                <div class="space-y-3">
-                    <div class="flex items-center gap-2 text-turquoise-400">
-                        <span>🛒</span>
-                        <span class="text-[11px] font-mono uppercase tracking-widest font-semibold">Network</span>
-                    </div>
-                    <nav class="flex flex-col space-y-2.5 pl-3 border-l border-white/10 text-base font-light text-slate-300">
-                        <a href="marketplace.html" onclick="window.toggleMobileMenu()" class="hover:text-turquoise-400 transition-colors">Marketplace</a>
-                        <a href="merchandise.html" onclick="window.toggleMobileMenu()" class="hover:text-turquoise-400 transition-colors">Merchandise</a>
-                        <a href="partners.html" onclick="window.toggleMobileMenu()" class="hover:text-turquoise-400 transition-colors">Partners</a>
-                        <a href="contact.html" onclick="window.toggleMobileMenu()" class="hover:text-turquoise-400 transition-colors">Contact</a>
-                    </nav>
-                </div>
+                <nav class="flex flex-col space-y-2.5 pl-3 border-l border-white/10 text-base font-light text-slate-300">
+                    <a href="marketplace.html" onclick="window.toggleMobileMenu()" class="hover:text-turquoise-400 transition-colors">Marketplace</a>
+                    <a href="merchandise.html" onclick="window.toggleMobileMenu()" class="hover:text-turquoise-400 transition-colors">Merchandise</a>
+                    <a href="partners.html" onclick="window.toggleMobileMenu()" class="hover:text-turquoise-400 transition-colors">Partners</a>
+                    <a href="contact.html" onclick="window.toggleMobileMenu()" class="hover:text-turquoise-400 transition-colors">Contact</a>
+                </nav>
             </div>
         </div>
     </div>
+</div>
 
-    <!-- SCRIPTLER -->
-    <script>
-        window.toggleMobileMenu = function(event) {
-            if (event) event.stopPropagation();
-            const menu = document.getElementById('mobileMenu');
-            const langDropdown = document.getElementById('langDropdown');
-            if (langDropdown) { langDropdown.classList.remove('lang-dropdown-visible'); langDropdown.classList.add('lang-dropdown-hidden'); }
-            if (menu) {
-                if (menu.classList.contains('menu-slide-hidden')) {
-                    menu.classList.remove('menu-slide-hidden');
-                    menu.classList.add('menu-slide-visible');
-                    document.body.style.overflow = 'hidden';
-                } else {
-                    menu.classList.remove('menu-slide-visible');
-                    menu.classList.add('menu-slide-hidden');
-                    document.body.style.overflow = 'auto';
-                }
+<!-- GEREKLİ CSS STİLLERİ (HEAD İÇİNE EKLENECEK) -->
+<style>
+    @keyframes smoothBreath {
+        0%, 100% { opacity: 0.8; transform: scale(1); }
+        50% { opacity: 1; transform: scale(1.03); }
+    }
+    
+    @keyframes floatSlow {
+        0%, 100% { transform: translateY(0); }
+        50% { transform: translateY(-4px); }
+    }
+
+    .breath-pulse { animation: smoothBreath 4s ease-in-out infinite; }
+    .float-effect { animation: floatSlow 6s ease-in-out infinite; }
+
+    .glass-header {
+        background: rgba(5, 7, 15, 0.95);
+        backdrop-filter: blur(24px);
+        -webkit-backdrop-filter: blur(24px);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    }
+
+    .lang-dropdown-box {
+        background: rgba(8, 12, 22, 0.98) !important;
+        backdrop-filter: blur(30px) !important;
+        -webkit-backdrop-filter: blur(30px) !important;
+        border: 1px solid rgba(255, 255, 255, 0.12) !important;
+    }
+
+    .menu-slide-hidden { 
+        transform: translateY(-100%); 
+        opacity: 0; 
+        pointer-events: none; 
+        transition: transform 1.4s cubic-bezier(0.16, 1, 0.3, 1), opacity 1.2s ease-in-out; 
+    }
+    .menu-slide-visible { 
+        transform: translateY(0); 
+        opacity: 1; 
+        pointer-events: auto; 
+        transition: transform 1.4s cubic-bezier(0.16, 1, 0.3, 1), opacity 1.2s ease-in-out; 
+    }
+    
+    .lang-dropdown-hidden { 
+        opacity: 0; 
+        transform: translateY(-12px) scale(0.98); 
+        pointer-events: none; 
+        transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1); 
+    }
+    .lang-dropdown-visible { 
+        opacity: 1; 
+        transform: translateY(0) scale(1); 
+        pointer-events: auto; 
+        transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1); 
+    }
+</style>
+
+<!-- GEREKLİ JAVASCRIPT FONKSİYONLARI -->
+<script>
+    window.toggleMobileMenu = function(event) {
+        if (event) event.stopPropagation();
+        const menu = document.getElementById('mobileMenu');
+        const langDropdown = document.getElementById('langDropdown');
+        if (langDropdown) { langDropdown.classList.remove('lang-dropdown-visible'); langDropdown.classList.add('lang-dropdown-hidden'); }
+        if (menu) {
+            if (menu.classList.contains('menu-slide-hidden')) {
+                menu.classList.remove('menu-slide-hidden');
+                menu.classList.add('menu-slide-visible');
+                document.body.style.overflow = 'hidden';
+            } else {
+                menu.classList.remove('menu-slide-visible');
+                menu.classList.add('menu-slide-hidden');
+                document.body.style.overflow = 'auto';
             }
-        };
+        }
+    };
 
-        window.toggleLangMenu = function(event) {
-            if (event) event.stopPropagation();
-            const langDropdown = document.getElementById('langDropdown');
-            if (langDropdown) {
-                if (langDropdown.classList.contains('lang-dropdown-hidden')) {
-                    langDropdown.classList.remove('lang-dropdown-hidden');
-                    langDropdown.classList.add('lang-dropdown-visible');
-                } else {
-                    langDropdown.classList.remove('lang-dropdown-visible');
-                    langDropdown.classList.add('lang-dropdown-hidden');
-                }
-            }
-        };
-
-        window.setLanguage = function(lang) {
-            const langDropdown = document.getElementById('langDropdown');
-            if (langDropdown) {
+    window.toggleLangMenu = function(event) {
+        if (event) event.stopPropagation();
+        const langDropdown = document.getElementById('langDropdown');
+        if (langDropdown) {
+            if (langDropdown.classList.contains('lang-dropdown-hidden')) {
+                langDropdown.classList.remove('lang-dropdown-hidden');
+                langDropdown.classList.add('lang-dropdown-visible');
+            } else {
                 langDropdown.classList.remove('lang-dropdown-visible');
                 langDropdown.classList.add('lang-dropdown-hidden');
             }
-        };
+        }
+    };
 
-        window.addEventListener('click', function(e) {
-            const langDropdown = document.getElementById('langDropdown');
-            if (langDropdown && !langDropdown.contains(e.target)) {
-                langDropdown.classList.remove('lang-dropdown-visible');
-                langDropdown.classList.add('lang-dropdown-hidden');
-            }
-        });
-    </script>
-</body>
-</html>
+    window.setLanguage = function(lang) {
+        const langDropdown = document.getElementById('langDropdown');
+        if (langDropdown) {
+            langDropdown.classList.remove('lang-dropdown-visible');
+            langDropdown.classList.add('lang-dropdown-hidden');
+        }
+    };
+
+    window.addEventListener('click', function(e) {
+        const langDropdown = document.getElementById('langDropdown');
+        if (langDropdown && !langDropdown.contains(e.target)) {
+            langDropdown.classList.remove('lang-dropdown-visible');
+            langDropdown.classList.add('lang-dropdown-hidden');
+        }
+    });
+</script>
