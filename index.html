@@ -301,127 +301,376 @@
     </div>
 </section>
 
-    <!-- ANA SAYFA ÖZELLİK KARTLARI (CORE PILLARS SECTION) -->
-<section class="relative z-20 py-24 px-4 sm:px-6 bg-[#030712] border-t border-white/5">
-    <div class="max-w-7xl mx-auto space-y-16">
-        
-        <!-- Bölüm Başlığı -->
-        <div class="text-center space-y-3">
-            <span class="text-[11px] font-mono tracking-[0.3em] text-[#5eead4]/80 uppercase font-medium">Core Pillars</span>
-            <h2 class="text-2xl sm:text-4xl font-bold tracking-tight text-white">The Foundation of Our Civilization</h2>
-            <p class="text-xs sm:text-sm text-slate-400 max-w-lg mx-auto font-light">
-                Discover the fundamental pillars guiding our borderless digital network towards a sustainable and connected future.
+    <!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Echoes of Humanity</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        darkBg: '#0b131e',
+                        cardBg: '#131c2e',
+                        cardBorder: '#1e293b',
+                    }
+                }
+            }
+        }
+    </script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="bg-darkBg text-white font-sans antialiased selection:bg-blue-500 selection:text-white">
+
+    <!-- Header / Navbar -->
+    <header class="sticky top-0 z-50 bg-darkBg/80 backdrop-blur-md border-b border-cardBorder">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+            <div class="flex items-center space-x-3">
+                <div class="text-amber-400 text-2xl">
+                    <i class="fa-solid fa-globe"></i>
+                </div>
+                <span class="font-bold tracking-wider text-lg">ECHOS OF HUMANITY</span>
+            </div>
+            <div class="flex items-center space-x-4">
+                <button class="w-10 h-10 rounded-full bg-cardBg border border-cardBorder flex items-center justify-center text-blue-400 hover:bg-cardBorder transition">
+                    <i class="fa-solid fa-globe text-lg"></i>
+                </button>
+                <button class="w-10 h-10 rounded-full bg-cardBg border border-cardBorder flex items-center justify-center text-white hover:bg-cardBorder transition">
+                    <i class="fa-solid fa-bars text-lg"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Container -->
+    <main class="max-w-4xl mx-auto px-4 py-8 space-y-16">
+
+        <!-- Hero / Top Cards -->
+        <section class="space-y-4">
+            <!-- Crisis Communication Card -->
+            <div class="bg-cardBg border border-cardBorder rounded-2xl p-6 shadow-xl hover:border-slate-700 transition">
+                <div class="flex items-center space-x-3 mb-3">
+                    <span class="text-2xl text-red-500"><i class="fa-solid fa-bullhorn"></i></span>
+                    <h2 class="text-xl font-bold">Crisis Communication</h2>
+                </div>
+                <p class="text-slate-400 text-sm leading-relaxed">Sharing verified information quickly and responsibly.</p>
+            </div>
+
+            <!-- Long-Term Recovery Card -->
+            <div class="bg-cardBg border border-cardBorder rounded-2xl p-6 shadow-xl hover:border-slate-700 transition">
+                <div class="flex items-center space-x-3 mb-3">
+                    <span class="text-2xl text-red-500"><i class="fa-solid fa-heart"></i></span>
+                    <h2 class="text-xl font-bold">Long-Term Recovery</h2>
+                </div>
+                <p class="text-slate-400 text-sm leading-relaxed">Supporting communities beyond the emergency phase.</p>
+            </div>
+        </section>
+
+        <!-- Today's Echoes & Echoes in Action -->
+        <section class="text-center space-y-4">
+            <h2 class="text-3xl font-extrabold tracking-tight">Today's Echoes</h2>
+        </section>
+
+        <!-- Echoes Academy Section -->
+        <section class="space-y-6">
+            <div class="text-center space-y-2">
+                <h2 class="text-3xl font-extrabold">Echoes Academy</h2>
+                <p class="text-slate-400 text-sm max-w-xl mx-auto leading-relaxed">
+                    Echoes Academy is our global learning platform where knowledge, leadership and compassion come together. Through free educational programs, workshops and digital learning, we empower people to become leaders of positive change in their own communities.
+                </p>
+            </div>
+
+            <div class="grid gap-4">
+                <!-- Leadership Programs -->
+                <div class="bg-cardBg border border-cardBorder rounded-2xl p-6 hover:border-slate-700 transition">
+                    <div class="flex items-center space-x-3 mb-2">
+                        <span class="text-xl text-amber-400"><i class="fa-solid fa-graduation-cap"></i></span>
+                        <h3 class="text-lg font-bold">Leadership Programs</h3>
+                    </div>
+                    <p class="text-slate-400 text-sm">Developing future humanitarian leaders.</p>
+                </div>
+
+                <!-- Free Learning -->
+                <div class="bg-cardBg border border-cardBorder rounded-2xl p-6 hover:border-slate-700 transition">
+                    <div class="flex items-center space-x-3 mb-2">
+                        <span class="text-xl text-blue-400"><i class="fa-solid fa-book-open"></i></span>
+                        <h3 class="text-lg font-bold">Free Learning</h3>
+                    </div>
+                    <p class="text-slate-400 text-sm">Open educational resources for everyone.</p>
+                </div>
+
+                <!-- Digital Courses -->
+                <div class="bg-cardBg border border-cardBorder rounded-2xl p-6 hover:border-slate-700 transition">
+                    <div class="flex items-center space-x-3 mb-2">
+                        <span class="text-xl text-sky-400"><i class="fa-solid fa-laptop"></i></span>
+                        <h3 class="text-lg font-bold">Digital Courses</h3>
+                    </div>
+                    <p class="text-slate-400 text-sm">Online learning without borders.</p>
+                </div>
+
+                <!-- Global Mentorship -->
+                <div class="bg-cardBg border border-cardBorder rounded-2xl p-6 hover:border-slate-700 transition">
+                    <div class="flex items-center space-x-3 mb-2">
+                        <span class="text-xl text-blue-500"><i class="fa-solid fa-globe"></i></span>
+                        <h3 class="text-lg font-bold">Global Mentorship</h3>
+                    </div>
+                    <p class="text-slate-400 text-sm">Connecting experts with future changemakers.</p>
+                </div>
+
+                <!-- Volunteer Training -->
+                <div class="bg-cardBg border border-cardBorder rounded-2xl p-6 hover:border-slate-700 transition">
+                    <div class="flex items-center space-x-3 mb-2">
+                        <span class="text-xl text-amber-500"><i class="fa-solid fa-handshake"></i></span>
+                        <h3 class="text-lg font-bold">Volunteer Training</h3>
+                    </div>
+                    <p class="text-slate-400 text-sm">Preparing volunteers for meaningful service.</p>
+                </div>
+
+                <!-- Innovation Lab -->
+                <div class="bg-cardBg border border-cardBorder rounded-2xl p-6 hover:border-slate-700 transition">
+                    <div class="flex items-center space-x-3 mb-2">
+                        <span class="text-xl text-yellow-400"><i class="fa-solid fa-lightbulb"></i></span>
+                        <h3 class="text-lg font-bold">Innovation Lab</h3>
+                    </div>
+                    <p class="text-slate-400 text-sm">Creating solutions for tomorrow's humanitarian challenges.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Echoes Global Media Network -->
+        <section class="space-y-6">
+            <div class="text-center space-y-2">
+                <h2 class="text-3xl font-extrabold">Echoes Global Media Network</h2>
+                <p class="text-slate-400 text-sm max-w-xl mx-auto leading-relaxed">
+                    Echoes Global Media Network is the storytelling voice of Echoes of Humanity. Through documentaries, news, podcasts, interviews, books, poetry and original productions, we connect people with stories that inspire compassion, understanding and meaningful action across the world.
+                </p>
+            </div>
+
+            <div class="grid gap-4">
+                <!-- Global Newsroom -->
+                <div class="bg-cardBg border border-cardBorder rounded-2xl p-6 hover:border-slate-700 transition">
+                    <div class="flex items-center space-x-3 mb-2">
+                        <span class="text-xl text-blue-400"><i class="fa-solid fa-earth-americas"></i></span>
+                        <h3 class="text-lg font-bold">Global Newsroom</h3>
+                    </div>
+                    <p class="text-slate-400 text-sm">Trusted global reporting focused on humanity, solutions and impact.</p>
+                </div>
+
+                <!-- Podcasts & Interviews -->
+                <div class="bg-cardBg border border-cardBorder rounded-2xl p-6 hover:border-slate-700 transition">
+                    <div class="flex items-center space-x-3 mb-2">
+                        <span class="text-xl text-sky-300"><i class="fa-solid fa-microphone"></i></span>
+                        <h3 class="text-lg font-bold">Podcasts & Interviews</h3>
+                    </div>
+                    <p class="text-slate-400 text-sm">Conversations with changemakers, survivors, volunteers and global leaders who inspire action.</p>
+                </div>
+
+                <!-- Documentaries & Originals -->
+                <div class="bg-cardBg border border-cardBorder rounded-2xl p-6 hover:border-slate-700 transition">
+                    <div class="flex items-center space-x-3 mb-2">
+                        <span class="text-xl text-slate-300"><i class="fa-solid fa-clapperboard"></i></span>
+                        <h3 class="text-lg font-bold">Documentaries & Originals</h3>
+                    </div>
+                    <p class="text-slate-400 text-sm">Original documentaries, cinematic storytelling and creative productions that give a voice to humanity.</p>
+                </div>
+
+                <!-- Books & Poetry -->
+                <div class="bg-cardBg border border-cardBorder rounded-2xl p-6 hover:border-slate-700 transition">
+                    <div class="flex items-center space-x-3 mb-2">
+                        <span class="text-xl text-red-400"><i class="fa-solid fa-book"></i></span>
+                        <h3 class="text-lg font-bold">Books & Poetry</h3>
+                    </div>
+                    <p class="text-slate-400 text-sm">Books, poetry and creative writing that preserve memories, inspire hope and celebrate humanity.</p>
+                </div>
+
+                <!-- Creative Arts -->
+                <div class="bg-cardBg border border-cardBorder rounded-2xl p-6 hover:border-slate-700 transition">
+                    <div class="flex items-center space-x-3 mb-2">
+                        <span class="text-xl text-orange-400"><i class="fa-solid fa-palette"></i></span>
+                        <h3 class="text-lg font-bold">Creative Arts</h3>
+                    </div>
+                    <p class="text-slate-400 text-sm">Art, photography, music, film and digital creativity that bring people together across cultures.</p>
+                </div>
+
+                <!-- Global Campaigns & Impact -->
+                <div class="bg-cardBg border border-cardBorder rounded-2xl p-6 hover:border-slate-700 transition">
+                    <div class="flex items-center space-x-3 mb-2">
+                        <span class="text-xl text-amber-500"><i class="fa-solid fa-handshake"></i></span>
+                        <h3 class="text-lg font-bold">Global Campaigns & Impact</h3>
+                    </div>
+                    <p class="text-slate-400 text-sm">Discover worldwide humanitarian campaigns, collaborative initiatives and measurable impact stories.</p>
+                </div>
+            </div>
+
+            <div class="text-center pt-2">
+                <button class="bg-cardBg border border-cardBorder hover:bg-cardBorder px-6 py-3 rounded-full text-sm font-semibold transition">
+                    Explore Media Network
+                </button>
+            </div>
+        </section>
+
+        <!-- Marketplace & Merchandise Design -->
+        <section class="space-y-8 text-center">
+            <div class="space-y-3">
+                <h2 class="text-3xl font-extrabold">Marketplace</h2>
+                <p class="text-slate-400 text-sm">Explore the Echoes of Humanity marketplace.</p>
+                <div>
+                    <button class="bg-cardBg border border-cardBorder hover:bg-cardBorder px-6 py-3 rounded-full text-sm font-semibold transition">
+                        Visit Marketplace
+                    </button>
+                </div>
+            </div>
+
+            <div class="space-y-3 pt-4">
+                <h2 class="text-3xl font-extrabold">Merchandise Design</h2>
+                <p class="text-slate-400 text-sm">Explore Echoes of Humanity merchandise and design initiatives.</p>
+                <div>
+                    <button class="bg-cardBg border border-cardBorder hover:bg-cardBorder px-6 py-3 rounded-full text-sm font-semibold transition">
+                        Explore Merchandise
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Latest Stories & News -->
+        <section class="space-y-6">
+            <div class="text-center">
+                <h2 class="text-3xl font-extrabold">Latest Stories & News</h2>
+            </div>
+
+            <div class="grid gap-4">
+                <!-- Latest News -->
+                <div class="bg-cardBg border border-cardBorder rounded-2xl p-6 hover:border-slate-700 transition">
+                    <div class="flex items-center space-x-3 mb-2">
+                        <span class="text-xl text-slate-300"><i class="fa-solid fa-newspaper"></i></span>
+                        <h3 class="text-lg font-bold">Latest News</h3>
+                    </div>
+                    <p class="text-slate-400 text-sm">Follow the newest developments across our global initiatives.</p>
+                </div>
+
+                <!-- Success Stories -->
+                <div class="bg-cardBg border border-cardBorder rounded-2xl p-6 hover:border-slate-700 transition">
+                    <div class="flex items-center space-x-3 mb-2">
+                        <span class="text-xl text-amber-400"><i class="fa-solid fa-wand-magic-sparkles"></i></span>
+                        <h3 class="text-lg font-bold">Success Stories</h3>
+                    </div>
+                    <p class="text-slate-400 text-sm">Read inspiring stories of hope and positive change.</p>
+                </div>
+
+                <!-- Volunteer Spotlight -->
+                <div class="bg-cardBg border border-cardBorder rounded-2xl p-6 hover:border-slate-700 transition">
+                    <div class="flex items-center space-x-3 mb-2">
+                        <span class="text-xl text-yellow-400"><i class="fa-solid fa-star"></i></span>
+                        <h3 class="text-lg font-bold">Volunteer Spotlight</h3>
+                    </div>
+                    <p class="text-slate-400 text-sm">Meet volunteers creating meaningful impact worldwide.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Our Partners & Supporters -->
+        <section class="space-y-6">
+            <div class="text-center space-y-2">
+                <h2 class="text-3xl font-extrabold">Our Partners & Supporters</h2>
+                <p class="text-slate-400 text-sm max-w-xl mx-auto leading-relaxed">
+                    Meaningful change is achieved through collaboration. Echoes of Humanity works alongside organizations, educational institutions, businesses and nonprofit partners to build a better future.
+                </p>
+            </div>
+
+            <div class="grid gap-4">
+                <!-- Nonprofit Organizations -->
+                <div class="bg-cardBg border border-cardBorder rounded-2xl p-6 hover:border-slate-700 transition">
+                    <div class="flex items-center space-x-3 mb-2">
+                        <span class="text-xl text-amber-500"><i class="fa-solid fa-handshake"></i></span>
+                        <h3 class="text-lg font-bold">Nonprofit Organizations</h3>
+                    </div>
+                    <p class="text-slate-400 text-sm">Working together to maximize humanitarian impact.</p>
+                </div>
+
+                <!-- Educational Institutions -->
+                <div class="bg-cardBg border border-cardBorder rounded-2xl p-6 hover:border-slate-700 transition">
+                    <div class="flex items-center space-x-3 mb-2">
+                        <span class="text-xl text-amber-400"><i class="fa-solid fa-graduation-cap"></i></span>
+                        <h3 class="text-lg font-bold">Educational Institutions</h3>
+                    </div>
+                    <p class="text-slate-400 text-sm">Sharing knowledge and empowering future generations.</p>
+                </div>
+
+                <!-- Corporate Partners -->
+                <div class="bg-cardBg border border-cardBorder rounded-2xl p-6 hover:border-slate-700 transition">
+                    <div class="flex items-center space-x-3 mb-2">
+                        <span class="text-xl text-slate-300"><i class="fa-solid fa-building"></i></span>
+                        <h3 class="text-lg font-bold">Corporate Partners</h3>
+                    </div>
+                    <p class="text-slate-400 text-sm">Businesses supporting sustainable social responsibility.</p>
+                </div>
+
+                <!-- Technology Partners -->
+                <div class="bg-cardBg border border-cardBorder rounded-2xl p-6 hover:border-slate-700 transition">
+                    <div class="flex items-center space-x-3 mb-2">
+                        <span class="text-xl text-sky-400"><i class="fa-solid fa-laptop"></i></span>
+                        <h3 class="text-lg font-bold">Technology Partners</h3>
+                    </div>
+                    <p class="text-slate-400 text-sm">Innovation and technology serving humanity.</p>
+                </div>
+
+                <!-- Public Institutions -->
+                <div class="bg-cardBg border border-cardBorder rounded-2xl p-6 hover:border-slate-700 transition">
+                    <div class="flex items-center space-x-3 mb-2">
+                        <span class="text-xl text-blue-500"><i class="fa-solid fa-globe"></i></span>
+                        <h3 class="text-lg font-bold">Public Institutions</h3>
+                    </div>
+                    <p class="text-slate-400 text-sm">Building resilient communities through collaboration.</p>
+                </div>
+
+                <!-- Strategic Sponsors -->
+                <div class="bg-cardBg border border-cardBorder rounded-2xl p-6 hover:border-slate-700 transition">
+                    <div class="flex items-center space-x-3 mb-2">
+                        <span class="text-xl text-red-500"><i class="fa-solid fa-heart"></i></span>
+                        <h3 class="text-lg font-bold">Strategic Sponsors</h3>
+                    </div>
+                    <p class="text-slate-400 text-sm">Helping expand our global humanitarian mission.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Join the Movement & Footer -->
+        <section class="text-center space-y-8 pt-8">
+            <div class="space-y-3">
+                <h2 class="text-3xl font-extrabold">Join the Movement</h2>
+                <p class="text-slate-400 text-sm">Every great movement begins with people who care and choose to act.</p>
+                <div>
+                    <button class="bg-cardBg border border-cardBorder hover:bg-cardBorder px-6 py-3 rounded-full text-sm font-semibold transition">
+                        Become a Volunteer
+                    </button>
+                </div>
+            </div>
+
+            <hr class="border-cardBorder my-8">
+
+            <div class="flex flex-wrap justify-center gap-6 text-xs text-slate-400">
+                <a href="#" class="hover:text-white transition">About</a>
+                <a href="#" class="hover:text-white transition">Vision</a>
+                <a href="#" class="hover:text-white transition">Mission</a>
+                <a href="#" class="hover:text-white transition">Manifesto</a>
+                <a href="#" class="hover:text-white transition">Projects</a>
+                <a href="#" class="hover:text-white transition">Contact</a>
+            </div>
+
+            <p class="text-xs text-slate-500 pb-8">
+                © 2026 Echoes of Humanity. All rights reserved.
             </p>
-        </div>
+        </section>
 
-        <!-- Kartlar Grid Yapısı -->
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            
-            <!-- Kart 1: Protect -->
-            <div class="group relative rounded-3xl p-8 flex flex-col justify-between space-y-6 bg-gradient-to-b from-slate-900/80 to-slate-950/90 border border-white/10 backdrop-blur-2xl shadow-[0_20px_50px_rgba(0,0,0,0.5)] transition-all duration-500 hover:border-[#5eead4]/30 hover:-translate-y-1.5 hover:shadow-[0_20px_50px_rgba(45,212,191,0.08)]">
-                <div class="space-y-5">
-                    <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-slate-800 to-slate-900 border border-white/10 flex items-center justify-center text-[#5eead4] shadow-inner group-hover:scale-105 transition-transform duration-300">
-                        <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z"/></svg>
-                    </div>
-                    <h3 class="text-lg font-semibold text-white tracking-wide">Protect Humanity</h3>
-                    <p class="text-xs sm:text-sm text-slate-400 font-light leading-relaxed">
-                        Safeguarding human values, digital rights, and cultural heritage across borders through decentralized collaboration.
-                    </p>
-                </div>
-                <div class="pt-4 border-t border-white/5 flex items-center justify-between">
-                    <span class="text-[11px] font-mono text-slate-500 uppercase tracking-widest">Pillar I</span>
-                    <a href="manifesto.html" class="text-xs text-[#5eead4]/90 hover:text-[#5eead4] transition-colors flex items-center gap-1 font-medium">Learn more →</a>
-                </div>
-            </div>
+    </main>
 
-            <!-- Kart 2: Connect -->
-            <div class="group relative rounded-3xl p-8 flex flex-col justify-between space-y-6 bg-gradient-to-b from-slate-900/80 to-slate-950/90 border border-white/10 backdrop-blur-2xl shadow-[0_20px_50px_rgba(0,0,0,0.5)] transition-all duration-500 hover:border-[#5eead4]/30 hover:-translate-y-1.5 hover:shadow-[0_20px_50px_rgba(45,212,191,0.08)]">
-                <div class="space-y-5">
-                    <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-slate-800 to-slate-900 border border-white/10 flex items-center justify-center text-[#5eead4] shadow-inner group-hover:scale-105 transition-transform duration-300">
-                        <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 21a9.004 9.004 0 008.716-6.747M12 21a9.004 9.004 0 01-8.716-6.747M12 21c2.485 0 4.5-4.03 4.5-9S14.485 3 12 3m0 18c-2.485 0-4.5-4.03-4.5-9S9.515 3 12 3m0 0a8.997 8.997 0 017.843 4.582M12 3a8.997 8.997 0 00-7.843 4.582m15.686 0A11.953 11.953 0 0112 10.5c-2.998 0-5.74-1.1-7.843-2.918m15.686 0A8.959 8.959 0 0121 12c0 .778-.099 1.533-.284 2.253m-15.686 0A8.959 8.959 0 003 12c0-.778.099-1.533.284-2.253m0 0A11.959 11.959 0 0112 10.5c2.998 0 5.74 1.1 7.843 2.918"/></svg>
-                    </div>
-                    <h3 class="text-lg font-semibold text-white tracking-wide">Connect Minds</h3>
-                    <p class="text-xs sm:text-sm text-slate-400 font-light leading-relaxed">
-                        Bridging geographic and cultural divides to foster direct communication and empathy among global citizens.
-                    </p>
-                </div>
-                <div class="pt-4 border-t border-white/5 flex items-center justify-between">
-                    <span class="text-[11px] font-mono text-slate-500 uppercase tracking-widest">Pillar II</span>
-                    <a href="vision.html" class="text-xs text-[#5eead4]/90 hover:text-[#5eead4] transition-colors flex items-center gap-1 font-medium">Learn more →</a>
-                </div>
-            </div>
-
-            <!-- Kart 3: Create -->
-            <div class="group relative rounded-3xl p-8 flex flex-col justify-between space-y-6 bg-gradient-to-b from-slate-900/80 to-slate-950/90 border border-white/10 backdrop-blur-2xl shadow-[0_20px_50px_rgba(0,0,0,0.5)] transition-all duration-500 hover:border-[#5eead4]/30 hover:-translate-y-1.5 hover:shadow-[0_20px_50px_rgba(45,212,191,0.08)]">
-                <div class="space-y-5">
-                    <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-slate-800 to-slate-900 border border-white/10 flex items-center justify-center text-[#5eead4] shadow-inner group-hover:scale-105 transition-transform duration-300">
-                        <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09zM18.259 8.715L18 9.75l-.259-1.035a3.375 3.375 0 00-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 002.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 002.456 2.456L21.75 6l-1.035.259a3.375 3.375 0 00-2.456 2.456zM16.894 20.567L16.5 21.75l-.394-1.183a2.25 2.25 0 00-1.423-1.423L13.5 18.75l1.183-.394a2.25 2.25 0 001.423-1.423l.394-1.183.394 1.183a2.25 2.25 0 001.423 1.423l1.183.394-1.183.394a2.25 2.25 0 00-1.423 1.423z"/></svg>
-                    </div>
-                    <h3 class="text-lg font-semibold text-white tracking-wide">Create Together</h3>
-                    <p class="text-xs sm:text-sm text-slate-400 font-light leading-relaxed">
-                        Unleashing collective creativity through collaborative projects, open academy systems, and shared digital art.
-                    </p>
-                </div>
-                <div class="pt-4 border-t border-white/5 flex items-center justify-between">
-                    <span class="text-[11px] font-mono text-slate-500 uppercase tracking-widest">Pillar III</span>
-                    <a href="projects.html" class="text-xs text-[#5eead4]/90 hover:text-[#5eead4] transition-colors flex items-center gap-1 font-medium">Learn more →</a>
-                </div>
-            </div>
-
-            <!-- Kart 4: Share -->
-            <div class="group relative rounded-3xl p-8 flex flex-col justify-between space-y-6 bg-gradient-to-b from-slate-900/80 to-slate-950/90 border border-white/10 backdrop-blur-2xl shadow-[0_20px_50px_rgba(0,0,0,0.5)] transition-all duration-500 hover:border-[#5eead4]/30 hover:-translate-y-1.5 hover:shadow-[0_20px_50px_rgba(45,212,191,0.08)]">
-                <div class="space-y-5">
-                    <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-slate-800 to-slate-900 border border-white/10 flex items-center justify-center text-[#5eead4] shadow-inner group-hover:scale-105 transition-transform duration-300">
-                        <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M7.5 14.25v2.25m3-4.5v4.5m3-6.75v6.75m3-9v9M6 20.25h12A2.25 2.25 0 0020.25 18V6A2.25 2.25 0 0018 3.75H6A2.25 2.25 0 003.75 6v12A2.25 2.25 0 006 20.25z"/></svg>
-                    </div>
-                    <h3 class="text-lg font-semibold text-white tracking-wide">Share Knowledge</h3>
-                    <p class="text-xs sm:text-sm text-slate-400 font-light leading-relaxed">
-                        Democratizing education and humanitarian insight so that wisdom flows freely across every corner of the globe.
-                    </p>
-                </div>
-                <div class="pt-4 border-t border-white/5 flex items-center justify-between">
-                    <span class="text-[11px] font-mono text-slate-500 uppercase tracking-widest">Pillar IV</span>
-                    <a href="academy.html" class="text-xs text-[#5eead4]/90 hover:text-[#5eead4] transition-colors flex items-center gap-1 font-medium">Learn more →</a>
-                </div>
-            </div>
-
-            <!-- Kart 5: Thrive -->
-            <div class="group relative rounded-3xl p-8 flex flex-col justify-between space-y-6 bg-gradient-to-b from-slate-900/80 to-slate-950/90 border border-white/10 backdrop-blur-2xl shadow-[0_20px_50px_rgba(0,0,0,0.5)] transition-all duration-500 hover:border-[#5eead4]/30 hover:-translate-y-1.5 hover:shadow-[0_20px_50px_rgba(45,212,191,0.08)]">
-                <div class="space-y-5">
-                    <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-slate-800 to-slate-900 border border-white/10 flex items-center justify-center text-[#5eead4] shadow-inner group-hover:scale-105 transition-transform duration-300">
-                        <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 3v2.25m6.364.386l-1.591 1.591M21 12h-2.25m-.386 6.364l-1.591-1.591M12 18.75V21m-4.773-4.227l-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0z"/></svg>
-                    </div>
-                    <h3 class="text-lg font-semibold text-white tracking-wide">Thrive as One</h3>
-                    <p class="text-xs sm:text-sm text-slate-400 font-light leading-relaxed">
-                        Building economic and social resilience via marketplaces, ethical merchandise, and sustainable community support.
-                    </p>
-                </div>
-                <div class="pt-4 border-t border-white/5 flex items-center justify-between">
-                    <span class="text-[11px] font-mono text-slate-500 uppercase tracking-widest">Pillar V</span>
-                    <a href="marketplace.html" class="text-xs text-[#5eead4]/90 hover:text-[#5eead4] transition-colors flex items-center gap-1 font-medium">Learn more →</a>
-                </div>
-            </div>
-
-            <!-- Kart 6: Global Impact (Özel Çağrı Kartı) -->
-            <div class="group relative rounded-3xl p-8 flex flex-col justify-between space-y-6 bg-gradient-to-br from-slate-900/90 via-slate-900/70 to-[#0d9488]/10 border border-[#5eead4]/20 backdrop-blur-2xl shadow-[0_20px_50px_rgba(0,0,0,0.5)] transition-all duration-500 hover:border-[#5eead4]/40 hover:-translate-y-1.5 hover:shadow-[0_20px_50px_rgba(45,212,191,0.12)]">
-                <div class="space-y-5">
-                    <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-[#14b8a6] to-[#0d9488] text-slate-950 flex items-center justify-center font-bold shadow-lg shadow-[#14b8a6]/20 group-hover:scale-105 transition-transform duration-300">
-                        <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15.59 14.37a6 6 0 01-5.84 7.38v-4.8m5.84-2.58a14.98 14.98 0 006.16-12.12A14.98 14.98 0 009.631 8.41m5.96 5.96a14.926 14.926 0 01-5.841 2.58m-.119-8.54a6 6 0 00-7.381 5.84h4.8m2.581-5.84a14.927 14.927 0 00-2.58 5.84m2.699 2.7c-.103.021-.207.041-.311.06a15.09 15.09 0 01-2.448-2.448 14.9 14.9 0 01.06-.312m-2.24 2.39a4.5 4.5 0 01-6.364-6.364l4.5-4.5a4.5 4.5 0 016.364 6.364l-4.5 4.5z"/></svg>
-                    </div>
-                    <h3 class="text-lg font-semibold text-white tracking-wide">Join the Movement</h3>
-                    <p class="text-xs sm:text-sm text-slate-300 font-light leading-relaxed">
-                        Become an active volunteer or partner in crafting the future of digital civilization. Your voice matters.
-                    </p>
-                </div>
-                <div class="pt-4 border-t border-white/10 flex items-center justify-between">
-                    <span class="text-[11px] font-mono text-[#5eead4] uppercase tracking-widest font-medium">Get Involved</span>
-                    <a href="volunteers.html" class="text-xs text-[#5eead4] hover:text-white transition-colors flex items-center gap-1 font-medium">Get started →</a>
-                </div>
-            </div>
-
-        </div>
-    </div>
-</section>
+</body>
+</html>
     
     
 
