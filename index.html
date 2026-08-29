@@ -282,48 +282,53 @@
     });
 </script>
 
-    <!-- HERO ALANI: SVG DÜnya Haritası, 3 Yörünge, Mavi Umut Işığı ve Alttan Slide -->
+    <!-- HERO ALANI: Elipsoid Işıklı Yörüngeler, Sınırları Belirgin Dünya Haritası ve Sinematik Slide -->
 <section class="relative min-h-[calc(100vh-5rem)] flex items-center justify-center overflow-hidden bg-[#05070f] px-4 py-16">
         
-    <!-- ARKA PLAN: SVG DÜNYA HARİTASI, 3 YÖRÜNGE VE UMUT IŞIĞI -->
+    <!-- ARKA PLAN: ELİPSOİD YÖRÜNGELER, IŞIK KATMANLARI VE DÜNYA HARİTASI -->
     <div class="absolute inset-0 pointer-events-none overflow-hidden z-0 flex items-center justify-center">
         
-        <!-- Tam Merkezden Yayılan Derin Mavi Umut Işığı (Hissedilebilir) -->
-        <div class="absolute w-[500px] h-[500px] sm:w-[800px] sm:h-[800px] bg-turquoise-500/10 rounded-full blur-[140px] glow-pulse"></div>
-        <div class="absolute w-[300px] h-[300px] sm:w-[500px] sm:h-[500px] bg-blue-600/15 rounded-full blur-[100px] breath-pulse"></div>
+        <!-- Merkezden Yayılan Derin Mavi Umut Işığı -->
+        <div class="absolute w-[600px] h-[400px] sm:w-[900px] sm:h-[600px] bg-turquoise-500/10 rounded-full blur-[160px] glow-pulse"></div>
+        <div class="absolute w-[400px] h-[250px] sm:w-[600px] sm:h-[400px] bg-blue-600/10 rounded-full blur-[120px] breath-pulse"></div>
 
-        <!-- 3 Adet Yörünge Çemberi -->
-        <div class="absolute w-[320px] h-[320px] sm:w-[560px] sm:h-[560px] rounded-full border border-turquoise-500/15 float-effect"></div>
-        <div class="absolute w-[460px] h-[460px] sm:w-[780px] sm:h-[780px] rounded-full border border-turquoise-400/10" style="animation: floatSlow 8s ease-in-out infinite reverse;"></div>
-        <div class="absolute w-[600px] h-[600px] sm:w-[1000px] sm:h-[1000px] rounded-full border border-white/5"></div>
+        <!-- 3 Adet Elipsoid (Yayvan Oval) Keskinlikten Uzak Işık Yörüngesi -->
+        <div class="absolute w-[80%] h-[35%] sm:w-[850px] sm:h-[350px] rounded-[100%] border border-turquoise-400/20 blur-[0.5px] float-effect shadow-[0_0_30px_rgba(45,212,191,0.05)]"></div>
+        <div class="absolute w-[95%] h-[50%] sm:w-[1100px] sm:h-[480px] rounded-[100%] border border-turquoise-300/10 blur-[1px]" style="animation: floatSlow 9s ease-in-out infinite reverse;"></div>
+        <div class="absolute w-[110%] h-[65%] sm:w-[1300px] sm:h-[600px] rounded-[100%] border border-white/5 blur-[2px]"></div>
 
-        <!-- Arka Planda Şeffaf SVG Dünya Haritası -->
-        <svg class="absolute w-full max-w-5xl opacity-15 text-turquoise-400 blur-[0.5px]" viewBox="0 0 1000 500" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-            <path d="M150,120 Q170,100 200,110 T250,90 Q280,110 300,90 T350,130 Q330,160 300,150 T240,180 Q200,160 150,120 Z" opacity="0.6"/>
-            <path d="M400,100 Q450,80 500,110 T600,90 Q650,120 700,100 T800,140 Q750,180 700,160 T600,200 Q500,170 400,100 Z" opacity="0.4"/>
-            <path d="M200,250 Q250,230 300,260 T400,240 Q450,280 400,320 T300,300 Q250,340 200,250 Z" opacity="0.5"/>
-            <path d="M600,260 Q680,240 750,280 T850,260 Q900,310 850,360 T750,330 Q680,380 600,260 Z" opacity="0.5"/>
+        <!-- Kıta Sınırları Belirgin, Bey Hatlı Dünya Haritası (SVG) -->
+        <svg class="absolute w-[90%] max-w-4xl opacity-25 text-white blur-[0.3px]" viewBox="0 0 1000 500" fill="none" stroke="currentColor" stroke-width="1.2" xmlns="http://www.w3.org/2000/svg">
+            <!-- Kuzey Amerika -->
+            <path d="M150,110 Q180,90 220,100 T280,80 Q310,100 290,140 T240,180 Q190,160 150,110 Z" fill="rgba(255,255,255,0.03)" />
+            <!-- Güney Amerika -->
+            <path d="M250,220 Q280,200 310,230 T290,320 Q260,380 230,330 T250,220 Z" fill="rgba(255,255,255,0.03)" />
+            <!-- Avrupa & Afrika -->
+            <path d="M460,90 Q520,70 580,100 T620,160 Q590,220 540,200 T480,160 Z" fill="rgba(255,255,255,0.03)" />
+            <path d="M480,220 Q550,210 590,260 T560,380 Q510,420 470,350 T480,220 Z" fill="rgba(255,255,255,0.03)" />
+            <!-- Asya & Avustralya -->
+            <path d="M600,80 Q720,60 840,90 T900,180 Q820,250 720,200 T600,80 Z" fill="rgba(255,255,255,0.03)" />
+            <path d="M780,300 Q840,290 880,330 T830,410 Q780,420 780,300 Z" fill="rgba(255,255,255,0.03)" />
         </svg>
 
         <!-- Küçük Işık Taneleri -->
-        <div class="absolute top-[35%] left-[42%] w-1.5 h-1.5 bg-turquoise-300 rounded-full shadow-[0_0_12px_#2dd4bf] breath-pulse"></div>
-        <div class="absolute top-[48%] left-[58%] w-1 h-1 bg-white rounded-full shadow-[0_0_10px_#ffffff] breath-pulse" style="animation-delay: 1.2s;"></div>
-        <div class="absolute top-[55%] left-[45%] w-1.5 h-1.5 bg-turquoise-400 rounded-full shadow-[0_0_12px_#14b8a6] breath-pulse" style="animation-delay: 2.4s;"></div>
+        <div class="absolute top-[38%] left-[45%] w-1.5 h-1.5 bg-turquoise-300 rounded-full shadow-[0_0_12px_#2dd4bf] breath-pulse"></div>
+        <div class="absolute top-[52%] left-[55%] w-1.5 h-1.5 bg-white rounded-full shadow-[0_0_10px_#ffffff] breath-pulse" style="animation-delay: 1.5s;"></div>
     </div>
 
     <!-- HERO İÇERİK KARTI (En Alttan Yavaş ve Sinematik Slide) -->
     <div class="relative z-10 max-w-4xl mx-auto text-center px-4 py-8 hero-cinematic-slide">
         
-        <!-- Üst Etiket -->
+        <!-- Üst Etiket (Çerçevesiz, Düzgün Metin) -->
         <div class="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-white/5 border border-white/10 text-xs sm:text-sm font-mono tracking-widest text-slate-300 mb-6 uppercase shadow-lg">
             <span class="w-2 h-2 rounded-full bg-turquoise-400 breath-pulse"></span>
             Digital Civilization Without Borders
         </div>
 
-        <!-- Ana Başlık -->
+        <!-- Ana Başlık (Tamamen Beyaz/Gri Tonlarında) -->
         <h1 class="text-3xl sm:text-5xl md:text-6xl font-bold tracking-tight text-white mb-6 leading-tight">
             Building A Digital <br>
-            <span class="text-transparent bg-clip-text bg-gradient-to-r from-turquoise-300 via-white to-turquoise-500">Home For Humanity</span>
+            <span class="text-slate-100">Home For Humanity</span>
         </h1>
 
         <!-- Alt Açıklama -->
@@ -331,17 +336,17 @@
             A global ecosystem where compassion, knowledge, creativity and human connection come together.
         </p>
 
-        <!-- Değerler Satırı -->
-        <div class="flex flex-wrap items-center justify-center gap-3 sm:gap-6 text-xs sm:text-sm font-mono tracking-wider text-turquoise-400/90 mb-10 uppercase">
-            <span class="hover:text-white transition-colors">Protect</span>
+        <!-- Değerler Satırı (Turkuaz Yok, Saf Beyaz/Gri) -->
+        <div class="flex flex-wrap items-center justify-center gap-3 sm:gap-6 text-xs sm:text-sm font-mono tracking-wider text-slate-300 mb-10 uppercase">
+            <span class="hover:text-turquoise-400 transition-colors">Protect</span>
             <span class="text-white/20">•</span>
-            <span class="hover:text-white transition-colors">Connect</span>
+            <span class="hover:text-turquoise-400 transition-colors">Connect</span>
             <span class="text-white/20">•</span>
-            <span class="hover:text-white transition-colors">Create</span>
+            <span class="hover:text-turquoise-400 transition-colors">Create</span>
             <span class="text-white/20">•</span>
-            <span class="hover:text-white transition-colors">Share</span>
+            <span class="hover:text-turquoise-400 transition-colors">Share</span>
             <span class="text-white/20">•</span>
-            <span class="hover:text-white transition-colors">Thrive</span>
+            <span class="hover:text-turquoise-400 transition-colors">Thrive</span>
         </div>
 
         <!-- Butonlar -->
@@ -357,7 +362,7 @@
     </div>
 </section>
 
-<!-- CSS Animasyon Tanımı (Head içine eklenecek) -->
+<!-- CSS Animasyon Tanımları (Head içine eklenecek) -->
 <style>
     @keyframes heroSlideUp {
         0% { transform: translateY(120px); opacity: 0; }
@@ -367,4 +372,3 @@
         animation: heroSlideUp 2s cubic-bezier(0.16, 1, 0.3, 1) forwards; 
     }
 </style>
-    
