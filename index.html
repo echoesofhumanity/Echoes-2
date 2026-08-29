@@ -22,52 +22,52 @@
     </script>
 
     <style>
-        /* --- Ana Animasyon Tanımları --- */
-        
-        /* Nefes alma animasyonu (Bayraklar için) */
+        /* --- Animasyon Tanımları --- */
         @keyframes smoothBreath {
             0%, 100% { opacity: 0.8; transform: scale(1); }
             50% { opacity: 1; transform: scale(1.1); }
         }
         
-        /* Orbitler için çok yavaş dönüş ve eksen kayması */
         @keyframes orbitComplex {
             0% { transform: rotate(0deg) scale(1) translateX(0px); }
-            25% { transform: rotate(90deg) scale(1.02) translateX(10px); }
+            25% { transform: rotate(90deg) scale(1.02) translateX(12px); }
             50% { transform: rotate(180deg) scale(1) translateX(0px); }
-            75% { transform: rotate(270deg) scale(0.98) translateX(-10px); }
+            75% { transform: rotate(270deg) scale(0.98) translateX(-12px); }
             100% { transform: rotate(360deg) scale(1) translateX(0px); }
         }
 
-        /* İçerik için alttan yukarı yavaş giriş */
         @keyframes slideInUpFade {
-            0% { transform: translateY(150px); opacity: 0; }
+            0% { transform: translateY(120px); opacity: 0; }
             100% { transform: translateY(0); opacity: 1; }
         }
 
-        /* Genel arka plan belirme */
         @keyframes bgFadeIn {
             0% { opacity: 0; }
             100% { opacity: 1; }
         }
 
-        /* --- Sınıf Tanımları --- */
         .breath-pulse { animation: smoothBreath 3s ease-in-out infinite; }
         
-        /* Orbitler için çok uzun süreli, ağır ve senkronize olmayan animasyonlar */
-        .orbit-1 { animation: orbitComplex 120s linear infinite; }
-        .orbit-2 { animation: orbitComplex 90s linear infinite reverse; } /* Terse dönen katman */
-        .orbit-3 { animation: orbitComplex 150s ease-in-out infinite; }
-        .orbit-4 { animation: orbitComplex 110s ease-in-out infinite reverse; }
+        /* Gölgeli Katman Orbitler */
+        .orbit-layer {
+            position: absolute;
+            border-radius: 50%;
+            border: 1px solid rgba(45, 212, 191, 0.08);
+            box-shadow: 0 0 30px rgba(20, 184, 166, 0.04), inset 0 0 30px rgba(20, 184, 166, 0.04);
+            pointer-events: none;
+        }
+        .orbit-1 { width: 350px; height: 350px; animation: orbitComplex 140s linear infinite; }
+        .orbit-2 { width: 550px; height: 550px; animation: orbitComplex 100s linear infinite reverse; }
+        .orbit-3 { width: 750px; height: 750px; animation: orbitComplex 180s ease-in-out infinite; }
+        .orbit-4 { width: 950px; height: 950px; animation: orbitComplex 130s ease-in-out infinite reverse; }
 
         .hero-bg-fadein { animation: bgFadeIn 4s ease-in forwards; }
         .hero-content-slide { 
-            animation: slideInUpFade 2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-            opacity: 0; /* Animasyon başlamadan önce görünmez */
-            animation-delay: 0.5s; /* Arka plan başladıktan biraz sonra içerik başlasın */
+            animation: slideInUpFade 2.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+            opacity: 0;
+            animation-delay: 0.4s;
         }
 
-        /* Glassmorphism ve Dropdown Stilleri (Değişmedi) */
         .glass-header {
             background: rgba(5, 7, 15, 0.95);
             backdrop-filter: blur(24px);
@@ -111,9 +111,9 @@
 </head>
 <body class="bg-[#030712] text-slate-100 font-sans antialiased overflow-x-hidden">
     
+<!-- HEADER -->
 <header class="w-full glass-header sticky top-0 z-50">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 h-20 flex items-center justify-between w-full">
-        
         <a href="index.html" class="flex items-center gap-3.5 group">
             <img src="logo.png" alt="Echoes of Humanity Logo" class="h-10 sm:h-12 w-auto object-contain breath-pulse">
             <div class="flex flex-col">
@@ -123,9 +123,9 @@
         </a>
 
         <div class="flex items-center gap-3.5">
-            
+            <!-- DİL SEÇİCİ -->
             <div class="relative">
-                <button type="button" onclick="window.toggleLangMenu(event)" aria-label="Language Selector" class="w-10 h-10 rounded-full border border-turquoise-500/30 bg-white/5 flex items-center justify-center text-slate-200 hover:bg-turquoise-500/20 hover:border-turquoise-400 transition-all text-base cursor-pointer shadow-sm float-effect breath-pulse">
+                <button type="button" onclick="window.toggleLangMenu(event)" aria-label="Language Selector" class="w-10 h-10 rounded-full border border-turquoise-500/30 bg-white/5 flex items-center justify-center text-slate-200 hover:bg-turquoise-500/20 hover:border-turquoise-400 transition-all text-base cursor-pointer shadow-sm breath-pulse">
                     🌐
                 </button>
                 
@@ -139,16 +139,17 @@
                 </div>
             </div>
 
-            <button type="button" onclick="window.toggleMobileMenu(event)" aria-label="Toggle Menu" class="w-10 h-10 rounded-full border border-turquoise-500/30 bg-white/5 flex flex-col items-center justify-center gap-1.5 text-slate-200 hover:bg-turquoise-500/20 hover:border-turquoise-400 transition-all cursor-pointer shadow-sm float-effect breath-pulse">
+            <!-- HAMBURGER MENÜ -->
+            <button type="button" onclick="window.toggleMobileMenu(event)" aria-label="Toggle Menu" class="w-10 h-10 rounded-full border border-turquoise-500/30 bg-white/5 flex flex-col items-center justify-center gap-1.5 text-slate-200 hover:bg-turquoise-500/20 hover:border-turquoise-400 transition-all cursor-pointer shadow-sm breath-pulse">
                 <span class="w-4 h-0.5 bg-slate-200 rounded-full"></span>
                 <span class="w-4 h-0.5 bg-slate-200 rounded-full"></span>
                 <span class="w-2.5 h-0.5 bg-slate-200 rounded-full self-start ml-3"></span>
             </button>
-
         </div>
     </div>
 </header>
 
+<!-- MOBİL MENÜ PANELİ -->
 <div id="mobileMenu" class="fixed inset-0 bg-[#05070f]/98 backdrop-blur-3xl z-40 menu-slide-hidden flex flex-col overflow-y-auto px-6 py-12">
     <div class="max-w-md mx-auto w-full pt-8 pb-20 space-y-10">
         <div class="flex items-center justify-between border-b border-white/10 pb-4">
@@ -201,4 +202,119 @@
     </div>
 </div>
 
+<!-- HERO BÖLÜMÜ (Çoklu Gölgeli Orbitler ve Alttan Sinematik Giriş) -->
+<section class="relative min-h-[calc(100vh-5rem)] flex items-center justify-center overflow-hidden bg-[#030712] px-4 pt-2 pb-12">
+    
+    <!-- ARKA PLAN: GÖLGELİ VE ÇOKLU ORBİTLER -->
+    <div class="absolute inset-0 pointer-events-none overflow-hidden z-0 flex items-center justify-center hero-bg-fadein">
+        <div class="absolute w-[800px] h-[800px] bg-turquoise-900/10 rounded-full blur-[160px]"></div>
+        
+        <!-- Harita Yok, Çoklu Katman Gölgeli Orbitler -->
+        <div class="orbit-layer orbit-1"></div>
+        <div class="orbit-layer orbit-2"></div>
+        <div class="orbit-layer orbit-3"></div>
+        <div class="orbit-layer orbit-4"></div>
+    </div>
+
+    <!-- İÇERİK (Alttan Yavaşça Slide Eden Sinematik Yapı) -->
+    <div class="relative z-10 max-w-4xl mx-auto text-center px-4 space-y-5 sm:space-y-6 hero-content-slide mt-2">
+        <div>
+            <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/5 border border-white/10 text-[11px] sm:text-xs font-mono tracking-widest text-slate-300 uppercase shadow-sm">
+                <span class="w-1.5 h-1.5 rounded-full bg-turquoise-400"></span>
+                Digital Civilization Without Borders
+            </div>
+        </div>
+
+        <div class="space-y-1">
+            <h1 class="text-3xl sm:text-5xl md:text-6xl font-bold tracking-tight text-white leading-tight">
+                Building A Digital <br>
+                <span class="text-slate-200 font-light tracking-wide">Home For Humanity</span>
+            </h1>
+        </div>
+
+        <div>
+            <p class="text-xs sm:text-sm md:text-base text-slate-300 max-w-xl mx-auto font-light leading-relaxed">
+                A global ecosystem where compassion, knowledge, creativity and human connection come together.
+            </p>
+        </div>
+
+        <div>
+            <div class="flex flex-wrap items-center justify-center gap-3 sm:gap-6 text-xs font-mono tracking-wider text-slate-400 uppercase font-medium">
+                <span class="hover:text-white transition-colors">Protect</span>
+                <span class="text-turquoise-500/40">•</span>
+                <span class="hover:text-white transition-colors">Connect</span>
+                <span class="text-turquoise-500/40">•</span>
+                <span class="hover:text-white transition-colors">Create</span>
+                <span class="text-turquoise-500/40">•</span>
+                <span class="hover:text-white transition-colors">Share</span>
+                <span class="text-turquoise-500/40">•</span>
+                <span class="hover:text-white transition-colors">Thrive</span>
+            </div>
+        </div>
+
+        <div class="pt-1">
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-3">
+                <a href="marketplace.html" class="w-full sm:w-auto px-8 py-3.5 rounded-full bg-turquoise-400 text-[#030712] font-bold text-xs tracking-wider uppercase hover:bg-turquoise-300 transition-all shadow-[0_0_20px_rgba(45,212,191,0.3)] text-center">
+                    Join The Community
+                </a>
+                <a href="manifesto.html" class="w-full sm:w-auto px-8 py-3.5 rounded-full bg-white/5 border border-slate-600/50 text-slate-200 font-medium text-xs tracking-wider uppercase hover:bg-white/10 hover:border-slate-400 transition-all text-center">
+                    Explore The Ecosystem
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- JAVASCRIPT KONTROLLERİ (Menü ve Dil Açma/Kapatma) -->
+<script>
+    window.toggleMobileMenu = function(event) {
+        if (event) event.stopPropagation();
+        const menu = document.getElementById('mobileMenu');
+        const langDropdown = document.getElementById('langDropdown');
+        if (langDropdown) { langDropdown.classList.remove('lang-dropdown-visible'); langDropdown.classList.add('lang-dropdown-hidden'); }
+        if (menu) {
+            if (menu.classList.contains('menu-slide-hidden')) {
+                menu.classList.remove('menu-slide-hidden');
+                menu.classList.add('menu-slide-visible');
+                document.body.style.overflow = 'hidden';
+            } else {
+                menu.classList.remove('menu-slide-visible');
+                menu.classList.add('menu-slide-hidden');
+                document.body.style.overflow = 'auto';
+            }
+        }
+    };
+
+    window.toggleLangMenu = function(event) {
+        if (event) event.stopPropagation();
+        const langDropdown = document.getElementById('langDropdown');
+        if (langDropdown) {
+            if (langDropdown.classList.contains('lang-dropdown-hidden')) {
+                langDropdown.classList.remove('lang-dropdown-hidden');
+                langDropdown.classList.add('lang-dropdown-visible');
+            } else {
+                langDropdown.classList.remove('lang-dropdown-visible');
+                langDropdown.classList.add('lang-dropdown-hidden');
+            }
+        }
+    };
+
+    window.setLanguage = function(lang) {
+        const langDropdown = document.getElementById('langDropdown');
+        if (langDropdown) {
+            langDropdown.classList.remove('lang-dropdown-visible');
+            langDropdown.classList.add('lang-dropdown-hidden');
+        }
+    };
+
+    window.addEventListener('click', function(e) {
+        const langDropdown = document.getElementById('langDropdown');
+        if (langDropdown && !langDropdown.contains(e.target)) {
+            langDropdown.classList.remove('lang-dropdown-visible');
+            langDropdown.classList.add('lang-dropdown-hidden');
+        }
+    });
+</script>
+</body>
+    </html>
     
