@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Echoes of Humanity — Digital Civilization Without Borders</title>
     
-    <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
@@ -23,37 +22,52 @@
     </script>
 
     <style>
+        /* --- Ana Animasyon Tanımları --- */
+        
+        /* Nefes alma animasyonu (Bayraklar için) */
         @keyframes smoothBreath {
             0%, 100% { opacity: 0.8; transform: scale(1); }
-            50% { opacity: 1; transform: scale(1.03); }
+            50% { opacity: 1; transform: scale(1.1); }
         }
         
-        @keyframes floatSlow {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-4px); }
+        /* Orbitler için çok yavaş dönüş ve eksen kayması */
+        @keyframes orbitComplex {
+            0% { transform: rotate(0deg) scale(1) translateX(0px); }
+            25% { transform: rotate(90deg) scale(1.02) translateX(10px); }
+            50% { transform: rotate(180deg) scale(1) translateX(0px); }
+            75% { transform: rotate(270deg) scale(0.98) translateX(-10px); }
+            100% { transform: rotate(360deg) scale(1) translateX(0px); }
         }
 
-        @keyframes bgFadeIn {
-            0% { opacity: 0; transform: scale(0.98); }
-            100% { opacity: 1; transform: scale(1); }
-        }
-
-        @keyframes heroDeepSlideUp {
-            0% { transform: translateY(30px); opacity: 0; }
+        /* İçerik için alttan yukarı yavaş giriş */
+        @keyframes slideInUpFade {
+            0% { transform: translateY(150px); opacity: 0; }
             100% { transform: translateY(0); opacity: 1; }
         }
 
-        @keyframes blinkEffect {
-            0%, 100% { opacity: 0.3; transform: scale(0.8); }
-            50% { opacity: 1; transform: scale(1.2); }
+        /* Genel arka plan belirme */
+        @keyframes bgFadeIn {
+            0% { opacity: 0; }
+            100% { opacity: 1; }
         }
 
-        .breath-pulse { animation: smoothBreath 4s ease-in-out infinite; }
-        .float-effect { animation: floatSlow 6s ease-in-out infinite; }
-        .hero-bg-fadein { animation: bgFadeIn 3s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
-        .hero-deep-slide { animation: heroDeepSlideUp 1.8s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
-        .blink-light { animation: blinkEffect 4s ease-in-out infinite; }
+        /* --- Sınıf Tanımları --- */
+        .breath-pulse { animation: smoothBreath 3s ease-in-out infinite; }
+        
+        /* Orbitler için çok uzun süreli, ağır ve senkronize olmayan animasyonlar */
+        .orbit-1 { animation: orbitComplex 120s linear infinite; }
+        .orbit-2 { animation: orbitComplex 90s linear infinite reverse; } /* Terse dönen katman */
+        .orbit-3 { animation: orbitComplex 150s ease-in-out infinite; }
+        .orbit-4 { animation: orbitComplex 110s ease-in-out infinite reverse; }
 
+        .hero-bg-fadein { animation: bgFadeIn 4s ease-in forwards; }
+        .hero-content-slide { 
+            animation: slideInUpFade 2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+            opacity: 0; /* Animasyon başlamadan önce görünmez */
+            animation-delay: 0.5s; /* Arka plan başladıktan biraz sonra içerik başlasın */
+        }
+
+        /* Glassmorphism ve Dropdown Stilleri (Değişmedi) */
         .glass-header {
             background: rgba(5, 7, 15, 0.95);
             backdrop-filter: blur(24px);
@@ -95,13 +109,11 @@
         }
     </style>
 </head>
-<body class="bg-[#030712] text-slate-100 font-sans antialiased">
+<body class="bg-[#030712] text-slate-100 font-sans antialiased overflow-x-hidden">
     
-<!-- HEADER MİMARİSİ (Z-50) -->
 <header class="w-full glass-header sticky top-0 z-50">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 h-20 flex items-center justify-between w-full">
         
-        <!-- Logo ve Marka -->
         <a href="index.html" class="flex items-center gap-3.5 group">
             <img src="logo.png" alt="Echoes of Humanity Logo" class="h-10 sm:h-12 w-auto object-contain breath-pulse">
             <div class="flex flex-col">
@@ -110,16 +122,13 @@
             </div>
         </a>
 
-        <!-- Sağ Kontroller -->
         <div class="flex items-center gap-3.5">
             
-            <!-- DİL SEÇİCİ KÜRESİ -->
             <div class="relative">
-                <button type="button" onclick="window.toggleLangMenu(event)" aria-label="Language Selector" class="w-10 h-10 rounded-full border border-turquoise-500/30 bg-white/5 flex items-center justify-center text-slate-200 hover:bg-turquoise-500/20 hover:border-turquoise-400 transition-all text-xs font-mono cursor-pointer shadow-sm float-effect breath-pulse">
+                <button type="button" onclick="window.toggleLangMenu(event)" aria-label="Language Selector" class="w-10 h-10 rounded-full border border-turquoise-500/30 bg-white/5 flex items-center justify-center text-slate-200 hover:bg-turquoise-500/20 hover:border-turquoise-400 transition-all text-base cursor-pointer shadow-sm float-effect breath-pulse">
                     🌐
                 </button>
                 
-                <!-- Cam Dokulu Bayrak Listesi -->
                 <div id="langDropdown" class="absolute right-0 top-12 w-48 rounded-2xl lang-dropdown-box shadow-2xl lang-dropdown-hidden py-2.5 z-50">
                     <div class="px-4 py-1.5 text-[10px] uppercase font-mono tracking-widest text-turquoise-400 border-b border-white/5 mb-1">Select Language</div>
                     <button type="button" onclick="window.setLanguage('en')" class="w-full px-4 py-2.5 text-left text-xs text-slate-200 hover:bg-white/10 flex items-center gap-3 transition-colors"><span>🇬🇧</span> <span class="font-medium">English</span></button>
@@ -130,7 +139,6 @@
                 </div>
             </div>
 
-            <!-- HAMBURGER MENÜ -->
             <button type="button" onclick="window.toggleMobileMenu(event)" aria-label="Toggle Menu" class="w-10 h-10 rounded-full border border-turquoise-500/30 bg-white/5 flex flex-col items-center justify-center gap-1.5 text-slate-200 hover:bg-turquoise-500/20 hover:border-turquoise-400 transition-all cursor-pointer shadow-sm float-effect breath-pulse">
                 <span class="w-4 h-0.5 bg-slate-200 rounded-full"></span>
                 <span class="w-4 h-0.5 bg-slate-200 rounded-full"></span>
@@ -141,7 +149,6 @@
     </div>
 </header>
 
-<!-- TAM LİSTE AÇILIR NAVİGASYON PANELİ -->
 <div id="mobileMenu" class="fixed inset-0 bg-[#05070f]/98 backdrop-blur-3xl z-40 menu-slide-hidden flex flex-col overflow-y-auto px-6 py-12">
     <div class="max-w-md mx-auto w-full pt-8 pb-20 space-y-10">
         <div class="flex items-center justify-between border-b border-white/10 pb-4">
@@ -194,148 +201,4 @@
     </div>
 </div>
 
-<!-- HERO BÖLÜMÜ (Header'a Yaklaştırılmış, Kesintisiz SVG Harita ve Net Yerleşim) -->
-<section class="relative min-h-[calc(100vh-5rem)] flex items-center justify-center overflow-hidden bg-[#030712] px-4 pt-2 pb-12">
-        
-    <!-- ARKA PLAN: GECE MAVİSİ ATMOSFER VE KUSURSUZ SVG DÜNYA HARİTASI -->
-    <div class="absolute inset-0 pointer-events-none overflow-hidden z-0 flex items-center justify-center hero-bg-fadein">
-        
-        <!-- Evrenin Tamamına Yayan Yumuşak Gece Mavisi Doku -->
-        <div class="absolute w-[1000px] h-[700px] bg-blue-950/30 rounded-full blur-[180px]"></div>
-
-        <!-- Küreyi Saran Yumuşak Eliptik Yörüngeler -->
-        <div class="absolute w-[80%] h-[65%] sm:w-[850px] sm:h-[580px] rounded-[100%] border border-slate-700/25 blur-[0.3px]" style="transform: rotate(-8deg);"></div>
-        <div class="absolute w-[95%] h-[80%] sm:w-[1100px] sm:h-[750px] rounded-[100%] border border-blue-500/10 blur-[0.6px]" style="transform: rotate(4deg); animation: floatSlow 14s ease-in-out infinite reverse;"></div>
-
-        <!-- YÜKLEME HATASI OLMAYAN KESİN ÇÖZÜM: SVG DÜNYA KÜRE GÖRSELİ -->
-        <div class="absolute w-[85%] max-w-2xl opacity-40 flex items-center justify-center z-0">
-            <svg viewBox="0 0 1000 500" class="w-full h-auto text-blue-400/60 fill-current">
-                <path d="M150,120 Q180,100 220,130 T280,160 Q320,130 350,170 T300,250 Q240,280 200,240 T150,120 Z" opacity="0.4"/>
-                <path d="M400,80 Q450,70 500,100 T550,150 Q520,220 460,200 T400,80 Z" opacity="0.4"/>
-                <path d="M650,140 Q720,120 780,160 T820,240 Q750,300 680,260 T650,140 Z" opacity="0.4"/>
-                <path d="M250,320 Q320,300 380,340 T300,420 Q220,400 250,320 Z" opacity="0.3"/>
-            </svg>
-        </div>
-    </div>
-
-    <!-- KITA ÜZERİNDE IŞIK TANELERİ -->
-    <div class="absolute inset-0 pointer-events-none z-1 flex items-center justify-center max-w-4xl mx-auto">
-        <div class="relative w-full h-full max-w-[700px] h-[450px]">
-            <div class="absolute top-[38%] left-[28%] w-1 h-1 bg-blue-300 rounded-full shadow-[0_0_6px_rgba(147,197,253,0.8)] blink-light"></div>
-            <div class="absolute top-[64%] left-[34%] w-1 h-1 bg-slate-200 rounded-full shadow-[0_0_6px_rgba(226,232,240,0.8)] blink-light" style="animation-delay: 1.2s;"></div>
-            <div class="absolute top-[34%] left-[51%] w-1 h-1 bg-blue-200 rounded-full shadow-[0_0_6px_rgba(191,219,254,0.8)] blink-light" style="animation-delay: 2.4s;"></div>
-            <div class="absolute top-[54%] left-[53%] w-1 h-1 bg-slate-300 rounded-full shadow-[0_0_6px_rgba(203,213,225,0.8)] blink-light" style="animation-delay: 3.1s;"></div>
-            <div class="absolute top-[37%] left-[69%] w-1 h-1 bg-blue-300 rounded-full shadow-[0_0_6px_rgba(147,197,253,0.8)] blink-light" style="animation-delay: 1.8s;"></div>
-            <div class="absolute top-[66%] left-[77%] w-1 h-1 bg-slate-200 rounded-full shadow-[0_0_6px_rgba(226,232,240,0.8)] blink-light" style="animation-delay: 4s;"></div>
-        </div>
-    </div>
-
-    <!-- HERO İÇERİK KARTI (Header'a Doğru Yaklaştırılmış, Dengeli Yerleşim) -->
-    <div class="relative z-10 max-w-4xl mx-auto text-center px-4 space-y-5 sm:space-y-6 hero-deep-slide mt-1">
-        
-        <!-- 1. Üst Etiket -->
-        <div>
-            <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/5 border border-white/10 text-[11px] sm:text-xs font-mono tracking-widest text-slate-300 uppercase shadow-sm">
-                <span class="w-1.5 h-1.5 rounded-full bg-blue-400"></span>
-                Digital Civilization Without Borders
-            </div>
-        </div>
-
-        <!-- 2. Ana Başlık -->
-        <div class="space-y-1">
-            <h1 class="text-3xl sm:text-5xl md:text-6xl font-bold tracking-tight text-white leading-tight">
-                Building A Digital <br>
-                <span class="text-slate-200 font-light tracking-wide">Home For Humanity</span>
-            </h1>
-        </div>
-
-        <!-- 3. Alt Açıklama -->
-        <div>
-            <p class="text-xs sm:text-sm md:text-base text-slate-300 max-w-xl mx-auto font-light leading-relaxed">
-                A global ecosystem where compassion, knowledge, creativity and human connection come together.
-            </p>
-        </div>
-
-        <!-- 4. Değerler Satırı -->
-        <div>
-            <div class="flex flex-wrap items-center justify-center gap-3 sm:gap-6 text-xs font-mono tracking-wider text-slate-400 uppercase font-medium">
-                <span class="hover:text-white transition-colors">Protect</span>
-                <span class="text-blue-500/40">•</span>
-                <span class="hover:text-white transition-colors">Connect</span>
-                <span class="text-blue-500/40">•</span>
-                <span class="hover:text-white transition-colors">Create</span>
-                <span class="text-blue-500/40">•</span>
-                <span class="hover:text-white transition-colors">Share</span>
-                <span class="text-blue-500/40">•</span>
-                <span class="hover:text-white transition-colors">Thrive</span>
-            </div>
-        </div>
-
-        <!-- 5. Butonlar -->
-        <div class="pt-1">
-            <div class="flex flex-col sm:flex-row items-center justify-center gap-3">
-                <a href="marketplace.html" class="w-full sm:w-auto px-8 py-3.5 rounded-full bg-turquoise-400 text-[#030712] font-bold text-xs tracking-wider uppercase hover:bg-turquoise-300 transition-all shadow-[0_0_20px_rgba(45,212,191,0.3)] text-center">
-                    Join The Community
-                </a>
-                <a href="manifesto.html" class="w-full sm:w-auto px-8 py-3.5 rounded-full bg-white/5 border border-slate-600/50 text-slate-200 font-medium text-xs tracking-wider uppercase hover:bg-white/10 hover:border-slate-400 transition-all text-center">
-                    Explore The Ecosystem
-                </a>
-            </div>
-        </div>
-
-    </div>
-</section>
-
-<!-- JAVASCRIPT FONKSİYONLARI -->
-<script>
-    window.toggleMobileMenu = function(event) {
-        if (event) event.stopPropagation();
-        const menu = document.getElementById('mobileMenu');
-        const langDropdown = document.getElementById('langDropdown');
-        if (langDropdown) { langDropdown.classList.remove('lang-dropdown-visible'); langDropdown.classList.add('lang-dropdown-hidden'); }
-        if (menu) {
-            if (menu.classList.contains('menu-slide-hidden')) {
-                menu.classList.remove('menu-slide-hidden');
-                menu.classList.add('menu-slide-visible');
-                document.body.style.overflow = 'hidden';
-            } else {
-                menu.classList.remove('menu-slide-visible');
-                menu.classList.add('menu-slide-hidden');
-                document.body.style.overflow = 'auto';
-            }
-        }
-    };
-
-    window.toggleLangMenu = function(event) {
-        if (event) event.stopPropagation();
-        const langDropdown = document.getElementById('langDropdown');
-        if (langDropdown) {
-            if (langDropdown.classList.contains('lang-dropdown-hidden')) {
-                langDropdown.classList.remove('lang-dropdown-hidden');
-                langDropdown.classList.add('lang-dropdown-visible');
-            } else {
-                langDropdown.classList.remove('lang-dropdown-visible');
-                langDropdown.classList.add('lang-dropdown-hidden');
-            }
-        }
-    };
-
-    window.setLanguage = function(lang) {
-        const langDropdown = document.getElementById('langDropdown');
-        if (langDropdown) {
-            langDropdown.classList.remove('lang-dropdown-visible');
-            langDropdown.classList.add('lang-dropdown-hidden');
-        }
-    };
-
-    window.addEventListener('click', function(e) {
-        const langDropdown = document.getElementById('langDropdown');
-        if (langDropdown && !langDropdown.contains(e.target)) {
-            langDropdown.classList.remove('lang-dropdown-visible');
-            langDropdown.classList.add('lang-dropdown-hidden');
-        }
-    });
-</script>
-</body>
-    </html>
     
