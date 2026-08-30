@@ -7,6 +7,7 @@
     
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
         tailwind.config = {
             darkMode: 'class',
             theme: {
@@ -135,6 +136,44 @@
             pointer-events: auto; 
             transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1); 
         }
+        /* HUMANITARIAN GLASS CARDS */
+
+.glass-card {
+    position: relative;
+    background: rgba(15, 23, 42, 0.58);
+    border: 1px solid rgba(94, 234, 212, 0.18);
+    border-radius: 1rem;
+    box-shadow:
+        0 10px 35px rgba(0, 0, 0, 0.25),
+        inset 0 1px 0 rgba(255, 255, 255, 0.04);
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+    transition: all 0.4s ease;
+}
+
+.glass-card:hover,
+.glass-card:focus {
+    transform: translateY(-5px);
+    background: rgba(15, 23, 42, 0.72);
+    border-color: rgba(45, 212, 191, 0.45);
+    box-shadow:
+        0 15px 45px rgba(0, 0, 0, 0.35),
+        0 0 25px rgba(45, 212, 191, 0.10);
+    outline: none;
+}
+
+.icon-badge {
+    background: rgba(45, 212, 191, 0.08);
+    border: 1px solid rgba(45, 212, 191, 0.20);
+    color: #5eead4;
+    box-shadow: 0 0 18px rgba(45, 212, 191, 0.08);
+}
+
+.glass-card:hover .icon-badge,
+.glass-card:focus .icon-badge {
+    border-color: rgba(45, 212, 191, 0.45);
+    box-shadow: 0 0 25px rgba(45, 212, 191, 0.15);
+}
     </style>
 </head>
 <body class="bg-[#030712] text-slate-100 font-sans antialiased overflow-x-hidden">
