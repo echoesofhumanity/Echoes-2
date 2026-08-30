@@ -216,6 +216,9 @@ transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
 
 .cinematic-btn {
     position: relative;
+        display: inline-flex;
+    align-items: center;
+    justify-content: center;
     isolation: isolate;
     overflow: hidden;
     transform: translateY(0) translateZ(0);
@@ -235,6 +238,7 @@ transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
 .cinematic-btn::after {
     content: "";
     position: absolute;
+    pointer-events: none;
     left: 12%;
     right: 12%;
     bottom: -12px;
