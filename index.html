@@ -7,21 +7,11 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
         
     <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            darkMode: 'class',
-            theme: {
-                extend: {
-                    colors: {
-                        space: { 900: '#05070f', 800: '#0a0e1a', 700: '#131b2e' },
-                        turquoise: { 300: '#5eead4', 400: '#2dd4bf', 500: '#14b8a6', 600: '#0d9488' }
-                    },
-                    fontFamily: { sans: ['Inter', 'sans-serif'] }
-                }
-            }
-        }
-    </script>
 
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+<script>
+tailwind.config = {};
+        </script>
     <style>
         /* --- Animasyon Tanımları --- */
         
@@ -138,6 +128,26 @@
         }
         /* HUMANITARIAN GLASS CARDS */
 
+        /* CINEMATIC CARD REVEAL */
+@keyframes cinematicCardReveal {
+    0% {
+        opacity: 0;
+        transform: translateY(40px) scale(0.96);
+        filter: blur(8px);
+    }
+
+    60% {
+        opacity: 0.85;
+        filter: blur(2px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+        filter: blur(0);
+    }
+}
+
 .glass-card {
     position: relative;
     background: rgba(15, 23, 42, 0.58);
@@ -148,7 +158,8 @@
         inset 0 1px 0 rgba(255, 255, 255, 0.04);
     backdrop-filter: blur(18px);
     -webkit-backdrop-filter: blur(18px);
-    transition: all 0.4s ease;
+    animation: cinematicCardReveal 1.2s cubic-bezier(0.16, 1, 0.3, 1) both;
+transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .glass-card:hover,
@@ -160,6 +171,30 @@
         0 15px 45px rgba(0, 0, 0, 0.35),
         0 0 25px rgba(45, 212, 191, 0.10);
     outline: none;
+}
+
+        .glass-card:nth-child(1) {
+    animation-delay: 0.1s;
+}
+
+.glass-card:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.glass-card:nth-child(3) {
+    animation-delay: 0.3s;
+}
+
+.glass-card:nth-child(4) {
+    animation-delay: 0.4s;
+}
+
+.glass-card:nth-child(5) {
+    animation-delay: 0.5s;
+}
+
+.glass-card:nth-child(6) {
+    animation-delay: 0.6s;
 }
 
 .icon-badge {
