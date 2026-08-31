@@ -209,117 +209,7 @@ transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
     border-color: rgba(45, 212, 191, 0.45);
     box-shadow: 0 0 25px rgba(45, 212, 191, 0.15);
 }
-/* =========================================================
-   CINEMATIC BUTTON — SAFE 3D SYSTEM
-   ========================================================= */
 
-.cinematic-btn {
-    position: relative;
-    isolation: isolate;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-
-    transform: translateY(0);
-    overflow: hidden;
-
-    border: 1px solid rgba(234, 212, 191, 0.45);
-
-    box-shadow:
-        0 4px 0 rgba(13, 148, 136, 0.45),
-        0 8px 20px rgba(0, 0, 0, 0.25),
-        0 0 22px rgba(45, 212, 191, 0.18);
-
-    transition:
-        transform 0.22s cubic-bezier(0.16, 1, 0.3, 1),
-        box-shadow 0.22s ease,
-        border-color 0.22s ease,
-        filter 0.22s ease;
-}
-
-/* Alttan gelen ışık */
-.cinematic-btn::after {
-    content: "";
-    position: absolute;
-    left: 12%;
-    right: 12%;
-    bottom: -8px;
-    height: 16px;
-
-    border-radius: 50%;
-
-    background: rgba(45, 212, 191, 0.55);
-    filter: blur(10px);
-    opacity: 0.45;
-
-    pointer-events: none;
-    z-index: -1;
-
-    transition:
-        opacity 0.22s ease,
-        transform 0.22s ease,
-        filter 0.22s ease;
-}
-
-/* Üzerine gelince yükselir */
-.cinematic-btn:hover {
-    transform: translateY(-4px);
-
-    border-color: rgba(234, 212, 191, 0.70);
-
-    box-shadow:
-        0 7px 0 rgba(13, 148, 136, 0.50),
-        0 14px 30px rgba(0, 0, 0, 0.30),
-        0 0 30px rgba(45, 212, 191, 0.30);
-
-    filter: brightness(1.04);
-}
-
-/* Hover'da alttaki ışık güçlenir */
-.cinematic-btn:hover::after {
-    opacity: 0.85;
-    transform: scaleX(1.15);
-    filter: blur(13px);
-}
-
-/* Basınca gerçekten içeri oturur */
-.cinematic-btn:active {
-    transform: translateY(3px);
-
-    box-shadow:
-        0 1px 0 rgba(13, 148, 136, 0.45),
-        0 4px 12px rgba(0, 0, 0, 0.25),
-        0 0 18px rgba(45, 212, 191, 0.25);
-
-    filter: brightness(0.98);
-}
-
-/* Basınca alttaki ışık sıkışır */
-.cinematic-btn:active::after {
-    opacity: 1;
-    transform: scaleX(1.28) scaleY(1.20);
-    filter: blur(14px);
-}
-
-/* Klavye erişimi */
-.cinematic-btn:focus-visible {
-    outline: 2px solid rgba(94, 234, 212, 0.75);
-    outline-offset: 4px;
-}
-
-/* Mobilde hover efektini zorlamıyoruz */
-@media (max-width: 640px) {
-    .cinematic-btn {
-        box-shadow:
-            0 4px 0 rgba(13, 148, 136, 0.45),
-            0 7px 18px rgba(0, 0, 0, 0.25),
-            0 0 20px rgba(45, 212, 191, 0.18);
-    }
-
-    .cinematic-btn:active {
-        transform: translateY(3px);
-    }
-    }
     </style>
 </head>
 <body class="bg-[#030712] text-slate-100 font-sans antialiased overflow-x-hidden">
@@ -475,10 +365,10 @@ transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
 
         <div class="pt-1">
             <div class="flex flex-col sm:flex-row items-center justify-center gap-3">
-                <a href="marketplace.html" class="cinematic-btn w-full sm:w-auto ... px-8 py-3.5 rounded-full bg-[#2dd4bf] text-[#030712] font-bold text-xs tracking-wider uppercase hover:bg-[#5eead4] transition-all shadow-[0_0_20px_rgba(45,212,191,0.3)] text-center">
+                <a href="marketplace.html" class="w-full sm:w-auto ... px-8 py-3.5 rounded-full bg-[#2dd4bf] text-[#030712] font-bold text-xs tracking-wider uppercase hover:bg-[#5eead4] transition-all shadow-[0_0_20px_rgba(45,212,191,0.3)] text-center">
     Join The Community
                 </a>
-                <a href="manifesto.html" class="cinematic-btn w-full sm:w-auto px-8 py-3.5 rounded-full bg-[#2dd4bf] text-[#030712] font-bold text-xs tracking-wider uppercase text-center"
+                <a href="manifesto.html" class="w-full sm:w-auto px-8 py-3.5 rounded-full bg-[#2dd4bf] text-[#030712] font-bold text-xs tracking-wider uppercase text-center"
                     Explore The Ecosystem
                 </a>
             </div>
