@@ -209,7 +209,159 @@ transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
     border-color: rgba(45, 212, 191, 0.45);
     box-shadow: 0 0 25px rgba(45, 212, 191, 0.15);
 }
+/* =========================================
+   CINEMATIC HERO BUTTONS
+   ========================================= */
 
+.hero-actions {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+}
+
+/* Ortak buton yüzeyi */
+.cinematic-btn {
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    min-height: 52px;
+    padding: 0.875rem 2rem;
+
+    border-radius: 999px;
+
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+
+    text-decoration: none;
+
+    transition:
+        transform 0.6s cubic-bezier(0.16, 1, 0.3, 1),
+        background 0.6s ease,
+        border-color 0.6s ease,
+        box-shadow 0.8s ease,
+        color 0.6s ease;
+}
+
+/* İçeride hareket eden çok hafif ışık */
+.cinematic-btn::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+
+    background:
+        linear-gradient(
+            110deg,
+            transparent 20%,
+            rgba(255, 255, 255, 0.06) 48%,
+            transparent 76%
+        );
+
+    transform: translateX(-120%);
+    transition: transform 1s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Primary */
+.cinematic-btn-primary {
+    color: #e6fffb;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(30, 94, 100, 0.72),
+            rgba(18, 45, 58, 0.82)
+        );
+
+    border: 1px solid rgba(94, 234, 212, 0.38);
+
+    box-shadow:
+        0 8px 30px rgba(0, 0, 0, 0.30),
+        0 0 24px rgba(45, 212, 191, 0.08),
+        inset 0 1px 0 rgba(255, 255, 255, 0.08);
+}
+
+/* Secondary */
+.cinematic-btn-secondary {
+    color: #cbd5e1;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(20, 29, 45, 0.78),
+            rgba(10, 18, 31, 0.88)
+        );
+
+    border: 1px solid rgba(148, 163, 184, 0.22);
+
+    box-shadow:
+        0 8px 30px rgba(0, 0, 0, 0.28),
+        inset 0 1px 0 rgba(255, 255, 255, 0.045);
+}
+
+/* Hover */
+.cinematic-btn:hover {
+    transform: translateY(-2px);
+}
+
+.cinematic-btn:hover::before {
+    transform: translateX(120%);
+}
+
+.cinematic-btn-primary:hover {
+    color: #f0fffd;
+
+    border-color: rgba(94, 234, 212, 0.58);
+
+    box-shadow:
+        0 12px 38px rgba(0, 0, 0, 0.34),
+        0 0 32px rgba(45, 212, 191, 0.13),
+        inset 0 1px 0 rgba(255, 255, 255, 0.10);
+}
+
+.cinematic-btn-secondary:hover {
+    color: #f1f5f9;
+
+    border-color: rgba(148, 163, 184, 0.38);
+
+    box-shadow:
+        0 12px 38px rgba(0, 0, 0, 0.34),
+        0 0 22px rgba(96, 165, 250, 0.06),
+        inset 0 1px 0 rgba(255, 255, 255, 0.07);
+}
+
+/* Press */
+.cinematic-btn:active {
+    transform: translateY(0) scale(0.985);
+}
+
+/* Klavye erişilebilirliği */
+.cinematic-btn:focus-visible {
+    outline: none;
+
+    box-shadow:
+        0 0 0 2px rgba(3, 7, 18, 0.9),
+        0 0 0 4px rgba(94, 234, 212, 0.28);
+}
+
+/* Mobil */
+@media (min-width: 640px) {
+    .hero-actions {
+        flex-direction: row;
+    }
+
+    .cinematic-btn {
+        min-width: 210px;
+    }
+}
     </style>
 </head>
 <body class="bg-[#030712] text-slate-100 font-sans antialiased overflow-x-hidden">
@@ -364,16 +516,19 @@ transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
         </div>
 
         <div class="pt-1">
-            <div class="flex flex-col sm:flex-row items-center justify-center gap-3">
-                <a href="marketplace.html" class="w-full sm:w-auto px-8 py-3.5 rounded-full bg-[#2dd4bf] text-[#030712] font-bold text-xs tracking-wider uppercase hover:bg-[#5eead4] transition-all shadow-[0_0_20px_rgba(45,212,191,0.3)] text-center">
-    Join The Community
-                </a>
-                <a href="manifesto.html" class="w-full sm:w-auto px-8 py-3.5 rounded-full bg-[#2dd4bf] text-[#030712] font-bold text-xs tracking-wider uppercase text-center">
-    Explore The Ecosystem
-                </a>
-                    
-                
-            </div>
+    <div class="hero-actions">
+
+        <a href="marketplace.html"
+           class="cinematic-btn cinematic-btn-primary w-full sm:w-auto text-center">
+            Join The Community
+        </a>
+
+        <a href="manifesto.html"
+           class="cinematic-btn cinematic-btn-secondary w-full sm:w-auto text-center">
+            Explore The Ecosystem
+        </a>
+
+    </div>
         </div>
     </div>
 </section>
