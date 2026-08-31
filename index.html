@@ -570,6 +570,73 @@ footer .footer-bottom {
         0 0 0 rgba(94,234,212,0),
         inset 0 1px 0 rgba(255,255,255,0.04);
 }
+        /* ===== FOOTER — FINAL COMPACT LAYOUT ===== */
+
+footer {
+    padding-top: 32px !important;
+    padding-bottom: 20px !important;
+}
+
+/* Marka */
+footer .footer-brand {
+    margin-bottom: 16px !important;
+    font-size: 18px !important;
+    line-height: 1.2 !important;
+}
+
+/* TÜM FOOTER LINKLERİ TEK SATIR */
+footer .footer-links {
+    display: flex !important;
+    flex-wrap: nowrap !important;
+    justify-content: center !important;
+    align-items: center !important;
+    gap: 18px !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    white-space: nowrap !important;
+}
+
+footer .footer-links a {
+    font-size: 14px !important;
+    line-height: 1.2 !important;
+    white-space: nowrap !important;
+}
+
+/* Copyright */
+footer .footer-bottom {
+    margin-top: 16px !important;
+    padding-top: 14px !important;
+    font-size: 13px !important;
+    line-height: 1.2 !important;
+}
+
+/* Telefon */
+@media (max-width: 640px) {
+
+    footer {
+        padding-top: 28px !important;
+        padding-bottom: 18px !important;
+    }
+
+    footer .footer-brand {
+        margin-bottom: 14px !important;
+        font-size: 17px !important;
+    }
+
+    footer .footer-links {
+        gap: 12px !important;
+    }
+
+    footer .footer-links a {
+        font-size: 13px !important;
+    }
+
+    footer .footer-bottom {
+        margin-top: 14px !important;
+        padding-top: 12px !important;
+        font-size: 12px !important;
+    }
+}
 
 /* HOVER */
 .cinematic-btn:hover {
