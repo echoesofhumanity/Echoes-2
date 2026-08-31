@@ -1,13 +1,1000 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="dark">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About | Echoes of Humanity</title>
-</head>
-<body>
 
-    <h1>About</h1>
+    <title>About | Echoes of Humanity</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        space: {
+                            900: '#05070f',
+                            800: '#0a0e1a',
+                            700: '#131b2e'
+                        },
+                        turquoise: {
+                            300: '#5eead4',
+                            400: '#2dd4bf',
+                            500: '#14b8a6',
+                            600: '#0d9488'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        @keyframes smoothBreath {
+            0%, 100% {
+                opacity: .7;
+                transform: scale(1);
+            }
+
+            50% {
+                opacity: 1;
+                transform: scale(1.12);
+            }
+        }
+
+        @keyframes starBlink {
+            0%, 100% {
+                opacity: .2;
+                transform: scale(.8);
+            }
+
+            50% {
+                opacity: 1;
+                transform: scale(1.2);
+                box-shadow: 0 0 8px rgba(45,212,191,.8);
+            }
+        }
+
+        @keyframes cinematicCardReveal {
+            0% {
+                opacity: 0;
+                transform: translateY(40px) scale(.96);
+                filter: blur(8px);
+            }
+
+            60% {
+                opacity: .85;
+                filter: blur(2px);
+            }
+
+            100% {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+                filter: blur(0);
+            }
+        }
+
+        .flag-breath-pulse {
+            animation: smoothBreath 3s ease-in-out infinite;
+        }
+
+        .glass-header {
+            background: rgba(5,7,15,.95);
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
+            border-bottom: 1px solid rgba(255,255,255,.06);
+        }
+
+        .lang-dropdown-box {
+            background: rgba(8,12,22,.98) !important;
+            backdrop-filter: blur(30px) !important;
+            -webkit-backdrop-filter: blur(30px) !important;
+            border: 1px solid rgba(255,255,255,.12) !important;
+        }
+
+        .lang-dropdown-hidden {
+            opacity: 0;
+            transform: translateY(-12px) scale(.98);
+            pointer-events: none;
+            transition: all .4s cubic-bezier(.16,1,.3,1);
+        }
+
+        .lang-dropdown-visible {
+            opacity: 1;
+            transform: translateY(0) scale(1);
+            pointer-events: auto;
+            transition: all .4s cubic-bezier(.16,1,.3,1);
+        }
+
+        .menu-slide-hidden {
+            transform: translateY(-100%);
+            opacity: 0;
+            pointer-events: none;
+            transition:
+                transform 1.4s cubic-bezier(.16,1,.3,1),
+                opacity 1.2s ease-in-out;
+        }
+
+        .menu-slide-visible {
+            transform: translateY(0);
+            opacity: 1;
+            pointer-events: auto;
+            transition:
+                transform 1.4s cubic-bezier(.16,1,.3,1),
+                opacity 1.2s ease-in-out;
+        }
+
+        .glass-card {
+            position: relative;
+            background: rgba(15,23,42,.58);
+            border: 1px solid rgba(94,234,212,.18);
+            border-radius: 1rem;
+
+            box-shadow:
+                0 10px 35px rgba(0,0,0,.25),
+                inset 0 1px 0 rgba(255,255,255,.04);
+
+            backdrop-filter: blur(18px);
+            -webkit-backdrop-filter: blur(18px);
+
+            animation:
+                cinematicCardReveal
+                1.2s cubic-bezier(.16,1,.3,1) both;
+
+            transition: all .5s cubic-bezier(.16,1,.3,1);
+        }
+
+        .glass-card:hover,
+        .glass-card:focus {
+            transform: translateY(-5px);
+            background: rgba(15,23,42,.72);
+            border-color: rgba(45,212,191,.45);
+
+            box-shadow:
+                0 15px 45px rgba(0,0,0,.35),
+                0 0 25px rgba(45,212,191,.10);
+
+            outline: none;
+        }
+
+        .icon-badge {
+            background: rgba(45,212,191,.08);
+            border: 1px solid rgba(45,212,191,.20);
+            color: #5eead4;
+            box-shadow: 0 0 18px rgba(45,212,191,.08);
+        }
+
+        .echoes-section {
+            margin-top: 4rem;
+            margin-bottom: 4rem;
+        }
+
+        .echoes-section-heading {
+            margin-bottom: 1.75rem;
+            text-align: center;
+        }
+
+        .echoes-section-heading h2 {
+            color: #fff;
+            font-size: clamp(1.75rem,5vw,2.5rem);
+            font-weight: 800;
+            line-height: 1.15;
+            letter-spacing: -.025em;
+        }
+
+        .echoes-section-heading p {
+            max-width: 32rem;
+            margin: .75rem auto 0;
+            color: #94a3b8;
+            font-size: .8rem;
+            font-weight: 300;
+            line-height: 1.7;
+        }
+
+        .echoes-card-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            max-width: 32rem;
+            margin: 0 auto;
+        }
+
+        .hero-actions {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: .75rem;
+        }
+
+        .cinematic-btn {
+            position: relative;
+            overflow: hidden;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+
+            min-height: 58px;
+            padding: .9rem 2rem;
+
+            border-radius: 9999px;
+            text-decoration: none;
+
+            font-size: .75rem;
+            font-weight: 700;
+            letter-spacing: .14em;
+            text-transform: uppercase;
+
+            transition:
+                transform .45s cubic-bezier(.16,1,.3,1),
+                background .45s ease,
+                border-color .45s ease,
+                box-shadow .45s ease,
+                color .45s ease;
+        }
+
+        .cinematic-btn-primary {
+            color: #dffefa;
+
+            background: linear-gradient(
+                180deg,
+                rgba(45,212,191,.24),
+                rgba(15,118,110,.20)
+            );
+
+            border: 1px solid rgba(94,234,212,.55);
+
+            box-shadow:
+                inset 0 1px 0 rgba(255,255,255,.08);
+        }
+
+        .cinematic-btn-secondary {
+            color: #cbd5e1;
+
+            background: linear-gradient(
+                180deg,
+                rgba(30,41,59,.42),
+                rgba(15,23,42,.58)
+            );
+
+            border: 1px solid rgba(148,163,184,.20);
+
+            box-shadow:
+                inset 0 1px 0 rgba(255,255,255,.04);
+        }
+
+        .cinematic-btn:hover {
+            transform: translateY(-2px);
+        }
+
+        .echoes-footer {
+            width: 100%;
+            padding: 32px 20px 20px;
+            text-align: center;
+            background: #061017;
+            color: #94a3b8;
+        }
+
+        .echoes-footer-line {
+            width: 100%;
+            height: 1px;
+            background: rgba(148,163,184,.20);
+            margin: 0 auto 20px;
+        }
+
+        .echoes-footer-brand {
+            font-size: 18px;
+            font-weight: 400;
+            letter-spacing: .03em;
+            color: #94a3b8;
+            margin-bottom: 16px;
+        }
+
+        .echoes-footer-nav {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 12px 18px;
+        }
+
+        .echoes-footer-nav a {
+            color: #cbd5e1;
+            text-decoration: none;
+            font-size: 13px;
+            transition: color .3s ease;
+        }
+
+        .echoes-footer-nav a:hover {
+            color: #5eead4;
+        }
+
+        .echoes-footer-copy {
+            color: #64748b;
+            font-size: 12px;
+            margin-top: 14px;
+            padding-top: 12px;
+        }
+
+        @media (min-width:640px) {
+            .hero-actions {
+                flex-direction: row;
+            }
+        }
+
+        @media (max-width:640px) {
+            .cinematic-btn {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+
+<body class="bg-[#030712] text-slate-100 font-sans antialiased overflow-x-hidden">
+
+<!-- HEADER -->
+<header class="w-full glass-header sticky top-0 z-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 h-20 flex items-center justify-between w-full">
+
+        <a href="../index.html" class="flex items-center gap-3.5 group">
+            <img
+                src="../logo.png"
+                alt="Echoes of Humanity Logo"
+                class="h-10 sm:h-12 w-auto object-contain flag-breath-pulse"
+            >
+
+            <div class="flex flex-col">
+                <span class="text-[10px] sm:text-[11px] tracking-[0.3em] text-slate-400 font-medium">
+                    ECHOES
+                </span>
+
+                <span class="text-xs sm:text-sm font-bold tracking-wider text-slate-100">
+                    OF HUMANITY
+                </span>
+            </div>
+        </a>
+
+        <div class="flex items-center gap-3.5">
+
+            <!-- LANGUAGE -->
+            <div class="relative">
+
+                <button
+                    type="button"
+                    onclick="window.toggleLangMenu(event)"
+                    aria-label="Language Selector"
+                    class="w-10 h-10 rounded-full border border-turquoise-500/30 bg-white/5 flex items-center justify-center text-slate-200 hover:bg-turquoise-500/20 hover:border-turquoise-400 transition-all text-base cursor-pointer shadow-sm flag-breath-pulse"
+                >
+                    🌐
+                </button>
+
+                <div
+                    id="langDropdown"
+                    class="absolute right-0 top-12 w-48 rounded-2xl lang-dropdown-box shadow-2xl lang-dropdown-hidden py-2.5 z-50"
+                >
+                    <div class="px-4 py-1.5 text-[10px] uppercase font-mono tracking-widest text-turquoise-400 border-b border-white/5 mb-1">
+                        Select Language
+                    </div>
+
+                    <button type="button" class="w-full px-4 py-2.5 text-left text-xs text-slate-200 hover:bg-white/10">
+                        🇬🇧 English
+                    </button>
+
+                    <button type="button" class="w-full px-4 py-2.5 text-left text-xs text-slate-200 hover:bg-white/10">
+                        🇹🇷 Türkçe
+                    </button>
+
+                    <button type="button" class="w-full px-4 py-2.5 text-left text-xs text-slate-200 hover:bg-white/10">
+                        🇷🇺 Русский
+                    </button>
+
+                    <button type="button" class="w-full px-4 py-2.5 text-left text-xs text-slate-200 hover:bg-white/10">
+                        🇩🇪 Deutsch
+                    </button>
+
+                    <button type="button" class="w-full px-4 py-2.5 text-left text-xs text-slate-200 hover:bg-white/10">
+                        🇪🇸 Español
+                    </button>
+                </div>
+            </div>
+
+            <!-- HAMBURGER -->
+            <button
+                type="button"
+                onclick="window.toggleMobileMenu(event)"
+                aria-label="Toggle Menu"
+                class="w-10 h-10 rounded-full border border-turquoise-500/30 bg-white/5 flex flex-col items-center justify-center gap-1.5 text-slate-200 hover:bg-turquoise-500/20 hover:border-turquoise-400 transition-all cursor-pointer shadow-sm flag-breath-pulse"
+            >
+                <span class="w-4 h-0.5 bg-slate-200 rounded-full"></span>
+                <span class="w-4 h-0.5 bg-slate-200 rounded-full"></span>
+                <span class="w-2.5 h-0.5 bg-slate-200 rounded-full self-start ml-3"></span>
+            </button>
+
+        </div>
+    </div>
+</header>
+
+
+<!-- MOBILE MENU -->
+<div
+    id="mobileMenu"
+    class="fixed inset-0 bg-[#05070f]/98 backdrop-blur-3xl z-40 menu-slide-hidden flex flex-col overflow-y-auto px-6 py-12"
+>
+
+    <div class="max-w-md mx-auto w-full pt-8 pb-20 space-y-10">
+
+        <div class="flex items-center justify-between border-b border-white/10 pb-4">
+
+            <span class="text-xs uppercase tracking-[0.3em] text-turquoise-400 font-mono font-medium">
+                Navigation Hub
+            </span>
+
+            <button
+                type="button"
+                onclick="window.toggleMobileMenu()"
+                class="w-9 h-9 rounded-full border border-white/10 bg-white/5 flex items-center justify-center text-slate-300"
+            >
+                ✕
+            </button>
+
+        </div>
+
+
+        <!-- ABOUT -->
+        <div class="space-y-3">
+
+            <div class="flex items-center gap-2 text-turquoise-400">
+                <span>🌍</span>
+                <span class="text-[11px] font-mono uppercase tracking-widest font-semibold">
+                    About
+                </span>
+            </div>
+
+            <nav class="flex flex-col space-y-2.5 pl-3 border-l border-white/10 text-base font-light text-slate-300">
+
+                <a href="../index.html" class="hover:text-turquoise-400">
+                    Home
+                </a>
+
+                <a href="index.html" class="text-turquoise-400">
+                    About
+                </a>
+
+                <a href="vision.html" class="hover:text-turquoise-400">
+                    Vision
+                </a>
+
+                <a href="mission.html" class="hover:text-turquoise-400">
+                    Mission
+                </a>
+
+                <a href="manifesto.html" class="hover:text-turquoise-400">
+                    Manifesto
+                </a>
+
+            </nav>
+        </div>
+
+
+        <!-- ACTION -->
+        <div class="space-y-3">
+
+            <div class="flex items-center gap-2 text-turquoise-400">
+                <span>🤝</span>
+                <span class="text-[11px] font-mono uppercase tracking-widest font-semibold">
+                    Action
+                </span>
+            </div>
+
+            <nav class="flex flex-col space-y-2.5 pl-3 border-l border-white/10 text-base font-light text-slate-300">
+
+                <a href="../action/humanitarian-action.html" class="hover:text-turquoise-400">
+                    Humanitarian Action
+                </a>
+
+                <a href="../action/projects.html" class="hover:text-turquoise-400">
+                    Projects
+                </a>
+
+                <a href="../action/volunteers.html" class="hover:text-turquoise-400">
+                    Volunteers
+                </a>
+
+                <a href="../action/academy.html" class="hover:text-turquoise-400">
+                    Academy
+                </a>
+
+                <a href="../action/media.html" class="hover:text-turquoise-400">
+                    Media
+                </a>
+
+            </nav>
+        </div>
+
+
+        <!-- NETWORK -->
+        <div class="space-y-3">
+
+            <div class="flex items-center gap-2 text-turquoise-400">
+                <span>🛒</span>
+                <span class="text-[11px] font-mono uppercase tracking-widest font-semibold">
+                    Network
+                </span>
+            </div>
+
+            <nav class="flex flex-col space-y-2.5 pl-3 border-l border-white/10 text-base font-light text-slate-300">
+
+                <a href="../network/marketplace.html" class="hover:text-turquoise-400">
+                    Marketplace
+                </a>
+
+                <a href="../network/merchandise.html" class="hover:text-turquoise-400">
+                    Merchandise
+                </a>
+
+                <a href="../network/partners.html" class="hover:text-turquoise-400">
+                    Partners
+                </a>
+
+                <a href="../network/contact.html" class="hover:text-turquoise-400">
+                    Contact
+                </a>
+
+            </nav>
+        </div>
+
+    </div>
+</div>
+
+
+<!-- ABOUT HERO -->
+<section class="relative min-h-[55vh] flex items-center justify-center overflow-hidden bg-[#030712] px-4 py-20">
+
+    <div class="absolute inset-0 pointer-events-none">
+
+        <div class="absolute w-[600px] h-[600px] bg-turquoise-900/10 rounded-full blur-[150px] left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2"></div>
+
+        <div
+            class="absolute w-1 h-1 rounded-full bg-turquoise-400"
+            style="top:25%;left:20%;animation:starBlink 3s infinite"
+        ></div>
+
+        <div
+            class="absolute w-1 h-1 rounded-full bg-turquoise-400"
+            style="top:35%;right:20%;animation:starBlink 3.5s infinite"
+        ></div>
+
+        <div
+            class="absolute w-1 h-1 rounded-full bg-turquoise-400"
+            style="bottom:25%;left:30%;animation:starBlink 4s infinite"
+        ></div>
+
+    </div>
+
+
+    <div class="relative z-10 max-w-3xl mx-auto text-center">
+
+        <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/5 border border-white/10 text-[11px] sm:text-xs font-mono tracking-widest text-slate-300 uppercase">
+            <span class="w-1.5 h-1.5 rounded-full bg-turquoise-400 flag-breath-pulse"></span>
+            About Echoes of Humanity
+        </div>
+
+        <h1 class="mt-6 text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight text-white">
+            Who We Are
+        </h1>
+
+        <p class="mt-6 text-sm sm:text-base text-slate-300 font-light leading-relaxed max-w-2xl mx-auto">
+            Echoes of Humanity is a global humanitarian movement built upon
+            the belief that lasting change begins when people come together
+            with compassion, integrity and a shared sense of responsibility.
+        </p>
+
+    </div>
+</section>
+
+
+<!-- MAIN CONTENT -->
+<main class="max-w-xl mx-auto px-4 pb-12">
+
+
+    <!-- WHO WE ARE -->
+    <section class="echoes-section">
+
+        <div class="echoes-section-heading">
+
+            <h2>
+                A Global Humanitarian Movement
+            </h2>
+
+            <p>
+                Connecting people, communities and ideas across borders.
+            </p>
+
+        </div>
+
+
+        <div class="space-y-4 text-sm text-slate-300 font-light leading-relaxed text-center">
+
+            <p>
+                We unite individuals, communities, organizations, educators,
+                innovators, volunteers and partners from around the world
+                to create meaningful and sustainable humanitarian impact.
+            </p>
+
+            <p>
+                Our mission extends beyond responding to today's challenges.
+                We strive to build a future where collaboration replaces
+                division, hope overcomes despair and every person has the
+                opportunity to contribute to a better world.
+            </p>
+
+        </div>
+
+    </section>
+
+<!-- OUR VALUES -->
+<section class="echoes-section">
+
+  <div class="echoes-section-heading">
+
+    <h2>
+      What We Believe
+    </h2>
+
+    <p>
+      The principles that guide everything we build.
+    </p>
+
+  </div>
+
+
+  <div class="echoes-card-grid">
+
+    <div tabindex="0" class="glass-card p-6 text-center">
+
+      <div class="w-14 h-14 mx-auto mb-4 rounded-full icon-badge flex items-center justify-center text-xl">
+        <i class="fa-solid fa-heart"></i>
+      </div>
+
+      <h3 class="text-lg font-bold text-white mb-2">
+        Compassion
+      </h3>
+
+      <p class="text-slate-400 text-xs sm:text-sm font-light">
+        We believe humanity becomes stronger when people care for one another.
+      </p>
+
+    </div>
+
+
+    <div tabindex="0" class="glass-card p-6 text-center">
+
+      <div class="w-14 h-14 mx-auto mb-4 rounded-full icon-badge flex items-center justify-center text-xl">
+        <i class="fa-solid fa-people-group"></i>
+      </div>
+
+      <h3 class="text-lg font-bold text-white mb-2">
+        Connection
+      </h3>
+
+      <p class="text-slate-400 text-xs sm:text-sm font-light">
+        We connect people and communities across borders, cultures and differences.
+      </p>
+
+    </div>
+
+
+    <div tabindex="0" class="glass-card p-6 text-center">
+
+      <div class="w-14 h-14 mx-auto mb-4 rounded-full icon-badge flex items-center justify-center text-xl">
+        <i class="fa-solid fa-lightbulb"></i>
+      </div>
+
+      <h3 class="text-lg font-bold text-white mb-2">
+        Knowledge
+      </h3>
+
+      <p class="text-slate-400 text-xs sm:text-sm font-light">
+        Knowledge gives people the power to understand, create and transform their world.
+      </p>
+
+    </div>
+
+
+    <div tabindex="0" class="glass-card p-6 text-center">
+
+      <div class="w-14 h-14 mx-auto mb-4 rounded-full icon-badge flex items-center justify-center text-xl">
+        <i class="fa-solid fa-earth-americas"></i>
+      </div>
+
+      <h3 class="text-lg font-bold text-white mb-2">
+        Shared Responsibility
+      </h3>
+
+      <p class="text-slate-400 text-xs sm:text-sm font-light">
+        A better future is something we create together.
+      </p>
+
+    </div>
+
+  </div>
+
+</section>
+
+    <!-- GLOBAL IMPACT -->
+<section class="echoes-section">
+
+  <div class="echoes-section-heading">
+    <h2>
+      Our Global Impact
+    </h2>
+
+    <p>
+      A growing ecosystem built around human connection
+      and meaningful action.
+    </p>
+  </div>
+
+  <div class="echoes-card-grid">
+
+    <div tabindex="0" class="glass-card p-6 text-center">
+
+      <div class="w-14 h-14 mx-auto mb-4 rounded-full icon-badge flex items-center justify-center text-xl">
+        <i class="fa-solid fa-earth-americas"></i>
+      </div>
+
+      <h3 class="text-lg font-bold text-white mb-1">
+        Countries Connected
+      </h3>
+
+      <p class="text-slate-400 text-xs sm:text-sm font-light">
+        Building a worldwide humanitarian network.
+      </p>
+
+    </div>
+
+
+    <div tabindex="0" class="glass-card p-6 text-center">
+
+      <div class="w-14 h-14 mx-auto mb-4 rounded-full icon-badge flex items-center justify-center text-xl">
+        <i class="fa-solid fa-users"></i>
+      </div>
+
+      <h3 class="text-lg font-bold text-white mb-1">
+        Active Volunteers
+      </h3>
+
+      <p class="text-slate-400 text-xs sm:text-sm font-light">
+        People creating positive change every day.
+      </p>
+
+    </div>
+
+
+    <div tabindex="0" class="glass-card p-6 text-center">
+
+      <div class="w-14 h-14 mx-auto mb-4 rounded-full icon-badge flex items-center justify-center text-xl">
+        <i class="fa-solid fa-seedling"></i>
+      </div>
+
+      <h3 class="text-lg font-bold text-white mb-1">
+        Humanitarian Projects
+      </h3>
+
+      <p class="text-slate-400 text-xs sm:text-sm font-light">
+        Initiatives designed to create lasting impact.
+      </p>
+
+    </div>
+
+  </div>
+
+</section>
+
+<!-- JOIN -->
+<section class="echoes-section">
+
+  <div class="echoes-section-heading">
+
+    <h2>
+      Join the Movement
+    </h2>
+
+    <p>
+      Every great movement begins with people who care
+      and choose to act.
+    </p>
+
+  </div>
+
+  <div class="hero-actions">
+
+    <a
+      href="../action/volunteers.html"
+      class="cinematic-btn cinematic-btn-primary w-full sm:w-auto text-center"
+    >
+      Become a Volunteer
+    </a>
+
+  </div>
+
+</section>
+
+</main>
+
+
+<!-- FOOTER -->
+<footer class="echoes-footer">
+
+  <div class="echoes-footer-line"></div>
+
+  <div class="echoes-footer-brand">
+    Echoes of Humanity
+  </div>
+
+  <nav class="echoes-footer-nav">
+
+    <a href="../index.html">Home</a>
+    <a href="index.html">About</a>
+    <a href="vision.html">Vision</a>
+    <a href="mission.html">Mission</a>
+    <a href="manifesto.html">Manifesto</a>
+    <a href="../action/projects.html">Projects</a>
+    <a href="../network/contact.html">Contact</a>
+
+  </nav>
+
+  <div class="echoes-footer-line"></div>
+
+  <div class="echoes-footer-copy">
+    © 2026 Echoes of Humanity. All rights reserved.
+  </div>
+
+</footer>
+
+
+<!-- JAVASCRIPT -->
+<script>
+
+  window.toggleMobileMenu = function(event) {
+
+    if (event) event.stopPropagation();
+
+    const menu =
+      document.getElementById('mobileMenu');
+
+    const langDropdown =
+      document.getElementById('langDropdown');
+
+    if (langDropdown) {
+
+      langDropdown.classList.remove(
+        'lang-dropdown-visible'
+      );
+
+      langDropdown.classList.add(
+        'lang-dropdown-hidden'
+      );
+
+    }
+
+    if (menu) {
+
+      if (
+        menu.classList.contains(
+          'menu-slide-hidden'
+        )
+      ) {
+
+        menu.classList.remove(
+          'menu-slide-hidden'
+        );
+
+        menu.classList.add(
+          'menu-slide-visible'
+        );
+
+        document.body.style.overflow =
+          'hidden';
+
+      } else {
+
+        menu.classList.remove(
+          'menu-slide-visible'
+        );
+
+        menu.classList.add(
+          'menu-slide-hidden'
+        );
+
+        document.body.style.overflow =
+          'auto';
+
+      }
+
+    }
+
+  };
+
+
+  window.toggleLangMenu = function(event) {
+
+    if (event) event.stopPropagation();
+
+    const langDropdown =
+      document.getElementById('langDropdown');
+
+    if (langDropdown) {
+
+      if (
+        langDropdown.classList.contains(
+          'lang-dropdown-hidden'
+        )
+      ) {
+
+        langDropdown.classList.remove(
+          'lang-dropdown-hidden'
+        );
+
+        langDropdown.classList.add(
+          'lang-dropdown-visible'
+        );
+
+      } else {
+
+        langDropdown.classList.remove(
+          'lang-dropdown-visible'
+        );
+
+        langDropdown.classList.add(
+          'lang-dropdown-hidden'
+        );
+
+      }
+
+    }
+
+  };
+
+
+  window.addEventListener(
+    'click',
+    function(e) {
+
+      const langDropdown =
+        document.getElementById('langDropdown');
+
+      if (
+        langDropdown &&
+        !langDropdown.contains(e.target)
+      ) {
+
+        langDropdown.classList.remove(
+          'lang-dropdown-visible'
+        );
+
+        langDropdown.classList.add(
+          'lang-dropdown-hidden'
+        );
+
+      }
+
+    }
+  );
+
+</script>
 
 </body>
 </html>
+
+
+
+     
