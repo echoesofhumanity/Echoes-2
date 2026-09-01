@@ -1,13 +1,1605 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="dark">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vision | Echoes of Humanity</title>
-</head>
-<body>
 
-    <h1>Vision</h1>
+    <title>Vision | Echoes of Humanity</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        turquoise: {
+                            300: '#5eead4',
+                            400: '#2dd4bf',
+                            500: '#14b8a6',
+                            600: '#0d9488'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif']
+                    }
+                }
+            }
+        };
+    </script>
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            margin: 0;
+            position: relative;
+            background:
+                radial-gradient(
+                    900px 520px at 18% 18%,
+                    rgba(45, 212, 191, 0.055),
+                    transparent 68%
+                ),
+                radial-gradient(
+                    800px 600px at 82% 42%,
+                    rgba(59, 130, 246, 0.045),
+                    transparent 70%
+                ),
+                radial-gradient(
+                    700px 500px at 48% 82%,
+                    rgba(20, 184, 166, 0.035),
+                    transparent 72%
+                ),
+                #030712;
+
+            color: #f8fafc;
+            font-family: Inter, sans-serif;
+            overflow-x: hidden;
+        }
+
+        body::before,
+        body::after {
+            content: "";
+            position: fixed;
+            inset: -20%;
+            pointer-events: none;
+            z-index: 0;
+            border-radius: 50%;
+            filter: blur(90px);
+        }
+
+        body::before {
+            background:
+                radial-gradient(
+                    circle at 24% 28%,
+                    rgba(45, 212, 191, 0.16),
+                    transparent 30%
+                ),
+                radial-gradient(
+                    circle at 76% 62%,
+                    rgba(59, 130, 246, 0.06),
+                    transparent 34%
+                );
+
+            animation: visionCloudDrift 28s ease-in-out infinite alternate;
+        }
+
+        body::after {
+            background:
+                radial-gradient(
+                    circle at 72% 22%,
+                    rgba(94, 234, 212, 0.045),
+                    transparent 28%
+                ),
+                radial-gradient(
+                    circle at 28% 78%,
+                    rgba(30, 64, 175, 0.05),
+                    transparent 32%
+                );
+
+            animation: visionCloudDriftReverse 34s ease-in-out infinite alternate;
+        }
+
+        body > * {
+            position: relative;
+            z-index: 1;
+        }
+
+        @keyframes visionCloudDrift {
+            0% {
+                transform: translate3d(-2%, -1%, 0) scale(1);
+            }
+
+            100% {
+                transform: translate3d(3%, 2%, 0) scale(1.08);
+            }
+        }
+
+        @keyframes visionCloudDriftReverse {
+            0% {
+                transform: translate3d(2%, 1%, 0) scale(1.04);
+            }
+
+            100% {
+                transform: translate3d(-3%, -2%, 0) scale(1);
+            }
+        }
+
+        @keyframes smoothBreath {
+            0%, 100% {
+                opacity: .7;
+                transform: scale(1);
+            }
+
+            50% {
+                opacity: 1;
+                transform: scale(1.12);
+            }
+        }
+
+        @keyframes cinematicCardReveal {
+            0% {
+                opacity: 0;
+                transform: translateY(40px) scale(.96);
+                filter: blur(8px);
+            }
+
+            60% {
+                opacity: .85;
+                filter: blur(2px);
+            }
+
+            100% {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+                filter: blur(0);
+            }
+        }
+
+        @keyframes starBlink {
+            0%, 100% {
+                opacity: .2;
+                transform: scale(.8);
+            }
+
+            50% {
+                opacity: 1;
+                transform: scale(1.2);
+                box-shadow: 0 0 8px rgba(45,212,191,.8);
+            }
+        }
+
+        .flag-breath-pulse {
+            animation: smoothBreath 3s ease-in-out infinite;
+        }
+
+        .glass-header {
+            background: rgba(5,7,15,.95);
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
+            border-bottom: 1px solid rgba(255,255,255,.06);
+        }
+
+        .lang-dropdown-box {
+            background: rgba(8,12,22,.98) !important;
+            backdrop-filter: blur(30px) !important;
+            -webkit-backdrop-filter: blur(30px) !important;
+            border: 1px solid rgba(255,255,255,.12) !important;
+        }
+
+        .lang-dropdown-hidden {
+            opacity: 0;
+            transform: translateY(-12px) scale(.98);
+            pointer-events: none;
+            transition: all .4s cubic-bezier(.16,1,.3,1);
+        }
+
+        .lang-dropdown-visible {
+            opacity: 1;
+            transform: translateY(0) scale(1);
+            pointer-events: auto;
+            transition: all .4s cubic-bezier(.16,1,.3,1);
+        }
+
+        .menu-slide-hidden {
+            transform: translateY(-100%);
+            opacity: 0;
+            pointer-events: none;
+            transition:
+                transform 1.4s cubic-bezier(.16,1,.3,1),
+                opacity 1.2s ease-in-out;
+        }
+
+        .menu-slide-visible {
+            transform: translateY(0);
+            opacity: 1;
+            pointer-events: auto;
+            transition:
+                transform 1.4s cubic-bezier(.16,1,.3,1),
+                opacity 1.2s ease-in-out;
+        }
+
+        .glass-card {
+            position: relative;
+            background: rgba(15,23,42,.58);
+            border: 1px solid rgba(94,234,212,.18);
+            border-radius: 1.5rem;
+
+            box-shadow:
+                0 10px 35px rgba(0,0,0,.25),
+                inset 0 1px 0 rgba(255,255,255,.04);
+
+            backdrop-filter: blur(18px);
+            -webkit-backdrop-filter: blur(18px);
+
+            animation:
+                cinematicCardReveal
+                1.2s cubic-bezier(.16,1,.3,1) both;
+
+            transition:
+                transform .5s cubic-bezier(.16,1,.3,1),
+                background .5s ease,
+                border-color .5s ease,
+                box-shadow .5s ease;
+        }
+
+        .glass-card:hover,
+        .glass-card:focus {
+            transform: translateY(-5px);
+            background: rgba(15,23,42,.72);
+            border-color: rgba(45,212,191,.45);
+
+            box-shadow:
+                0 15px 45px rgba(0,0,0,.35),
+                0 0 25px rgba(45,212,191,.10);
+
+            outline: none;
+        }
+
+        .glass-card:nth-child(1) {
+            animation-delay: .1s;
+        }
+
+        .glass-card:nth-child(2) {
+            animation-delay: .2s;
+        }
+
+        .glass-card:nth-child(3) {
+            animation-delay: .3s;
+        }
+
+        .icon-badge {
+            background: rgba(45,212,191,.08);
+            border: 1px solid rgba(45,212,191,.20);
+            color: #5eead4;
+            box-shadow: 0 0 18px rgba(45,212,191,.08);
+        }
+
+        .cinematic-btn {
+            position: relative;
+            overflow: hidden;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+
+            min-height: 58px;
+            padding: .9rem 2rem;
+
+            border-radius: 9999px;
+            text-decoration: none;
+
+            font-size: .75rem;
+            font-weight: 700;
+            letter-spacing: .14em;
+            text-transform: uppercase;
+
+            transition:
+                transform .45s cubic-bezier(.16,1,.3,1),
+                background .45s ease,
+                border-color .45s ease,
+                box-shadow .45s ease,
+                color .45s ease;
+        }
+
+        .cinematic-btn::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            border-radius: inherit;
+
+            background: linear-gradient(
+                120deg,
+                transparent 20%,
+                rgba(255,255,255,.08) 50%,
+                transparent 80%
+            );
+
+            opacity: 0;
+            transform: translateX(-100%);
+
+            transition:
+                transform .8s cubic-bezier(.16,1,.3,1),
+                opacity .5s ease;
+
+            pointer-events: none;
+        }
+
+        .cinematic-btn-primary {
+            color: #dffefa;
+
+            background: linear-gradient(
+                180deg,
+                rgba(45,212,191,.24),
+                rgba(15,118,110,.20)
+            );
+
+            border: 1px solid rgba(94,234,212,.55);
+
+            box-shadow:
+                inset 0 1px 0 rgba(255,255,255,.08);
+        }
+
+        .cinematic-btn:hover {
+            transform: translateY(-2px);
+        }
+
+        .cinematic-btn:hover::before {
+            opacity: 1;
+            transform: translateX(100%);
+        }
+
+        .cinematic-btn-primary:hover {
+            border-color: rgba(94,234,212,.75);
+
+            box-shadow:
+                0 0 24px rgba(45,212,191,.16),
+                inset 0 1px 0 rgba(255,255,255,.10);
+        }
+
+        .hero-actions {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: .75rem;
+        }
+
+        @media (min-width:640px) {
+            .hero-actions {
+                flex-direction: row;
+            }
+        }
+
+        @media (max-width:640px) {
+            .cinematic-btn {
+                width: 100%;
+            }
+        }
+                .vision-hero {
+            position: relative;
+            overflow: hidden;
+
+            min-height: 58vh;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            padding:
+                5rem 1.25rem
+                4rem;
+        }
+
+        .vision-hero-glow {
+            position: absolute;
+            width: 650px;
+            height: 650px;
+
+            left: 50%;
+            top: 50%;
+
+            transform:
+                translate(-50%, -50%);
+
+            border-radius: 50%;
+
+            background:
+                radial-gradient(
+                    circle,
+                    rgba(45,212,191,.10),
+                    transparent 68%
+                );
+
+            filter: blur(35px);
+
+            pointer-events: none;
+        }
+
+        .vision-orbit {
+            position: absolute;
+
+            width: 620px;
+            height: 360px;
+
+            border-radius: 50%;
+
+            border:
+                1px solid
+                rgba(45,212,191,.08);
+
+            box-shadow:
+                0 0 60px
+                rgba(45,212,191,.025);
+
+            transform:
+                rotate(-10deg);
+
+            pointer-events: none;
+        }
+
+        .vision-orbit-two {
+            width: 820px;
+            height: 500px;
+
+            transform:
+                rotate(16deg);
+        }
+
+        .vision-star {
+            position: absolute;
+
+            width: 3px;
+            height: 3px;
+
+            border-radius: 50%;
+
+            background: #5eead4;
+
+            animation:
+                starBlink
+                3.5s ease-in-out infinite;
+        }
+
+        .vision-star-1 {
+            top: 22%;
+            left: 20%;
+        }
+
+        .vision-star-2 {
+            top: 32%;
+            right: 18%;
+            animation-delay: .8s;
+        }
+
+        .vision-star-3 {
+            bottom: 24%;
+            left: 28%;
+            animation-delay: 1.5s;
+        }
+
+        .vision-star-4 {
+            bottom: 20%;
+            right: 25%;
+            animation-delay: 2.2s;
+        }
+
+        .vision-hero-content {
+            position: relative;
+            z-index: 2;
+
+            width: 100%;
+            max-width: 760px;
+
+            margin: 0 auto;
+
+            text-align: center;
+        }
+
+        .vision-eyebrow {
+            display: inline-flex;
+            align-items: center;
+            gap: .55rem;
+
+            padding:
+                .45rem
+                1rem;
+
+            border-radius: 9999px;
+
+            background: rgba(255,255,255,.04);
+            border: 1px solid rgba(255,255,255,.08);
+
+            color: #94a3b8;
+
+            font-size: .7rem;
+            letter-spacing: .18em;
+            text-transform: uppercase;
+        }
+
+        .vision-eyebrow-dot {
+            width: 6px;
+            height: 6px;
+
+            border-radius: 50%;
+
+            background: #5eead4;
+        }
+
+        .vision-hero h1 {
+            margin:
+                1.5rem 0
+                1.25rem;
+
+            color: #ffffff;
+
+            font-size:
+                clamp(
+                    2.4rem,
+                    8vw,
+                    4.5rem
+                );
+
+            font-weight: 800;
+
+            line-height: 1.05;
+
+            letter-spacing: -.04em;
+        }
+
+        .vision-hero-lead {
+            max-width: 680px;
+
+            margin: 0 auto;
+
+            color: #94a3b8;
+
+            font-size:
+                clamp(
+                    .95rem,
+                    2.5vw,
+                    1.2rem
+                );
+
+            font-weight: 300;
+
+            line-height: 1.8;
+        }
+
+        .vision-main {
+            width: 100%;
+            max-width: 760px;
+
+            margin: 0 auto;
+
+            padding:
+                1rem 1.25rem
+                5rem;
+        }
+
+        .vision-section {
+            margin:
+                4.5rem 0;
+        }
+
+        .vision-section-heading {
+            text-align: center;
+
+            margin-bottom: 2.5rem;
+        }
+
+        .vision-section-heading h2 {
+            margin: 0;
+
+            color: #ffffff;
+
+            font-size:
+                clamp(
+                    2rem,
+                    6vw,
+                    3rem
+                );
+
+            font-weight: 800;
+
+            line-height: 1.12;
+
+            letter-spacing: -.03em;
+        }
+
+        .vision-section-heading p {
+            max-width: 650px;
+
+            margin:
+                1rem auto 0;
+
+            color: #94a3b8;
+
+            font-size:
+                clamp(
+                    .95rem,
+                    2.5vw,
+                    1.1rem
+                );
+
+            font-weight: 300;
+
+            line-height: 1.8;
+        }
+
+        .vision-card-grid {
+            display: flex;
+            flex-direction: column;
+
+            gap: 1rem;
+
+            width: 100%;
+        }
+
+        .vision-card {
+            padding:
+                1.7rem 1.5rem
+                1.8rem;
+
+            text-align: left;
+        }
+
+        .vision-card-header {
+            display: flex;
+            align-items: center;
+
+            gap: .75rem;
+
+            margin-bottom: 1rem;
+        }
+
+        .vision-card-icon {
+            width: 42px;
+            height: 42px;
+
+            flex:
+                0 0 42px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            border-radius: 50%;
+
+            background:
+                rgba(45,212,191,.08);
+
+            border:
+                1px solid
+                rgba(45,212,191,.18);
+
+            font-size: 1.15rem;
+        }
+
+        .vision-card h3 {
+            margin: 0;
+
+            color: #ffffff;
+
+            font-size:
+                clamp(
+                    1.05rem,
+                    3vw,
+                    1.35rem
+                );
+
+            font-weight: 700;
+
+            line-height: 1.3;
+        }
+
+        .vision-card p {
+            margin: 0;
+
+            color: #a8b4c3;
+
+            font-size:
+                clamp(
+                    .9rem,
+                    2.5vw,
+                    1.05rem
+                );
+
+            font-weight: 300;
+
+            line-height: 1.85;
+        }
+
+        .shared-future {
+            text-align: center;
+
+            padding:
+                1rem 0;
+        }
+
+        .shared-future p {
+            max-width: 680px;
+
+            margin:
+                1.4rem auto 0;
+
+            color: #94a3b8;
+
+            font-size:
+                clamp(
+                    .95rem,
+                    2.5vw,
+                    1.08rem
+                );
+
+            line-height: 1.9;
+
+            font-weight: 300;
+        }
+
+        .shared-future p + p {
+            margin-top: 1.25rem;
+        }
+
+        .shared-future-emphasis {
+            color: #cbd5e1 !important;
+
+            font-weight: 600 !important;
+        }
+
+        .future-cta {
+            margin-top: 5.5rem;
+
+            padding:
+                4rem 1.5rem
+                4.5rem;
+
+            text-align: center;
+
+            background:
+                radial-gradient(
+                    600px 280px at 50% 30%,
+                    rgba(45,212,191,.07),
+                    transparent 70%
+                );
+
+            border-top:
+                1px solid
+                rgba(94,234,212,.08);
+
+            border-bottom:
+                1px solid
+                rgba(94,234,212,.06);
+        }
+
+        .future-cta h2 {
+            margin: 0;
+
+            color: #ffffff;
+
+            font-size:
+                clamp(
+                    2rem,
+                    7vw,
+                    3.2rem
+                );
+
+            font-weight: 800;
+
+            letter-spacing: -.035em;
+        }
+
+        .future-cta p {
+            max-width: 650px;
+
+            margin:
+                1.25rem auto 2rem;
+
+            color: #a8b4c3;
+
+            font-size:
+                clamp(
+                    .95rem,
+                    2.5vw,
+                    1.1rem
+                );
+
+            font-weight: 300;
+
+            line-height: 1.8;
+        }
+
+        .echoes-footer {
+            width: 100%;
+
+            padding:
+                32px 20px
+                20px;
+
+            text-align: center;
+
+            background: #061017;
+
+            color: #94a3b8;
+        }
+
+        .echoes-footer-line {
+            width: 100%;
+            height: 1px;
+
+            background:
+                rgba(148,163,184,.20);
+
+            margin:
+                0 auto 20px;
+        }
+
+        .echoes-footer-brand {
+            font-size: 18px;
+            font-weight: 400;
+
+            letter-spacing: .03em;
+
+            color: #94a3b8;
+
+            margin-bottom: 16px;
+        }
+
+        .echoes-footer-nav {
+            display: flex;
+
+            justify-content: center;
+            align-items: center;
+
+            flex-wrap: nowrap;
+
+            gap: 18px;
+
+            overflow-x: auto;
+
+            white-space: nowrap;
+        }
+
+        .echoes-footer-nav a {
+            color: #cbd5e1;
+
+            text-decoration: none;
+
+            font-size: 13px;
+
+            transition:
+                color .3s ease;
+        }
+
+        .echoes-footer-nav a:hover {
+            color: #5eead4;
+        }
+
+        .echoes-footer-copy {
+            color: #64748b;
+
+            font-size: 12px;
+
+            margin-top: 14px;
+
+            padding-top: 12px;
+
+            border-top:
+                1px solid
+                rgba(148,163,184,.12);
+        }
+
+        @media (min-width: 768px) {
+
+            .vision-main {
+                max-width: 900px;
+            }
+
+            .vision-card-grid {
+                gap: 1.25rem;
+            }
+
+            .vision-card {
+                padding:
+                    1.8rem 2rem
+                    2rem;
+            }
+        }
+
+        @media (max-width: 640px) {
+
+            .vision-hero {
+                min-height: 52vh;
+
+                padding:
+                    4rem 1rem
+                    3rem;
+            }
+
+            .vision-main {
+                padding:
+                    .5rem 1rem
+                    3rem;
+            }
+
+            .vision-section {
+                margin:
+                    3.5rem 0;
+            }
+
+            .future-cta {
+                margin-top: 4rem;
+
+                padding:
+                    3.5rem 1rem
+                    4rem;
+            }
+
+            .echoes-footer-nav {
+                gap: 12px;
+            }
+
+            .echoes-footer-nav a {
+                font-size: 12px;
+            }
+        }
+
+    </style>
+</head>
+
+<body class="bg-[#030712] text-slate-100 font-sans antialiased overflow-x-hidden">
+
+<!-- HEADER -->
+<header class="w-full glass-header sticky top-0 z-50">
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 h-20 flex items-center justify-between w-full">
+
+        <a href="../index.html"
+           class="flex items-center gap-3.5 group">
+
+            <img
+                src="../logo.png"
+                alt="Echoes of Humanity Logo"
+                class="h-10 sm:h-12 w-auto object-contain flag-breath-pulse"
+            >
+
+            <div class="flex flex-col">
+
+                <span class="text-[10px] sm:text-[11px] tracking-[0.3em] text-slate-400 font-medium">
+                    ECHOES
+                </span>
+
+                <span class="text-xs sm:text-sm font-bold tracking-wider text-slate-100">
+                    OF HUMANITY
+                </span>
+
+            </div>
+
+        </a>
+
+        <div class="flex items-center gap-3.5">
+
+            <!-- LANGUAGE -->
+            <div class="relative">
+
+                <button
+                    type="button"
+                    onclick="window.toggleLangMenu(event)"
+                    aria-label="Language Selector"
+                    class="w-10 h-10 rounded-full border border-turquoise-500/30 bg-white/5 flex items-center justify-center text-slate-200 hover:bg-turquoise-500/20 hover:border-turquoise-400 transition-all text-base cursor-pointer shadow-sm flag-breath-pulse"
+                >
+                    🌐
+                </button>
+
+                <div
+                    id="langDropdown"
+                    class="absolute right-0 top-12 w-48 rounded-2xl lang-dropdown-box shadow-2xl lang-dropdown-hidden py-2.5 z-50"
+                >
+
+                    <div class="px-4 py-1.5 text-[10px] uppercase font-mono tracking-widest text-turquoise-400 border-b border-white/5 mb-1">
+                        Select Language
+                    </div>
+
+                    <button type="button"
+                            class="w-full px-4 py-2.5 text-left text-xs text-slate-200 hover:bg-white/10">
+                        🇬🇧 English
+                    </button>
+
+                    <button type="button"
+                            class="w-full px-4 py-2.5 text-left text-xs text-slate-200 hover:bg-white/10">
+                        🇹🇷 Türkçe
+                    </button>
+
+                    <button type="button"
+                            class="w-full px-4 py-2.5 text-left text-xs text-slate-200 hover:bg-white/10">
+                        🇷🇺 Русский
+                    </button>
+
+                    <button type="button"
+                            class="w-full px-4 py-2.5 text-left text-xs text-slate-200 hover:bg-white/10">
+                        🇩🇪 Deutsch
+                    </button>
+
+                    <button type="button"
+                            class="w-full px-4 py-2.5 text-left text-xs text-slate-200 hover:bg-white/10">
+                        🇪🇸 Español
+                    </button>
+
+                </div>
+            </div>
+
+            <!-- HAMBURGER -->
+            <button
+                type="button"
+                onclick="window.toggleMobileMenu(event)"
+                aria-label="Toggle Menu"
+                class="w-10 h-10 rounded-full border border-turquoise-500/30 bg-white/5 flex flex-col items-center justify-center gap-1.5 text-slate-200 hover:bg-turquoise-500/20 hover:border-turquoise-400 transition-all cursor-pointer shadow-sm flag-breath-pulse"
+            >
+                <span class="w-4 h-0.5 bg-slate-200 rounded-full"></span>
+                <span class="w-4 h-0.5 bg-slate-200 rounded-full"></span>
+                <span class="w-2.5 h-0.5 bg-slate-200 rounded-full self-start ml-3"></span>
+            </button>
+
+        </div>
+
+    </div>
+
+</header>
+<!-- MOBILE MENU -->
+<div
+    id="mobileMenu"
+    class="fixed inset-0 bg-[#05070f]/98 backdrop-blur-3xl z-40 menu-slide-hidden flex flex-col overflow-y-auto px-6 py-12"
+>
+
+    <div class="max-w-md mx-auto w-full pt-8 pb-20 space-y-10">
+
+        <div class="flex items-center justify-between border-b border-white/10 pb-4">
+
+            <span class="text-xs uppercase tracking-[0.3em] text-turquoise-400 font-mono font-medium">
+                Navigation Hub
+            </span>
+
+            <button
+                type="button"
+                onclick="window.toggleMobileMenu()"
+                class="w-9 h-9 rounded-full border border-white/10 bg-white/5 flex items-center justify-center text-slate-300"
+            >
+                ✕
+            </button>
+
+        </div>
+
+        <!-- ABOUT -->
+        <div class="space-y-3">
+
+            <div class="flex items-center gap-2 text-turquoise-400">
+
+                <span>🌍</span>
+
+                <span class="text-[11px] font-mono uppercase tracking-widest font-semibold">
+                    About
+                </span>
+
+            </div>
+
+            <nav class="flex flex-col space-y-2.5 pl-3 border-l border-white/10 text-base font-light text-slate-300">
+
+                <a href="../index.html"
+                   class="hover:text-turquoise-400 transition-colors">
+                    Home
+                </a>
+
+                <a href="index.html"
+                   class="hover:text-turquoise-400 transition-colors">
+                    About
+                </a>
+
+                <a href="vision.html"
+                   class="text-turquoise-400">
+                    Vision
+                </a>
+
+                <a href="mission.html"
+                   class="hover:text-turquoise-400 transition-colors">
+                    Mission
+                </a>
+
+                <a href="manifesto.html"
+                   class="hover:text-turquoise-400 transition-colors">
+                    Manifesto
+                </a>
+
+            </nav>
+
+        </div>
+
+        <!-- ACTION -->
+        <div class="space-y-3">
+
+            <div class="flex items-center gap-2 text-turquoise-400">
+
+                <span>🤝</span>
+
+                <span class="text-[11px] font-mono uppercase tracking-widest font-semibold">
+                    Action
+                </span>
+
+            </div>
+
+            <nav class="flex flex-col space-y-2.5 pl-3 border-l border-white/10 text-base font-light text-slate-300">
+
+                <a href="../action/humanitarian-action.html"
+                   class="hover:text-turquoise-400 transition-colors">
+                    Humanitarian Action
+                </a>
+
+                <a href="../action/projects.html"
+                   class="hover:text-turquoise-400 transition-colors">
+                    Projects
+                </a>
+
+                <a href="../action/volunteers.html"
+                   class="hover:text-turquoise-400 transition-colors">
+                    Volunteers
+                </a>
+
+                <a href="../action/academy.html"
+                   class="hover:text-turquoise-400 transition-colors">
+                    Academy
+                </a>
+
+                <a href="../action/media.html"
+                   class="hover:text-turquoise-400 transition-colors">
+                    Media
+                </a>
+
+            </nav>
+
+        </div>
+
+        <!-- NETWORK -->
+        <div class="space-y-3">
+
+            <div class="flex items-center gap-2 text-turquoise-400">
+
+                <span>🛒</span>
+
+                <span class="text-[11px] font-mono uppercase tracking-widest font-semibold">
+                    Network
+                </span>
+
+            </div>
+
+            <nav class="flex flex-col space-y-2.5 pl-3 border-l border-white/10 text-base font-light text-slate-300">
+
+                <a href="../network/marketplace.html"
+                   class="hover:text-turquoise-400 transition-colors">
+                    Marketplace
+                </a>
+
+                <a href="../network/merchandise.html"
+                   class="hover:text-turquoise-400 transition-colors">
+                    Merchandise
+                </a>
+
+                <a href="../network/partners.html"
+                   class="hover:text-turquoise-400 transition-colors">
+                    Partners
+                </a>
+
+                <a href="../network/contact.html"
+                   class="hover:text-turquoise-400 transition-colors">
+                    Contact
+                </a>
+
+            </nav>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- VISION HERO -->
+<section class="vision-hero">
+
+    <div class="vision-hero-glow"></div>
+
+    <div class="vision-orbit"></div>
+    <div class="vision-orbit vision-orbit-two"></div>
+
+    <div class="vision-star vision-star-1"></div>
+    <div class="vision-star vision-star-2"></div>
+    <div class="vision-star vision-star-3"></div>
+    <div class="vision-star vision-star-4"></div>
+
+    <div class="vision-hero-content">
+
+        <div class="vision-eyebrow">
+
+            <span class="vision-eyebrow-dot flag-breath-pulse"></span>
+
+            Our Vision
+
+        </div>
+
+        <h1>
+            Our Commitment to the Future
+        </h1>
+
+        <p class="vision-hero-lead">
+            Echoes of Humanity is committed to building
+            patiently, responsibly and with a long-term
+            perspective.
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- MAIN CONTENT -->
+<main class="vision-main">
+
+    <!-- COMMITMENT -->
+    <section class="vision-section">
+
+        <div class="vision-section-heading">
+
+            <h2>
+                Our Commitment to the Future
+            </h2>
+
+            <p>
+                We believe the future is something worth building
+                with patience, responsibility and care.
+            </p>
+
+        </div>
+
+
+        <div class="vision-card-grid">
+
+            <!-- CARD 1 -->
+            <article
+                tabindex="0"
+                class="glass-card vision-card"
+            >
+
+                <div class="vision-card-header">
+
+                    <div class="vision-card-icon">
+                        🌱
+                    </div>
+
+                    <h3>
+                        Build for Generations
+                    </h3>
+
+                </div>
+
+                <p>
+                    We focus on creating structures and
+                    knowledge that can continue to serve people
+                    in the future.
+                </p>
+
+            </article>
+
+
+            <!-- CARD 2 -->
+            <article
+                tabindex="0"
+                class="glass-card vision-card"
+            >
+
+                <div class="vision-card-header">
+
+                    <div class="vision-card-icon">
+                        🌍
+                    </div>
+
+                    <h3>
+                        Think Globally
+                    </h3>
+
+                </div>
+
+                <p>
+                    Humanitarian challenges increasingly cross
+                    borders, requiring international cooperation
+                    and understanding.
+                </p>
+
+            </article>
+
+
+            <!-- CARD 3 -->
+            <article
+                tabindex="0"
+                class="glass-card vision-card"
+            >
+
+                <div class="vision-card-header">
+
+                    <div class="vision-card-icon">
+                        ❤️
+                    </div>
+
+                    <h3>
+                        Keep Humanity First
+                    </h3>
+
+                </div>
+
+                <p>
+                    Technology, systems and organizations exist
+                    to serve people and protect human dignity.
+                </p>
+
+            </article>
+
+        </div>
+
+    </section>
+
+
+    <!-- ONE SHARED FUTURE -->
+    <section class="vision-section shared-future">
+
+        <div class="vision-section-heading">
+
+            <h2>
+                One Shared Future
+            </h2>
+
+        </div>
+
+        <p>
+            The future is not something that simply happens
+            to us. It is shaped by the choices we make today.
+        </p>
+
+        <p>
+            Every act of compassion adds another voice to
+            the human story. Every person who chooses to
+            help creates another possibility for hope.
+        </p>
+
+        <p class="shared-future-emphasis">
+            We believe millions of individual choices can
+            become one powerful movement for humanity.
+        </p>
+
+    </section>
+
+
+    <!-- FUTURE CTA -->
+    <section class="future-cta">
+
+        <h2>
+            Be Part of the Future
+        </h2>
+
+        <p>
+            The world we envision will be built by people who
+            decide that humanity is worth believing in.
+        </p>
+
+        <div class="hero-actions">
+
+            <a
+                href="../action/volunteers.html"
+                class="cinematic-btn cinematic-btn-primary w-full sm:w-auto text-center"
+            >
+                Join the Movement
+            </a>
+
+        </div>
+
+    </section>
+
+</main>
+<!-- FOOTER -->
+<footer class="echoes-footer">
+
+    <div class="echoes-footer-line"></div>
+
+    <div class="echoes-footer-brand">
+        Echoes of Humanity
+    </div>
+
+    <nav class="echoes-footer-nav">
+
+        <a href="../index.html">
+            Home
+        </a>
+
+        <a href="index.html">
+            About
+        </a>
+
+        <a href="vision.html">
+            Vision
+        </a>
+
+        <a href="mission.html">
+            Mission
+        </a>
+
+        <a href="manifesto.html">
+            Manifesto
+        </a>
+
+        <a href="../action/projects.html">
+            Projects
+        </a>
+
+        <a href="../network/contact.html">
+            Contact
+        </a>
+
+    </nav>
+
+    <div class="echoes-footer-line"></div>
+
+    <div class="echoes-footer-copy">
+        © 2026 Echoes of Humanity. All rights reserved.
+    </div>
+
+</footer>
+
+
+<!-- JAVASCRIPT -->
+<script>
+
+    window.toggleMobileMenu = function(event) {
+
+        if (event) {
+            event.stopPropagation();
+        }
+
+        const menu =
+            document.getElementById('mobileMenu');
+
+        const langDropdown =
+            document.getElementById('langDropdown');
+
+        if (langDropdown) {
+
+            langDropdown.classList.remove(
+                'lang-dropdown-visible'
+            );
+
+            langDropdown.classList.add(
+                'lang-dropdown-hidden'
+            );
+
+        }
+
+        if (!menu) {
+            return;
+        }
+
+        if (
+            menu.classList.contains(
+                'menu-slide-hidden'
+            )
+        ) {
+
+            menu.classList.remove(
+                'menu-slide-hidden'
+            );
+
+            menu.classList.add(
+                'menu-slide-visible'
+            );
+
+            document.body.style.overflow =
+                'hidden';
+
+        } else {
+
+            menu.classList.remove(
+                'menu-slide-visible'
+            );
+
+            menu.classList.add(
+                'menu-slide-hidden'
+            );
+
+            document.body.style.overflow =
+                'auto';
+
+        }
+
+    };
+
+
+    window.toggleLangMenu = function(event) {
+
+        if (event) {
+            event.stopPropagation();
+        }
+
+        const langDropdown =
+            document.getElementById('langDropdown');
+
+        if (!langDropdown) {
+            return;
+        }
+
+        if (
+            langDropdown.classList.contains(
+                'lang-dropdown-hidden'
+            )
+        ) {
+
+            langDropdown.classList.remove(
+                'lang-dropdown-hidden'
+            );
+
+            langDropdown.classList.add(
+                'lang-dropdown-visible'
+            );
+
+        } else {
+
+            langDropdown.classList.remove(
+                'lang-dropdown-visible'
+            );
+
+            langDropdown.classList.add(
+                'lang-dropdown-hidden'
+            );
+
+        }
+
+    };
+
+
+    window.addEventListener(
+        'click',
+        function(event) {
+
+            const langDropdown =
+                document.getElementById(
+                    'langDropdown'
+                );
+
+            if (
+                langDropdown &&
+                !langDropdown.contains(
+                    event.target
+                )
+            ) {
+
+                langDropdown.classList.remove(
+                    'lang-dropdown-visible'
+                );
+
+                langDropdown.classList.add(
+                    'lang-dropdown-hidden'
+                );
+
+            }
+
+        }
+    );
+
+</script>
 
 </body>
 </html>
