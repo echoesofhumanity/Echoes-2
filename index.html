@@ -71,11 +71,19 @@ tailwind.config = {};
 
         /* Elipsoid Orbit Yapıları */
         .orbit-layer {
-            position: absolute;
-            border-radius: 50%;
-            border: 1px solid rgba(45, 212, 191, 0.08);
-            box-shadow: 0 0 30px rgba(20, 184, 166, 0.04), inset 0 0 30px rgba(20, 184, 166, 0.04);
-            pointer-events: none;
+    position: absolute;
+    border-radius: 50%;
+    border: 1px solid rgba(45, 212, 191, 0.085);
+
+    box-shadow:
+        0 0 30px rgba(20, 184, 166, 0.045),
+        0 0 80px rgba(59, 130, 246, 0.018),
+        inset 0 0 30px rgba(20, 184, 166, 0.025);
+
+    opacity: 0.82;
+    pointer-events: none;
+
+    will-change: transform;
         }
         .orbit-1 { width: 420px; height: 260px; animation: orbitComplex 140s linear infinite; }
         .orbit-2 { width: 620px; height: 380px; animation: orbitComplex 100s linear infinite reverse; }
@@ -711,6 +719,94 @@ footer .footer-bottom {
 @media (min-width: 640px) {
     .hero-actions {
         flex-direction: row;
+    }
+}
+        /* =========================================================
+   ABOUT — CINEMATIC ATMOSPHERE
+   Home ile aynı derinlik / renk dili
+   ========================================================= */
+
+body {
+    position: relative;
+    background:
+        radial-gradient(
+            900px 520px at 18% 18%,
+            rgba(45, 212, 191, 0.055),
+            transparent 68%
+        ),
+        radial-gradient(
+            800px 600px at 82% 42%,
+            rgba(59, 130, 246, 0.045),
+            transparent 70%
+        ),
+        radial-gradient(
+            700px 500px at 48% 82%,
+            rgba(20, 184, 166, 0.035),
+            transparent 72%
+        ),
+        #030712;
+}
+
+/* Atmosferik renk bulutları */
+body::before,
+body::after {
+    content: "";
+    position: fixed;
+    inset: -20%;
+    pointer-events: none;
+    z-index: -1;
+    border-radius: 50%;
+    filter: blur(90px);
+    opacity: 0.32;
+}
+
+body::before {
+    background:
+        radial-gradient(
+            circle at 24% 28%,
+            rgba(45, 212, 191, 0.11),
+            transparent 30%
+        ),
+        radial-gradient(
+            circle at 76% 62%,
+            rgba(59, 130, 246, 0.08),
+            transparent 34%
+        );
+    animation: aboutCloudDrift 28s ease-in-out infinite alternate;
+}
+
+body::after {
+    background:
+        radial-gradient(
+            circle at 72% 22%,
+            rgba(94, 234, 212, 0.055),
+            transparent 28%
+        ),
+        radial-gradient(
+            circle at 28% 78%,
+            rgba(30, 64, 175, 0.055),
+            transparent 32%
+        );
+    animation: aboutCloudDriftReverse 34s ease-in-out infinite alternate;
+}
+
+@keyframes aboutCloudDrift {
+    0% {
+        transform: translate3d(-2%, -1%, 0) scale(1);
+    }
+
+    100% {
+        transform: translate3d(3%, 2%, 0) scale(1.08);
+    }
+}
+
+@keyframes aboutCloudDriftReverse {
+    0% {
+        transform: translate3d(2%, 1%, 0) scale(1.04);
+    }
+
+    100% {
+        transform: translate3d(-3%, -2%, 0) scale(1);
     }
 }
    
