@@ -809,7 +809,11 @@ body::after {
         transform: translate3d(-3%, -2%, 0) scale(1);
     }
 }
-   
+   /* Keep cinematic clouds behind content, above page background */
+body > * {
+  position: relative;
+  z-index: 1;
+}
     </style>
 </head>
 <body class="bg-[#030712] text-slate-100 font-sans antialiased overflow-x-hidden">
