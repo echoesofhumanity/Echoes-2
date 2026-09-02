@@ -1,13 +1,1018 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Projects | Echoes of Humanity</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Projects | Echoes of Humanity</title>
+
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/navigation.css">
+  <link rel="stylesheet" href="assets/css/hero.css">
+  <link rel="stylesheet" href="assets/css/sections.css">
+  <link rel="stylesheet" href="assets/css/cards.css">
+  <link rel="stylesheet" href="assets/css/buttons.css">
+  <link rel="stylesheet" href="assets/css/footer.css">
+  <link rel="stylesheet" href="assets/css/responsive.css">
+
+  <style>
+    /* ==================================================
+       PROJECTS PAGE
+       ================================================== */
+
+    .projects-page {
+      overflow:hidden;
+    }
+
+    .projects-page section {
+      position:relative;
+    }
+
+    .projects-page .section-title {
+      text-align:center;
+      max-width:900px;
+      margin:0 auto 70px;
+    }
+
+    .projects-page .section-title h2,
+    .projects-page section > .container > h2 {
+      color:#f5f8fa;
+      font-size:clamp(36px,5vw,58px);
+      line-height:1.15;
+      font-weight:800;
+      margin-bottom:25px;
+    }
+
+    .projects-page .section-title p,
+    .projects-page section > .container > p {
+      color:rgba(225,235,240,.72);
+      font-size:clamp(18px,2vw,25px);
+      line-height:1.8;
+    }
+
+    .projects-page .project-grid {
+      display:grid;
+      grid-template-columns:repeat(2,minmax(0,1fr));
+      gap:34px;
+    }
+
+    .projects-page .card {
+      position:relative;
+      overflow:hidden;
+      min-height:240px;
+      padding:42px 48px;
+      border-radius:32px;
+      border:1px solid rgba(125,210,230,.18);
+      background:
+        radial-gradient(
+          circle at 100% 0%,
+          rgba(75,145,175,.16),
+          transparent 45%
+        ),
+        linear-gradient(
+          145deg,
+          rgba(28,61,73,.90),
+          rgba(7,27,36,.94)
+        );
+      box-shadow:
+        0 20px 60px rgba(0,0,0,.12),
+        inset 0 1px 0 rgba(255,255,255,.035);
+      text-align:left;
+    }
+
+    .projects-page .card h3 {
+      color:#f4f7f8;
+      font-size:clamp(22px,2.5vw,30px);
+      line-height:1.3;
+      font-weight:750;
+      margin-bottom:25px;
+    }
+
+    .projects-page .card p {
+      color:rgba(218,229,234,.76);
+      font-size:clamp(17px,1.8vw,23px);
+      line-height:1.9;
+      margin:0;
+    }
+
+    /* HERO */
+
+    .projects-page .projects-hero {
+      min-height:760px;
+      display:flex;
+      align-items:center;
+      background:
+        radial-gradient(
+          circle at 72% 50%,
+          rgba(34,103,125,.22),
+          transparent 38%
+        ),
+        #06131c;
+    }
+
+    .projects-page .projects-hero .hero-content {
+      align-items:flex-end;
+      text-align:right;
+      max-width:1200px;
+    }
+
+    .projects-page .hero-badge {
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:12px;
+      padding:15px 30px;
+      margin-bottom:55px;
+      border:1px solid rgba(180,220,230,.28);
+      border-radius:50px;
+      background:rgba(255,255,255,.055);
+      color:#e7eef1;
+      font-size:18px;
+      letter-spacing:3px;
+    }
+
+    .projects-page .projects-hero h1 {
+      max-width:560px;
+      margin:0 0 40px auto;
+      font-size:clamp(48px,7vw,82px);
+      line-height:1.08;
+      font-weight:800;
+      letter-spacing:-2px;
+    }
+
+    .projects-page .projects-hero h2 {
+      max-width:500px;
+      margin:0 0 30px auto;
+      color:#f5f7f8;
+      font-size:clamp(25px,3vw,38px);
+      line-height:1.35;
+      font-weight:750;
+    }
+
+    .projects-page .projects-hero p {
+      max-width:500px;
+      margin:0 0 0 auto;
+      color:rgba(226,235,239,.78);
+      font-size:clamp(17px,2vw,24px);
+      line-height:1.8;
+    }
+
+    /* SECTIONS */
+
+    .projects-page .project-ecosystem,
+    .projects-page .featured-projects,
+    .projects-page .projects-in-action,
+    .projects-page .how-projects-work,
+    .projects-page .global-project-network,
+    .projects-page .project-principles {
+      background:#071923;
+      padding:110px 0;
+    }
+
+    .projects-page .featured-projects,
+    .projects-page .how-projects-work,
+    .projects-page .project-principles {
+      background:
+        radial-gradient(
+          circle at 50% 40%,
+          rgba(24,91,103,.16),
+          transparent 55%
+        ),
+        #071923;
+    }
+
+    .projects-page .projects-in-action {
+      background:
+        radial-gradient(
+          circle at 50% 30%,
+          rgba(20,106,115,.18),
+          transparent 58%
+        ),
+        #061820;
+    }
+
+    .projects-page .global-project-network {
+      background:
+        radial-gradient(
+          circle at 50% 50%,
+          rgba(22,106,120,.20),
+          transparent 60%
+        ),
+        #071923;
+    }
+
+    /* JOIN */
+
+    .projects-page .join-the-movement {
+      padding:130px 0 150px;
+      text-align:center;
+      background:
+        radial-gradient(
+          circle at 50% 30%,
+          rgba(45,130,145,.20),
+          transparent 55%
+        ),
+        #071923;
+    }
+
+    .projects-page .join-the-movement .container {
+      max-width:950px;
+    }
+
+    .projects-page .join-the-movement h2 {
+      color:#f5f8fa;
+      font-size:clamp(38px,5vw,58px);
+      margin-bottom:35px;
+    }
+
+    .projects-page .join-the-movement > .container > p {
+      color:rgba(225,235,240,.78);
+      font-size:clamp(18px,2vw,25px);
+      line-height:1.8;
+      margin-bottom:55px;
+    }
+
+    .projects-page .hero-actions {
+      display:flex;
+      justify-content:center;
+      gap:25px;
+      flex-wrap:wrap;
+    }
+
+    .projects-page .join-the-movement .cinematic-btn {
+      min-width:300px;
+      padding:20px 34px;
+    }
+
+    @media (max-width:768px) {
+
+      .projects-page .projects-hero {
+        min-height:760px;
+        align-items:flex-start;
+      }
+
+      .projects-page .projects-hero .hero-content {
+        align-items:flex-end;
+        text-align:right;
+        padding-top:80px;
+      }
+
+      .projects-page .hero-badge {
+        max-width:370px;
+        margin-bottom:50px;
+        padding:14px 22px;
+        font-size:16px;
+        letter-spacing:3px;
+      }
+
+      .projects-page .projects-hero h1 {
+        max-width:340px;
+        font-size:54px;
+        line-height:1.1;
+      }
+
+      .projects-page .projects-hero h2 {
+        max-width:330px;
+        font-size:27px;
+      }
+
+      .projects-page .projects-hero p {
+        max-width:350px;
+        font-size:18px;
+        line-height:1.8;
+      }
+
+      .projects-page .project-grid {
+        grid-template-columns:1fr;
+        gap:32px;
+      }
+
+      .projects-page .card {
+        min-height:0;
+        padding:38px 40px;
+        border-radius:32px;
+      }
+
+      .projects-page .card h3 {
+        font-size:25px;
+      }
+
+      .projects-page .card p {
+        font-size:18px;
+        line-height:1.8;
+      }
+
+      .projects-page .project-ecosystem,
+      .projects-page .featured-projects,
+      .projects-page .projects-in-action,
+      .projects-page .how-projects-work,
+      .projects-page .global-project-network,
+      .projects-page .project-principles {
+        padding:100px 0;
+      }
+
+      .projects-page .section-title {
+        margin-bottom:55px;
+      }
+
+      .projects-page .section-title h2,
+      .projects-page section > .container > h2 {
+        font-size:40px;
+      }
+
+      .projects-page .section-title p,
+      .projects-page section > .container > p {
+        font-size:18px;
+        line-height:1.8;
+      }
+
+      .projects-page .join-the-movement {
+        padding:100px 0 110px;
+      }
+
+      .projects-page .join-the-movement .cinematic-btn {
+        width:100%;
+        min-width:0;
+      }
+    }
+  </style>
 </head>
+
 <body>
 
-    <h1>Projects</h1>
+<header class="site-header">
+
+  <div class="container">
+
+    <div class="site-logo">
+
+      <img class="header-logo"
+           src="assets/icons/logo.png"
+           alt="Echoes of Humanity">
+
+      <span class="site-title">
+        ECHOES
+        <br>
+        OF HUMANITY
+      </span>
+
+    </div>
+
+    <nav class="site-nav" aria-label="Main Navigation">
+
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="vision.html">Vision</a>
+      <a href="mission.html">Mission</a>
+      <a href="humanitarian-action.html">Humanitarian Action</a>
+      <a href="manifesto.html">Manifesto</a>
+      <a href="projects.html" aria-current="page">Projects</a>
+      <a href="volunteers.html">Volunteers</a>
+      <a href="academy.html">Academy</a>
+      <a href="media-network.html">Media</a>
+      <a href="marketplace.html">Marketplace</a>
+      <a href="merchandise.html">Merchandise</a>
+      <a href="partners.html">Partners</a>
+      <a href="contact.html">Contact</a>
+
+    </nav>
+
+    <nav class="mobile-nav">
+
+      <div class="mobile-menu-wrapper">
+
+        <button class="menu-button">
+          ☰
+        </button>
+
+        <div class="menu-items">
+
+          <div class="menu-group-title">🌍 About</div>
+
+          <a href="index.html">Home</a>
+          <a href="about.html">About</a>
+          <a href="vision.html">Vision</a>
+          <a href="mission.html">Mission</a>
+          <a href="manifesto.html">Manifesto</a>
+
+          <div class="menu-group-title">🤝 Action</div>
+
+          <a href="humanitarian-action.html">Humanitarian Action</a>
+          <a href="projects.html" aria-current="page">Projects</a>
+          <a href="volunteers.html">Volunteers</a>
+          <a href="academy.html">Academy</a>
+          <a href="media-network.html">Media</a>
+
+          <div class="menu-group-title">🛍️ Network</div>
+
+          <a href="marketplace.html">Marketplace</a>
+          <a href="merchandise.html">Merchandise</a>
+          <a href="partners.html">Partners</a>
+          <a href="contact.html">Contact</a>
+
+        </div>
+
+      </div>
+
+      <div class="language-globe">
+
+        <button class="language-button">
+          🌐
+        </button>
+
+        <div class="language-dropdown">
+          <a href="#">🇬🇧 EN</a>
+          <a href="#">🇹🇷 TR</a>
+        </div>
+
+      </div>
+
+    </nav>
+
+  </div>
+
+</header>
+
+
+<main class="projects-page">
+
+  <!-- ==================================================
+       PROJECTS HERO
+       ================================================== -->
+
+  <section class="hero projects-hero">
+
+    <div class="hero-orb" aria-hidden="true"></div>
+
+    <div class="container hero-content">
+
+      <div class="hero-badge">
+        <span>🌍</span>
+        <span>Echoes of Humanity Projects</span>
+      </div>
+
+      <h1>
+        Turning Ideas<br>
+        Into Impact.
+      </h1>
+
+      <h2>
+        People.<br>
+        Purpose.<br>
+        Meaningful Action.
+      </h2>
+
+      <p>
+        Echoes of Humanity develops humanitarian projects that connect
+        people, knowledge, resources and technology to create meaningful
+        and lasting change in communities around the world.
+      </p>
+
+    </div>
+
+  </section>
+
+
+  <!-- ==================================================
+       OUR PROJECT ECOSYSTEM
+       ================================================== -->
+
+  <section class="project-ecosystem">
+
+    <div class="container">
+
+      <div class="section-title">
+
+        <h2>Our Project Ecosystem</h2>
+
+        <p>
+          Our work connects different areas of humanitarian action
+          into one shared ecosystem.
+        </p>
+
+      </div>
+
+      <div class="project-grid">
+
+        <div class="card">
+
+          <h3>👧 Children &amp; Youth</h3>
+
+          <p>
+            Creating safer environments, opportunities, education and
+            pathways toward a better future for children and young people.
+          </p>
+
+        </div>
+
+        <div class="card">
+
+          <h3>🚨 Humanitarian Response</h3>
+
+          <p>
+            Supporting people and communities facing emergencies,
+            disasters and humanitarian crises.
+          </p>
+
+        </div>
+
+        <div class="card">
+
+          <h3>🏘️ Community Development</h3>
+
+          <p>
+            Strengthening communities through cooperation, resources,
+            local participation and sustainable solutions.
+          </p>
+
+        </div>
+
+        <div class="card">
+
+          <h3>🎓 Education &amp; Knowledge</h3>
+
+          <p>
+            Making knowledge, learning opportunities and practical
+            resources more accessible across borders.
+          </p>
+
+        </div>
+
+        <div class="card">
+
+          <h3>❤️ Human Rights &amp; Dignity</h3>
+
+          <p>
+            Supporting human dignity, protection, equality and the
+            right of every person to live with safety and hope.
+          </p>
+
+        </div>
+
+        <div class="card">
+
+          <h3>🌍 Global Solidarity</h3>
+
+          <p>
+            Building bridges between people, organizations and communities
+            so that humanitarian challenges are never faced alone.
+          </p>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- ==================================================
+       FEATURED PROJECTS
+       ================================================== -->
+
+  <section class="featured-projects">
+
+    <div class="container">
+
+      <div class="section-title">
+
+        <h2>Featured Projects</h2>
+
+        <p>
+          A growing collection of humanitarian initiatives designed
+          to turn compassion into practical action.
+        </p>
+
+      </div>
+
+      <div class="project-grid">
+
+        <div class="card">
+
+          <h3>🌱 Community Resilience</h3>
+
+          <p>
+            Supporting communities in building stronger networks,
+            practical resources and long-term resilience.
+          </p>
+
+        </div>
+
+        <div class="card">
+
+          <h3>📚 Knowledge for Humanity</h3>
+
+          <p>
+            Connecting people with educational resources, expertise
+            and knowledge that can create positive change.
+          </p>
+
+        </div>
+
+        <div class="card">
+
+          <h3>🤝 Global Volunteer Action</h3>
+
+          <p>
+            Creating pathways for volunteers to contribute their
+            time, skills and compassion to meaningful initiatives.
+          </p>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+      <!-- ==================================================
+       PROJECTS IN ACTION
+       ================================================== -->
+
+  <section class="projects-in-action">
+
+    <div class="container">
+
+      <div class="section-title">
+
+        <h2>Projects in Action</h2>
+
+        <p>
+          A humanitarian project is more than an idea. It is a process
+          of listening, understanding, connecting people and creating
+          practical solutions.
+        </p>
+
+      </div>
+
+      <div class="project-grid">
+
+        <div class="card">
+
+          <h3>🔎 Understand the Need</h3>
+
+          <p>
+            We begin by listening to communities and understanding
+            the human needs behind every challenge.
+          </p>
+
+        </div>
+
+        <div class="card">
+
+          <h3>🤝 Build Connections</h3>
+
+          <p>
+            Volunteers, experts, communities, organizations and
+            partners are connected around a shared purpose.
+          </p>
+
+        </div>
+
+        <div class="card">
+
+          <h3>❤️ Take Action</h3>
+
+          <p>
+            Ideas become practical humanitarian initiatives designed
+            around real people and real needs.
+          </p>
+
+        </div>
+
+        <div class="card">
+
+          <h3>📊 Learn &amp; Measure</h3>
+
+          <p>
+            Projects are reviewed, improved and developed through
+            learning, transparency and responsible evaluation.
+          </p>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- ==================================================
+       HOW OUR PROJECTS WORK
+       ================================================== -->
+
+  <section class="how-projects-work">
+
+    <div class="container">
+
+      <div class="section-title">
+
+        <h2>How Our Projects Work</h2>
+
+        <p>
+          From the first idea to long-term impact, every project
+          follows a human-centered approach.
+        </p>
+
+      </div>
+
+      <div class="project-grid">
+
+        <div class="card">
+
+          <h3>01. Identify</h3>
+
+          <p>
+            Understand the challenge, listen to the people affected
+            and define the purpose of the project.
+          </p>
+
+        </div>
+
+        <div class="card">
+
+          <h3>02. Connect</h3>
+
+          <p>
+            Bring together the people, knowledge, skills and resources
+            needed to move forward.
+          </p>
+
+        </div>
+
+        <div class="card">
+
+          <h3>03. Act</h3>
+
+          <p>
+            Transform a shared purpose into practical and responsible
+            humanitarian action.
+          </p>
+
+        </div>
+
+        <div class="card">
+
+          <h3>04. Measure</h3>
+
+          <p>
+            Learn from results, listen to communities and continuously
+            improve the work.
+          </p>
+
+        </div>
+
+        <div class="card">
+
+          <h3>05. Rebuild</h3>
+
+          <p>
+            Support recovery, resilience and long-term community
+            development beyond the immediate response.
+          </p>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- ==================================================
+       GLOBAL PROJECT NETWORK
+       ================================================== -->
+
+  <section class="global-project-network">
+
+    <div class="container">
+
+      <div class="section-title">
+
+        <h2>Global Project Network</h2>
+
+        <p>
+          Echoes of Humanity is building a connected project network
+          where local knowledge and global solidarity can work together.
+          A project may begin in one community, but its knowledge,
+          partnerships and lessons can create value far beyond its borders.
+        </p>
+
+      </div>
+
+      <div class="project-grid">
+
+        <div class="card">
+
+          <h3>🌍 Local Communities</h3>
+
+          <p>
+            Local people remain at the heart of every humanitarian
+            initiative and help shape meaningful solutions.
+          </p>
+
+        </div>
+
+        <div class="card">
+
+          <h3>🙋 Volunteers</h3>
+
+          <p>
+            People contribute time, skills, experience and compassion
+            to projects that matter.
+          </p>
+
+        </div>
+
+        <div class="card">
+
+          <h3>🧠 Experts &amp; Educators</h3>
+
+          <p>
+            Knowledge and professional expertise strengthen project
+            design, implementation and learning.
+          </p>
+
+        </div>
+
+        <div class="card">
+
+          <h3>🤝 Organizations &amp; Partners</h3>
+
+          <p>
+            Collaboration expands resources, capacity and the ability
+            to create sustainable humanitarian impact.
+          </p>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+     <!-- ==================================================
+       OUR PROJECT PRINCIPLES
+       ================================================== -->
+
+  <section class="project-principles">
+
+    <div class="container">
+
+      <div class="section-title">
+
+        <h2>Our Project Principles</h2>
+
+        <p>
+          The way we work matters as much as the work itself.
+        </p>
+
+      </div>
+
+      <div class="project-grid">
+
+        <div class="card">
+
+          <h3>❤️ Human-Centered</h3>
+
+          <p>
+            People and their dignity come before systems, numbers
+            and institutions.
+          </p>
+
+        </div>
+
+        <div class="card">
+
+          <h3>🌱 Sustainable</h3>
+
+          <p>
+            We seek solutions that strengthen communities for the
+            long term rather than create dependency.
+          </p>
+
+        </div>
+
+        <div class="card">
+
+          <h3>🔎 Responsible</h3>
+
+          <p>
+            We value transparency, accountability and responsible
+            use of resources.
+          </p>
+
+        </div>
+
+        <div class="card">
+
+          <h3>🌍 Collaborative</h3>
+
+          <p>
+            We believe the strongest humanitarian solutions are
+            built together.
+          </p>
+
+        </div>
+
+        <div class="card">
+
+          <h3>💡 Innovative</h3>
+
+          <p>
+            We welcome new ideas, knowledge and technology when they
+            can serve humanity responsibly.
+          </p>
+
+        </div>
+
+        <div class="card">
+
+          <h3>🕊️ Respectful</h3>
+
+          <p>
+            Every community has its own voice, experience and dignity.
+            We listen before we act.
+          </p>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- ==================================================
+       JOIN A PROJECT
+       ================================================== -->
+
+  <section class="join-the-movement">
+
+    <div class="container">
+
+      <h2>Join a Project</h2>
+
+      <p>
+        Humanitarian action needs people who are willing to contribute.
+        You can bring your time, knowledge, skills, ideas or partnership
+        to the Echoes of Humanity project network.
+      </p>
+
+      <div class="hero-actions">
+
+        <a href="volunteers.html"
+           class="cinematic-btn cinematic-btn-primary w-full sm:w-auto text-center">
+          Become a Volunteer
+        </a>
+
+        <a href="partners.html"
+           class="cinematic-btn cinematic-btn-secondary w-full sm:w-auto text-center">
+          Become a Partner
+        </a>
+
+      </div>
+
+    </div>
+
+  </section>
+
+</main>
+
+    <footer class="site-footer">
+
+  <div class="container">
+
+    <p>Echoes of Humanity</p>
+
+    <nav aria-label="Footer Navigation">
+
+      <a href="about.html">About</a>
+      <a href="vision.html">Vision</a>
+      <a href="mission.html">Mission</a>
+      <a href="humanitarian-action.html">Humanitarian Action</a>
+      <a href="manifesto.html">Manifesto</a>
+      <a href="projects.html">Projects</a>
+      <a href="contact.html">Contact</a>
+
+    </nav>
+
+    <p>
+      © 2026 Echoes of Humanity. All rights reserved.
+    </p>
+
+  </div>
+
+</footer>
+
+<script src="assets/js/main.js"></script>
 
 </body>
 </html>
