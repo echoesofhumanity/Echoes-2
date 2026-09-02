@@ -1,377 +1,850 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Echoes Marketplace | Echoes of Humanity</title>
-    <meta name="description" content="Explore the Echoes of Humanity marketplace and discover meaningful creations that support a global humanitarian movement.">
+  <title>Marketplace | Echoes of Humanity</title>
 
-    <link rel="stylesheet" href="assets/css/style.css">
-
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/navigation.css">
+  <link rel="stylesheet" href="assets/css/hero.css">
+  <link rel="stylesheet" href="assets/css/sections.css">
+  <link rel="stylesheet" href="assets/css/cards.css">
+  <link rel="stylesheet" href="assets/css/buttons.css">
+  <link rel="stylesheet" href="assets/css/footer.css">
+  <link rel="stylesheet" href="assets/css/responsive.css">
 </head>
 
 <body>
 
-    <!-- HEADER -->
-    <header class="site-header">
-        <div class="container">
+<header class="site-header">
 
-            <div class="site-logo">
-                <a href="index.html">
-                    <span class="header-logo">EH</span>
-                    <span>Echoes of Humanity</span>
-                </a>
-            </div>
+  <div class="container">
 
-            <button
-                class="menu-toggle"
-                type="button"
-                aria-label="Open navigation menu"
-                onclick="toggleMobileMenu(event)">
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
+    <div class="site-logo">
 
-            <nav id="mobileMenu" class="mobile-menu menu-slide-hidden">
+      <img class="header-logo"
+           src="assets/icons/logo.png"
+           alt="Echoes of Humanity">
 
-                <a href="index.html">Home</a>
+      <span class="site-title">
+        ECHOES
+        <br>
+        OF HUMANITY
+      </span>
 
-                <div class="nav-group">
-                    <span>About</span>
-                    <a href="about.html">About</a>
-                    <a href="vision.html">Vision</a>
-                    <a href="mission.html">Mission</a>
-                    <a href="manifesto.html">Manifesto</a>
-                </div>
+    </div>
 
-                <div class="nav-group">
-                    <span>Action</span>
-                    <a href="humanitarian-action.html">Humanitarian Action</a>
-                    <a href="projects.html">Projects</a>
-                    <a href="volunteers.html">Volunteers</a>
-                </div>
+    <nav class="site-nav" aria-label="Main Navigation">
 
-                <div class="nav-group">
-                    <span>Network</span>
-                    <a href="academy.html">Academy</a>
-                    <a href="marketplace.html">Marketplace</a>
-                    <a href="merchandise.html">Merchandise</a>
-                    <a href="contact.html">Contact</a>
-                </div>
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="vision.html">Vision</a>
+      <a href="mission.html">Mission</a>
+      <a href="humanitarian-action.html">Humanitarian Action</a>
+      <a href="manifesto.html">Manifesto</a>
+      <a href="projects.html">Projects</a>
+      <a href="volunteers.html">Volunteers</a>
+      <a href="academy.html">Academy</a>
+      <a href="media-network.html">Media</a>
+      <a href="marketplace.html" aria-current="page">Marketplace</a>
+      <a href="merchandise.html">Merchandise</a>
+      <a href="partners.html">Partners</a>
+      <a href="contact.html">Contact</a>
 
-            </nav>
+    </nav>
+
+    <nav class="mobile-nav">
+
+      <div class="mobile-menu-wrapper">
+
+        <button class="menu-button" aria-label="Open menu">
+          ☰
+        </button>
+
+        <div class="menu-items">
+
+          <div class="menu-group-title">🌍 About</div>
+
+          <a href="index.html">Home</a>
+          <a href="about.html">About</a>
+          <a href="vision.html">Vision</a>
+          <a href="mission.html">Mission</a>
+          <a href="manifesto.html">Manifesto</a>
+
+          <div class="menu-group-title">🤝 Action</div>
+
+          <a href="humanitarian-action.html">Humanitarian Action</a>
+          <a href="projects.html">Projects</a>
+          <a href="volunteers.html">Volunteers</a>
+          <a href="academy.html">Academy</a>
+          <a href="media-network.html">Media</a>
+
+          <div class="menu-group-title">🛍️ Network</div>
+
+          <a href="marketplace.html" aria-current="page">Marketplace</a>
+          <a href="merchandise.html">Merchandise</a>
+          <a href="partners.html">Partners</a>
+          <a href="contact.html">Contact</a>
 
         </div>
-    </header>
 
+      </div>
 
-    <!-- HERO -->
-    <main>
+      <div class="language-globe">
 
-        <section class="hero">
-            <div class="container">
+        <button class="language-button" aria-label="Language">
+          🌐
+        </button>
 
-                <div class="hero-content">
-
-                    <p class="hero-eyebrow">
-                        ECHOES OF HUMANITY
-                    </p>
-
-                    <h1>
-                        Marketplace
-                    </h1>
-
-                    <p class="hero-subtitle">
-                        Discover meaningful creations that carry stories,
-                        support humanity and help transform compassion into action.
-                    </p>
-
-                </div>
-
-            </div>
-        </section>
-
-
-        <!-- MARKETPLACE INTRO -->
-        <section class="my-16 space-y-8 text-center">
-
-            <div class="space-y-3 max-w-3xl mx-auto px-4">
-
-                <h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight text-white">
-                    A Marketplace With Meaning
-                </h2>
-
-                <p class="text-slate-400 text-sm sm:text-base font-light leading-relaxed">
-                    The Echoes of Humanity Marketplace brings together meaningful
-                    creations, designs and products connected to our humanitarian
-                    vision.
-                </p>
-
-            </div>
-
-
-            <!-- MARKETPLACE CATEGORIES -->
-            <div class="space-y-4 max-w-6xl mx-auto px-4">
-
-                <div
-                    tabindex="0"
-                    class="glass-card rounded-2xl p-6 text-center cursor-pointer">
-
-                    <div class="w-14 h-14 mx-auto mb-4 rounded-full icon-badge flex items-center justify-center">
-                        <i class="fa-solid fa-shirt"></i>
-                    </div>
-
-                    <h3 class="text-lg font-bold text-white mb-1 tracking-wide">
-                        Humanitarian Merchandise
-                    </h3>
-
-                    <p class="text-slate-400 text-xs sm:text-sm font-light">
-                        Designs and merchandise inspired by humanity,
-                        compassion and positive change.
-                    </p>
-
-                </div>
-
-
-                <div
-                    tabindex="0"
-                    class="glass-card rounded-2xl p-6 text-center cursor-pointer">
-
-                    <div class="w-14 h-14 mx-auto mb-4 rounded-full icon-badge flex items-center justify-center">
-                        <i class="fa-solid fa-palette"></i>
-                    </div>
-
-                    <h3 class="text-lg font-bold text-white mb-1 tracking-wide">
-                        Creative Works
-                    </h3>
-
-                    <p class="text-slate-400 text-xs sm:text-sm font-light">
-                        Art, photography, music and creative works
-                        that carry the human story forward.
-                    </p>
-
-                </div>
-
-
-                <div
-                    tabindex="0"
-                    class="glass-card rounded-2xl p-6 text-center cursor-pointer">
-
-                    <div class="w-14 h-14 mx-auto mb-4 rounded-full icon-badge flex items-center justify-center">
-                        <i class="fa-solid fa-book-open"></i>
-                    </div>
-
-                    <h3 class="text-lg font-bold text-white mb-1 tracking-wide">
-                        Books &amp; Stories
-                    </h3>
-
-                    <p class="text-slate-400 text-xs sm:text-sm font-light">
-                        Books, poetry and stories created to preserve
-                        memories and inspire hope.
-                    </p>
-
-                </div>
-
-
-                <div
-                    tabindex="0"
-                    class="glass-card rounded-2xl p-6 text-center cursor-pointer">
-
-                    <div class="w-14 h-14 mx-auto mb-4 rounded-full icon-badge flex items-center justify-center">
-                        <i class="fa-solid fa-hand-holding-heart"></i>
-                    </div>
-
-                    <h3 class="text-lg font-bold text-white mb-1 tracking-wide">
-                        Purpose-Driven Creations
-                    </h3>
-
-                    <p class="text-slate-400 text-xs sm:text-sm font-light">
-                        Every creation can become part of a larger
-                        movement built around dignity and compassion.
-                    </p>
-
-                </div>
-
-            </div>
-
-        </section>
-
-
-        <!-- HOW IT WORKS -->
-        <section class="my-16 space-y-8 text-center">
-
-            <div class="space-y-3 max-w-3xl mx-auto px-4">
-
-                <h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight text-white">
-                    More Than A Purchase
-                </h2>
-
-                <p class="text-slate-400 text-sm sm:text-base font-light leading-relaxed">
-                    The Marketplace is part of a wider humanitarian ecosystem.
-                    Creativity becomes a way to connect people, tell stories
-                    and support meaningful action.
-                </p>
-
-            </div>
-
-
-            <div class="space-y-4 max-w-6xl mx-auto px-4">
-
-                <div
-                    tabindex="0"
-                    class="glass-card rounded-2xl p-6 text-center cursor-pointer">
-
-                    <div class="w-14 h-14 mx-auto mb-4 rounded-full icon-badge flex items-center justify-center">
-                        <i class="fa-solid fa-heart"></i>
-                    </div>
-
-                    <h3 class="text-lg font-bold text-white mb-1 tracking-wide">
-                        Support Humanity
-                    </h3>
-
-                    <p class="text-slate-400 text-xs sm:text-sm font-light">
-                        Support a global movement built around compassion,
-                        dignity and human connection.
-                    </p>
-
-                </div>
-
-
-                <div
-                    tabindex="0"
-                    class="glass-card rounded-2xl p-6 text-center cursor-pointer">
-
-                    <div class="w-14 h-14 mx-auto mb-4 rounded-full icon-badge flex items-center justify-center">
-                        <i class="fa-solid fa-globe"></i>
-                    </div>
-
-                    <h3 class="text-lg font-bold text-white mb-1 tracking-wide">
-                        Connect The World
-                    </h3>
-
-                    <p class="text-slate-400 text-xs sm:text-sm font-light">
-                        Help connect creators, communities and people
-                        across borders.
-                    </p>
-
-                </div>
-
-
-                <div
-                    tabindex="0"
-                    class="glass-card rounded-2xl p-6 text-center cursor-pointer">
-
-                    <div class="w-14 h-14 mx-auto mb-4 rounded-full icon-badge flex items-center justify-center">
-                        <i class="fa-solid fa-seedling"></i>
-                    </div>
-
-                    <h3 class="text-lg font-bold text-white mb-1 tracking-wide">
-                        Create Positive Change
-                    </h3>
-
-                    <p class="text-slate-400 text-xs sm:text-sm font-light">
-                        Turn creativity and participation into lasting
-                        positive impact.
-                    </p>
-
-                </div>
-
-            </div>
-
-        </section>
-
-
-        <!-- VISIT MARKETPLACE -->
-        <section class="my-16 space-y-8 text-center">
-
-            <div class="space-y-3 max-w-3xl mx-auto px-4">
-
-                <h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight text-white">
-                    Explore The Marketplace
-                </h2>
-
-                <p class="text-slate-400 text-sm sm:text-base font-light leading-relaxed">
-                    Discover creations that carry the spirit of Echoes of Humanity.
-                </p>
-
-            </div>
-
-            <div class="hero-actions">
-
-                <a
-                    href="#"
-                    class="cinematic-btn cinematic-btn-primary w-full sm:w-auto text-center">
-                    Visit Marketplace
-                </a>
-
-            </div>
-
-        </section>
-
-    </main>
-
-
-    <!-- FOOTER -->
-    <footer class="echoes-footer">
-
-        <div class="echoes-footer-line"></div>
-
-        <div class="echoes-footer-brand">
-            Echoes of Humanity
+        <div class="language-dropdown">
+          <a href="#">🇬🇧 EN</a>
+          <a href="#">🇹🇷 TR</a>
         </div>
 
-        <nav class="echoes-footer-nav">
-            <a href="index.html">Home</a>
-            <a href="about.html">About</a>
-            <a href="vision.html">Vision</a>
-            <a href="mission.html">Mission</a>
-            <a href="manifesto.html">Manifesto</a>
-            <a href="projects.html">Projects</a>
-            <a href="contact.html">Contact</a>
-        </nav>
+      </div>
 
-        <div class="echoes-footer-line"></div>
+    </nav>
 
-        <div class="echoes-footer-copy">
-            © 2026 Echoes of Humanity. All rights reserved.
-        </div>
+  </div>
 
-    </footer>
+</header>
 
 
-    <!-- JAVASCRIPT -->
-    <script>
+<main>
 
-        window.toggleMobileMenu = function(event) {
 
-            if (event) event.stopPropagation();
+<!-- ==================================================
+     MARKETPLACE INTRO
+     ================================================== -->
 
-            const menu = document.getElementById('mobileMenu');
+<section class="section section-dark">
 
-            if (!menu) return;
+  <div class="container">
 
-            if (menu.classList.contains('menu-slide-hidden')) {
+    <div class="section-title">
 
-                menu.classList.remove('menu-slide-hidden');
-                menu.classList.add('menu-slide-visible');
+      <h1>Echoes of Humanity Marketplace</h1>
 
-                document.body.style.overflow = 'hidden';
+      <p>
+        A place where creativity, knowledge, community
+        and humanitarian purpose can meet.
+      </p>
 
-            } else {
+    </div>
 
-                menu.classList.remove('menu-slide-visible');
-                menu.classList.add('menu-slide-hidden');
+  </div>
 
-                document.body.style.overflow = 'auto';
+</section>
 
-            }
 
-        };
+<!-- ==================================================
+     COMMUNITY & HUMANITARIAN AREAS
+     ================================================== -->
 
-    </script>
+<section class="section section-dark">
+
+  <div class="container">
+
+    <div class="project-grid">
+
+      <div class="card">
+
+        <h3>🌱 Community Initiatives</h3>
+
+        <p>
+          Supporting projects designed around real
+          community needs and long-term development.
+        </p>
+
+      </div>
+
+
+      <div class="card">
+
+        <h3>👧 Children &amp; Youth</h3>
+
+        <p>
+          Supporting initiatives focused on opportunity,
+          education, safety and wellbeing.
+        </p>
+
+      </div>
+
+
+      <div class="card">
+
+        <h3>🚨 Humanitarian Response</h3>
+
+        <p>
+          Helping strengthen appropriate humanitarian
+          response initiatives when resources can be
+          responsibly directed.
+        </p>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- ==================================================
+     CREATOR ECOSYSTEM
+     ================================================== -->
+
+<section class="section section-dark">
+
+  <div class="container">
+
+    <div class="section-title">
+
+      <h2>The Creator Ecosystem</h2>
+
+      <p>
+        The marketplace is built around people who create.
+      </p>
+
+    </div>
+
+
+    <div class="project-grid">
+
+      <div class="card">
+
+        <h3>🎨 Artists</h3>
+
+        <p>
+          Share original creative work with audiences
+          who value art and meaningful expression.
+        </p>
+
+      </div>
+
+
+      <div class="card">
+
+        <h3>✍️ Writers</h3>
+
+        <p>
+          Bring books, poetry, essays and ideas into a
+          wider human conversation.
+        </p>
+
+      </div>
+
+
+      <div class="card">
+
+        <h3>🎵 Musicians</h3>
+
+        <p>
+          Share original music and audio creations
+          that connect people across cultures.
+        </p>
+
+      </div>
+
+              <div class="card">
+
+        <h3>🎓 Educators</h3>
+
+        <p>
+          Make useful educational resources available
+          to people who want to learn.
+        </p>
+
+      </div>
+
+
+      <div class="card">
+
+        <h3>🎬 Creators</h3>
+
+        <p>
+          Develop films, documentaries and digital media
+          that communicate meaningful ideas.
+        </p>
+
+      </div>
+
+
+      <div class="card">
+
+        <h3>🤝 Humanitarian Partners</h3>
+
+        <p>
+          Connect creative activity with responsible
+          humanitarian initiatives.
+        </p>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- ==================================================
+     RESPONSIBLE COMMERCE
+     ================================================== -->
+
+<section class="section section-dark">
+
+  <div class="container">
+
+    <div class="section-title">
+
+      <h2>Responsible Commerce</h2>
+
+      <p>
+        We are building the marketplace with purpose,
+        transparency and long-term responsibility.
+      </p>
+
+    </div>
+
+
+    <div class="project-grid">
+
+
+      <div class="card">
+
+        <h3>🔎 Clear Information</h3>
+
+        <p>
+          Users should be able to understand what they
+          are viewing and who created it.
+        </p>
+
+      </div>
+
+
+      <div class="card">
+
+        <h3>🛡️ Trust &amp; Safety</h3>
+
+        <p>
+          The platform should develop appropriate
+          standards for responsible participation.
+        </p>
+
+      </div>
+
+
+      <div class="card">
+
+        <h3>🌱 Sustainable Development</h3>
+
+        <p>
+          Long-term value matters more than short-term
+          growth.
+        </p>
+
+      </div>
+
+
+      <div class="card">
+
+        <h3>❤️ Humanity First</h3>
+
+        <p>
+          The marketplace exists within a humanitarian
+          mission, not apart from it.
+        </p>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- ==================================================
+     MARKETPLACE PHILOSOPHY
+     ================================================== -->
+
+<section class="section section-dark">
+
+  <div class="container">
+
+    <div class="section-title">
+
+      <h2>
+        A Marketplace That<br>
+        Grows With Humanity
+      </h2>
+
+    </div>
+
+
+    <div class="content-section">
+
+      <p>
+        The Echoes of Humanity Marketplace will evolve
+        gradually. New creators, new ideas, new
+        resources and new forms of collaboration can
+        become part of the ecosystem over time.
+      </p>
+
+
+      <p>
+        Our goal is not simply to build another online
+        store. Our goal is to create a place where
+        creativity, knowledge, community and
+        humanitarian purpose can meet.
+      </p>
+
+
+      <p>
+        <strong>
+          Create with purpose. Share with dignity.
+          Build together.
+        </strong>
+      </p>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- ==================================================
+     JOIN THE MARKETPLACE
+     ================================================== -->
+
+<section class="section section-dark">
+
+  <div class="container">
+
+    <div class="section-title">
+
+      <h2>Join the Marketplace</h2>
+
+      <p>
+        Are you an artist, writer, musician, educator,
+        designer, filmmaker, creator or humanitarian
+        organization?
+      </p>
+
+      <p>
+        We are building the ecosystem for future
+        collaboration.
+      </p>
+
+    </div>
+
+
+    <div class="hero-actions">
+
+      <a href="contact.html"
+         class="cinematic-btn cinematic-btn-primary w-full sm:w-auto text-center">
+        Contact Us
+      </a>
+
+      <a href="partners.html"
+         class="cinematic-btn cinematic-btn-secondary w-full sm:w-auto text-center">
+        Become a Partner
+      </a>
+
+    </div>
+
+  </div>
+
+</section>
+
+    <!-- ==================================================
+     MARKETPLACE PRINCIPLES
+     ================================================== -->
+
+<section class="section section-dark">
+
+  <div class="container">
+
+    <div class="section-title">
+
+      <h2>Our Marketplace Principles</h2>
+
+      <p>
+        Commerce should serve people, creativity
+        and meaningful human connection.
+      </p>
+
+    </div>
+
+
+    <div class="project-grid">
+
+
+      <div class="card">
+
+        <h3>🌍 Global Participation</h3>
+
+        <p>
+          Creators and organizations from different
+          cultures and communities can contribute to
+          the wider ecosystem.
+        </p>
+
+      </div>
+
+
+      <div class="card">
+
+        <h3>💡 Meaningful Creativity</h3>
+
+        <p>
+          Creative work should have the freedom to
+          express ideas, experiences and perspectives
+          that matter.
+        </p>
+
+      </div>
+
+
+      <div class="card">
+
+        <h3>🤝 Collaboration</h3>
+
+        <p>
+          The marketplace can become a space where
+          creators, educators, organizations and
+          humanitarian partners discover one another.
+        </p>
+
+      </div>
+
+
+      <div class="card">
+
+        <h3>🔎 Transparency</h3>
+
+        <p>
+          Clear information and responsible practices
+          should remain central to the marketplace.
+        </p>
+
+      </div>
+
+
+      <div class="card">
+
+        <h3>🛡️ Responsible Participation</h3>
+
+        <p>
+          Participation should respect people,
+          communities, safety, dignity and applicable
+          standards.
+        </p>
+
+      </div>
+
+
+      <div class="card">
+
+        <h3>❤️ Humanitarian Purpose</h3>
+
+        <p>
+          The marketplace remains connected to the
+          wider mission of Echoes of Humanity.
+        </p>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- ==================================================
+     FUTURE OF THE MARKETPLACE
+     ================================================== -->
+
+<section class="section section-dark">
+
+  <div class="container">
+
+    <div class="section-title">
+
+      <h2>The Future of the Marketplace</h2>
+
+      <p>
+        The ecosystem can grow as people contribute
+        new ideas, skills and forms of collaboration.
+      </p>
+
+    </div>
+
+
+    <div class="project-grid">
+
+
+      <div class="card">
+
+        <h3>🎨 Creative Work</h3>
+
+        <p>
+          Art, photography, design and original creative
+          projects can become part of the ecosystem.
+        </p>
+
+      </div>
+
+
+      <div class="card">
+
+        <h3>📚 Knowledge</h3>
+
+        <p>
+          Books, educational materials, courses and
+          useful resources can help people learn.
+        </p>
+
+      </div>
+
+
+      <div class="card">
+
+        <h3>🎵 Music &amp; Audio</h3>
+
+        <p>
+          Original music, performances and audio
+          projects can connect people across cultures.
+        </p>
+
+      </div>
+
+
+      <div class="card">
+
+        <h3>🎬 Film &amp; Media</h3>
+
+        <p>
+          Documentaries, films and digital storytelling
+          can bring meaningful ideas to wider audiences.
+        </p>
+
+      </div>
+
+
+      <div class="card">
+
+        <h3>🌱 Community Projects</h3>
+
+        <p>
+          Community-centered initiatives can connect
+          resources with real human needs.
+        </p>
+
+      </div>
+
+
+      <div class="card">
+
+        <h3>🤝 Humanitarian Collaboration</h3>
+
+        <p>
+          Responsible partnerships can help transform
+          creative activity into meaningful action.
+        </p>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- ==================================================
+     A SHARED ECOSYSTEM
+     ================================================== -->
+
+<section class="section section-dark">
+
+  <div class="container">
+
+    <div class="section-title">
+
+      <h2>A Shared Ecosystem</h2>
+
+      <p>
+        The marketplace is one part of a larger human
+        ecosystem built around connection and purpose.
+      </p>
+
+    </div>
+
+
+    <div class="project-grid">
+
+
+      <div class="card">
+
+        <h3>🌍 People</h3>
+
+        <p>
+          Individuals bring their experiences,
+          creativity, knowledge and ideas.
+        </p>
+
+      </div>
+
+
+      <div class="card">
+
+        <h3>🏘️ Communities</h3>
+
+        <p>
+          Communities bring real needs, local knowledge
+          and opportunities for meaningful participation.
+        </p>
+
+      </div>
+
+
+      <div class="card">
+
+        <h3>🎓 Knowledge</h3>
+
+        <p>
+          Education and expertise help transform ideas
+          into practical and responsible solutions.
+        </p>
+
+      </div>
+
+
+      <div class="card">
+
+        <h3>❤️ Purpose</h3>
+
+        <p>
+          Humanitarian purpose keeps the wider ecosystem
+          connected to what matters most.
+        </p>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- ==================================================
+     FINAL MARKETPLACE MESSAGE
+     ================================================== -->
+
+<section class="section section-dark">
+
+  <div class="container">
+
+    <div class="section-title">
+
+      <h2>
+        Create With Purpose.
+      </h2>
+
+      <p>
+        Share what you create. Connect with others.
+        Help build an ecosystem where creativity and
+        humanity can grow together.
+      </p>
+
+    </div>
+
+  </div>
+
+</section>
+
+    <!-- ==================================================
+     JOIN CTA
+     ================================================== -->
+
+<section class="section section-dark">
+
+  <div class="container">
+
+    <div class="section-title">
+
+      <h2>Join the Marketplace</h2>
+
+      <p>
+        The next chapter of the ecosystem will be built
+        together with the people who choose to participate.
+      </p>
+
+    </div>
+
+
+    <div class="hero-actions">
+
+      <a href="contact.html"
+         class="cinematic-btn cinematic-btn-primary w-full sm:w-auto text-center">
+        Contact Us
+      </a>
+
+      <a href="partners.html"
+         class="cinematic-btn cinematic-btn-secondary w-full sm:w-auto text-center">
+        Become a Partner
+      </a>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+</main>
+
+
+<!-- ==================================================
+     FOOTER
+     ================================================== -->
+
+<footer class="site-footer">
+
+  <div class="container">
+
+    <p>Echoes of Humanity</p>
+
+    <nav aria-label="Footer Navigation">
+
+      <a href="about.html">About</a>
+      <a href="vision.html">Vision</a>
+      <a href="mission.html">Mission</a>
+      <a href="manifesto.html">Manifesto</a>
+      <a href="projects.html">Projects</a>
+      <a href="contact.html">Contact</a>
+
+    </nav>
+
+    <p>
+      © 2026 Echoes of Humanity. All rights reserved.
+    </p>
+
+  </div>
+
+</footer>
+
+
+<script src="assets/js/main.js"></script>
 
 </body>
-                                            </html>
+
+</html>
