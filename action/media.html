@@ -1,18 +1,2041 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Media | Echoes of Humanity</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Media Network | Echoes of Humanity</title>
+
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/navigation.css">
+  <link rel="stylesheet" href="assets/css/hero.css">
+  <link rel="stylesheet" href="assets/css/sections.css">
+  <link rel="stylesheet" href="assets/css/cards.css">
+  <link rel="stylesheet" href="assets/css/buttons.css">
+  <link rel="stylesheet" href="assets/css/footer.css">
+  <link rel="stylesheet" href="assets/css/responsive.css">
+
+  <style>
+
+    .media-page {
+      overflow-x: hidden;
+    }
+
+    .media-page .media-section {
+      padding: 110px 0;
+    }
+
+    .media-page .media-section:nth-of-type(even) {
+      background: rgba(255,255,255,0.015);
+    }
+
+    .media-page .media-section-header {
+      max-width: 900px;
+      margin: 0 auto 60px;
+      text-align: center;
+    }
+
+    .media-page .media-section-header h2 {
+      margin-bottom: 24px;
+    }
+
+    .media-page .media-section-header p {
+      max-width: 760px;
+      margin: 0 auto;
+    }
+
+    .media-page .media-card-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 24px;
+    }
+
+    .media-page .media-card {
+      padding: 34px;
+      min-height: 220px;
+    }
+
+    .media-page .media-card h3 {
+      margin-bottom: 18px;
+    }
+
+    .media-page .media-card p {
+      line-height: 1.8;
+    }
+
+    .media-page .media-wide {
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    .media-page .media-principles {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 24px;
+    }
+
+    .media-page .media-cta {
+      text-align: center;
+      padding: 120px 0;
+    }
+
+    .media-page .media-cta .hero-actions {
+      display: flex;
+      justify-content: center;
+      gap: 18px;
+      flex-wrap: wrap;
+      margin-top: 40px;
+    }
+
+    @media (max-width: 768px) {
+
+      .media-page .media-section {
+        padding: 80px 0;
+      }
+
+      .media-page .media-card-grid,
+      .media-page .media-principles {
+        grid-template-columns: 1fr;
+      }
+
+      .media-page .media-card {
+        padding: 28px;
+      }
+
+    }
+
+  </style>
 </head>
+
+
 <body>
 
-    <h1>Media</h1>
+
+<header class="site-header">
+
+  <div class="container">
+
+    <div class="site-logo">
+
+      <a href="index.html">
+
+        <img
+          src="assets/icons/logo.png"
+          alt="Echoes of Humanity"
+          class="header-logo"
+        >
+
+        <span class="site-title">
+          ECHOES
+          <br>
+          OF HUMANITY
+        </span>
+
+      </a>
+
+    </div>
+
+
+    <nav class="site-nav" aria-label="Main Navigation">
+
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="vision.html">Vision</a>
+      <a href="mission.html">Mission</a>
+      <a href="humanitarian-action.html">Humanitarian Action</a>
+      <a href="manifesto.html">Manifesto</a>
+      <a href="projects.html">Projects</a>
+      <a href="volunteers.html">Volunteers</a>
+      <a href="academy.html">Academy</a>
+      <a href="media-network.html" aria-current="page">Media</a>
+      <a href="marketplace.html">Marketplace</a>
+      <a href="merchandise.html">Merchandise</a>
+      <a href="partners.html">Partners</a>
+      <a href="contact.html">Contact</a>
+
+    </nav>
+
+
+    <nav class="mobile-nav">
+
+      <div class="mobile-menu-wrapper">
+
+        <button
+          class="menu-button"
+          type="button"
+          aria-label="Open menu"
+        >
+          ☰
+        </button>
+
+        <div class="menu-items">
+
+          <div class="menu-group-title">🌍 About</div>
+
+          <a href="index.html">Home</a>
+          <a href="about.html">About</a>
+          <a href="vision.html">Vision</a>
+          <a href="mission.html">Mission</a>
+          <a href="manifesto.html">Manifesto</a>
+
+
+          <div class="menu-group-title">🤝 Action</div>
+
+          <a href="humanitarian-action.html">
+            Humanitarian Action
+          </a>
+
+          <a href="projects.html">
+            Projects
+          </a>
+
+          <a href="volunteers.html">
+            Volunteers
+          </a>
+
+          <a href="academy.html">
+            Academy
+          </a>
+
+          <a href="media-network.html" aria-current="page">
+            Media
+          </a>
+
+
+          <div class="menu-group-title">🛍️ Network</div>
+
+          <a href="marketplace.html">
+            Marketplace
+          </a>
+
+          <a href="merchandise.html">
+            Merchandise
+          </a>
+
+          <a href="partners.html">
+            Partners
+          </a>
+
+          <a href="contact.html">
+            Contact
+          </a>
+
+        </div>
+
+      </div>
+
+
+      <div class="language-globe">
+
+        <button
+          class="language-button"
+          type="button"
+          aria-label="Language"
+        >
+          🌐
+        </button>
+
+        <div class="language-dropdown">
+
+          <a href="#">🇬🇧 EN</a>
+          <a href="#">🇹🇷 TR</a>
+
+        </div>
+
+      </div>
+
+    </nav>
+
+  </div>
+
+</header>
+
+
+
+<main class="media-page">
+
+
+<!-- ==================================================
+     HERO
+     ================================================== -->
+
+<section class="hero">
+
+  <div class="hero-orb" aria-hidden="true"></div>
+
+  <div class="container hero-content">
+
+    <div class="hero-badge">
+
+      <span>🌍</span>
+
+      <span>
+        Global Media Network
+      </span>
+
+    </div>
+
+
+    <h1>
+      One Humanity.<br>
+      Many Stories.<br>
+      Many Voices.
+    </h1>
+
 
     <p>
-        A living media ecosystem bringing together stories,
-        voices, images, video and audio from around the world.
+
+      Echoes of Humanity brings journalism,
+      television, radio, music, culture,
+      documentaries and digital storytelling
+      together within one global humanitarian
+      media network.
+
     </p>
 
+  </div>
+
+</section>
+
+
+
+<!-- ==================================================
+     NEWSROOM
+     ================================================== -->
+
+<section class="media-section">
+
+  <div class="container">
+
+    <div class="media-section-header">
+
+      <h2>
+        Newsroom
+      </h2>
+
+      <p>
+
+        Responsible journalism and humanitarian
+        information gathered, reviewed and prepared
+        for public communication.
+
+      </p>
+
+    </div>
+
+
+    <div class="media-card-grid">
+
+
+      <article class="feature-card media-card">
+
+        <h3>
+          🌍 Global News
+        </h3>
+
+        <p>
+
+          International developments, humanitarian
+          issues and stories that affect people and
+          communities.
+
+        </p>
+
+      </article>
+
+
+      <article class="feature-card media-card">
+
+        <h3>
+          ❤️ Humanitarian News
+        </h3>
+
+        <p>
+
+          Human-centered reporting focused on
+          humanitarian action, dignity and the
+          protection of people.
+
+        </p>
+
+      </article>
+
+
+      <article class="feature-card media-card">
+
+        <h3>
+          📍 Regional News
+        </h3>
+
+        <p>
+
+          Local and regional stories connected to
+          the wider humanitarian picture.
+
+        </p>
+
+      </article>
+
+
+      <article class="feature-card media-card">
+
+        <h3>
+          🚨 Breaking News
+        </h3>
+
+        <p>
+
+          Important developments requiring rapid
+          and responsible communication.
+
+        </p>
+
+      </article>
+
+
+      <article class="feature-card media-card">
+
+        <h3>
+          🔎 Investigative Journalism
+        </h3>
+
+        <p>
+
+          Research-based journalism examining
+          complex humanitarian and social issues.
+
+        </p>
+
+      </article>
+
+
+    </div>
+
+  </div>
+
+</section>
+
+
+
+<!-- ==================================================
+     ECHOES TV
+     ================================================== -->
+
+<section class="media-section">
+
+  <div class="container">
+
+    <div class="media-section-header">
+
+      <h2>
+        Echoes TV
+      </h2>
+
+      <p>
+
+        Visual storytelling through programs,
+        interviews, documentaries and long-form
+        humanitarian communication.
+
+      </p>
+
+    </div>
+
+
+    <div class="media-card-grid">
+
+
+      <article class="feature-card media-card">
+
+        <h3>
+          📺 Programs
+        </h3>
+
+        <p>
+
+          Original programs exploring humanity,
+          culture, education and social issues.
+
+        </p>
+
+      </article>
+
+
+      <article class="feature-card media-card">
+
+        <h3>
+          🎙️ Interviews &amp; Conversations
+        </h3>
+
+        <p>
+
+          Human conversations, expert interviews
+          and meaningful exchanges of ideas.
+
+        </p>
+
+      </article>
+
+
+      <article class="feature-card media-card">
+
+        <h3>
+          🎬 Documentaries
+        </h3>
+
+        <p>
+
+          Long-form visual storytelling about
+          people, communities and humanitarian
+          realities.
+
+        </p>
+
+      </article>
+
+
+      <article class="feature-card media-card">
+
+        <h3>
+          💬 Debates
+        </h3>
+
+        <p>
+
+          Respectful discussions about important
+          questions affecting humanity.
+
+        </p>
+
+      </article>
+
+
+      <article class="feature-card media-card">
+
+        <h3>
+          ▶️ On Demand
+        </h3>
+
+        <p>
+
+          A future archive for programs, interviews
+          and documentary content.
+
+        </p>
+
+      </article>
+
+
+    </div>
+
+  </div>
+
+</section>
+
+    <!-- ==================================================
+     ECHOES RADIO
+     ================================================== -->
+
+<section class="media-section">
+
+  <div class="container">
+
+    <div class="media-section-header">
+
+      <h2>
+        Echoes Radio
+      </h2>
+
+      <p>
+
+        Audio storytelling, conversations, podcasts
+        and community voices connecting people
+        beyond visual media.
+
+      </p>
+
+    </div>
+
+
+    <div class="media-card-grid">
+
+
+      <article class="feature-card media-card">
+
+        <h3>
+          🎙️ Live Radio
+        </h3>
+
+        <p>
+
+          The future audio broadcasting environment
+          of Echoes of Humanity.
+
+        </p>
+
+      </article>
+
+
+      <article class="feature-card media-card">
+
+        <h3>
+          🎧 Podcasts
+        </h3>
+
+        <p>
+
+          Conversations, stories, educational programs
+          and humanitarian discussions.
+
+        </p>
+
+      </article>
+
+
+      <article class="feature-card media-card">
+
+        <h3>
+          💬 Talk Shows
+        </h3>
+
+        <p>
+
+          Long-form conversations about humanity,
+          society, culture and ideas.
+
+        </p>
+
+      </article>
+
+
+      <article class="feature-card media-card">
+
+        <h3>
+          📻 Community Radio
+        </h3>
+
+        <p>
+
+          Community voices, local stories and
+          humanitarian communication.
+
+        </p>
+
+      </article>
+
+
+    </div>
+
+  </div>
+
+</section>
+
+
+
+<!-- ==================================================
+     ECHOES MUSIC
+     ================================================== -->
+
+<section class="media-section">
+
+  <div class="container">
+
+    <div class="media-section-header">
+
+      <h2>
+        Echoes Music
+      </h2>
+
+      <p>
+
+        Music is one of humanity's oldest languages.
+        Echoes Music creates a space for artists,
+        composers, performers and humanitarian
+        musical projects.
+
+      </p>
+
+    </div>
+
+
+    <div class="media-card-grid">
+
+
+      <article class="feature-card media-card">
+
+        <h3>
+          🎵 Independent Artists
+        </h3>
+
+        <p>
+
+          A space for independent musicians,
+          composers and emerging artists.
+
+        </p>
+
+      </article>
+
+
+      <article class="feature-card media-card">
+
+        <h3>
+          🎤 Live Performances
+        </h3>
+
+        <p>
+
+          Musical performances and future live
+          cultural events.
+
+        </p>
+
+      </article>
+
+
+      <article class="feature-card media-card">
+
+        <h3>
+          ❤️ Humanitarian Music
+        </h3>
+
+        <p>
+
+          Music and collective action brought
+          together for humanitarian purposes.
+
+        </p>
+
+      </article>
+
+
+    </div>
+
+  </div>
+
+</section>
+
+
+
+<!-- ==================================================
+     ARTS & CULTURE
+     ================================================== -->
+
+<section class="media-section">
+
+  <div class="container">
+
+    <div class="media-section-header">
+
+      <h2>
+        Arts &amp; Culture
+      </h2>
+
+      <p>
+
+        Art and culture preserve memory, express
+        identity and create bridges between people.
+
+      </p>
+
+    </div>
+
+
+    <div class="media-card-grid">
+
+
+      <article class="feature-card media-card">
+
+        <h3>
+          🎨 Arts
+        </h3>
+
+        <p>
+
+          Visual art, creative expression and
+          humanitarian storytelling.
+
+        </p>
+
+      </article>
+
+
+      <article class="feature-card media-card">
+
+        <h3>
+          📷 Photography
+        </h3>
+
+        <p>
+
+          Photography documenting people, places,
+          culture and humanitarian stories.
+
+        </p>
+
+      </article>
+
+
+      <article class="feature-card media-card">
+
+        <h3>
+          📖 Literature
+        </h3>
+
+        <p>
+
+          Writing, poetry, essays and human stories.
+
+        </p>
+
+      </article>
+
+
+      <article class="feature-card media-card">
+
+        <h3>
+          🎬 Cinema
+        </h3>
+
+        <p>
+
+          Film and visual storytelling connected
+          to humanity and culture.
+
+        </p>
+
+      </article>
+
+
+      <article class="feature-card media-card">
+
+        <h3>
+          🎭 Theatre
+        </h3>
+
+        <p>
+
+          Theatre, performance and human expression.
+
+        </p>
+
+      </article>
+
+
+      <article class="feature-card media-card">
+
+        <h3>
+          💻 Digital Art
+        </h3>
+
+        <p>
+
+          Contemporary digital creativity and new
+          forms of artistic expression.
+
+        </p>
+
+      </article>
+
+
+    </div>
+
+  </div>
+
+</section>
+
+    <!-- ==================================================
+     CREATOR HUB
+     ================================================== -->
+
+<section class="media-section">
+
+  <div class="container">
+
+    <div class="media-section-header">
+
+      <h2>
+        Creator Hub
+      </h2>
+
+      <p>
+
+        A collaborative environment for people who
+        create, document, communicate and tell
+        human stories.
+
+      </p>
+
+    </div>
+
+
+    <div class="media-card-grid">
+
+
+      <article class="feature-card media-card">
+
+        <h3>
+          🎥 Creators
+        </h3>
+
+        <p>
+
+          A network for independent digital creators
+          who use their creativity to communicate
+          meaningful human stories.
+
+        </p>
+
+      </article>
+
+
+      <article class="feature-card media-card">
+
+        <h3>
+          ✍️ Writers
+        </h3>
+
+        <p>
+
+          Writers, journalists, poets and storytellers
+          contributing ideas, perspectives and human
+          experiences.
+
+        </p>
+
+      </article>
+
+
+      <article class="feature-card media-card">
+
+        <h3>
+          📷 Photographers
+        </h3>
+
+        <p>
+
+          Visual storytellers documenting humanity,
+          communities, culture and the world around us.
+
+        </p>
+
+      </article>
+
+
+      <article class="feature-card media-card">
+
+        <h3>
+          🎵 Musicians
+        </h3>
+
+        <p>
+
+          Musicians, composers and performers using
+          music as a language of connection.
+
+        </p>
+
+      </article>
+
+
+    </div>
+
+  </div>
+
+</section>
+
+
+
+<!-- ==================================================
+     SOCIAL MEDIA NETWORK
+     ================================================== -->
+
+<section class="media-section">
+
+  <div class="container">
+
+    <div class="media-section-header">
+
+      <h2>
+        Social Media Network
+      </h2>
+
+      <p>
+
+        Multiple digital platforms can function as
+        connected communication layers while
+        maintaining their own audiences, formats
+        and purposes.
+
+      </p>
+
+    </div>
+
+
+
+    <!-- SOCIAL MEDIA CENTER -->
+
+    <div class="media-wide">
+
+      <div class="media-section-header">
+
+        <h3>
+          Social Media Center
+        </h3>
+
+        <p>
+
+          The central coordination environment for
+          the Echoes of Humanity social network.
+
+        </p>
+
+      </div>
+
+
+      <!-- GLOBAL PLATFORMS -->
+
+      <div class="section-title">
+
+        <h3>
+          Global Platforms
+        </h3>
+
+        <p>
+
+          Our global social media presence will
+          connect people, stories and humanitarian
+          communication across multiple platforms.
+
+        </p>
+
+      </div>
+
+
+      <div class="media-card-grid">
+
+
+        <article class="feature-card media-card">
+
+          <h3>📱 Instagram</h3>
+
+          <p>
+            Visual storytelling, humanitarian campaigns,
+            community stories and daily awareness.
+          </p>
+
+        </article>
+
+
+        <article class="feature-card media-card">
+
+          <h3>🎵 TikTok</h3>
+
+          <p>
+            Short-form storytelling, education,
+            awareness and human-centered campaigns.
+          </p>
+
+        </article>
+
+
+        <article class="feature-card media-card">
+
+          <h3>▶️ YouTube</h3>
+
+          <p>
+            Documentaries, interviews, educational
+            programs and long-form humanitarian
+            storytelling.
+          </p>
+
+        </article>
+
+
+        <article class="feature-card media-card">
+
+          <h3>📘 Facebook</h3>
+
+          <p>
+            Community communication, campaigns and
+            humanitarian information sharing.
+          </p>
+
+        </article>
+
+
+        <article class="feature-card media-card">
+
+          <h3>𝕏 X</h3>
+
+          <p>
+            Real-time communication, public awareness
+            and global humanitarian conversations.
+          </p>
+
+        </article>
+
+
+        <article class="feature-card media-card">
+
+          <h3>💼 LinkedIn</h3>
+
+          <p>
+            Professional networks, partnerships,
+            humanitarian innovation and organizational
+            impact.
+          </p>
+
+        </article>
+
+
+        <article class="feature-card media-card">
+
+          <h3>🧵 Threads</h3>
+
+          <p>
+            Community conversations, ideas and
+            human-centered storytelling.
+          </p>
+
+        </article>
+
+
+        <article class="feature-card media-card">
+
+          <h3>📌 Pinterest</h3>
+
+          <p>
+            Visual resources, educational collections,
+            campaigns and creative storytelling.
+          </p>
+
+        </article>
+
+
+        <article class="feature-card media-card">
+
+          <h3>✈️ Telegram</h3>
+
+          <p>
+            Direct community communication, updates
+            and humanitarian information channels.
+          </p>
+
+        </article>
+
+
+        <article class="feature-card media-card">
+
+          <h3>💬 WhatsApp</h3>
+
+          <p>
+            Direct community communication, volunteer
+            coordination, regional networks and
+            humanitarian emergency communication.
+          </p>
+
+        </article>
+
+
+      </div>
+
+
+      <!-- CONTENT OPERATIONS -->
+
+      <div class="section-title" style="margin-top: 80px;">
+
+        <h3>
+          Content Operations
+        </h3>
+
+        <p>
+
+          A coordinated content environment designed
+          to organize, prepare and distribute
+          humanitarian communication responsibly.
+
+        </p>
+
+      </div>
+
+
+      <div class="media-card-grid">
+
+
+        <article class="feature-card media-card">
+
+          <h3>
+            📝 Content Planning
+          </h3>
+
+          <p>
+
+            Organizing stories, campaigns, publications
+            and multimedia content across the network.
+
+          </p>
+
+        </article>
+
+
+        <article class="feature-card media-card">
+
+          <h3>
+            🎬 Content Production
+          </h3>
+
+          <p>
+
+            Supporting the creation of written, visual,
+            audio and video content.
+
+          </p>
+
+        </article>
+
+
+        <article class="feature-card media-card">
+
+          <h3>
+            🌍 Content Distribution
+          </h3>
+
+          <p>
+
+            Preparing appropriate content for different
+            platforms, communities and audiences.
+
+          </p>
+
+        </article>
+
+
+        <article class="feature-card media-card">
+
+          <h3>
+            🔎 Content Review
+          </h3>
+
+          <p>
+
+            Reviewing information, context and
+            humanitarian sensitivity before publication.
+
+          </p>
+
+        </article>
+
+
+      </div>
+
+
+      <!-- AI ASSISTANCE -->
+
+      <div class="section-title" style="margin-top: 80px;">
+
+        <h3>
+          AI Assistance
+        </h3>
+
+        <p>
+
+          Responsible artificial intelligence may
+          support future media operations while
+          keeping human judgment at the center.
+
+        </p>
+
+      </div>
+
+
+      <div class="media-card-grid">
+
+
+        <article class="feature-card media-card">
+
+          <h3>
+            🤖 Research Assistance
+          </h3>
+
+          <p>
+
+            AI-assisted tools may help organize,
+            compare and process large amounts of
+            information.
+
+          </p>
+
+        </article>
+
+
+        <article class="feature-card media-card">
+
+          <h3>
+            📝 Writing Assistance
+          </h3>
+
+          <p>
+
+            AI may support drafting, translation,
+            summarization and preparation of content.
+
+          </p>
+
+        </article>
+
+
+        <article class="feature-card media-card">
+
+          <h3>
+            🌐 Translation
+          </h3>
+
+          <p>
+
+            Future AI-supported translation systems
+            may help humanitarian information reach
+            wider communities.
+
+          </p>
+
+        </article>
+
+
+        <article class="feature-card media-card">
+
+          <h3>
+            🧠 Human Oversight
+          </h3>
+
+          <p>
+
+            AI-assisted content remains subject to
+            human review, responsibility and ethical
+            standards.
+
+          </p>
+
+        </article>
+
+
+      </div>
+
+
+      <!-- FUTURE COMMUNICATION OPERATIONS -->
+
+      <div class="section-title" style="margin-top: 80px;">
+
+        <h3>
+          Future Communication Operations
+        </h3>
+
+        <p>
+
+          The network is designed to evolve as
+          technology, communities and humanitarian
+          communication needs change.
+
+        </p>
+
+      </div>
+
+
+      <div class="media-card-grid">
+
+
+        <article class="feature-card media-card">
+
+          <h3>
+            🌍 Global Coordination
+          </h3>
+
+          <p>
+
+            Connecting communication teams, creators
+            and communities across regions.
+
+          </p>
+
+        </article>
+
+
+        <article class="feature-card media-card">
+
+          <h3>
+            📡 Real-Time Communication
+          </h3>
+
+          <p>
+
+            Supporting rapid communication during
+            important humanitarian developments.
+
+          </p>
+
+        </article>
+
+
+        <article class="feature-card media-card">
+
+          <h3>
+            🔗 Integrated Media
+          </h3>
+
+          <p>
+
+            Connecting news, video, audio, social media
+            and cultural storytelling within one network.
+
+          </p>
+
+        </article>
+
+
+        <article class="feature-card media-card">
+
+          <h3>
+            ❤️ Human-Centered Technology
+          </h3>
+
+          <p>
+
+            Using technology to strengthen human
+            connection rather than replace it.
+
+          </p>
+
+        </article>
+
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+    <!-- ==================================================
+     PUBLICATIONS
+     ================================================== -->
+
+<section class="media-section">
+
+  <div class="container">
+
+    <div class="media-section-header">
+
+      <h2>
+        Publications
+      </h2>
+
+      <p>
+        Written knowledge, research and long-form
+        humanitarian communication.
+      </p>
+
+    </div>
+
+
+    <div class="media-card-grid">
+
+
+      <article class="feature-card media-card">
+
+        <h3>
+          📝 Articles
+        </h3>
+
+        <p>
+          Humanitarian stories, ideas, analysis and
+          knowledge created for public understanding.
+        </p>
+
+      </article>
+
+
+      <article class="feature-card media-card">
+
+        <h3>
+          📊 Reports
+        </h3>
+
+        <p>
+          Research, findings and structured information
+          about humanitarian and social issues.
+        </p>
+
+      </article>
+
+
+      <article class="feature-card media-card">
+
+        <h3>
+          📰 Magazine
+        </h3>
+
+        <p>
+          A future publication bringing together stories,
+          ideas, culture and humanitarian perspectives.
+        </p>
+
+      </article>
+
+
+      <article class="feature-card media-card">
+
+        <h3>
+          📚 Books
+        </h3>
+
+        <p>
+          Long-form works preserving knowledge,
+          stories and experiences for future generations.
+        </p>
+
+      </article>
+
+
+    </div>
+
+  </div>
+
+</section>
+
+
+
+<!-- ==================================================
+     MEDIA STUDIO
+     ================================================== -->
+
+<section class="media-section">
+
+  <div class="container">
+
+    <div class="media-section-header">
+
+      <h2>
+        Media Studio
+      </h2>
+
+      <p>
+        The production layer supporting responsible
+        multimedia communication.
+      </p>
+
+    </div>
+
+
+    <div class="media-card-grid">
+
+
+      <article class="feature-card media-card">
+
+        <h3>
+          🎬 Production Studio
+        </h3>
+
+        <p>
+          Planning and production of multimedia
+          content across the Echoes of Humanity
+          media network.
+        </p>
+
+      </article>
+
+
+      <article class="feature-card media-card">
+
+        <h3>
+          📡 Streaming
+        </h3>
+
+        <p>
+          Future live broadcasting and streaming
+          infrastructure for global audiences.
+        </p>
+
+      </article>
+
+
+      <article class="feature-card media-card">
+
+        <h3>
+          🎙️ Audio Production
+        </h3>
+
+        <p>
+          Audio recording, editing and production
+          for radio, podcasts and other programs.
+        </p>
+
+      </article>
+
+
+      <article class="feature-card media-card">
+
+        <h3>
+          🎥 Video Production
+        </h3>
+
+        <p>
+          Responsible visual production and editing
+          for documentaries, programs and digital
+          storytelling.
+        </p>
+
+      </article>
+
+
+    </div>
+
+  </div>
+
+</section>
+
+
+
+<!-- ==================================================
+     PRESS & MEDIA
+     ================================================== -->
+
+<section class="media-section">
+
+  <div class="container">
+
+    <div class="media-section-header">
+
+      <h2>
+        Press &amp; Media
+      </h2>
+
+      <p>
+        A future information point for journalists,
+        media partners, humanitarian organizations
+        and public communication.
+      </p>
+
+    </div>
+
+
+    <div class="media-card-grid">
+
+
+      <article class="feature-card media-card">
+
+        <h3>
+          📰 Press Center
+        </h3>
+
+        <p>
+          Official media information and communication
+          resources for journalists and media partners.
+        </p>
+
+      </article>
+
+
+      <article class="feature-card media-card">
+
+        <h3>
+          📣 Press Releases
+        </h3>
+
+        <p>
+          Official announcements and public statements
+          from Echoes of Humanity.
+        </p>
+
+      </article>
+
+
+      <article class="feature-card media-card">
+
+        <h3>
+          🗂️ Media Kit
+        </h3>
+
+        <p>
+          Logos, approved materials and communication
+          resources for responsible public use.
+        </p>
+
+      </article>
+
+
+    </div>
+
+  </div>
+
+</section>
+
+
+
+<!-- ==================================================
+     MEDIA ARCHIVES
+     ================================================== -->
+
+<section class="media-section">
+
+  <div class="container">
+
+    <div class="media-section-header">
+
+      <h2>
+        Media Archives
+      </h2>
+
+      <p>
+        A structured archive for approved photographs,
+        videos, audio recordings, publications and
+        communication materials.
+      </p>
+
+    </div>
+
+
+    <div class="media-card-grid">
+
+
+      <article class="feature-card media-card">
+
+        <h3>
+          🗃️ Media Library
+        </h3>
+
+        <p>
+          A central archive for Echoes of Humanity
+          media resources.
+        </p>
+
+      </article>
+
+
+      <article class="feature-card media-card">
+
+        <h3>
+          📷 Photo Archive
+        </h3>
+
+        <p>
+          A structured collection documenting people,
+          places, communities, culture and humanitarian
+          stories.
+        </p>
+
+      </article>
+
+
+      <article class="feature-card media-card">
+
+        <h3>
+          🎥 Video Archive
+        </h3>
+
+        <p>
+          Documentaries, interviews, programs and
+          visual records preserved for future access.
+        </p>
+
+      </article>
+
+
+      <article class="feature-card media-card">
+
+        <h3>
+          🎧 Audio Archive
+        </h3>
+
+        <p>
+          Podcasts, radio programs, interviews and
+          audio recordings preserved within the network.
+        </p>
+
+      </article>
+
+
+    </div>
+
+  </div>
+
+</section>
+
+
+
+<!-- ==================================================
+     HUMAN RESPONSIBILITY
+     ================================================== -->
+
+<section class="media-section">
+
+  <div class="container">
+
+    <div class="media-section-header">
+
+      <h2>
+        Human Responsibility
+      </h2>
+
+      <p>
+        Technology exists to support humanitarian
+        communication, not to replace human judgment.
+      </p>
+
+    </div>
+
+
+    <div class="media-principles">
+
+
+      <article class="feature-card media-card">
+
+        <h3>
+          ❤️ Dignity Before Distribution
+        </h3>
+
+        <p>
+          Every piece of communication must respect
+          human dignity, privacy, context, safety and
+          the people represented in the story.
+        </p>
+
+      </article>
+
+
+      <article class="feature-card media-card">
+
+        <h3>
+          👁️ Human Review
+        </h3>
+
+        <p>
+          Technology and future AI systems may assist
+          with communication, but human responsibility
+          remains central.
+        </p>
+
+      </article>
+
+
+      <article class="feature-card media-card">
+
+        <h3>
+          🌍 One Network. Many Voices.
+        </h3>
+
+        <p>
+          Different platforms and media forms can work
+          together without losing their individual
+          identities and audiences.
+        </p>
+
+      </article>
+
+
+    </div>
+
+  </div>
+
+</section>
+
+
+
+<!-- ==================================================
+     ONE NETWORK. MANY VOICES.
+     ================================================== -->
+
+<section class="media-section">
+
+  <div class="container media-wide">
+
+    <div class="media-section-header">
+
+      <h2>
+        One Network. Many Voices.
+      </h2>
+
+      <p>
+
+        The Echoes of Humanity Media Network connects
+        independent communication channels under a
+        shared humanitarian purpose.
+
+      </p>
+
+      <p>
+
+        Every medium has its own language, audience
+        and strength while remaining part of a wider
+        human-centered communication ecosystem.
+
+      </p>
+
+      <p>
+
+        News, interviews, documentaries, music,
+        podcasts, cultural work, educational content
+        and digital communication can move through
+        the network while preserving accuracy,
+        dignity, context and human responsibility.
+
+      </p>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+
+<!-- ==================================================
+     MEDIA CTA
+     ================================================== -->
+
+<section class="media-cta">
+
+  <div class="container">
+
+    <h2>
+      Become Part of the Network
+    </h2>
+
+    <p>
+      Stories become stronger when people choose
+      to share them responsibly.
+    </p>
+
+    <div class="hero-actions">
+
+      <a
+        href="volunteers.html"
+        class="cinematic-btn cinematic-btn-primary w-full sm:w-auto text-center"
+      >
+        Become a Volunteer
+      </a>
+
+      <a
+        href="contact.html"
+        class="cinematic-btn cinematic-btn-secondary w-full sm:w-auto text-center"
+      >
+        Contact Us
+      </a>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+</main>
+
+
+
+<!-- ==================================================
+     FOOTER
+     ================================================== -->
+
+<footer class="site-footer">
+
+  <div class="container">
+
+    <div class="footer-brand">
+      Echoes of Humanity
+    </div>
+
+
+    <nav class="footer-nav" aria-label="Footer Navigation">
+
+      <a href="index.html">Home</a>
+
+      <a href="about.html">About</a>
+
+      <a href="vision.html">Vision</a>
+
+      <a href="mission.html">Mission</a>
+
+      <a href="manifesto.html">Manifesto</a>
+
+      <a href="projects.html">Projects</a>
+
+      <a href="contact.html">Contact</a>
+
+    </nav>
+
+
+    <div class="footer-copy">
+
+      © 2026 Echoes of Humanity.
+      All rights reserved.
+
+    </div>
+
+  </div>
+
+</footer>
+
+
+
+<!-- ==================================================
+     JAVASCRIPT
+     ================================================== -->
+
+<script>
+
+document.addEventListener("DOMContentLoaded", function () {
+
+  const menuButton =
+    document.querySelector(".menu-button");
+
+  const menuItems =
+    document.querySelector(".menu-items");
+
+
+  if (menuButton && menuItems) {
+
+    menuButton.addEventListener("click", function () {
+
+      menuItems.classList.toggle("active");
+
+    });
+
+  }
+
+
+  const languageButton =
+    document.querySelector(".language-button");
+
+  const languageDropdown =
+    document.querySelector(".language-dropdown");
+
+
+  if (languageButton && languageDropdown) {
+
+    languageButton.addEventListener("click", function (event) {
+
+      event.stopPropagation();
+
+      languageDropdown.classList.toggle("active");
+
+    });
+
+
+    document.addEventListener("click", function () {
+
+      languageDropdown.classList.remove("active");
+
+    });
+
+  }
+
+});
+
+</script>
+
+
 </body>
-</html>
+
+    </html>
