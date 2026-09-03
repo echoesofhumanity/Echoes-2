@@ -766,10 +766,140 @@
 
   </footer>
 
+<!-- JAVASCRIPT -->
+<script>
 
-<script src="../assets/js/echoes.js"></script>
+  window.toggleMobileMenu = function(event) {
+
+    if (event) event.stopPropagation();
+
+    const menu =
+      document.getElementById('mobileMenu');
+
+    const langDropdown =
+      document.getElementById('langDropdown');
+
+    if (langDropdown) {
+
+      langDropdown.classList.remove(
+        'lang-dropdown-visible'
+      );
+
+      langDropdown.classList.add(
+        'lang-dropdown-hidden'
+      );
+
+    }
+
+    if (menu) {
+
+      if (
+        menu.classList.contains(
+          'menu-slide-hidden'
+        )
+      ) {
+
+        menu.classList.remove(
+          'menu-slide-hidden'
+        );
+
+        menu.classList.add(
+          'menu-slide-visible'
+        );
+
+        document.body.style.overflow =
+          'hidden';
+
+      } else {
+
+        menu.classList.remove(
+          'menu-slide-visible'
+        );
+
+        menu.classList.add(
+          'menu-slide-hidden'
+        );
+
+        document.body.style.overflow =
+          'auto';
+
+      }
+
+    }
+
+  };
+
+
+  window.toggleLangMenu = function(event) {
+
+    if (event) event.stopPropagation();
+
+    const langDropdown =
+      document.getElementById('langDropdown');
+
+    if (langDropdown) {
+
+      if (
+        langDropdown.classList.contains(
+          'lang-dropdown-hidden'
+        )
+      ) {
+
+        langDropdown.classList.remove(
+          'lang-dropdown-hidden'
+        );
+
+        langDropdown.classList.add(
+          'lang-dropdown-visible'
+        );
+
+      } else {
+
+        langDropdown.classList.remove(
+          'lang-dropdown-visible'
+        );
+
+        langDropdown.classList.add(
+          'lang-dropdown-hidden'
+        );
+
+      }
+
+    }
+
+  };
+
+
+  window.addEventListener(
+    'click',
+    function(e) {
+
+      const langDropdown =
+        document.getElementById('langDropdown');
+
+      if (
+        langDropdown &&
+        !langDropdown.contains(e.target)
+      ) {
+
+        langDropdown.classList.remove(
+          'lang-dropdown-visible'
+        );
+
+        langDropdown.classList.add(
+          'lang-dropdown-hidden'
+        );
+
+      }
+
+    }
+  );
+
+</script>
 
 </body>
-
 </html>
+
+
+
 
