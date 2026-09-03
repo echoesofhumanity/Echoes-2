@@ -466,6 +466,136 @@
         </div>
     </div>
 </header>
+    <!-- MOBILE MENU -->
+<div
+    id="mobileMenu"
+    class="fixed inset-0 bg-[#05070f]/98 backdrop-blur-3xl z-40 menu-slide-hidden flex flex-col overflow-y-auto px-6 py-12"
+>
+
+    <div class="max-w-md mx-auto w-full pt-8 pb-20 space-y-10">
+
+        <div class="flex items-center justify-between border-b border-white/10 pb-4">
+
+            <span class="text-xs uppercase tracking-[0.3em] text-turquoise-400 font-mono font-medium">
+                Navigation Hub
+            </span>
+
+            <button
+                type="button"
+                onclick="window.toggleMobileMenu()"
+                class="w-9 h-9 rounded-full border border-white/10 bg-white/5 flex items-center justify-center text-slate-300"
+            >
+                ✕
+            </button>
+
+        </div>
+
+
+        <!-- ABOUT -->
+        <div class="space-y-3">
+
+            <div class="flex items-center gap-2 text-turquoise-400">
+                <span>🌍</span>
+                <span class="text-[11px] font-mono uppercase tracking-widest font-semibold">
+                    About
+                </span>
+            </div>
+
+            <nav class="flex flex-col space-y-2.5 pl-3 border-l border-white/10 text-base font-light text-slate-300">
+
+                <a href="../index.html" class="hover:text-turquoise-400">
+                    Home
+                </a>
+
+                <a href="../about.html" class="hover:text-turquoise-400">
+                    About
+                </a>
+
+                <a href="vision.html" class="hover:text-turquoise-400">
+                    Vision
+                </a>
+
+                <a href="mission.html" class="text-turquoise-400">
+                    Mission
+                </a>
+
+                <a href="manifesto.html" class="hover:text-turquoise-400">
+                    Manifesto
+                </a>
+
+            </nav>
+        </div>
+
+
+        <!-- ACTION -->
+        <div class="space-y-3">
+
+            <div class="flex items-center gap-2 text-turquoise-400">
+                <span>🤝</span>
+                <span class="text-[11px] font-mono uppercase tracking-widest font-semibold">
+                    Action
+                </span>
+            </div>
+
+            <nav class="flex flex-col space-y-2.5 pl-3 border-l border-white/10 text-base font-light text-slate-300">
+
+                <a href="../action/humanitarian-action.html" class="hover:text-turquoise-400">
+                    Humanitarian Action
+                </a>
+
+                <a href="../action/projects.html" class="hover:text-turquoise-400">
+                    Projects
+                </a>
+
+                <a href="../action/volunteers.html" class="hover:text-turquoise-400">
+                    Volunteers
+                </a>
+
+                <a href="../action/academy.html" class="hover:text-turquoise-400">
+                    Academy
+                </a>
+
+                <a href="../action/media.html" class="hover:text-turquoise-400">
+                    Media
+                </a>
+
+            </nav>
+        </div>
+
+
+        <!-- NETWORK -->
+        <div class="space-y-3">
+
+            <div class="flex items-center gap-2 text-turquoise-400">
+                <span>🛒</span>
+                <span class="text-[11px] font-mono uppercase tracking-widest font-semibold">
+                    Network
+                </span>
+            </div>
+
+            <nav class="flex flex-col space-y-2.5 pl-3 border-l border-white/10 text-base font-light text-slate-300">
+
+                <a href="../network/marketplace.html" class="hover:text-turquoise-400">
+                    Marketplace
+                </a>
+
+                <a href="../network/merchandise.html" class="hover:text-turquoise-400">
+                    Merchandise
+                </a>
+
+                <a href="../network/partners.html" class="hover:text-turquoise-400">
+                    Partners
+                </a>
+
+                <a href="../network/contact.html" class="hover:text-turquoise-400">
+                    Contact
+                </a>
+
+            </nav>
+        </div>
+
+    </div>
+</div>
 
 <main>
 
@@ -826,7 +956,135 @@
     </div>
 
 </footer>
+<!-- JAVASCRIPT -->
+<script>
+window.toggleMobileMenu = function(event) {
 
+    if (event) event.stopPropagation();
+
+    const menu =
+        document.getElementById('mobileMenu');
+
+    const langDropdown =
+        document.getElementById('langDropdown');
+
+    if (langDropdown) {
+
+        langDropdown.classList.remove(
+            'lang-dropdown-visible'
+        );
+
+        langDropdown.classList.add(
+            'lang-dropdown-hidden'
+        );
+
+    }
+
+    if (menu) {
+
+        if (
+            menu.classList.contains(
+                'menu-slide-hidden'
+            )
+        ) {
+
+            menu.classList.remove(
+                'menu-slide-hidden'
+            );
+
+            menu.classList.add(
+                'menu-slide-visible'
+            );
+
+            document.body.style.overflow =
+                'hidden';
+
+        } else {
+
+            menu.classList.remove(
+                'menu-slide-visible'
+            );
+
+            menu.classList.add(
+                'menu-slide-hidden'
+            );
+
+            document.body.style.overflow =
+                'auto';
+
+        }
+
+    }
+
+};
+
+
+window.toggleLangMenu = function(event) {
+
+    if (event) event.stopPropagation();
+
+    const langDropdown =
+        document.getElementById('langDropdown');
+
+    if (langDropdown) {
+
+        if (
+            langDropdown.classList.contains(
+                'lang-dropdown-hidden'
+            )
+        ) {
+
+            langDropdown.classList.remove(
+                'lang-dropdown-hidden'
+            );
+
+            langDropdown.classList.add(
+                'lang-dropdown-visible'
+            );
+
+        } else {
+
+            langDropdown.classList.remove(
+                'lang-dropdown-visible'
+            );
+
+            langDropdown.classList.add(
+                'lang-dropdown-hidden'
+            );
+
+        }
+
+    }
+
+};
+
+
+window.addEventListener(
+    'click',
+    function(e) {
+
+        const langDropdown =
+            document.getElementById('langDropdown');
+
+        if (
+            langDropdown &&
+            !langDropdown.contains(e.target)
+        ) {
+
+            langDropdown.classList.remove(
+                'lang-dropdown-visible'
+            );
+
+            langDropdown.classList.add(
+                'lang-dropdown-hidden'
+            );
+
+        }
+
+    }
+);
+
+</script>
 
 </body>
 </html>
