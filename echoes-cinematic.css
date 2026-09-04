@@ -24,7 +24,7 @@ html {
     background: var(--echoes-night);
 }
 
-body {
+echoes-content {
     position: relative;
     min-height: 100vh;
     overflow-x: hidden;
