@@ -381,13 +381,54 @@
     grid-template-columns: repeat(2, minmax(0, 1fr));
 }
 }     
+/* =========================================================
+   MISSION — FINAL CARD REFINEMENT
+   ========================================================= */
+
+.echoes-card-grid .glass-card {
+    align-items: center;
+    text-align: center;
+}
+
+.echoes-card-grid .glass-card .mission-icon {
+    flex-shrink: 0;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.echoes-card-grid .glass-card h3,
+.echoes-card-grid .glass-card p {
+    text-align: center;
+}
+
+/* Mobile — compact and balanced cards */
 @media (max-width: 767px) {
+
+    .echoes-card-grid {
+        gap: 1rem;
+    }
 
     .echoes-card-grid .glass-card {
         min-height: 0;
+        padding: 1.75rem 1.5rem;
     }
 
+    .echoes-card-grid .glass-card .mission-icon {
+        width: 3.25rem;
+        height: 3.25rem;
+        margin-bottom: 1rem;
+    }
+
+    .echoes-card-grid .glass-card h3 {
+        margin-bottom: 0.9rem;
+    }
+
+    .echoes-card-grid .glass-card p {
+        margin-top: 0;
+    }
 }
+
+
 /* =========================================================
    MISSION — CINEMATIC ATMOSPHERE
    ========================================================= */
