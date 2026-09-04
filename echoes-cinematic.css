@@ -1,0 +1,547 @@
+/* =========================================================
+   ECHOES OF HUMANITY
+   GLOBAL CINEMATIC ATMOSPHERE
+   ========================================================= */
+
+:root {
+    --echoes-night: #030712;
+    --echoes-navy: #07111f;
+
+    --echoes-turquoise: #2dd4bf;
+    --echoes-turquoise-soft: rgba(45, 212, 191, 0.10);
+    --echoes-blue-soft: rgba(59, 130, 246, 0.07);
+    --echoes-light-soft: rgba(94, 234, 212, 0.045);
+
+    --echoes-reveal-duration: 1.65s;
+    --echoes-reveal-ease: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* =========================================================
+   GLOBAL PAGE ATMOSPHERE
+   ========================================================= */
+
+html {
+    background: var(--echoes-night);
+}
+
+body {
+    position: relative;
+    min-height: 100vh;
+    overflow-x: hidden;
+
+    background:
+        radial-gradient(
+            900px 520px at 18% 18%,
+            rgba(45, 212, 191, 0.055),
+            transparent 68%
+        ),
+        radial-gradient(
+            800px 600px at 82% 42%,
+            rgba(59, 130, 246, 0.045),
+            transparent 70%
+        ),
+        radial-gradient(
+            700px 500px at 48% 82%,
+            rgba(20, 184, 166, 0.035),
+            transparent 72%
+        ),
+        var(--echoes-night);
+}
+
+/* =========================================================
+   ATMOSPHERE LAYER
+   ========================================================= */
+
+.echoes-atmosphere {
+    position: fixed;
+    inset: 0;
+
+    z-index: 0;
+    pointer-events: none;
+
+    overflow: hidden;
+
+    isolation: isolate;
+}
+
+/* =========================================================
+   LIVING COLOR CLOUDS
+   ========================================================= */
+
+.echoes-atmosphere::before,
+.echoes-atmosphere::after {
+    content: "";
+
+    position: absolute;
+
+    inset: -20%;
+
+    border-radius: 50%;
+
+    pointer-events: none;
+
+    filter: blur(90px);
+
+    will-change: transform, opacity;
+}
+
+.echoes-atmosphere::before {
+    background:
+        radial-gradient(
+            circle at 24% 28%,
+            rgba(45, 212, 191, 0.17),
+            transparent 30%
+        ),
+        radial-gradient(
+            circle at 76% 62%,
+            rgba(59, 130, 246, 0.065),
+            transparent 34%
+        );
+
+    opacity: 0.9;
+
+    animation:
+        echoesCloudDrift
+        30s
+        ease-in-out
+        infinite
+        alternate;
+}
+
+.echoes-atmosphere::after {
+    background:
+        radial-gradient(
+            circle at 72% 22%,
+            rgba(94, 234, 212, 0.05),
+            transparent 28%
+        ),
+        radial-gradient(
+            circle at 28% 78%,
+            rgba(30, 64, 175, 0.055),
+            transparent 32%
+        );
+
+    opacity: 0.8;
+
+    animation:
+        echoesCloudDriftReverse
+        38s
+        ease-in-out
+        infinite
+        alternate;
+}
+
+@keyframes echoesCloudDrift {
+    0% {
+        transform: translate3d(-2%, -1%, 0) scale(1);
+    }
+
+    50% {
+        transform: translate3d(2%, 2%, 0) scale(1.04);
+    }
+
+    100% {
+        transform: translate3d(4%, -2%, 0) scale(1.08);
+    }
+}
+
+@keyframes echoesCloudDriftReverse {
+    0% {
+        transform: translate3d(3%, 2%, 0) scale(1.02);
+    }
+
+    50% {
+        transform: translate3d(-2%, -2%, 0) scale(1.06);
+    }
+
+    100% {
+        transform: translate3d(-4%, 3%, 0) scale(1);
+    }
+}
+
+/* =========================================================
+   ORBIT SYSTEM
+   ========================================================= */
+
+.echoes-orbit {
+    position: absolute;
+
+    left: 50%;
+    top: 50%;
+
+    width: 0;
+    height: 0;
+
+    border-radius: 50%;
+
+    border: 1px solid rgba(45, 212, 191, 0.075);
+
+    box-shadow:
+        0 0 30px rgba(20, 184, 166, 0.035),
+        0 0 80px rgba(59, 130, 246, 0.015),
+        inset 0 0 30px rgba(20, 184, 166, 0.018);
+
+    opacity: 0.78;
+
+    transform-origin: center;
+
+    pointer-events: none;
+
+    will-change: transform;
+}
+
+.echoes-orbit-1 {
+    width: 420px;
+    height: 260px;
+
+    margin-left: -210px;
+    margin-top: -130px;
+
+    animation:
+        echoesOrbitComplex
+        140s
+        linear
+        infinite;
+}
+
+.echoes-orbit-2 {
+    width: 620px;
+    height: 380px;
+
+    margin-left: -310px;
+    margin-top: -190px;
+
+    animation:
+        echoesOrbitComplex
+        100s
+        linear
+        infinite
+        reverse;
+}
+
+.echoes-orbit-3 {
+    width: 820px;
+    height: 520px;
+
+    margin-left: -410px;
+    margin-top: -260px;
+
+    animation:
+        echoesOrbitComplex
+        180s
+        ease-in-out
+        infinite;
+}
+
+.echoes-orbit-4 {
+    width: 1020px;
+    height: 660px;
+
+    margin-left: -510px;
+    margin-top: -330px;
+
+    animation:
+        echoesOrbitComplex
+        130s
+        ease-in-out
+        infinite
+        reverse;
+}
+
+@keyframes echoesOrbitComplex {
+    0% {
+        transform:
+            rotate(0deg)
+            scale(1)
+            translateX(0);
+    }
+
+    25% {
+        transform:
+            rotate(90deg)
+            scale(1.06, 0.82)
+            translateX(15px);
+    }
+
+    50% {
+        transform:
+            rotate(180deg)
+            scale(1)
+            translateX(0);
+    }
+
+    75% {
+        transform:
+            rotate(270deg)
+            scale(0.94, 1.18)
+            translateX(-15px);
+    }
+
+    100% {
+        transform:
+            rotate(360deg)
+            scale(1)
+            translateX(0);
+    }
+}
+
+/* =========================================================
+   SPARSE LIGHT PARTICLES
+   ========================================================= */
+
+.echoes-sparkle {
+    position: absolute;
+
+    width: 3px;
+    height: 3px;
+
+    border-radius: 50%;
+
+    background: rgba(94, 234, 212, 0.75);
+
+    box-shadow:
+        0 0 8px rgba(94, 234, 212, 0.30);
+
+    pointer-events: none;
+
+    animation:
+        echoesStarBlink
+        4s
+        ease-in-out
+        infinite;
+}
+
+.echoes-sparkle-1 {
+    top: 14%;
+    left: 22%;
+}
+
+.echoes-sparkle-2 {
+    top: 20%;
+    right: 24%;
+
+    animation-delay: 0.8s;
+}
+
+.echoes-sparkle-3 {
+    top: 54%;
+    left: 10%;
+
+    animation-delay: 1.5s;
+}
+
+.echoes-sparkle-4 {
+    top: 62%;
+    right: 12%;
+
+    animation-delay: 2.1s;
+}
+
+.echoes-sparkle-5 {
+    bottom: 18%;
+    left: 26%;
+
+    animation-delay: 1.2s;
+}
+
+.echoes-sparkle-6 {
+    bottom: 22%;
+    right: 28%;
+
+    animation-delay: 2.7s;
+}
+
+@keyframes echoesStarBlink {
+    0%,
+    100% {
+        opacity: 0.15;
+        transform: scale(0.75);
+    }
+
+    50% {
+        opacity: 0.85;
+        transform: scale(1.15);
+    }
+}
+
+/* =========================================================
+   CONTENT LAYER
+   ========================================================= */
+
+.echoes-content {
+    position: relative;
+
+    z-index: 1;
+}
+
+/*
+   Header remains stable above the atmosphere.
+   This prevents the cinematic reveal from disturbing
+   navigation and mobile menus.
+*/
+
+.echoes-site-header {
+    position: relative;
+    z-index: 50;
+}
+
+/* =========================================================
+   CINEMATIC PAGE REVEAL
+   ========================================================= */
+
+.echoes-page-reveal {
+    animation:
+        echoesPageReveal
+        var(--echoes-reveal-duration)
+        var(--echoes-reveal-ease)
+        both;
+}
+
+@keyframes echoesPageReveal {
+    0% {
+        opacity: 0;
+
+        transform:
+            translate3d(0, -22px, 0);
+
+        filter:
+            blur(5px);
+    }
+
+    45% {
+        opacity: 0.7;
+    }
+
+    100% {
+        opacity: 1;
+
+        transform:
+            translate3d(0, 0, 0);
+
+        filter:
+            blur(0);
+    }
+}
+
+/* =========================================================
+   CINEMATIC SECTION REVEAL
+   ========================================================= */
+
+.echoes-section-reveal {
+    opacity: 0;
+
+    transform:
+        translate3d(0, -18px, 0);
+
+    filter:
+        blur(3px);
+
+    animation:
+        echoesSectionReveal
+        1.25s
+        var(--echoes-reveal-ease)
+        forwards;
+}
+
+@keyframes echoesSectionReveal {
+    to {
+        opacity: 1;
+
+        transform:
+            translate3d(0, 0, 0);
+
+        filter:
+            blur(0);
+    }
+}
+
+/* =========================================================
+   ATMOSPHERIC SURFACES
+   ========================================================= */
+
+.echoes-surface {
+    position: relative;
+
+    background:
+        linear-gradient(
+            180deg,
+            rgba(15, 23, 42, 0.30),
+            rgba(15, 23, 42, 0.18)
+        );
+
+    border: 1px solid rgba(45, 212, 191, 0.10);
+
+    box-shadow:
+        0 20px 60px rgba(0, 0, 0, 0.20),
+        inset 0 1px 0 rgba(255, 255, 255, 0.025);
+
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+}
+
+/* =========================================================
+   ACCESSIBILITY / REDUCED MOTION
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .echoes-atmosphere::before,
+    .echoes-atmosphere::after,
+    .echoes-orbit,
+    .echoes-sparkle,
+    .echoes-page-reveal,
+    .echoes-section-reveal {
+        animation: none !important;
+    }
+
+    .echoes-page-reveal,
+    .echoes-section-reveal {
+        opacity: 1 !important;
+        transform: none !important;
+        filter: none !important;
+    }
+}
+
+/* =========================================================
+   MOBILE ATMOSPHERE
+   ========================================================= */
+
+@media (max-width: 767px) {
+
+    .echoes-orbit-1 {
+        width: 320px;
+        height: 200px;
+
+        margin-left: -160px;
+        margin-top: -100px;
+    }
+
+    .echoes-orbit-2 {
+        width: 470px;
+        height: 290px;
+
+        margin-left: -235px;
+        margin-top: -145px;
+    }
+
+    .echoes-orbit-3 {
+        width: 620px;
+        height: 390px;
+
+        margin-left: -310px;
+        margin-top: -195px;
+    }
+
+    .echoes-orbit-4 {
+        width: 760px;
+        height: 490px;
+
+        margin-left: -380px;
+        margin-top: -245px;
+    }
+
+    .echoes-atmosphere::before,
+    .echoes-atmosphere::after {
+        filter: blur(75px);
+    }
+  }
