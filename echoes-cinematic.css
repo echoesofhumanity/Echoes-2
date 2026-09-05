@@ -24,7 +24,9 @@ html {
     background: var(--echoes-night);
 }
 
-
+body {
+    background: transparent !important;
+}
 
 /* =========================================================
    ATMOSPHERE LAYER
