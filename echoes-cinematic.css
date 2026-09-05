@@ -24,29 +24,7 @@ html {
     background: var(--echoes-night);
 }
 
-echoes-content {
-    position: relative;
-    min-height: 100vh;
-    overflow-x: hidden;
 
-    background:
-        radial-gradient(
-            900px 520px at 18% 18%,
-            rgba(45, 212, 191, 0.055),
-            transparent 68%
-        ),
-        radial-gradient(
-            800px 600px at 82% 42%,
-            rgba(59, 130, 246, 0.045),
-            transparent 70%
-        ),
-        radial-gradient(
-            700px 500px at 48% 82%,
-            rgba(20, 184, 166, 0.035),
-            transparent 72%
-        ),
-        var(--echoes-night);
-}
 
 /* =========================================================
    ATMOSPHERE LAYER
@@ -59,9 +37,7 @@ echoes-content {
     z-index: 0;
     pointer-events: none;
 
-    overflow: hidden;
-
-    isolation: isolate;
+    
 }
 
 /* =========================================================
@@ -368,11 +344,6 @@ echoes-content {
    CONTENT LAYER
    ========================================================= */
 
-.echoes-content {
-    position: relative;
-
-    z-index: 1;
-}
 
 /*
    Header remains stable above the atmosphere.
@@ -540,8 +511,10 @@ echoes-content {
         margin-top: -245px;
     }
 
-    .echoes-atmosphere::before,
-    .echoes-atmosphere::after {
-        filter: blur(75px);
-    }
+    .echoes-atmosphere {
+    position: fixed;
+    inset: 0;
+
+    z-index: 0;
+    pointer-events: none;
   }
