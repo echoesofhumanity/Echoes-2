@@ -20,12 +20,9 @@
    GLOBAL PAGE ATMOSPHERE
    ========================================================= */
 
-html {
-    background: var(--echoes-night);
-}
-
+html,
 body {
-    background: transparent !important;
+    background: var(--echoes-night) !important;
 }
 
 /* =========================================================
@@ -35,11 +32,25 @@ body {
 .echoes-atmosphere {
     position: fixed;
     inset: 0;
-
-    z-index: 0;
+    z-index: 1;
     pointer-events: none;
+    overflow: hidden;
+    isolation: isolate;
+}
 
-    
+/* =========================================================
+   GLOBAL CONTENT LAYER
+   ========================================================= */
+
+main,
+footer {
+    position: relative;
+    z-index: 2;
+}
+
+header {
+    position: relative;
+    z-index: 50;
 }
 
 /* =========================================================
@@ -517,6 +528,20 @@ body {
     position: fixed;
     inset: 0;
 
-    z-index: 0;
+    z-index: 1;
     pointer-events: none;
   }
+/* =========================================================
+   GLOBAL CONTENT LAYER
+   ========================================================= */
+
+main,
+footer {
+    position: relative;
+    z-index: 2;
+}
+
+header {
+    position: relative;
+    z-index: 50;
+}
